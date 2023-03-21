@@ -6,9 +6,9 @@ public class Interactable : MonoBehaviour
 {
     [Tooltip("Radius which player can interact with object")]
     public float radius = 3f;
-    [Tooltip("0 for neutral, 1 for repair, 2 for destory, 3 for replinish")]
-    [Range(0, 3)]
-    public int interactionType = 0;
+    //[Tooltip("0 for neutral, 1 for repair, 2 for destory, 3 for replinish")]
+    //[Range(0, 3)]
+    //public int interactionType = 0;
     private int interactionState = 0;
     Transform player;
     public virtual void Interact ()
