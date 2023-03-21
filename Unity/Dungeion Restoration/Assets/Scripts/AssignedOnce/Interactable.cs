@@ -9,7 +9,8 @@ public class Interactable : MonoBehaviour
     //[Tooltip("0 for neutral, 1 for repair, 2 for destory, 3 for replinish")]
     //[Range(0, 3)]
     //public int interactionType = 0;
-    private int interactionState = 0;
+    public int interactionState = 0;
+    public bool interacted = false;
     Transform player;
     public virtual void Interact ()
     {
@@ -21,7 +22,7 @@ public class Interactable : MonoBehaviour
         player = playerTransform;
         interactionState = state;
         float distance = Vector3.Distance(player.position, transform.position);
-            if (distance <= radius) 
+            if (distance <= radius && interacted != true) 
             {
                 //Debug.Log("INTERACT");
                 Interact();
@@ -29,6 +30,10 @@ public class Interactable : MonoBehaviour
             }
             else
             {
+                if (interacted == true)
+                {
+                    Debug.Log(gameObject.name + " already interacted");
+                }
                 return false;
             }
     }

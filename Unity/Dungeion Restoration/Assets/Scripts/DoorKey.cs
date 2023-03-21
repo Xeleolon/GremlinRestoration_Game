@@ -26,6 +26,7 @@ public class DoorKey : Interactable
         base.Interact();
         door.GetComponent<DoorLock>().key = true;
         Debug.Log(door.name + " Unlocked");
+        PlayerChat.instance.NewMessage(new string(door.name + " Unlocked"));
         Destroy(gameObject);
     }
     

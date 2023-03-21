@@ -8,8 +8,8 @@ public class PlayerMovements : MonoBehaviour
     [Tooltip("1 for repair, 2 for destory, 3 for replinish")]
     [Range(1, 3)]
     public int interactionState = 0;
-    [Tooltip("Bool For game to know to input methods for controller or keyboard")]
-    [SerializeField] private bool controlerActive = false;
+    //[Tooltip("Bool For game to know to input methods for controller or keyboard")]
+    //[SerializeField] private bool controlerActive = false;
     [Tooltip("how long before player can interact agian")]
     [SerializeField] private float interactionRefresh = 3;
     private bool canInteract = true;
@@ -27,7 +27,7 @@ public class PlayerMovements : MonoBehaviour
     private Rigidbody rb;
 
 
-
+    #region CameraMomevementVarables
     [Header("Camera Movement")]
     //Camera Control
     [Tooltip("The rotation acceleration, in degrees / second")]
@@ -43,6 +43,7 @@ public class PlayerMovements : MonoBehaviour
     private Vector2 cameraVelocity;
     private Vector2 cameraLastInputEvent;
     private float cameraInputLagTimer;
+    #endregion
 
 
     void Start()
@@ -50,8 +51,10 @@ public class PlayerMovements : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         mainCamera = GameObject.FindWithTag("MainCamera");
     }
+    #region OnEnable
     void OnEnable()
     {
+        //camera Elements
         mainCamera = GameObject.FindWithTag("MainCamera");
         cameraVelocity = Vector2.zero;
         cameraInputLagTimer = 0;
@@ -71,6 +74,7 @@ public class PlayerMovements : MonoBehaviour
         cameraRotation = new Vector2(euler.y, euler.x);
         
     }
+    #endregion
 
     void Update()
     {
@@ -79,20 +83,34 @@ public class PlayerMovements : MonoBehaviour
         MovementInputs();
         }
 
+        if (Input.GetAxisRaw("InteractOne") != 0 && interactionState != 1)
+        {
+            interactionState = 1;
+            PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
+        }
+
+        if (Input.GetAxisRaw("InteractTwo") != 0 && interactionState != 2)
+        {
+            interactionState = 2;
+            PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
+        }
+
+        if (Input.GetAxisRaw("InteractThree") != 0 && interactionState != 3)
+        {
+            interactionState = 3;
+            PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
+        }
+
+        #region InteractwithObject
         if (canInteract)
         {
             if (Input.GetAxisRaw("Fire1") != 0 )
             {
+                //Debug.Log("Fire");
                 Ray ray;
-                if (!controlerActive)
-                {
-                    ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                }
-                else
-                {
-                    //temporary change to method to show controller input
-                    ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                }
+                
+                ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+                
                 RaycastHit hit;
                 
                 if (Physics.Raycast(ray, out hit, 100))
@@ -110,19 +128,19 @@ public class PlayerMovements : MonoBehaviour
             }
         }
         else
+        {
+            if (interactTimer <= 0)
             {
-                if (interactTimer <= 0)
-                {
-                    canInteract = true; 
-                }
-                else
-                {
-                    interactTimer -= 1 * Time.deltaTime;
-                }
+                canInteract = true; 
             }
+            else
+            {
+                interactTimer -= 1 * Time.deltaTime;
+            }
+        }
+        #endregion
 
-
-
+        #region CameraMovement
         // camera Velocity is currenty mouse Input scaled by desired sensitivity
         // this is the maximum velocity
         Vector2 cameraSpeed = GetMouseInput() * cameraSensitivity;
@@ -139,6 +157,7 @@ public class PlayerMovements : MonoBehaviour
         // convert the camera rotation to euler angles 
         transform.localEulerAngles = new Vector3(0, cameraRotation.x, 0);
         mainCamera.transform.localEulerAngles = new Vector3(cameraRotation.y, 0 ,0);
+        #endregion
     }
     void FixedUpdate()
     {
@@ -147,6 +166,7 @@ public class PlayerMovements : MonoBehaviour
         rb.MovePosition(rb.position + transform.TransformDirection(velocity) * Time.fixedDeltaTime);
         //}
     }
+    #region CameraMovementFuctions
     private float ClampCameraVerticalAngle(float angle)
     {
         return Mathf.Clamp(angle, -cameraMaxVerticalAngleFromHorizon, cameraMaxVerticalAngleFromHorizon);
@@ -167,6 +187,8 @@ public class PlayerMovements : MonoBehaviour
         
         return cameraLastInputEvent;
     }
+    #endregion
+    #region Movement
     void MovementInputs()
     {
         if (Input.GetAxisRaw("Vertical") > 0) //Y for Vertival movement
@@ -210,4 +232,5 @@ public class PlayerMovements : MonoBehaviour
             velocity.y = 0;
         }
     }
+    #endregion
 }

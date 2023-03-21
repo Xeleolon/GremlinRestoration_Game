@@ -14,7 +14,10 @@ public class DoorLock : Interactable
         }
         else if (keyname != "")
         {
-            Debug.Log("Player Requires " + keyname);
+            string message = new string("Player Requires " + keyname);
+            Debug.Log(message);
+            
+            PlayerChat.instance.NewMessage(message);
         }
     }
 
@@ -24,7 +27,9 @@ public class DoorLock : Interactable
         collider.enabled = false;
         if (keyname != "")
         {
-            Debug.Log("Player Opened Door with " + keyname);
+            string message = new string("Player Opened Door with " + keyname);
+            Debug.Log(message);
+            PlayerChat.instance.NewMessage(message);
         }
     }
 }
