@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class PlayerMovements : MonoBehaviour
 {
+    [Header("Interactions")]
+    [Tooltip("1 for repair, 2 for destory, 3 for replinish")]
+    [Range(1, 3)]
+    public int interactionState = 0;
+    [Tooltip("Bool For game to know to input methods for controller or keyboard")]
+    [SerializeField] private bool controlerActive = false;
+    [Tooltip("how long before player can interact agian")]
+    [SerializeField] private float interactionRefresh = 3;
+    private bool canInteract = true;
+    private float interactTimer;
+
+
+
+    [Header("Player Movement")]
     public float speed = 3;
     public float sprintSpeed = 6;
     public float jump = 1;
@@ -11,6 +25,10 @@ public class PlayerMovements : MonoBehaviour
     //Movement
     private Vector3 velocity;
     private Rigidbody rb;
+
+
+
+    [Header("Camera Movement")]
     //Camera Control
     [Tooltip("The rotation acceleration, in degrees / second")]
     [SerializeField] private Vector2 cameraAcceleration;
@@ -25,6 +43,7 @@ public class PlayerMovements : MonoBehaviour
     private Vector2 cameraVelocity;
     private Vector2 cameraLastInputEvent;
     private float cameraInputLagTimer;
+
 
     void Start()
     {
@@ -59,6 +78,48 @@ public class PlayerMovements : MonoBehaviour
         {
         MovementInputs();
         }
+
+        if (canInteract)
+        {
+            if (Input.GetAxisRaw("Fire1") != 0 )
+            {
+                Ray ray;
+                if (!controlerActive)
+                {
+                    ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                }
+                else
+                {
+                    //temporary change to method to show controller input
+                    ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                }
+                RaycastHit hit;
+                
+                if (Physics.Raycast(ray, out hit, 100))
+                {
+                    Interactable interactable = hit.collider.GetComponent<Interactable>();
+                    if (interactable != null)
+                    {
+                        if (interactable.OnInteract(transform, interactionState))
+                        {
+                            canInteract = false;
+                            interactTimer = interactionRefresh;
+                        }
+                    }
+                }
+            }
+        }
+        else
+            {
+                if (interactTimer <= 0)
+                {
+                    canInteract = true; 
+                }
+                else
+                {
+                    interactTimer -= 1 * Time.deltaTime;
+                }
+            }
 
 
 
