@@ -14,14 +14,21 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private float interactionRefresh = 3;
     private bool canInteract = true;
     private float interactTimer;
+    float refVelocity = 0.0f;
 
 
 
     [Header("Player Movement")]
     public float speed = 3;
+    [Tooltip("the rate for velocity to reach speed")]
+    [SerializeField]private float acceleration = 0.3f;
     public float sprintSpeed = 6;
     public float jump = 1;
-    public bool OnGround;
+    [SerializeField] private float fallMultiplier = 2.5f;
+    [SerializeField] private float lowJumpMultiplier = 2f;
+    
+    [SerializeField] private bool onGround = true;
+    private bool holdingJump = false; //is the player still holding jump when they land
     //Movement
     private Vector3 velocity;
     private Rigidbody rb;
@@ -78,10 +85,10 @@ public class PlayerMovements : MonoBehaviour
 
     void Update()
     {
-        if (OnGround)
-        {
         MovementInputs();
-        }
+        
+        
+        JumpFunction();
 
         if (Input.GetAxisRaw("InteractOne") != 0 && interactionState != 1)
         {
@@ -195,11 +202,11 @@ public class PlayerMovements : MonoBehaviour
         {
             if (Input.GetAxisRaw("Sprint") > 0)
             {
-                velocity.z = sprintSpeed;
+                velocity.z = Mathf.SmoothDamp(velocity.z, sprintSpeed, ref refVelocity, acceleration);
             }
             else
             {
-                velocity.z = speed;
+                velocity.z = Mathf.SmoothDamp(velocity.z, speed, ref refVelocity, acceleration);
             }
         }
         else if (Input.GetAxisRaw("Vertical") < 0) //Y for Vertival movement
@@ -223,13 +230,52 @@ public class PlayerMovements : MonoBehaviour
         {
             velocity.x = 0;
         }
-        if (Input.GetAxisRaw("Jump") > 0)
+    }
+
+
+    void JumpFunction()
+    {
+        if (Input.GetAxisRaw("Jump") > 0 && onGround && !holdingJump)
         {
-            velocity.y = jump;
+           
+            rb.velocity = Vector3.up * jump;
+            onGround = false;
         }
-        else
+        
+        if (rb.velocity.y <= 0 && !onGround)
         {
-            velocity.y = 0;
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y >= 0 && !Input.GetButton("Jump") && !onGround)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+        if (holdingJump && !Input.GetButton("Jump"))
+        {
+            holdingJump = false;
+        }
+
+    }
+    //attached to a trigger underplayer to decect when the player leaves the ground
+    void OnTriggerEnter()
+    {
+        if (!onGround)
+        {
+            if (Input.GetButton("Jump"))
+            {
+                holdingJump = true;
+            }
+            onGround = true;
+            
+            //rb.velocity = 0;
+        }
+    }
+
+    void OnTriggerExit()
+    {
+        if (onGround)
+        {
+            onGround = false;
         }
     }
     #endregion
