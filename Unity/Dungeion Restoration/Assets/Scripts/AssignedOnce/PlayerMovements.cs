@@ -14,15 +14,17 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private float interactionRefresh = 3;
     private bool canInteract = true;
     private float interactTimer;
-    float refVelocity = 0.0f;
 
 
 
     [Header("Player Movement")]
     public float speed = 3;
-    [Tooltip("the rate for velocity to reach speed")]
+    [Tooltip("the rate for velocity to reach speed. Larger the Value is the faster you reach maxSpeed")]
     [SerializeField]private float acceleration = 0.3f;
-    public float sprintSpeed = 6;
+    [Tooltip("the Added Speed to create the sprint")]
+    [SerializeField]private float sprintSpeed = 6;
+    [Tooltip("stopping spead")]
+    [SerializeField]private float stopSpeed = 1;
     public float jump = 1;
     [SerializeField] private float fallMultiplier = 2.5f;
     [SerializeField] private float lowJumpMultiplier = 2f;
@@ -31,6 +33,16 @@ public class PlayerMovements : MonoBehaviour
     private bool holdingJump = false; //is the player still holding jump when they land
     //Movement
     private Vector3 velocity;
+    float veritcalAcceleration = 0.0f; //container to track when at fall speed
+    float horizontalAcceleration = 0.0f;
+    float verticalStartStop = 0.0f;
+    float horizontalStartStop = 0.0f;
+    float verticalStop = 0.0f;
+    float horizontalStop = 0.0f;
+    bool forward = false; //movement states to check which way the player is current moving.
+    bool backward = false;
+    bool right = false;
+    bool left = false;
     private Rigidbody rb;
 
 
@@ -200,34 +212,109 @@ public class PlayerMovements : MonoBehaviour
     {
         if (Input.GetAxisRaw("Vertical") > 0) //Y for Vertival movement
         {
+            if (!forward)
+            {
+                veritcalAcceleration = 0;
+                forward = true;
+            }
+            else if (veritcalAcceleration < (1 + (sprintSpeed * 0.1)))
+            {
+                veritcalAcceleration += acceleration * Time.deltaTime;
+            }
             if (Input.GetAxisRaw("Sprint") > 0)
             {
-                velocity.z = Mathf.SmoothDamp(velocity.z, sprintSpeed, ref refVelocity, acceleration);
+                velocity.z = Mathf.LerpUnclamped(0, speed, veritcalAcceleration);
             }
             else
             {
-                velocity.z = Mathf.SmoothDamp(velocity.z, speed, ref refVelocity, acceleration);
+                float forwardAcceleration;
+                if (veritcalAcceleration >= 1)
+                {
+                    forwardAcceleration = 1;
+                }
+                else
+                {
+                    forwardAcceleration = veritcalAcceleration;
+                }
+                velocity.z = Mathf.Lerp(0, speed, forwardAcceleration);
             }
         }
         else if (Input.GetAxisRaw("Vertical") < 0) //Y for Vertival movement
         {
-            velocity.z = -speed;
+            if (!backward)
+            {
+                veritcalAcceleration = 1;
+                backward = true;
+            }
+            else if(veritcalAcceleration > 0)
+            {
+                veritcalAcceleration -=acceleration * Time.deltaTime;
+            }
+            velocity.z = Mathf.Lerp(-speed, 0, veritcalAcceleration);
         }
         else
         {
+            if (forward)
+            {
+                forward = false;
+                verticalStartStop = velocity.z;
+                verticalStop = veritcalAcceleration;
+            }
+            else if (backward)
+            {
+                backward = false;
+                verticalStartStop = velocity.z;
+                verticalStop = veritcalAcceleration;
+            }
+            if (verticalStop < 0.2)
+            {
+                verticalStop -= stopSpeed * Time.deltaTime;
+            }
+            else if (verticalStop > 0.2)
+            {
+                verticalStop += stopSpeed * Time.deltaTime;
+            }
+
+            //velocity.z = Mathf.Lerp(0, verticalStartStop, verticalStop);
             velocity.z = 0;
         }
 
         if (Input.GetAxisRaw("Horizontal") > 0) //X for Horizontal movement
         {
-            velocity.x = speed;
+            if (!right)
+            {
+                horizontalAcceleration = 0;
+                right = true;
+            }
+            else if (horizontalAcceleration < 1)
+            {
+                horizontalAcceleration += acceleration * Time.deltaTime;
+            }
+            velocity.x = Mathf.Lerp(0, speed, horizontalAcceleration);
         }
         else if (Input.GetAxisRaw("Horizontal") < 0) //X for Horizontal movement
         {
-            velocity.x = -speed;
+            if (!left)
+            {
+                horizontalAcceleration = 1;
+                left = true;
+            }
+            else if (horizontalAcceleration > 0)
+            {
+                horizontalAcceleration -= acceleration * Time.deltaTime;
+            }
+            velocity.x = Mathf.Lerp(-speed, 0, horizontalAcceleration);
         }
         else
         {
+            if (right)
+            {
+                right = false;
+            }
+            else if (left)
+            {
+                left = false;
+            }
             velocity.x = 0;
         }
     }
@@ -268,6 +355,13 @@ public class PlayerMovements : MonoBehaviour
             onGround = true;
             
             //rb.velocity = 0;
+        }
+    }
+    void OnTriggerStay(Collider other)
+    {
+        if (rb.velocity.y != 0 && !onGround && other.name != "Player")
+        {
+            onGround = true;
         }
     }
 
