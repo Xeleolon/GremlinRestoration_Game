@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8703481612176272296}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,6 +167,7 @@ MonoBehaviour:
   speed: 3
   acceleration: 0.4
   sprintSpeed: 6
+  stopSpeed: 1
   jump: 7
   fallMultiplier: 2
   lowJumpMultiplier: 2
