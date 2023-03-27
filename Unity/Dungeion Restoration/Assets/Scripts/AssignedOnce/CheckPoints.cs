@@ -5,37 +5,65 @@ using UnityEngine;
 public class CheckPoints : MonoBehaviour
 {
     private Vector3 playerSize = new Vector3(0, 0, 0);
-    private GameObject checkPointCollider;
-    [SerializeField] private bool startCheckPoint;
+    private Transform checkPointSpawn;
+    [Tooltip("If Player Square is wrong just tick and the player square will asjust to the player current size")]
+    [SerializeField] public bool updatePlayerSize = false;
 
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-        if (transform.childCount == 1)
+        if (other.tag == "Player")
         {
-            checkPointCollider = transform.GetChild(0).gameObject;
-        }
-        else
-        {
-            Debug.LogError(gameObject.name + " this checkPoint need onlyOne child with a collider of the checkpoint");
+            GetCheckPoint();
+            other.GetComponent<PlayerMovements>().NewCheckPoint(checkPointSpawn.position);
+            Destroy(gameObject);
         }
     }
 
     void OnDrawGizmosSelected()
     {
-        if (playerSize.x == 0 || playerSize.y == 0 || playerSize.z == 0)
+        if (updatePlayerSize)
         {
-           GameObject player = GameObject.FindWithTag("Player");
-           if (player != null)
-           {
-            playerSize = transform.localScale;
-           }
-           else
-           {
-            Debug.LogWarning("Player Not Assigned Tag");
-           }
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null)
+            {
+                playerSize = player.transform.localScale;
+                Debug.Log("playerSize Updated");
+            }
+            else
+            {
+                Debug.LogWarning("Player Not Assigned Tag");
+            }
+
+            if (updatePlayerSize)
+            {
+                updatePlayerSize = false;
+            }
         }
+
+        GetCheckPoint();
+
         Gizmos.color = Color.yellow;
-        Vector3 wireFrame = new Vector3(transform.position.x, transform.position.y + (playerSize.y / 2));
+        Vector3 wireFrame = new Vector3(checkPointSpawn.position.x, checkPointSpawn.position.y + (playerSize.y / 2), checkPointSpawn.position.z);
         Gizmos.DrawWireCube(wireFrame, playerSize);
+    }
+    void GetCheckPoint()
+    {
+    if (checkPointSpawn == null)
+    {
+        if (transform.childCount == 0)
+        {
+            //Debug.LogWarning(gameObject.name + " check Point is using it self as transform");
+            checkPointSpawn = transform;
+        }
+        else
+        {
+            checkPointSpawn = transform.GetChild(0).gameObject.transform;
+            
+            if (transform.childCount > 1)
+            {
+                Debug.Log("CheckPoint has more than one child using this checkpoint: "+ checkPointSpawn.name);
+            }
+        }
+    }
     }
 }

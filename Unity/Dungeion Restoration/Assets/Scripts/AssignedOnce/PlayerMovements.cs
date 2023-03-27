@@ -14,6 +14,13 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private float interactionRefresh = 3;
     private bool canInteract = true;
     private float interactTimer;
+    //[Header("Respawn/Death")]
+    [Tooltip("How long Before Player Respawns")]
+    [SerializeField] private float respawnLength = 5;
+    private float respawnTimer = 0;
+    [Tooltip("if true input will work otherwise player isn't active")]
+    [SerializeField] private bool interactActive = true;
+    private Vector3 lastCheckPoint;
 
 
 
@@ -69,6 +76,7 @@ public class PlayerMovements : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         mainCamera = GameObject.FindWithTag("MainCamera");
+        lastCheckPoint = transform.position;
     }
     #region OnEnable
     void OnEnable()
@@ -97,6 +105,8 @@ public class PlayerMovements : MonoBehaviour
 
     void Update()
     {
+        if (interactActive)
+        {
         MovementInputs();
         
         
@@ -177,13 +187,44 @@ public class PlayerMovements : MonoBehaviour
         transform.localEulerAngles = new Vector3(0, cameraRotation.x, 0);
         mainCamera.transform.localEulerAngles = new Vector3(cameraRotation.y, 0 ,0);
         #endregion
+        }
+        else
+        {
+            if (respawnTimer <= 0)
+            {
+                interactActive = true;
+                PlayerChat.instance.NewMessage("Player Respawned");
+            }
+            else
+            {
+                respawnTimer -= 1 * Time.deltaTime;
+            }
+        }
     }
     void FixedUpdate()
     {
-        //if (velocity.x != 0 || velocity.y != 0 || velocity.y != 0)
+        //if (velocity.x != 0 || velocity.y != 0 || velocity.x != 0)
         //{
         rb.MovePosition(rb.position + transform.TransformDirection(velocity) * Time.fixedDeltaTime);
         //}
+    }
+
+    public void PlayerDied()
+    {
+        transform.position = lastCheckPoint;
+        interactActive = false;
+        respawnTimer = respawnLength;
+        velocity.x = 0;
+        velocity.z = 0;
+        Debug.Log("Player Died");
+        PlayerChat.instance.NewMessage("Player Died");
+    }
+    public void NewCheckPoint(Vector3 CheckPoint)
+    {
+        CheckPoint.y = CheckPoint.y + (transform.localScale.y / 2);
+        lastCheckPoint = CheckPoint;
+        Debug.Log("Check Point Saved");
+        PlayerChat.instance.NewMessage("Check Point Saved");
     }
     #region CameraMovementFuctions
     private float ClampCameraVerticalAngle(float angle)
