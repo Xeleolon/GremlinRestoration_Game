@@ -43,9 +43,9 @@ public class PlayerMovements : MonoBehaviour
     float veritcalAcceleration = 0.0f; //container to track when at fall speed
     float horizontalAcceleration = 0.0f;
     float verticalStartStop = 0.0f;
-    float horizontalStartStop = 0.0f;
+    //float horizontalStartStop = 0.0f;
     float verticalStop = 0.0f;
-    float horizontalStop = 0.0f;
+    //float horizontalStop = 0.0f;
     bool forward = false; //movement states to check which way the player is current moving.
     bool backward = false;
     bool right = false;
@@ -144,9 +144,11 @@ public class PlayerMovements : MonoBehaviour
                 
                 if (Physics.Raycast(ray, out hit, 100))
                 {
+                    Debug.Log("hit Once");
                     Interactable interactable = hit.collider.GetComponent<Interactable>();
                     if (interactable != null)
                     {
+                        Debug.Log("Comformed hit");
                         if (interactable.OnInteract(transform, interactionState))
                         {
                             canInteract = false;
