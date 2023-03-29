@@ -5,12 +5,9 @@ public class ButtonPlate : Interactable
     [Tooltip("how far down before activating")]
     [SerializeField] private float pressureDistance = 1;
     [SerializeField] private float returnSpeed = 1;
-    [Tooltip("gameObject being activated by the trap")]
-    public GameObject trapObject;
-    [Tooltip("can the button once pressed again disable the trap when pressed again")]
-    [SerializeField] private bool disableTrap = false;
     Vector3 startPosition;
     bool collisionActive = false; //is they a collision currently
+    
     int numCollision = 0;
     bool trapActivated = false; //let the trap reset before activating again
     Rigidbody rb;
@@ -20,9 +17,9 @@ public class ButtonPlate : Interactable
         Debug.Log(message);
         PlayerChat.instance.NewMessage(message);
     }
-    void Activate()
+    public override void Activate()
     {
-        trapObject.GetComponent<Activatable>().OnActivate(disableTrap);
+        base.Activate();
     }
     void Start()
     {

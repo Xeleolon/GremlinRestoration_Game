@@ -146,15 +146,15 @@ public class PlayerMovements : MonoBehaviour
                 
                 if (Physics.Raycast(ray, out hit, 100, 7))
                 {
-                    Debug.Log("hit " + hit.collider.gameObject.name);
+                    //Debug.Log("hit " + hit.collider.gameObject.name);
                     Interactable interactable = hit.collider.GetComponent<Interactable>();
 
-                    Debug.Log(interactable);
+                    //Debug.Log(interactable);
 
 
                     if (interactable != null)
                     {
-                        Debug.Log("Comformed hit");
+                        //Debug.Log("Comformed hit");
                         if (interactable.OnInteract(transform, interactionState))
                         {
                             canInteract = false;

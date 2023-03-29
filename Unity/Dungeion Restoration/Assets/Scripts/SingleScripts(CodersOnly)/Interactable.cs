@@ -6,6 +6,10 @@ public class Interactable : MonoBehaviour
 {
     [Tooltip("Radius which player can interact with object")]
     public float radius = 3f;
+    [Tooltip("gameObject being activated Interaction")]
+    public GameObject trapObject;
+    [Tooltip("can the button once pressed again disable the trap when pressed again")]
+    [SerializeField] private bool disableTrap = false;
     //[Tooltip("0 for neutral, 1 for repair, 2 for destory, 3 for replinish")]
     //[Range(0, 3)]
     //public int interactionType = 0;
@@ -16,6 +20,10 @@ public class Interactable : MonoBehaviour
     {
         //this method is meant to be overwritten
         Debug.Log("Interacting with " + transform.name);
+    }
+    public virtual void Activate()
+    {
+        trapObject.GetComponent<Activatable>().OnActivate(disableTrap);
     }
     public bool OnInteract (Transform playerTransform, int state)
     {
