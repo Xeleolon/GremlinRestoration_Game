@@ -3824,6 +3824,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8703481611146569620, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8703481611146569621, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -3946,8 +3951,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8703481612176272303, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703481612176272303, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703481612947801131, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -12,6 +12,8 @@ public class PlayerMovements : MonoBehaviour
     //[SerializeField] private bool controlerActive = false;
     [Tooltip("how long before player can interact agian")]
     [SerializeField] private float interactionRefresh = 3;
+    [Tooltip("How far max Ray Distance")]
+    //[SerializeField] private float maxRayDistance = 10;
     private bool canInteract = true;
     private float interactTimer;
     //[Header("Respawn/Death")]
@@ -142,10 +144,14 @@ public class PlayerMovements : MonoBehaviour
                 
                 RaycastHit hit;
                 
-                if (Physics.Raycast(ray, out hit, 100))
+                if (Physics.Raycast(ray, out hit, 100, 7))
                 {
-                    Debug.Log("hit Once");
+                    Debug.Log("hit " + hit.collider.gameObject.name);
                     Interactable interactable = hit.collider.GetComponent<Interactable>();
+
+                    Debug.Log(interactable);
+
+
                     if (interactable != null)
                     {
                         Debug.Log("Comformed hit");
@@ -155,6 +161,7 @@ public class PlayerMovements : MonoBehaviour
                             interactTimer = interactionRefresh;
                         }
                     }
+                    
                 }
             }
         }
