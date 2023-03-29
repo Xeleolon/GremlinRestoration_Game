@@ -1,16 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonPlate : MonoBehaviour
+public class ButtonPlate : Interactable
 {
     [Tooltip("how far down before activating")]
     [SerializeField] private float pressureDistance = 1;
     [SerializeField] private float returnSpeed = 1;
+    [Tooltip("gameObject being activated by the trap")]
+    public GameObject trapObject;
+    [Tooltip("can the button once pressed again disable the trap when pressed again")]
+    [SerializeField] private bool disableTrap = false;
     Vector3 startPosition;
     bool collisionActive = false; //is they a collision currently
     int numCollision = 0;
+    bool trapActivated = false; //let the trap reset before activating again
     Rigidbody rb;
+    public override void Interact()
+    {
+        string message = new string("It a Trap!");
+        Debug.Log(message);
+        PlayerChat.instance.NewMessage(message);
+    }
+    void Activate()
+    {
+        trapObject.GetComponent<Activatable>().OnActivate(disableTrap);
+    }
     void Start()
     {
         startPosition = transform.position;
@@ -36,6 +49,12 @@ public class ButtonPlate : MonoBehaviour
             if (distance <= -pressureDistance || distance >= pressureDistance)
             {
                 rb.isKinematic = true;
+                if (!trapActivated)
+                {
+                    Debug.Log("Trap activated");
+                Activate();
+                trapActivated = true;
+                }
                 //Active Button!!
             }
         }
@@ -50,6 +69,7 @@ public class ButtonPlate : MonoBehaviour
         else if (!rb.isKinematic)
         {
             rb.isKinematic = true;
+            trapActivated = false;
         }
 
     }
@@ -67,6 +87,10 @@ public class ButtonPlate : MonoBehaviour
                 }
             }
         }
+    }
+    void DestoryGameObject()
+    {
+        Destroy(gameObject);
     }
     void OnCollisionExit(Collision other)
     {
