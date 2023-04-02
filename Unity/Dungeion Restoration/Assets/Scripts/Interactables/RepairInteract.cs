@@ -7,6 +7,7 @@ public class RepairInteract : Interactable
         base.Interact();
         if (interactionState == 1)
         {
+            PlayAnimator();
             string message = new string(gameObject.name + " Repaired");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
@@ -18,6 +19,10 @@ public class RepairInteract : Interactable
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
         }
+    }
+    public override void PlayAnimator()
+    {
+        base.PlayAnimator();
     }
 
 }

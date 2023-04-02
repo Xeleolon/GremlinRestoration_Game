@@ -14,15 +14,16 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private float interactionRefresh = 3;
     [Tooltip("How far max Ray Distance")]
     //[SerializeField] private float maxRayDistance = 10;
-    private bool canInteract = true;
+    public bool canInteract = true;
     private float interactTimer;
-    //[Header("Respawn/Death")]
+    [Header("Respawn/Death")]
     [Tooltip("How long Before Player Respawns")]
     [SerializeField] private float respawnLength = 5;
     private float respawnTimer = 0;
     [Tooltip("if true input will work otherwise player isn't active")]
     [SerializeField] private bool interactActive = true;
     private Vector3 lastCheckPoint;
+    [SerializeField] private GameObject corpse;
 
 
 
@@ -220,13 +221,24 @@ public class PlayerMovements : MonoBehaviour
 
     public void PlayerDied()
     {
-        transform.position = lastCheckPoint;
-        interactActive = false;
-        respawnTimer = respawnLength;
-        velocity.x = 0;
-        velocity.z = 0;
-        Debug.Log("Player Died");
-        PlayerChat.instance.NewMessage("Player Died");
+        if (respawnTimer <= 0)
+        {
+            GenerateCorpse(transform.position);
+            transform.position = lastCheckPoint;
+            interactActive = false;
+            respawnTimer = respawnLength;
+            velocity.x = 0;
+            velocity.z = 0;
+            Debug.Log("Player Died");
+            PlayerChat.instance.NewMessage("Player Died");
+        }
+    }
+    private void GenerateCorpse(Vector3 CorpsePosition)
+    {
+        if (corpse != null)
+        {
+           GameObject tempCorpse = Instantiate(corpse, CorpsePosition, Quaternion.Euler(new Vector3(90, 0, 0)));
+        }
     }
     public void NewCheckPoint(Vector3 CheckPoint)
     {

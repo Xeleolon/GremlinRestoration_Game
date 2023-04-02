@@ -7,6 +7,7 @@ public class ReplenishInteract : Interactable
         base.Interact();
         if (interactionState == 3)
         {
+            PlayAnimator();
             string message = new string(gameObject.name + " Replenish it supples");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
@@ -18,6 +19,10 @@ public class ReplenishInteract : Interactable
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
         }
+    }
+    public override void PlayAnimator()
+    {
+        base.PlayAnimator();
     }
 
 }

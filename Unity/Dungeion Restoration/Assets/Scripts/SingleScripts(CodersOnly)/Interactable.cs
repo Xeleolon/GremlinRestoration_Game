@@ -15,15 +15,25 @@ public class Interactable : MonoBehaviour
     //public int interactionType = 0;
     public int interactionState = 0;
     public bool interacted = false;
+    private Animator animator;
+    public string activateAnimation;
     Transform player;
     public virtual void Interact ()
     {
         //this method is meant to be overwritten
         Debug.Log("Interacting with " + transform.name);
+        animator = GetComponent<Animator>();
     }
     public virtual void Activate()
     {
         trapObject.GetComponent<Activatable>().OnActivate(disableTrap);
+    }
+    public virtual void PlayAnimator()
+    {
+        if (activateAnimation != "")
+        {
+            animator.Play(activateAnimation);
+        }
     }
     public bool OnInteract (Transform playerTransform, int state)
     {
