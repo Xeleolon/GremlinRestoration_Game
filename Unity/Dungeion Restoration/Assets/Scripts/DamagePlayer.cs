@@ -16,7 +16,7 @@ public class DamagePlayer : MonoBehaviour
         {
             if (deathTimer <= 0)
             {
-                player.GetComponent<PlayerMovements>().PlayerDied();
+                player.GetComponent<PlayerMovements>().KillPlayer();
             }
             else
             {

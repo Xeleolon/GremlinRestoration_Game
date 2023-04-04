@@ -118,7 +118,7 @@ Transform:
   - {fileID: 8703481612947801128}
   - {fileID: 8703481611146569621}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &8703481612176272301
 CapsuleCollider:
@@ -164,8 +164,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionState: 1
   interactionRefresh: 3
+  canInteract: 1
   respawnLength: 2
   interactActive: 1
+  corpse: {fileID: 0}
   speed: 3
   acceleration: 10
   sprintSpeed: 6

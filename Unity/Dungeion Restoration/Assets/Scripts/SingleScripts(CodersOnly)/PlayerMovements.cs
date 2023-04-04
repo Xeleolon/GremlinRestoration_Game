@@ -21,7 +21,8 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private float respawnLength = 5;
     private float respawnTimer = 0;
     [Tooltip("if true input will work otherwise player isn't active")]
-    [SerializeField] private bool interactActive = true;
+    public bool interactActive = true;
+    private bool playerDead = false;
     private Vector3 lastCheckPoint;
     [SerializeField] private GameObject corpse;
 
@@ -136,7 +137,7 @@ public class PlayerMovements : MonoBehaviour
         #region InteractwithObject
         if (canInteract)
         {
-            if (Input.GetAxisRaw("Fire1") != 0 )
+            if (Input.GetAxisRaw("Fire1") != 0 || Input.GetButtonDown("Fire2"))
             {
                 //Debug.Log("Fire");
                 Ray ray;
@@ -198,10 +199,11 @@ public class PlayerMovements : MonoBehaviour
         mainCamera.transform.localEulerAngles = new Vector3(cameraRotation.y, 0 ,0);
         #endregion
         }
-        else
+        else if (playerDead)
         {
             if (respawnTimer <= 0)
             {
+                playerDead = false;
                 interactActive = true;
                 PlayerChat.instance.NewMessage("Player Respawned");
             }
@@ -219,19 +221,24 @@ public class PlayerMovements : MonoBehaviour
         //}
     }
 
-    public void PlayerDied()
+    public void KillPlayer()
     {
-        if (respawnTimer <= 0)
+        if (respawnTimer <= 0 || !playerDead)
         {
+            playerDead = true;
             GenerateCorpse(transform.position);
-            transform.position = lastCheckPoint;
+            MoveToCheckPoint(); //sepatated from kill player allowing me to move to the checkpoint without killing the player
             interactActive = false;
             respawnTimer = respawnLength;
-            velocity.x = 0;
-            velocity.z = 0;
             Debug.Log("Player Died");
             PlayerChat.instance.NewMessage("Player Died");
         }
+    }
+    public void MoveToCheckPoint()
+    {
+        transform.position = lastCheckPoint;
+        velocity.x = 0;
+        velocity.z = 0;
     }
     private void GenerateCorpse(Vector3 CorpsePosition)
     {
