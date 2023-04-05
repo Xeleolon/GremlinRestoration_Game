@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerMovements : MonoBehaviour
 {
+    
     [Header("Interactions")]
     [Tooltip("1 for repair, 2 for destory, 3 for replinish")]
     [Range(1, 3)]
     public int interactionState = 0;
+    float tempState;
     //[Tooltip("Bool For game to know to input methods for controller or keyboard")]
     //[SerializeField] private bool controlerActive = false;
     [Tooltip("how long before player can interact agian")]
@@ -15,6 +17,8 @@ public class PlayerMovements : MonoBehaviour
     [Tooltip("How far max Ray Distance")]
     //[SerializeField] private float maxRayDistance = 10;
     public bool canInteract = true;
+    [Tooltip("How fast the scrool wheel takes to change to the next state")]
+    public float scrollWheelSpeed = 10;
     private float interactTimer;
     [Header("Respawn/Death")]
     [Tooltip("How long Before Player Respawns")]
@@ -25,6 +29,7 @@ public class PlayerMovements : MonoBehaviour
     private bool playerDead = false;
     private Vector3 lastCheckPoint;
     [SerializeField] private GameObject corpse;
+    LevelManager levelManager;
 
 
 
@@ -81,6 +86,8 @@ public class PlayerMovements : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         mainCamera = GameObject.FindWithTag("MainCamera");
         lastCheckPoint = transform.position;
+        levelManager = LevelManager.instance;
+        LevelManager.instance.ChangeInteractUI(interactionState);
     }
     #region OnEnable
     void OnEnable()
@@ -116,23 +123,7 @@ public class PlayerMovements : MonoBehaviour
         
         JumpFunction();
 
-        if (Input.GetAxisRaw("InteractOne") != 0 && interactionState != 1)
-        {
-            interactionState = 1;
-            PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
-        }
-
-        if (Input.GetAxisRaw("InteractTwo") != 0 && interactionState != 2)
-        {
-            interactionState = 2;
-            PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
-        }
-
-        if (Input.GetAxisRaw("InteractThree") != 0 && interactionState != 3)
-        {
-            interactionState = 3;
-            PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
-        }
+        ChangeInteractState();
 
         #region InteractwithObject
         if (canInteract)
@@ -203,6 +194,7 @@ public class PlayerMovements : MonoBehaviour
         {
             if (respawnTimer <= 0)
             {
+                levelManager.DeathMenu(false);
                 playerDead = false;
                 interactActive = true;
                 PlayerChat.instance.NewMessage("Player Respawned");
@@ -226,7 +218,9 @@ public class PlayerMovements : MonoBehaviour
         if (respawnTimer <= 0 || !playerDead)
         {
             playerDead = true;
+            levelManager.DeathMenu(true);
             GenerateCorpse(transform.position);
+            
             MoveToCheckPoint(); //sepatated from kill player allowing me to move to the checkpoint without killing the player
             interactActive = false;
             respawnTimer = respawnLength;
@@ -253,6 +247,50 @@ public class PlayerMovements : MonoBehaviour
         lastCheckPoint = CheckPoint;
         Debug.Log("Check Point Saved");
         PlayerChat.instance.NewMessage("Check Point Saved");
+    }
+    void ChangeInteractState()
+    {
+        if (Input.GetAxisRaw("InteractOne") != 0 && interactionState != 1)
+        {
+            interactionState = 1;
+            //PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
+            LevelManager.instance.ChangeInteractUI(interactionState);
+        }
+
+        if (Input.GetAxisRaw("InteractTwo") != 0 && interactionState != 2)
+        {
+            interactionState = 2;
+            //PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
+            LevelManager.instance.ChangeInteractUI(interactionState);
+        }
+
+        if (Input.GetAxisRaw("InteractThree") != 0 && interactionState != 3)
+        {
+            interactionState = 3;
+            //PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
+            LevelManager.instance.ChangeInteractUI(interactionState);
+        }
+        if (Input.GetAxisRaw("Mouse ScrollWheel") != 0)
+        {
+            tempState += (Input.GetAxisRaw("Mouse ScrollWheel") * scrollWheelSpeed);
+            //Debug.Log("Dectecting ScrollWheel, which = " + tempState);
+            if (tempState >= 1 || tempState <= -1)
+            {
+                interactionState += (int) tempState;
+                if (interactionState <= 0)
+                {
+                    interactionState = 3;
+                }
+                else if (interactionState >= 4)
+                {
+                    interactionState = 1;
+                }
+                tempState = 0;
+                //PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
+                LevelManager.instance.ChangeInteractUI(interactionState);
+
+            }
+        }
     }
     #region CameraMovementFuctions
     private float ClampCameraVerticalAngle(float angle)
