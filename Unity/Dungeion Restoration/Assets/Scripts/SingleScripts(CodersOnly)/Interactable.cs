@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    [Header("Standard Interactable")]
     [Tooltip("Radius which player can interact with object")]
     public float radius = 3f;
     [Tooltip("gameObject being activated Interaction")]

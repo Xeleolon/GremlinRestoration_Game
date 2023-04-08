@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ButtonPlate : Interactable
 {
+    [Header("ButtonPlate")]
     [Tooltip("how far down before activating")]
     [SerializeField] private float pressureDistance = 1;
     [SerializeField] private float returnSpeed = 1;

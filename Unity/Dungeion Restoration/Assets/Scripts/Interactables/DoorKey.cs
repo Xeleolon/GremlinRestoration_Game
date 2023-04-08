@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class DoorKey : Interactable
 {
+    
+    [Header("DoorKey")]
     public GameObject door;
     void Start()
     {

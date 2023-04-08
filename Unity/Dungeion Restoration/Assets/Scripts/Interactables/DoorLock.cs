@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DoorLock : Interactable
 {
+    [Header("DoorLock")]
     public bool key = false;
     public string keyname;
 

@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class ReplenishInteract : Interactable
 {
     [Header("Replinish Variables")]
-    private GameObject ReplinishCanvas;
     public GameObject sliderPrefab;
+    private GameObject ReplinishCanvas;
     public float maxValue;
     public float fillSpeed = 0.1f;
     private float fillValue = 0;

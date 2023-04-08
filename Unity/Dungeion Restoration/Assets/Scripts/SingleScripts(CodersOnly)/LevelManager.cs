@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
         instance = this;
     }
     #endregion
+    ////////////////////////
     [Header("Menu Systems")]
     public string nextLevel;
     public string MenuName;
@@ -25,6 +26,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject victoryCanvas;
     [SerializeField] GameObject deathCanvas;
     PlayerMovements playerScript;
+    ///////////////////////////
+    [Header("Level Functions")]
+    private int numLevels = 0;
+    [Range(0, 2)]
+    public int currentLevel;
+    ///////////////////////////
     [Header("Player Ui System")]
     public bool changeScene = false;
     [Tooltip("0, for off, 4 for on, 1,2,3 for interactState")]
@@ -86,7 +93,17 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
+    public int ChangeNumLevels(bool newLevel)
+    {
 
+        if (newLevel)
+        {
+            numLevels += 1;
+            return numLevels;
+        }
+        return 0;
+    }
+    #region InteractUI Color Change Function
     public void ChangeInteractUI(int newState)
     {
         switch (newState)
@@ -136,7 +153,7 @@ public class LevelManager : MonoBehaviour
             break;
         }
     }
-
+    #endregion
     #region Menu Systems
     public void ExitMenu()
     {
