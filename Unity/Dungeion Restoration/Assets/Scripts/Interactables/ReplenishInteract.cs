@@ -49,6 +49,7 @@ public class ReplenishInteract : Interactable
         {
             PlayAnimator();
             ActivateSlider();
+            Completed(3);
             string message = new string(gameObject.name + " Replenish it supples");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
@@ -73,6 +74,10 @@ public class ReplenishInteract : Interactable
 
         bar.maxValue = maxValue;
         bar.value = 0;
+    }
+    public override void Completed(int type)
+    {
+        base.Completed(type);
     }
 
 }

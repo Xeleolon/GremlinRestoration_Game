@@ -36,6 +36,10 @@ public class Interactable : MonoBehaviour
             animator.Play(activateAnimation);
         }
     }
+    public virtual void Completed(int type)
+    {
+        GoalTracker.instance.UpdateChecklist(type);
+    }
     public bool OnInteract (Transform playerTransform, int state)
     {
         player = playerTransform;
