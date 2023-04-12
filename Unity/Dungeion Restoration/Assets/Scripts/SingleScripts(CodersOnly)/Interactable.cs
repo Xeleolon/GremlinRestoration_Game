@@ -38,7 +38,7 @@ public class Interactable : MonoBehaviour
     }
     public virtual void Completed(int type)
     {
-        GoalTracker.instance.UpdateChecklist(type);
+        //GoalTracker.instance.UpdateChecklist(type);
     }
     public bool OnInteract (Transform playerTransform, int state)
     {

@@ -8,7 +8,7 @@ public class GoalTracker : MonoBehaviour
     [System.Serializable]
     public class GoalData //hold all revelant data for Each Goal
     {
-        public new string name; //string name and Objective of the object
+        public new string name = new string("gameData");// booth name and desrctiption on contaniener;
         public int target; //int max goal private element
         public int progress;//int progress to goal changable
         public int place; //int placement within order changble
@@ -18,6 +18,17 @@ public class GoalTracker : MonoBehaviour
         private TMP_Text objective; //text object with the goal the player trying to achieve
         private TMP_Text numCheck; // text object with progress of target.
         private Toggle toggle; // toggle for target of one.
+
+
+    }
+    [System.Serializable]
+    public class ChangableGoalData //a object which will be public and used to change variable inside spefic GoalData;
+    {
+        public string name = new string("ChangableGoalData"); //name of container
+
+        [Tooltip("Text shown on the label")]
+        public string description;
+
     }
     #region Singleton
     public static GoalTracker instance;
@@ -45,37 +56,35 @@ public class GoalTracker : MonoBehaviour
     bool refreshWait;
     [Header("Testing Only")]
     public bool testCompleteTop;
+    public bool emptyLists;
     [Range(0, 10)]
     public int testInt;
     [Header("Goals")]
-    [SerializeField] string textRepair;
-    int standardRepair = 0;
-    int trackerRepair = 0;
-    [SerializeField] string textDestroy;
-    int standardDestory = 0;
-    int trackerDestory = 0;
-    [SerializeField] string textRestock;
-    int standardRestock = 0;
-    int trackerRestock = 0;
+    [Tooltip("standard labels used")]
+    [SerializeField] ChangableGoalData[] standardGoals;
     public int[] labelFill;
-    public TMP_Text[] labels;
-    public GoalData goalData;
+    public TMP_Text[] labels; //need to removed
+    public List<GoalData> goalData; //will become private after finished testing
     GameObject[] tempObject;
     // Start is called before the first frame update
     void OnValidate()
     {
         if (updateGoals)
         {
-            //TestCreateLabels();
-            //FindGoals();
+            SetupStandardLabels();
+        }
+        if (emptyLists)
+        {
+            goalData.Clear();
+            emptyLists = false;
         }
         
 
     }
     void Start()
     {
-        FindGoals();
-        UpdateChecklist(0);
+        SetupStandardLabels();
+
         /*
         if (checkList.activeSelf)
         {
@@ -105,65 +114,63 @@ public class GoalTracker : MonoBehaviour
             refreshWait = false;
         }
     }
-    void FindGoals()
+    void SetupStandardLabels()
     {
-        //standardRepair = 0;
-        RepairInteract[] tempRepair = GameObject.FindObjectsOfType<RepairInteract>();
-        /*foreach (RepairInteract i in tempRepair)
+        //goalData = new GoalData[standardGoals.Length];
+        goalData.Clear();
+        for(int i = 0; i < standardGoals.Length; i++)
         {
-            //standardRepair += 1;
-        }*/
-
-        standardRepair = tempRepair.Length;
-
-        Debug.Log("found " + standardRepair + " Repairs");
-        standardDestory = 0;
-        DestroyInteract[] tempDestroy = GameObject.FindObjectsOfType<DestroyInteract>();
-        foreach ( DestroyInteract i in tempDestroy)
-        {
-            //standardDestory += 1;
+            //goalData[i] = new GoalData(); //must do this for class to make it not null do it every time you found a new labels!!
+            GoalData temp = new GoalData();
+            temp.name = standardGoals[i].description;
+            goalData.Add(temp);
         }
-
-        standardDestory = tempDestroy.Length;
-
-        Debug.Log("found " + standardDestory + " Destroys");
-        standardRestock = 0;
-        ReplenishInteract[] tempRestock = GameObject.FindObjectsOfType<ReplenishInteract>();
-        foreach ( DestroyInteract i in tempDestroy)
-        {
-            //standardRestock += 1;
-        }
-
-        standardRestock = tempRestock.Length;
-
-        Debug.Log("found " + standardRestock + " Restocks");
-        updateGoals = false;
     }
-    public void UpdateChecklist(int state)
+    public void CreateGoalData(string state)
     {
-        switch (state)
+        GoalData tempFind = new GoalData();
+        GoalData temp;
+        switch(state)
         {
-            case 0:
-            labels[0].text = (textRepair + ": " + standardRepair + " of " + trackerRepair);
-            labels[1].text = (textDestroy + ": " + standardDestory + " of " + trackerDestory);
-            labels[2].text = (textRestock + ": " + standardRestock + " of " + trackerRestock);
-            break;
-            case 1:
-            trackerRepair += 1;
-            labels[0].text = (textRepair + ": " + standardRepair + " of " + trackerRepair);
-
+            case "1":
+            tempFind.name = standardGoals[0].description;
+            temp = goalData.Find(tempFind);
+            temp.target += 1;
+            Debug.Log("Target" + temp.name + " = " + temp.target);
             break;
 
-            case 2:
-            trackerDestory += 1;
-            labels[1].text = (textDestroy + ": " + standardDestory + " of " + trackerDestory);
-
+            case "2": 
+            tempFind.name = standardGoals[1].description;
+            temp = goalData.Find(tempFind);
+            temp.target += 1;
+            Debug.Log("Target" + temp.name + " = " + temp.target);
             break;
 
-            case 3:
-            trackerRestock += 1;
-            labels[2].text = (textRestock + ": " + standardRestock + " of " + trackerRestock);
+            case "3": 
+            tempFind.name = standardGoals[2].description;
+            temp = goalData.Find(tempFind);
+            temp.target += 1;
+            Debug.Log("Target" + temp.name + " = " + temp.target);
+            break;
 
+            default:
+            tempFind.name = state;
+            if (goalData.Contains(tempFind))
+            {
+                temp = goalData.Find(tempFind);
+                temp.target += 1;
+                Debug.Log("Target" + temp.name + " = " + temp.target);
+            }
+            else
+            {
+                temp = new GoalData();
+                temp.name = state;
+                temp.target += 1;
+                goalData.Add(temp);
+                Debug.Log("Target" + temp.name + " = " + temp.target);
+            }
+
+            Debug.Log("creating new goal with string");
             break;
 
         }
@@ -197,5 +204,9 @@ public class GoalTracker : MonoBehaviour
     void CycleLables()
     {
         
+    }
+    public void LogNewGoal(string description)
+    {
+
     }
 }
