@@ -8,7 +8,7 @@ public class DestroyInteract : Interactable
         if (interactionState == 2)
         {
             PlayAnimator();
-            Completed(2);
+            Completed();
             string message = new string(gameObject.name + " Destoryed");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
@@ -26,9 +26,9 @@ public class DestroyInteract : Interactable
     {
         base.PlayAnimator();
     }
-    public override void Completed(int type)
+    public override void Completed()
     {
-        base.Completed(type);
+        base.Completed();
     }
 
 }

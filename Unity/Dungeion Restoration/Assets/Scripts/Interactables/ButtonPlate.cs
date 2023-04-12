@@ -22,8 +22,9 @@ public class ButtonPlate : Interactable
     {
         base.Activate();
     }
-    void Start()
+    public override void Start()
     {
+        base.Start();
         startPosition = transform.position;
         //collisionActive = true;
         rb = GetComponent<Rigidbody>();

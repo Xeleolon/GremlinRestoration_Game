@@ -14,8 +14,9 @@ public class ReplenishInteract : Interactable
     Image fill;
     Transform playerHead;
     public float speed = 1.0f;
-    void Start()
+    public override void Start()
     {
+        base.Start();
         playerHead = GameObject.FindWithTag("MainCamera").transform;
 
     }
@@ -49,7 +50,7 @@ public class ReplenishInteract : Interactable
         {
             PlayAnimator();
             ActivateSlider();
-            Completed(3);
+            Completed();
             string message = new string(gameObject.name + " Replenish it supples");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
@@ -75,9 +76,9 @@ public class ReplenishInteract : Interactable
         bar.maxValue = maxValue;
         bar.value = 0;
     }
-    public override void Completed(int type)
+    public override void Completed()
     {
-        base.Completed(type);
+        base.Completed();
     }
 
 }

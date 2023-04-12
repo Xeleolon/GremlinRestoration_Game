@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    [System.Serializable]
+    public class AcheiveGoal
+    {
+        public string goal;
+        public int ticket = -1; //a log of the location inside goalTracker for the location of the item.
+        [Range(0, 3)][Tooltip("0 if no string named no goal will be made, 1,2,3 will make a basic goal if no string named")]
+        public int Type = 0;
+    }
     [Header("Standard Interactable")]
     [Tooltip("Radius which player can interact with object")]
     public float radius = 3f;
@@ -19,6 +27,18 @@ public class Interactable : MonoBehaviour
     private Animator animator;
     public string activateAnimation;
     Transform player;
+    public AcheiveGoal acheiveGoal;
+    public virtual void Start()
+    {
+        if (acheiveGoal.goal != "")
+        {
+            acheiveGoal.ticket = GoalTracker.instance.CreateGoalData(acheiveGoal.goal);
+        }
+        else if (acheiveGoal.Type != 0)
+        {
+            acheiveGoal.ticket = GoalTracker.instance.CreateGoalData(acheiveGoal.Type.ToString());
+        }
+    }
     public virtual void Interact ()
     {
         //this method is meant to be overwritten
@@ -36,9 +56,10 @@ public class Interactable : MonoBehaviour
             animator.Play(activateAnimation);
         }
     }
-    public virtual void Completed(int type)
+    public virtual void Completed()
     {
         //GoalTracker.instance.UpdateChecklist(type);
+        GoalTracker.instance.CompletedGoal(acheiveGoal.ticket);
     }
     public bool OnInteract (Transform playerTransform, int state)
     {
