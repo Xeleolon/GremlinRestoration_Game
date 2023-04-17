@@ -139,7 +139,12 @@ public class GoalTracker : MonoBehaviour
     {
         if (setupMax <= 0 && !testCompleteTop)
         {
-            CreateLabels();
+            Debug.Log("checkList Made");
+            if (order.Length <= 0 && goalData.Length <= 0)
+            {
+               CreateLabels(); 
+            }
+
             testCompleteTop = true;
         }
         else
@@ -256,6 +261,7 @@ public class GoalTracker : MonoBehaviour
         //take top 6 and give them labels
         for(int i = 0; i < numOfLabels; i++)
         {
+            Debug.Log(i);
             if (order[i] >= 0 && goalData[order[i]] != null)
             {
                 Vector3 tempPostion = TitlePosition.position;
