@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SlidingSurface : Activatable
 {
+    [Header("SlidingSurface")]
     public bool slideOn = false; //tell the surface if it on or off
 
     private Vector2 yHeight;

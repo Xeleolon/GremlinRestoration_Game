@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class ReplenishInteract : Interactable
 {
     [Header("Replinish Variables")]
-    private GameObject ReplinishCanvas;
     public GameObject sliderPrefab;
+    private GameObject ReplinishCanvas;
     public float maxValue;
     public float fillSpeed = 0.1f;
     private float fillValue = 0;
@@ -14,8 +14,9 @@ public class ReplenishInteract : Interactable
     Image fill;
     Transform playerHead;
     public float speed = 1.0f;
-    void Start()
+    public override void Start()
     {
+        base.Start();
         playerHead = GameObject.FindWithTag("MainCamera").transform;
 
     }
@@ -49,6 +50,7 @@ public class ReplenishInteract : Interactable
         {
             PlayAnimator();
             ActivateSlider();
+            Completed();
             string message = new string(gameObject.name + " Replenish it supples");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
@@ -73,6 +75,10 @@ public class ReplenishInteract : Interactable
 
         bar.maxValue = maxValue;
         bar.value = 0;
+    }
+    public override void Completed()
+    {
+        base.Completed();
     }
 
 }
