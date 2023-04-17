@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class RepairInteract : Interactable
 {
+    
+    [Header("Repair")]
+    public GameObject FixedObject;
     public override void Interact()
     {
         base.Interact();
@@ -28,6 +31,12 @@ public class RepairInteract : Interactable
     public override void Completed()
     {
         base.Completed();
+    }
+
+    public void RepairObject()
+    {
+        Instantiate(FixedObject, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
 }

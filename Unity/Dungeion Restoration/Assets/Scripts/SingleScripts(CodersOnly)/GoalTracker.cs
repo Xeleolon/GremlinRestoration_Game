@@ -94,6 +94,7 @@ public class GoalTracker : MonoBehaviour
     public bool emptyLists;
     [Range(0, 10)]
     public int testInt;
+    private float setupMax = 3;
     [Header("Goals")]
     [Tooltip("standard labels used")]
     [SerializeField] ChangableGoalData[] standardGoals;
@@ -136,6 +137,16 @@ public class GoalTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (setupMax <= 0 && !testCompleteTop)
+        {
+            CreateLabels();
+            testCompleteTop = true;
+        }
+        else
+        {
+            setupMax -= 1 * Time.deltaTime;
+        }
+
         if (Input.GetAxisRaw("Dropdown") != 0 && !refreshWait)
         {
             //Debug.Log("Button working");
@@ -153,12 +164,6 @@ public class GoalTracker : MonoBehaviour
         else if (refreshWait && Input.GetAxisRaw("Dropdown") == 0)
         {
             refreshWait = false;
-        }
-
-        if (testCompleteTop)
-        {
-            CreateLabels();
-            testCompleteTop = false;
         }
     }
     void SetupStandardLabels()
