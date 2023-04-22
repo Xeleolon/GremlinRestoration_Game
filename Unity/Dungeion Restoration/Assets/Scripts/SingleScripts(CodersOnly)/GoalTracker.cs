@@ -140,10 +140,12 @@ public class GoalTracker : MonoBehaviour
         if (setupMax <= 0 && !testCompleteTop)
         {
             Debug.Log("checkList Made");
-            if (order.Length <= 0 && goalData.Length <= 0)
+            if (goalData.Length != maxGoals || order.Length != maxGoals)
             {
-               CreateLabels(); 
+                SetupStandardLabels();
             }
+
+            CreateLabels();
 
             testCompleteTop = true;
         }

@@ -28,7 +28,7 @@ public class SlidingSurface : Activatable
         {
             Debug.Log("Player Moved");
             float step = slideSpeed * Time.deltaTime;
-            player.GetComponent<PlayerMovements>().canInteract = false;
+            player.GetComponent<PlayerMovements>().interactions.fireRay = false;
             player.transform.position = Vector3.MoveTowards(player.transform.position, targetTransformed, step);
         }
     }

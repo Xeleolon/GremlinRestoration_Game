@@ -4,22 +4,202 @@ using UnityEngine;
 
 public class PlayerMovements : MonoBehaviour
 {
-    
-    [Header("Interactions")]
+[System.Serializable]
+public class Interact
+{
+    [System.Serializable]
+    public class WandData
+    {
+        public string name;
+        public GameObject wand;
+        public string animation;
+    }
     [Tooltip("1 for repair, 2 for destory, 3 for replinish")]
     [Range(1, 3)]
-    public int interactionState = 0;
+    public int state = 1;
     float tempState;
     //[Tooltip("Bool For game to know to input methods for controller or keyboard")]
     //[SerializeField] private bool controlerActive = false;
     [Tooltip("how long before player can interact agian")]
-    [SerializeField] private float interactionRefresh = 3;
-    [Tooltip("How far max Ray Distance")]
-    //[SerializeField] private float maxRayDistance = 10;
-    public bool canInteract = true;
+    [SerializeField] private float refresh = 3;
+    public bool fireRay = true;
     [Tooltip("How fast the scrool wheel takes to change to the next state")]
     public float scrollWheelSpeed = 10;
-    private float interactTimer;
+    private float clock;
+    private Transform player;
+    public WandData[] wands = new WandData[4];
+    public void WandsNotNull()
+    {
+        for(int i = 0; i < wands.Length; i ++)
+        {
+            if (wands[i] == null)
+            {
+                wands[i] = new WandData();
+            }
+        }
+    }
+    public void ShootRay()
+    {
+        if (fireRay)
+        {
+            if (Input.GetAxisRaw("Fire1") != 0 || Input.GetButtonDown("Fire2"))
+            {
+                //Debug.Log("Fire");
+                Ray ray;
+                
+                ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+                
+                RaycastHit hit;
+                
+                if (Physics.Raycast(ray, out hit, 100, 7))
+                {
+                    //Debug.Log("hit " + hit.collider.gameObject.name);
+                    Interactable interactable = hit.collider.GetComponent<Interactable>();
+
+                    //Debug.Log(interactable);
+
+
+                    if (interactable != null)
+                    {
+                        if (player == null)
+                        {
+                            player = GameObject.FindWithTag("Player").transform;
+                        }
+                        //Debug.Log("Comformed hit");
+                        if (interactable.OnInteract(player, state))
+                        {
+                            fireRay = false;
+                            clock = refresh;
+                        }
+                    }
+                    
+                }
+            }
+        }
+        else
+        {
+            if (clock <= 0)
+            {
+                fireRay = true; 
+            }
+            else
+            {
+                clock -= 1 * Time.deltaTime;
+            }
+        }
+    }
+
+    public void ChangeState()
+    {
+        if (Input.GetAxisRaw("InteractOne") != 0 && state != 1)
+        {
+            state = 1;
+            //PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
+            LevelManager.instance.ChangeInteractUI(state);
+        }
+
+        if (Input.GetAxisRaw("InteractTwo") != 0 && state != 2)
+        {
+            state = 2;
+            NewState();
+        }
+
+        if (Input.GetAxisRaw("InteractThree") != 0 && state != 3)
+        {
+            state = 3;
+            NewState();
+        }
+        if (Input.GetAxisRaw("Mouse ScrollWheel") != 0)
+        {
+            tempState += (Input.GetAxisRaw("Mouse ScrollWheel") * scrollWheelSpeed);
+            //Debug.Log("Dectecting ScrollWheel, which = " + tempState);
+            if (tempState >= 1 || tempState <= -1)
+            {
+                state += (int) tempState;
+                if (state <= 0)
+                {
+                    state = 3;
+                }
+                else if (state >= 4)
+                {
+                    state = 1;
+                }
+                tempState = 0;
+                NewState();
+
+            }
+        }
+
+    }
+
+    void NewState()
+    {
+        switch (state)
+        {
+            case 1:
+            LevelManager.instance.ChangeInteractUI(state);
+            
+            if (wands[1].wand != null && !wands[1].wand.activeSelf)
+            {
+                wands[1].wand.SetActive(true);
+            }
+
+            if (wands[2].wand != null && wands[2].wand.activeSelf)
+            {
+                wands[2].wand.SetActive(false);
+            }
+
+            if (wands[3].wand != null && wands[3].wand.activeSelf)
+            {
+                wands[3].wand.SetActive(false);
+            }
+            break;
+
+            case 2:
+            LevelManager.instance.ChangeInteractUI(state);
+            if (wands[1].wand != null && wands[1].wand.activeSelf)
+            {
+                wands[1].wand.SetActive(false);
+            }
+
+            if (wands[2].wand != null && !wands[2].wand.activeSelf)
+            {
+                wands[2].wand.SetActive(true);
+            }
+            
+            if (wands[3].wand != null && wands[3].wand.activeSelf)
+            {
+                wands[3].wand.SetActive(false);
+            }
+            break;
+
+            case 3:
+            LevelManager.instance.ChangeInteractUI(state);
+            if (wands[1].wand != null && wands[1].wand.activeSelf)
+            {
+                wands[1].wand.SetActive(false);
+            }
+
+            if (wands[2].wand != null && wands[2].wand.activeSelf)
+            {
+                wands[2].wand.SetActive(false);
+            }
+            
+            if (wands[3].wand != null && !wands[3].wand.activeSelf)
+            {
+                wands[3].wand.SetActive(true);
+            }
+            break;
+            default:
+            
+            Debug.LogWarning("interaction state = " + state);
+            break;
+            
+        }
+    }
+}
+
+    [SerializeField] public Interact interactions;
     [Header("Respawn/Death")]
     [Tooltip("How long Before Player Respawns")]
     [SerializeField] private float respawnLength = 5;
@@ -30,8 +210,6 @@ public class PlayerMovements : MonoBehaviour
     private Vector3 lastCheckPoint;
     [SerializeField] private GameObject corpse;
     LevelManager levelManager;
-
-
 
     [Header("Player Movement")]
     public float speed = 3;
@@ -79,7 +257,10 @@ public class PlayerMovements : MonoBehaviour
     private Vector2 cameraLastInputEvent;
     private float cameraInputLagTimer;
     #endregion
-
+    void OnValidate() //only calls if change when script reloads or change in value
+    {
+        interactions.WandsNotNull();
+    }
 
     void Start()
     {
@@ -87,7 +268,8 @@ public class PlayerMovements : MonoBehaviour
         mainCamera = GameObject.FindWithTag("MainCamera");
         lastCheckPoint = transform.position;
         levelManager = LevelManager.instance;
-        LevelManager.instance.ChangeInteractUI(interactionState);
+        LevelManager.instance.ChangeInteractUI(interactions.state);
+        interactions.WandsNotNull();
     }
     #region OnEnable
     void OnEnable()
@@ -122,54 +304,9 @@ public class PlayerMovements : MonoBehaviour
         
         
         JumpFunction();
+        interactions.ShootRay();
+        interactions.ChangeState();
 
-        ChangeInteractState();
-
-        #region InteractwithObject
-        if (canInteract)
-        {
-            if (Input.GetAxisRaw("Fire1") != 0 || Input.GetButtonDown("Fire2"))
-            {
-                //Debug.Log("Fire");
-                Ray ray;
-                
-                ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-                
-                RaycastHit hit;
-                
-                if (Physics.Raycast(ray, out hit, 100, 7))
-                {
-                    //Debug.Log("hit " + hit.collider.gameObject.name);
-                    Interactable interactable = hit.collider.GetComponent<Interactable>();
-
-                    //Debug.Log(interactable);
-
-
-                    if (interactable != null)
-                    {
-                        //Debug.Log("Comformed hit");
-                        if (interactable.OnInteract(transform, interactionState))
-                        {
-                            canInteract = false;
-                            interactTimer = interactionRefresh;
-                        }
-                    }
-                    
-                }
-            }
-        }
-        else
-        {
-            if (interactTimer <= 0)
-            {
-                canInteract = true; 
-            }
-            else
-            {
-                interactTimer -= 1 * Time.deltaTime;
-            }
-        }
-        #endregion
 
         #region CameraMovement
         // camera Velocity is currenty mouse Input scaled by desired sensitivity
@@ -247,50 +384,6 @@ public class PlayerMovements : MonoBehaviour
         lastCheckPoint = CheckPoint;
         Debug.Log("Check Point Saved");
         PlayerChat.instance.NewMessage("Check Point Saved");
-    }
-    void ChangeInteractState()
-    {
-        if (Input.GetAxisRaw("InteractOne") != 0 && interactionState != 1)
-        {
-            interactionState = 1;
-            //PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
-            LevelManager.instance.ChangeInteractUI(interactionState);
-        }
-
-        if (Input.GetAxisRaw("InteractTwo") != 0 && interactionState != 2)
-        {
-            interactionState = 2;
-            //PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
-            LevelManager.instance.ChangeInteractUI(interactionState);
-        }
-
-        if (Input.GetAxisRaw("InteractThree") != 0 && interactionState != 3)
-        {
-            interactionState = 3;
-            //PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
-            LevelManager.instance.ChangeInteractUI(interactionState);
-        }
-        if (Input.GetAxisRaw("Mouse ScrollWheel") != 0)
-        {
-            tempState += (Input.GetAxisRaw("Mouse ScrollWheel") * scrollWheelSpeed);
-            //Debug.Log("Dectecting ScrollWheel, which = " + tempState);
-            if (tempState >= 1 || tempState <= -1)
-            {
-                interactionState += (int) tempState;
-                if (interactionState <= 0)
-                {
-                    interactionState = 3;
-                }
-                else if (interactionState >= 4)
-                {
-                    interactionState = 1;
-                }
-                tempState = 0;
-                //PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
-                LevelManager.instance.ChangeInteractUI(interactionState);
-
-            }
-        }
     }
     #region CameraMovementFuctions
     private float ClampCameraVerticalAngle(float angle)
