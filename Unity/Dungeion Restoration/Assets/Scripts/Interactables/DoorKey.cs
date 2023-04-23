@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class DoorKey : Interactable
 {
+    
+    [Header("DoorKey")]
     public GameObject door;
-    void Start()
+    public override void Start()
     {
+        base.Start();
         if (door == null)
         {
             Debug.LogError(gameObject.name + "Doesn't have an assigned door");

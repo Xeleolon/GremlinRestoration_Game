@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
     private int currentScene = 0;
     public bool testSceneLock = true;
     public TMP_Text levelText;
+    public TMP_Text codeText;
     void Start()
     {
         if (level.Length == 0)
@@ -72,5 +73,31 @@ public class MenuManager : MonoBehaviour
             currentScene = num;
             levelText.SetText(level[currentScene]);
         }
+    }
+    public void CheatCodes()
+    {
+        string code = codeText.text;
+        Debug.Log(code);
+
+        if (code == "test" || code == " test")
+        {
+            Debug.Log("Test Worked");
+        }
+
+        if (code == " dungeoneers" || code == "dungeoneers")
+        {
+            Debug.Log("code worked");
+            if (testSceneLock)
+            {
+                testSceneLock = false;
+            }
+            else
+            {
+                Debug.Log("Test Scene On");
+                testSceneLock = true;
+            }
+        }
+
+        codeText.SetText("");
     }
 }
