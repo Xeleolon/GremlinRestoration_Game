@@ -3,6 +3,7 @@ using UnityEngine;
 public class DoorLock : Interactable
 {
     [Header("DoorLock")]
+    [Tooltip("set true if no key required")]
     public bool key = false;
     public string keyname;
 
@@ -16,6 +17,13 @@ public class DoorLock : Interactable
         else if (keyname != "")
         {
             string message = new string("Player Requires " + keyname);
+            Debug.Log(message);
+            
+            PlayerChat.instance.NewMessage(message);
+        }
+        else
+        {
+            string message = new string("Sorry, you need my key but I have no key");
             Debug.Log(message);
             
             PlayerChat.instance.NewMessage(message);
