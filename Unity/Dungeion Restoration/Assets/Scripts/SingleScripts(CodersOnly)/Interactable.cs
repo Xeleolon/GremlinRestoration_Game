@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour
         public string goal;
         public int ticket = -1; //a log of the location inside goalTracker for the location of the item.
         [Range(0, 3)][Tooltip("0 if no string named no goal will be made, 1,2,3 will make a basic goal if no string named")]
-        public int Type = 0;
+        public int type = 0;
     }
     [Header("Standard Interactable")]
     [Tooltip("Radius which player can interact with object")]
@@ -34,9 +34,9 @@ public class Interactable : MonoBehaviour
         {
             acheiveGoal.ticket = GoalTracker.instance.CreateGoalData(acheiveGoal.goal);
         }
-        else if (acheiveGoal.Type != 0)
+        else if (acheiveGoal.type != 0)
         {
-            acheiveGoal.ticket = GoalTracker.instance.CreateGoalData(acheiveGoal.Type.ToString());
+            acheiveGoal.ticket = GoalTracker.instance.CreateGoalData(acheiveGoal.type.ToString());
         }
     }
     public virtual void Interact ()

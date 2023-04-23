@@ -68,6 +68,14 @@ public class Interact
                         //Debug.Log("Comformed hit");
                         if (interactable.OnInteract(player, state))
                         {
+                            if (interactable.acheiveGoal != null)
+                            {
+                                PlayAnimation(interactable.acheiveGoal.type);
+                            }
+                            else
+                            {
+                                Debug.Log("Bug beating to interacting with the interacable before it has chance to make intisise item look into");
+                            }
                             fireRay = false;
                             clock = refresh;
                         }
@@ -85,6 +93,22 @@ public class Interact
             else
             {
                 clock -= 1 * Time.deltaTime;
+            }
+        }
+    }
+    void PlayAnimation(int type)
+    {
+        if (type == 0 || type == state)
+        {
+
+            if ( wands[type].wand != null )
+            {
+                Animator animator = wands[type].wand.GetComponent<Animator>();
+                if (animator != null && wands[type].animation != "")
+                {
+                    Debug.Log("animation state = " + type);
+                    animator.Play(wands[type].animation);
+                }
             }
         }
     }

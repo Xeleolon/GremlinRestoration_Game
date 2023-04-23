@@ -50,7 +50,7 @@ public class GoalTracker : MonoBehaviour
             }
             else
             {
-                numCheck.SetText((progress + " of " + target));
+                    numCheck.SetText((progress + " of " + target));
             }
         }
 
@@ -293,6 +293,7 @@ public class GoalTracker : MonoBehaviour
     }
     public void CompletedGoal(int ticket)
     {
+        
         goalData[ticket].progress += 1;
         goalData[ticket].GoalAchieved();
 
