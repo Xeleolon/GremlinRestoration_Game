@@ -10,21 +10,24 @@ public class Activatable : MonoBehaviour
     {
         //this method is meant to be overwritten
         Debug.Log("Activating " + transform.name);
+        activated = true;
     }
     public virtual void UnActivate()
     {
         Debug.Log("Disabling" + transform.name);
+        activated = false;
     }
     public void OnActivate(bool disable)
     {
-        if (!activated)
+        if (!activated && !disable)
         {
             Activate();
             activated = true;
         }
-        else if (disable)
+        else if (activated && disable)
         {
             UnActivate();
+            activated = false;
         }
     }
 

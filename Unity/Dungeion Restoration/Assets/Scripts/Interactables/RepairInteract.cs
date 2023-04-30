@@ -35,8 +35,8 @@ public class RepairInteract : Interactable
 
     public void RepairObject()
     {
-        Instantiate(FixedObject, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        FixedObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
 }

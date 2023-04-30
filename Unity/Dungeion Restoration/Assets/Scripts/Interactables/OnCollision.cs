@@ -4,71 +4,103 @@ using UnityEngine;
 
 public class OnCollision : Interactable
 {
-    [Header("Collsion Conditions")]
-    [SerializeField] string CheckTag;
-    [SerializeField] bool trigger = false;
-    [SerializeField] bool enter = false;
-    [SerializeField] bool stay = false;
-    [SerializeField] bool exit = false;
-    public override void Activate()
+    [System.Serializable]
+    public class collisionTypes
     {
-        base.Activate();
+        public bool enter = false;
+        [Tooltip("true if upon entering you activate, false if your unactive")]
+        public bool onEnter = true;
+        public bool stay = false;
+        [Tooltip("true if upon staying you activate, false if your unactive")]
+        public bool onStay = true;
+        public bool exit = false;
+        [Tooltip("true if upon exiting you activate, false if your unactive")]
+        public bool onExit = true;
     }
-    void CheckCollisionTag(GameObject other)
+    [Header("Collsion Conditions")]
+    [SerializeField] string checkTag;
+    [SerializeField] bool trigger = false;
+    [SerializeField] collisionTypes activate;
+    public override void Start()
     {
-        if (CheckTag != "")
+        base.Start();
+        //activate = new collisionTypes();
+    }
+    public override void Activate(bool unActivate)
+    {
+        base.Activate(unActivate);
+    }
+    void CheckCollisionTag(GameObject other, bool onOff)
+    {
+        if (checkTag != "")
             {
-                if (other.tag == CheckTag)
+                if (other.tag == checkTag)
                 {
-                    Activate();
+                    if (onOff)
+                    {
+                        Activate(false);
+                    }
+                    else
+                    {
+                        Activate(true);
+                    }
                 }
             }
             else
             {
-                Activate();
+                if (onOff)
+                    {
+                        Activate(false);
+                    }
+                    else
+                    {
+                        Activate(true);
+                    }
             }
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if (!trigger && enter)
+        if (!trigger && activate.enter)
         {
-            CheckCollisionTag(other.gameObject);
+                CheckCollisionTag(other.gameObject, activate.onEnter);
         }
     }
     void OnCollisionStay(Collision other)
     {
-        if (!trigger && stay)
+        if (!trigger && activate.stay)
         {
-            CheckCollisionTag(other.gameObject);
+            CheckCollisionTag(other.gameObject, activate.onStay);
         }
     }
     void OnCollisionExit(Collision other)
     {
-        if (!trigger && exit)
+        if (!trigger && activate.exit)
         {
-            CheckCollisionTag(other.gameObject);
+            CheckCollisionTag(other.gameObject, activate.onExit);
         }
     }
     void OnTriggerEnter(Collider other)
     {
-        if (trigger && enter)
+        Debug.Log("Test 1 " + trigger + activate.enter);
+        if (trigger && activate.enter)
         {
-           CheckCollisionTag(other.gameObject);
+            Debug.Log("Test 2");
+           CheckCollisionTag(other.gameObject, activate.onEnter);
         }
     }
     void OnTriggerStay(Collider other)
     {
-        if (trigger && stay)
+        if (trigger && activate.stay)
         {
-            CheckCollisionTag(other.gameObject);
+            CheckCollisionTag(other.gameObject, activate.onStay);
         }
     }
     void OnTriggerExit(Collider other)
     {
-        if (trigger && exit)
+        if (trigger && activate.exit)
         {
-            CheckCollisionTag(other.gameObject);
+            CheckCollisionTag(other.gameObject, activate.onExit);
         }
     }
 }

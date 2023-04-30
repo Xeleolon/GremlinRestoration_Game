@@ -18,9 +18,9 @@ public class ButtonPlate : Interactable
         Debug.Log(message);
         PlayerChat.instance.NewMessage(message);
     }
-    public override void Activate()
+    public override void Activate(bool unActivate)
     {
-        base.Activate();
+        base.Activate(unActivate);
     }
     public override void Start()
     {
@@ -51,7 +51,7 @@ public class ButtonPlate : Interactable
                 if (!trapActivated)
                 {
                     Debug.Log("Trap activated");
-                Activate();
+                Activate(false);
                 trapActivated = true;
                 }
                 //Active Button!!
@@ -68,6 +68,10 @@ public class ButtonPlate : Interactable
         else if (!rb.isKinematic)
         {
             rb.isKinematic = true;
+            if (trapActivated)
+            {
+                Activate(true);
+            }
             trapActivated = false;
         }
 

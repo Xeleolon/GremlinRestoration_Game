@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamagePlayer : MonoBehaviour
+public class DamagePlayer : Activatable
 {
     [Tooltip("on contact how long before the player shell die if they don't move")]
     [SerializeField] private int deathWait = 0;
@@ -10,6 +10,7 @@ public class DamagePlayer : MonoBehaviour
     private float wholeCheck; //check if the timer has a whole number;
     private GameObject player;
     private bool willKill;
+    public string killMessage = "Player will die in";
     void Update()
     {
         if (willKill)
@@ -17,14 +18,17 @@ public class DamagePlayer : MonoBehaviour
             if (deathTimer <= 0)
             {
                 player.GetComponent<PlayerMovements>().KillPlayer();
+                deathTimer = deathWait;
+                wholeCheck = deathWait;
+                willKill = false;
             }
             else
             {
                 if (deathTimer >= wholeCheck - 0.1 & deathTimer <= wholeCheck + 0.1)
                 {
-                    Debug.Log("Player will die in " + wholeCheck);
+                    Debug.Log(killMessage + " " + wholeCheck);
                     wholeCheck -= 1;
-                    PlayerChat.instance.NewMessage("Player will die in " + wholeCheck);
+                    PlayerChat.instance.NewMessage(killMessage + " " + wholeCheck);
                 }
 
                 deathTimer -= 1 * Time.deltaTime;
@@ -32,19 +36,22 @@ public class DamagePlayer : MonoBehaviour
             }
         }
     }
-    void OnCollisionEnter(Collision other)
+    public override void Activate()
     {
-        if (other.gameObject.tag == "Player" && !willKill)
+        if (player == null)
         {
-            player = other.gameObject;
+            player = GameObject.FindWithTag("Player");
+        }
+        if (!willKill)
+        {
             deathTimer = deathWait;
             willKill = true;
             wholeCheck = deathWait;
         }
     }
-    void OnCollisionExit(Collision other)
+    public override void UnActivate()
     {
-        if (other.gameObject.tag == "Player" && willKill)
+        if (willKill)
         {
             willKill = false;
             PlayerChat.instance.NewMessage("Player Recovered");
