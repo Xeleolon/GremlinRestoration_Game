@@ -11,6 +11,12 @@ public class DamagePlayer : Activatable
     private GameObject player;
     private bool willKill;
     public string killMessage = "Player will die in";
+    void OnDisable()
+    {
+        deathTimer = deathWait;
+        wholeCheck = deathWait;
+        willKill = false;
+    }
     void Update()
     {
         if (willKill)

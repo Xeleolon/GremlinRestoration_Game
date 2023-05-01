@@ -14134,7 +14134,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460346941}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50.782875, y: 0.9161005, z: -37.881897}
+  m_LocalPosition: {x: -50.33, y: 0.9161005, z: -37.881897}
   m_LocalScale: {x: 0.009999998, y: 0.01, z: 0.009999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14216,7 +14216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02b3aa19506fd84fb557b57f2608914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: 4.83
   trapObject: {fileID: 0}
   interactionState: 0
   interacted: 0
@@ -14225,8 +14225,8 @@ MonoBehaviour:
     goal: 
     ticket: -1
     type: 0
-  key: 0
-  keyname: Key
+  key: 1
+  keyname: 
 --- !u!1 &461529850
 GameObject:
   m_ObjectHideFlags: 0
@@ -19781,7 +19781,7 @@ GameObject:
   - component: {fileID: 674591606}
   - component: {fileID: 674591605}
   - component: {fileID: 674591604}
-  - component: {fileID: 674591603}
+  - component: {fileID: 674591608}
   m_Layer: 0
   m_Name: KeyTreause
   m_TagString: Untagged
@@ -19789,28 +19789,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &674591603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674591602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a214b52712c94ab48923cdeda37f33ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
-  trapObject: {fileID: 0}
-  interactionState: 0
-  interacted: 0
-  activateAnimation: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
-  door: {fileID: 460346941}
 --- !u!65 &674591604
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19889,6 +19867,31 @@ Transform:
   m_Father: {fileID: 1069018855}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &674591608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674591602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c7d614f1aedae4c9617455bdefd473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 4.68
+  trapObject: {fileID: 0}
+  interactionState: 0
+  interacted: 0
+  activateAnimation: 
+  acheiveGoal:
+    goal: 
+    ticket: -1
+    type: 0
+  toggleObject: {fileID: 7416333261706696306}
+  toggleOn: 0
+  toggleOff: 1
+  message: Gas SetOff
 --- !u!1001 &675352920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60065,7 +60068,7 @@ GameObject:
   - component: {fileID: 2005776081}
   - component: {fileID: 2005776080}
   - component: {fileID: 2005776079}
-  - component: {fileID: 2005776078}
+  - component: {fileID: 2005776083}
   m_Layer: 0
   m_Name: GasButton
   m_TagString: Untagged
@@ -60073,21 +60076,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2005776078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005776077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 747d174cce1b52041a0555f5f89d4c91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  deathWait: 20
-  killMessage: Gas Killing Player
 --- !u!65 &2005776079
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60166,6 +60154,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2005776083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005776077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c7d614f1aedae4c9617455bdefd473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  trapObject: {fileID: 0}
+  interactionState: 0
+  interacted: 0
+  activateAnimation: 
+  acheiveGoal:
+    goal: 
+    ticket: -1
+    type: 0
+  toggleObject: {fileID: 7416333261706696306}
+  toggleOn: 1
+  toggleOff: 0
+  message: Disabled Gas
 --- !u!1 &2006101060
 GameObject:
   m_ObjectHideFlags: 0
@@ -67061,6 +67074,7 @@ GameObject:
   - component: {fileID: 7416333261706696309}
   - component: {fileID: 7416333261706696308}
   - component: {fileID: 7416333261706696310}
+  - component: {fileID: 7416333261706696311}
   m_Layer: 0
   m_Name: GasBorder
   m_TagString: Untagged
@@ -67109,7 +67123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
-  trapObject: {fileID: 2005776077}
+  trapObject: {fileID: 7416333261706696306}
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -67126,6 +67140,21 @@ MonoBehaviour:
     onStay: 1
     exit: 1
     onExit: 0
+--- !u!114 &7416333261706696311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7416333261706696306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747d174cce1b52041a0555f5f89d4c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activated: 0
+  deathWait: 20
+  killMessage: Gas Killing Player
 --- !u!4 &7676020837771366753 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5598928563623273906, guid: 4ed72e13ea758714090a3ed3f8d00846,
