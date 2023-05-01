@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovements : MonoBehaviour
 {
+    #region Interaction
 [System.Serializable]
 public class Interact
 {
@@ -222,6 +223,7 @@ public class Interact
         }
     }
 }
+#endregion
 
     [SerializeField] public Interact interactions;
     [Header("Respawn/Death")]
