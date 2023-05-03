@@ -5627,9 +5627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1aa5ec17e5291b44a981c9991a8701d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -6085,9 +6085,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bab43eddc765214ca0e4eb85ef85ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -8576,9 +8576,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e91975827bf7546adbf749d79af2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -8617,6 +8617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activated: 0
   deathWait: 5
+  killMessage: Player will die in
 --- !u!1 &605865208
 GameObject:
   m_ObjectHideFlags: 0
@@ -11730,9 +11731,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1aa5ec17e5291b44a981c9991a8701d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -21175,9 +21176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1aa5ec17e5291b44a981c9991a8701d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -21379,9 +21380,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357042c07beecb843830a4980e4da6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 1432236094}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -21393,12 +21394,11 @@ MonoBehaviour:
   trigger: 1
   activate:
     enter: 1
+    onEnter: 1
     stay: 0
+    onStay: 1
     exit: 0
-  unActivate:
-    enter: 0
-    stay: 0
-    exit: 0
+    onExit: 1
 --- !u!65 &1432236098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21843,9 +21843,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1aa5ec17e5291b44a981c9991a8701d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -26598,9 +26598,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bab43eddc765214ca0e4eb85ef85ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -28684,9 +28684,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a214b52712c94ab48923cdeda37f33ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -29044,9 +29044,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02b3aa19506fd84fb557b57f2608914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 4.02
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -31413,6 +31413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activated: 0
   deathWait: 5
+  killMessage: Player will die in
 --- !u!64 &2133483734
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31504,9 +31505,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357042c07beecb843830a4980e4da6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 2133483732}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -31518,12 +31519,11 @@ MonoBehaviour:
   trigger: 0
   activate:
     enter: 1
+    onEnter: 1
     stay: 0
+    onStay: 1
     exit: 0
-  unActivate:
-    enter: 0
-    stay: 0
-    exit: 1
+    onExit: 1
 --- !u!1 &2138226070
 GameObject:
   m_ObjectHideFlags: 0
@@ -31938,6 +31938,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 417379002, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: labelOffet
+      value: 38
+      objectReference: {fileID: 0}
     - target: {fileID: 1768008629, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
       propertyPath: m_IsActive
       value: 0

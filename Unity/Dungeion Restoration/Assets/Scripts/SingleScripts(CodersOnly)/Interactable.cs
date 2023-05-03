@@ -14,7 +14,10 @@ public class Interactable : MonoBehaviour
     }
     [Header("Standard Interactable")]
     [Tooltip("Radius which player can interact with object")]
-    public float radius = 3f;
+    //public float radius = 3f;
+    public Vector3 radius = new Vector3(3, 3, 3);
+    [Tooltip("the offset of the position of the interaction border")]
+    public Vector3 offSet;
     [Tooltip("gameObject being activated Interaction")]
     public GameObject trapObject;
     //[Tooltip("can the button once pressed again disable the trap when pressed again")]
@@ -28,6 +31,7 @@ public class Interactable : MonoBehaviour
     public string activateAnimation;
     Transform player;
     public AcheiveGoal acheiveGoal;
+    Vector3 radiusHalf;
     public virtual void Start()
     {
         if (acheiveGoal.goal != "")
@@ -38,6 +42,10 @@ public class Interactable : MonoBehaviour
         {
             acheiveGoal.ticket = GoalTracker.instance.CreateGoalData(acheiveGoal.type.ToString());
         }
+
+        radiusHalf.x = radius.x/2;
+        radiusHalf.y = radius.y/2;
+        radiusHalf.z = radius.z/2;
     }
     public virtual void Interact ()
     {
@@ -48,10 +56,6 @@ public class Interactable : MonoBehaviour
     public virtual void Activate(bool unActivate)
     {
         trapObject.GetComponent<Activatable>().OnActivate(unActivate);
-    }
-    public virtual void UnActivate()
-    {
-        trapObject.GetComponent<Activatable>().OnActivate(true);
     }
     public virtual void PlayAnimator()
     {
@@ -69,8 +73,13 @@ public class Interactable : MonoBehaviour
     {
         player = playerTransform;
         interactionState = state;
-        float distance = Vector3.Distance(player.position, transform.position);
-            if (distance <= radius && interacted != true) 
+        //float distance = Vector3.Distance(player.position, transform.position);
+        Vector3 distanceGreater = transform.position + offSet + radiusHalf;
+        Vector3 distnaceSmaller = transform.position + offSet - radiusHalf;
+            if (interacted != true && 
+            player.position.x <= distanceGreater.x && player.position.x >= distnaceSmaller.x && 
+            player.position.y <= distanceGreater.y && player.position.y >= distnaceSmaller.y && 
+            player.position.z <= distanceGreater.z && player.position.z >= distnaceSmaller.z)
             {
                 Debug.Log("INTERACT");
                 Interact();
@@ -89,6 +98,7 @@ public class Interactable : MonoBehaviour
     void OnDrawGizmosSelected ()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        //Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireCube((transform.position + offSet), radius);
     }
 }

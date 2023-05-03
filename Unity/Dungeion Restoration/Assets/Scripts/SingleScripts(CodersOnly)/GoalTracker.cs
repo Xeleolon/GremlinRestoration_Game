@@ -18,7 +18,6 @@ public class GoalTracker : MonoBehaviour
         private TMP_Text objective; //text object with the goal the player trying to achieve
         private TMP_Text numCheck; // text object with progress of target.
         private Toggle toggle; // toggle for target of one.
-
         public void ActiveLabel()
         {
             //Debug.Log("stage three " + name + " " + target);
@@ -86,7 +85,7 @@ public class GoalTracker : MonoBehaviour
     [Range(1, 8)]
     [SerializeField] int numOfLabels = 1;
     [Range(10f, 100)]
-    [SerializeField] float labelOffest = 1;
+    [SerializeField] float labelOffet = 10;
     public bool updateGoals;
     bool refreshWait;
     [Header("Testing Only")]
@@ -145,7 +144,8 @@ public class GoalTracker : MonoBehaviour
                 SetupStandardLabels();
             }
 
-            CreateLabels();
+            //CreateLabels();
+            Debug.Log("Create Labels");
 
             testCompleteTop = true;
         }
@@ -257,7 +257,7 @@ public class GoalTracker : MonoBehaviour
 
         }
     }
-    void CreateLabels()
+    void OldCreateLabels()
     {
         //Debug.Log("Testing 2 " + goalData[0].target);
         //take top 6 and give them labels
@@ -267,7 +267,7 @@ public class GoalTracker : MonoBehaviour
             if (order[i] >= 0 && goalData[order[i]] != null)
             {
                 Vector3 tempPostion = TitlePosition.position;
-                tempPostion.y -= labelOffest * (i + 1);
+                tempPostion.y -= labelOffet * (i + 1);
 
                 //Debug.Log("stage one " + goalData[order[i]].name + " " + goalData[order[i]].target);
 
@@ -291,6 +291,33 @@ public class GoalTracker : MonoBehaviour
             }
         }
     }
+    void CreateLables(int place, int identity) //place for it location if the order, identity for the spefiic goalData being refernceced
+    {
+        if (!goalData[identity].active)
+        {
+            //create the location of the label
+            Vector3 tempPostion = TitlePosition.position;
+            tempPostion.y -= labelOffet * (place + 1);
+
+            //identifty what type of label needs to be created
+            if (goalData[identity].target > 1)
+            {
+                goalData[identity].label = Instantiate(labelNumPrefab, tempPostion, Quaternion.identity);
+                goalData[identity].toggleON = false;
+            }
+            else
+            {
+                goalData[identity].label = Instantiate(labelCheckPrefab, tempPostion,  Quaternion.identity);  
+                goalData[identity].toggleON = true;
+            }
+
+            //Set new Label as child of object
+            goalData[identity].label.transform.SetParent(TitlePosition, true);
+
+            //Activate the Label of the object
+            goalData[identity].ActiveLabel();
+        }
+    }
     public void CompletedGoal(int ticket)
     {
         
@@ -303,7 +330,7 @@ public class GoalTracker : MonoBehaviour
         }
     }
 
-    void CycleLables()
+    void CycleLables(int place, int newPlace, int identity)
     {
         
     }
