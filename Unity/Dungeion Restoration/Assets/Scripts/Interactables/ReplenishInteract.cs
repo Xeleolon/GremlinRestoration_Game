@@ -16,6 +16,7 @@ public class ReplenishInteract : Interactable
     public float speed = 1.0f;
     public override void Start()
     {
+        acheiveGoal.type = 3;
         base.Start();
         playerHead = GameObject.FindWithTag("MainCamera").transform;
 

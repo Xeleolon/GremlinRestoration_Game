@@ -4,6 +4,11 @@ public class DestroyInteract : Interactable
 {
     [Header("Destroy")]
     public float destroyDelay = 0;
+    public override void Start()
+    {
+        acheiveGoal.type = 2;
+        base.Start();
+    }
     public override void Interact()
     {
         base.Interact();

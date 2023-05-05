@@ -43,6 +43,8 @@ public class GoalTracker : MonoBehaviour
 
         public void GoalAchieved()
         {
+            if (label != null)
+            {
             if (toggleON)
             {
                 toggle.isOn = true;
@@ -50,6 +52,7 @@ public class GoalTracker : MonoBehaviour
             else
             {
                     numCheck.SetText((progress + " of " + target));
+            }
             }
         }
 

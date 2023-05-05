@@ -128,8 +128,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e91975827bf7546adbf749d79af2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: {x: 10, y: 10, z: 10}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
+  activateAnimation: 
+  acheiveGoal:
+    goal: 
+    ticket: -1
+    type: 2
+  destroyDelay: 0

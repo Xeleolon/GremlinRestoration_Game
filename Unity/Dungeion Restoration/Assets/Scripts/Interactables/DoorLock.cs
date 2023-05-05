@@ -32,7 +32,8 @@ public class DoorLock : Interactable
 
     void OpenDoor()
     {
-        Collider collider = GetComponent<Collider>();
+        //need to come up with a solution for reenable collider
+        Collider collider = GetComponent<Collider>(); 
         collider.enabled = false;
         if (keyname != "")
         {
@@ -40,5 +41,6 @@ public class DoorLock : Interactable
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
         }
+        Destroy(gameObject);
     }
 }

@@ -5,6 +5,11 @@ public class RepairInteract : Interactable
     
     [Header("Repair")]
     public GameObject FixedObject;
+    public override void Start()
+    {
+        acheiveGoal.type = 1;
+        base.Start();
+    }
     public override void Interact()
     {
         base.Interact();
@@ -12,6 +17,10 @@ public class RepairInteract : Interactable
         {
             PlayAnimator();
             Completed();
+            if (FixedObject != null)
+            {
+                RepairObject();
+            }
             string message = new string(gameObject.name + " Repaired");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
