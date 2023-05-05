@@ -320,7 +320,7 @@ public class GoalTracker : MonoBehaviour
     }
     public void CompletedGoal(int ticket)
     {
-        
+        Debug.Log(ticket);
         goalData[ticket].progress += 1;
         goalData[ticket].GoalAchieved();
 
