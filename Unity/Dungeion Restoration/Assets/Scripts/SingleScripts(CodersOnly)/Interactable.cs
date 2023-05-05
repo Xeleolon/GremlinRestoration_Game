@@ -36,10 +36,12 @@ public class Interactable : MonoBehaviour
     {
         if (acheiveGoal.goal != "")
         {
+            //Debug.Log("Using string");
             acheiveGoal.ticket = GoalTracker.instance.CreateGoalData(acheiveGoal.goal);
         }
         else if (acheiveGoal.type != 0)
         {
+            //Debug.Log("using number");
             acheiveGoal.ticket = GoalTracker.instance.CreateGoalData(acheiveGoal.type.ToString());
         }
 
