@@ -120,7 +120,8 @@ public class Interact
         {
             state = 1;
             //PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
-            LevelManager.instance.ChangeInteractUI(state);
+            NewState();
+            //LevelManager.instance.ChangeInteractUI(state);
         }
 
         if (Input.GetAxisRaw("InteractTwo") != 0 && state != 2)
