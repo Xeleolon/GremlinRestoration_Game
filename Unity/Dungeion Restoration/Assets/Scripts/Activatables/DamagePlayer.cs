@@ -23,6 +23,7 @@ public class DamagePlayer : Activatable
         {
             if (deathTimer <= 0)
             {
+                Debug.Log("Player Killed By " + gameObject.name);
                 player.GetComponent<PlayerMovements>().KillPlayer();
                 deathTimer = deathWait;
                 wholeCheck = deathWait;
