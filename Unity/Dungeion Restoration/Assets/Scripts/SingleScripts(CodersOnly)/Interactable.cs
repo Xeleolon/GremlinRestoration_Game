@@ -32,6 +32,7 @@ public class Interactable : MonoBehaviour
     Transform player;
     public AcheiveGoal acheiveGoal;
     Vector3 radiusHalf;
+    private bool goalUpdated = false;
     public virtual void Start()
     {
         if (acheiveGoal.goal != "")
@@ -69,7 +70,11 @@ public class Interactable : MonoBehaviour
     public virtual void Completed()
     {
         //GoalTracker.instance.UpdateChecklist(type);
-        GoalTracker.instance.CompletedGoal(acheiveGoal.ticket);
+        if (!goalUpdated)
+        {
+            GoalTracker.instance.CompletedGoal(acheiveGoal.ticket);
+            goalUpdated = true;
+        }
     }
     public bool OnInteract (Transform playerTransform, int state)
     {

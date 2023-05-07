@@ -40,6 +40,14 @@ public class GoalTracker : MonoBehaviour
                 active = true;
             }
         }
+        public void UnActiveLabel()
+        {
+            if (label != null && !active)
+            {
+                Destroy(label);
+                active = false;
+            }
+        }
 
         public void GoalAchieved()
         {
@@ -89,8 +97,8 @@ public class GoalTracker : MonoBehaviour
     [SerializeField] int numOfLabels = 1;
     [Range(10f, 100)]
     [SerializeField] float labelOffet = 10;
-    public bool updateGoals;
     bool refreshWait;
+    private bool updateGoals = false;
     [Header("Testing Only")]
     public bool testCompleteTop;
     public bool emptyLists;
@@ -112,10 +120,6 @@ public class GoalTracker : MonoBehaviour
     // Start is called before the first frame update
     void OnValidate()
     {
-        if (updateGoals)
-        {
-            SetupStandardLabels();
-        }
         if (emptyLists)
         {
             goalData = new GoalData[0];
@@ -141,8 +145,9 @@ public class GoalTracker : MonoBehaviour
     {
         if (setupMax <= 0 && !testCompleteTop)
         {
+            
             //Debug.Log("checkList Made");
-            if (goalData.Length != maxGoals || order.Length != maxGoals)
+            if (goalData == null || goalData.Length != maxGoals || order.Length != maxGoals)
             {
                 SetupStandardLabels();
             }
@@ -178,7 +183,7 @@ public class GoalTracker : MonoBehaviour
     }
     void SetupStandardLabels()
     {
-        order = new int[maxGoals];
+        order = new int[maxGoals + 1];
         for(int i = 0; i < maxGoals; i++)
         {
             order[i] = -1;
@@ -193,29 +198,51 @@ public class GoalTracker : MonoBehaviour
             filledGoals = i + 1;
             order[(i + 3)] = i;
             goalData[i].place = i + 3;
+            CreateLables(i);
         }
         goalSetup = true;
     }
     public int CreateGoalData(string state)
     {
-        if (goalData.Length != maxGoals || order.Length != maxGoals)
+        if (!updateGoals)
         {
             SetupStandardLabels();
+            testInt += 1;
+            Debug.Log(testInt);
+            updateGoals = true;
         }
         switch(state)
         {
             case "1":
             goalData[0].target += 1;
+            if (goalData[0].target > 1 && goalData[0].toggleON);
+            {
+                goalData[0].UnActiveLabel();
+                goalData[0].toggleON = false;
+                CreateLables(0);
+            }
             //Debug.Log("Target" + goalData[0].name + " = " + goalData[0].target);
             return 0;
 
             case "2": 
             goalData[1].target += 1;
+            if (goalData[1].target > 1 && goalData[1].toggleON);
+            {
+                    goalData[1].UnActiveLabel();
+                    goalData[1].toggleON = false;
+                    CreateLables(1);
+            }
             //Debug.Log("Target" + goalData[1].name + " = " + goalData[1].target);
             return 1;
 
             case "3": 
             goalData[2].target += 1;
+            if (goalData[2].target > 1 && goalData[2].toggleON);
+            {
+                    goalData[2].UnActiveLabel();
+                    goalData[2].toggleON = false;
+                    CreateLables(2);
+            }
             //Debug.Log("Target" + goalData[2].name + " = " + goalData[2].target);
             return 2;
 
@@ -228,6 +255,12 @@ public class GoalTracker : MonoBehaviour
                     {
                         
                         goalData[i].target += 1;
+                        if (goalData[0].toggleON)
+                        {
+                        goalData[i].UnActiveLabel();
+                        goalData[i].toggleON = false;
+                        CreateLables(i);
+                        }
                         
                         return i;
                     }
@@ -242,6 +275,8 @@ public class GoalTracker : MonoBehaviour
                 {
                     order[(filledGoals - 3)] = filledGoals;
                     goalData[filledGoals].place = filledGoals - 3;
+
+                    CreateLables(filledGoals);
                 }
                 else
                 {
@@ -294,31 +329,32 @@ public class GoalTracker : MonoBehaviour
             }
         }
     }
-    void CreateLables(int place, int identity) //place for it location if the order, identity for the spefiic goalData being refernceced
+    void CreateLables(int ticket) //identity for the spefiic goalData being refernceced
     {
-        if (!goalData[identity].active)
+        if (!goalData[ticket].active)
         {
+            int place = goalData[ticket].place;
             //create the location of the label
             Vector3 tempPostion = TitlePosition.position;
             tempPostion.y -= labelOffet * (place + 1);
 
             //identifty what type of label needs to be created
-            if (goalData[identity].target > 1)
+            if (goalData[ticket].target > 1)
             {
-                goalData[identity].label = Instantiate(labelNumPrefab, tempPostion, Quaternion.identity);
-                goalData[identity].toggleON = false;
+                goalData[ticket].label = Instantiate(labelNumPrefab, tempPostion, Quaternion.identity);
+                goalData[ticket].toggleON = false;
             }
             else
             {
-                goalData[identity].label = Instantiate(labelCheckPrefab, tempPostion,  Quaternion.identity);  
-                goalData[identity].toggleON = true;
+                goalData[ticket].label = Instantiate(labelCheckPrefab, tempPostion,  Quaternion.identity);  
+                goalData[ticket].toggleON = true;
             }
 
             //Set new Label as child of object
-            goalData[identity].label.transform.SetParent(TitlePosition, true);
+            goalData[ticket].label.transform.SetParent(TitlePosition, true);
 
             //Activate the Label of the object
-            goalData[identity].ActiveLabel();
+            goalData[ticket].ActiveLabel();
         }
     }
     public void CompletedGoal(int ticket)
@@ -326,15 +362,58 @@ public class GoalTracker : MonoBehaviour
         Debug.Log(ticket);
         goalData[ticket].progress += 1;
         goalData[ticket].GoalAchieved();
+        if (goalData[ticket].place != 0)
+        {
+            int newPlace = goalData[ticket].place;
+            //move current occupant if filled.
+            if (order[0] != -1)
+            {
+                order[filledGoals] = order[0];
+                goalData[order[0]].place = filledGoals;
+                MoveLable(order[0]);
+            }
+            //move new occunat to fill gap
+            order[0] = ticket;
+            goalData[ticket].place = 0;
+            MoveLable(ticket);
+
+            
+        }
 
         if (goalData[ticket].target == goalData[ticket].progress)
         {
             //Then we completed and move all up one.
         }
     }
-
-    void CycleLables(int place, int newPlace, int identity)
+    void MoveLable(int ticket) //take one label and move it to new position
     {
-        
+        if (goalData[ticket].place < numOfLabels)
+        {
+            //need to consider how to add movement in furture design improvements
+            if (goalData[ticket].active)
+            {
+                int place = goalData[ticket].place;
+                Vector3 tempPostion = TitlePosition.position;
+                tempPostion.y -= labelOffet * (place + 1);
+                goalData[ticket].label.transform.position = tempPostion;
+            }
+            else
+            {
+                CreateLables(ticket);
+            }
+        }
+        else
+        {
+            goalData[ticket].UnActiveLabel();
+        }
+    }
+    void CycleLables(int space) // the new space that has now been made that must be filled
+    {
+        for (int i = space + 1; i < goalData.Length; i ++)
+        {
+            order[i - 1] = order[i];
+            goalData[order[i]].place = i - 1;
+            MoveLable(order[i - 1]);
+        }
     }
 }
