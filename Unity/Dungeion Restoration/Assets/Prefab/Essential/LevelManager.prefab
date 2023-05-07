@@ -2537,7 +2537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1768008630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2558,8 +2558,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -236.9, y: -209}
-  m_SizeDelta: {x: 485.81995, y: 431.83997}
+  m_AnchoredPosition: {x: -231, y: -213}
+  m_SizeDelta: {x: 994.81995, y: 628.83997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1793263557
 GameObject:
@@ -4015,15 +4015,18 @@ MonoBehaviour:
   testOnColors: 4
   onScale: {x: 0.8, y: 0.8, z: 0.8}
   offScale: {x: 0.7, y: 0.7, z: 0.7}
-  repairIcon: {fileID: 1876325014}
-  repairOnColor: {r: 1, g: 0.9358951, b: 0.06132078, a: 1}
-  repairOffColor: {r: 0.7598618, g: 0.764151, b: 0.5082325, a: 1}
-  destoryIcon: {fileID: 1252884407}
-  destoryOnColor: {r: 1, g: 0, b: 0, a: 1}
-  destoryOffColor: {r: 0.9622642, g: 0.5582948, b: 0.5582948, a: 1}
-  restockIcon: {fileID: 1665584321}
-  restockOnColor: {r: 0.06608224, g: 0.45354065, b: 0.5188679, a: 1}
-  restockOffColor: {r: 0.43596476, g: 0.87431693, b: 0.9528302, a: 1}
+  repair:
+    icon: {fileID: 1876325014}
+    onColor: {r: 1, g: 0.93725497, b: 0.0627451, a: 1}
+    offColor: {r: 0.7607844, g: 0.76470596, b: 0.50980395, a: 1}
+  destory:
+    icon: {fileID: 1252884407}
+    onColor: {r: 1, g: 0, b: 0, a: 1}
+    offColor: {r: 0.9607844, g: 0.5568628, b: 0.5568628, a: 1}
+  restock:
+    icon: {fileID: 1665584321}
+    onColor: {r: 0.06666667, g: 0.454902, b: 0.5176471, a: 1}
+    offColor: {r: 0.43529415, g: 0.8745099, b: 0.95294124, a: 1}
 --- !u!114 &6894620918582959068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4058,7 +4061,7 @@ MonoBehaviour:
     type: 3}
   TitlePosition: {fileID: 1846161676}
   numOfLabels: 6
-  labelOffest: 38
+  labelOffet: 38
   updateGoals: 0
   testCompleteTop: 0
   emptyLists: 0
@@ -4071,79 +4074,6 @@ MonoBehaviour:
   - name: Restock
     description: Restock
   maxGoals: 10
-  order: 
-  goalSetup: 1
-  goalData:
-  - name: Repair
-    target: 0
-    progress: 0
-    place: 0
-    active: 0
-    toggleON: 0
-    label: {fileID: 0}
-  - name: Remove
-    target: 0
-    progress: 0
-    place: 0
-    active: 0
-    toggleON: 0
-    label: {fileID: 0}
-  - name: Restock
-    target: 0
-    progress: 0
-    place: 0
-    active: 0
-    toggleON: 0
-    label: {fileID: 0}
-  - name: gameData
-    target: 0
-    progress: 0
-    place: 0
-    active: 0
-    toggleON: 0
-    label: {fileID: 0}
-  - name: gameData
-    target: 0
-    progress: 0
-    place: 0
-    active: 0
-    toggleON: 0
-    label: {fileID: 0}
-  - name: gameData
-    target: 0
-    progress: 0
-    place: 0
-    active: 0
-    toggleON: 0
-    label: {fileID: 0}
-  - name: gameData
-    target: 0
-    progress: 0
-    place: 0
-    active: 0
-    toggleON: 0
-    label: {fileID: 0}
-  - name: gameData
-    target: 0
-    progress: 0
-    place: 0
-    active: 0
-    toggleON: 0
-    label: {fileID: 0}
-  - name: gameData
-    target: 0
-    progress: 0
-    place: 0
-    active: 0
-    toggleON: 0
-    label: {fileID: 0}
-  - name: gameData
-    target: 0
-    progress: 0
-    place: 0
-    active: 0
-    toggleON: 0
-    label: {fileID: 0}
 --- !u!1 &6894620918881282468
 GameObject:
   m_ObjectHideFlags: 0

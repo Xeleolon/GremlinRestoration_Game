@@ -8,7 +8,7 @@ public class SpikeTrap : Activatable
     public float speed = 1f;
     public Transform spike;
     private Vector3 orgin;
-    public bool spikeActack = false;
+    private bool spikeActack = false;
     void Start()
     {
         orgin = spike.position;

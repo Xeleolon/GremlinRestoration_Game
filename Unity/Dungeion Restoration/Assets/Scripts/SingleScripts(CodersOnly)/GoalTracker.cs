@@ -104,9 +104,9 @@ public class GoalTracker : MonoBehaviour
     [Range(10, 100)]
     public int maxGoals = 10;
     private int filledGoals = 0;
-    public int[] order; //hold the order of goals
-    public bool goalSetup = false;
-    public GoalData[] goalData; //will become private after finished testing
+    private int[] order; //hold the order of goals
+    private bool goalSetup = false;
+    private GoalData[] goalData; //will become private after finished testing
 
     GameObject[] tempObject;
     // Start is called before the first frame update
