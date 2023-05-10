@@ -40,13 +40,20 @@ public class GoalTracker : MonoBehaviour
                 active = true;
             }
         }
-        public void UnActiveLabel()
+        public bool UnActiveLabel()
         {
-            if (label != null && !active)
+            //Debug.Log(label);
+            //Debug.Log(active);
+            if (label != null && active)
             {
+                //Debug.Log("I do come through here");
                 Destroy(label);
                 active = false;
+                return true;
             }
+            return false;
+
+            //Debug.Log("Label Destoryed " + place + label + active);
         }
 
         public void GoalAchieved()
@@ -82,7 +89,7 @@ public class GoalTracker : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("More Than One instance of inventory found!");
+            Debug.LogWarning("More Than One instance of GoalTacker found!");
         }
         instance = this;
     }
@@ -101,7 +108,6 @@ public class GoalTracker : MonoBehaviour
     private bool updateGoals = false;
     [Header("Testing Only")]
     public bool testCompleteTop;
-    public bool emptyLists;
     [Range(0, 10)]
     public int testInt;
     private float setupMax = 3;
@@ -114,53 +120,13 @@ public class GoalTracker : MonoBehaviour
     private int filledGoals = 0;
     private int[] order; //hold the order of goals
     private bool goalSetup = false;
-    private GoalData[] goalData; //will become private after finished testing
+    public GoalData[] goalData; //will become private after finished testing
 
     GameObject[] tempObject;
-    // Start is called before the first frame update
-    void OnValidate()
-    {
-        if (emptyLists)
-        {
-            goalData = new GoalData[0];
-            goalData = new GoalData[maxGoals];
-            emptyLists = false;
-        }
-        
-
-    }
-    void Start()
-    {
-        //SetupStandardLabels();
-
-        /*
-        if (checkList.activeSelf)
-        {
-            checkList.SetActive(false);
-        }*/
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (setupMax <= 0 && !testCompleteTop)
-        {
-            
-            //Debug.Log("checkList Made");
-            if (goalData == null || goalData.Length != maxGoals || order.Length != maxGoals)
-            {
-                SetupStandardLabels();
-            }
-
-            //CreateLabels();
-            Debug.Log("Create Labels");
-
-            testCompleteTop = true;
-        }
-        else
-        {
-            setupMax -= 1 * Time.deltaTime;
-        }
 
         if (Input.GetAxisRaw("Dropdown") != 0 && !refreshWait)
         {
@@ -197,6 +163,7 @@ public class GoalTracker : MonoBehaviour
             goalData[i].name = standardGoals[i].description;
             filledGoals = i + 1;
             order[(i + 3)] = i;
+            //Debug.Log(i);
             goalData[i].place = i + 3;
             CreateLables(i);
         }
@@ -208,40 +175,52 @@ public class GoalTracker : MonoBehaviour
         {
             SetupStandardLabels();
             testInt += 1;
-            Debug.Log(testInt);
+            //Debug.Log(testInt);
             updateGoals = true;
         }
         switch(state)
         {
             case "1":
             goalData[0].target += 1;
-            if (goalData[0].target > 1 && goalData[0].toggleON);
+            //Debug.Log("case 1 " + goalData[0].target);
+            if (goalData[0].target == 2 && goalData[0].toggleON);
             {
-                goalData[0].UnActiveLabel();
+                //Debug.Log("only once");
                 goalData[0].toggleON = false;
-                CreateLables(0);
+                if (goalData[0].UnActiveLabel())
+                {
+                    CreateLables(0);
+                }
             }
             //Debug.Log("Target" + goalData[0].name + " = " + goalData[0].target);
             return 0;
 
             case "2": 
             goalData[1].target += 1;
-            if (goalData[1].target > 1 && goalData[1].toggleON);
+            //Debug.Log("case 2 " + goalData[1].target);
+            if (goalData[1].target == 2 && goalData[1].toggleON);
             {
-                    goalData[1].UnActiveLabel();
-                    goalData[1].toggleON = false;
-                    CreateLables(1);
+                goalData[1].toggleON = false;
+                Debug.Log("attempt Destory label");
+                if (goalData[1].UnActiveLabel())
+                {
+                    Debug.Log("Destory label");
+                    CreateLables(0);
+                }
             }
             //Debug.Log("Target" + goalData[1].name + " = " + goalData[1].target);
             return 1;
 
             case "3": 
             goalData[2].target += 1;
-            if (goalData[2].target > 1 && goalData[2].toggleON);
+            //Debug.Log("case 3 " + goalData[2].target);
+            if (goalData[2].target == 2 && goalData[2].toggleON);
             {
-                    goalData[2].UnActiveLabel();
-                    goalData[2].toggleON = false;
-                    CreateLables(2);
+                goalData[2].toggleON = false;
+                if (goalData[2].UnActiveLabel())
+                {
+                    CreateLables(0);
+                }
             }
             //Debug.Log("Target" + goalData[2].name + " = " + goalData[2].target);
             return 2;
@@ -255,11 +234,13 @@ public class GoalTracker : MonoBehaviour
                     {
                         
                         goalData[i].target += 1;
-                        if (goalData[0].toggleON)
+                        if (goalData[i].target == 2 && goalData[0].toggleON)
                         {
-                        goalData[i].UnActiveLabel();
-                        goalData[i].toggleON = false;
-                        CreateLables(i);
+                            goalData[i].toggleON = false;
+                            if (goalData[i].UnActiveLabel())
+                            {
+                                CreateLables(i);
+                            }
                         }
                         
                         return i;
@@ -271,8 +252,9 @@ public class GoalTracker : MonoBehaviour
                 goalData[filledGoals] = new GoalData();
                 goalData[filledGoals].name = state;
                 goalData[filledGoals].target += 1;
-                if (filledGoals <= 6 && filledGoals >= 4)
+                if (filledGoals < numOfLabels && filledGoals >= numOfLabels - 3)
                 {
+                    //Debug.Log("Filled goal is " + filledGoals + " place is " + (filledGoals - 3));
                     order[(filledGoals - 3)] = filledGoals;
                     goalData[filledGoals].place = filledGoals - 3;
 
@@ -280,6 +262,7 @@ public class GoalTracker : MonoBehaviour
                 }
                 else
                 {
+                    //Debug.Log("Filled goal is " + filledGoals + " place is " + (filledGoals));
                     order[filledGoals] = filledGoals;
                     goalData[filledGoals].place = filledGoals;
                 }
@@ -295,44 +278,12 @@ public class GoalTracker : MonoBehaviour
 
         }
     }
-    void OldCreateLabels()
-    {
-        //Debug.Log("Testing 2 " + goalData[0].target);
-        //take top 6 and give them labels
-        for(int i = 0; i < numOfLabels; i++)
-        {
-            //Debug.Log(i);
-            if (order[i] >= 0 && goalData[order[i]] != null)
-            {
-                Vector3 tempPostion = TitlePosition.position;
-                tempPostion.y -= labelOffet * (i + 1);
-
-                //Debug.Log("stage one " + goalData[order[i]].name + " " + goalData[order[i]].target);
-
-
-
-                if (goalData[order[i]].target > 1)
-                {
-                    goalData[order[i]].label = Instantiate(labelNumPrefab, tempPostion,  Quaternion.identity);
-                    goalData[order[i]].toggleON = false;
-                }
-                else
-                {
-                    goalData[order[i]].label = Instantiate(labelCheckPrefab, tempPostion,  Quaternion.identity);  
-                    goalData[order[i]].toggleON = true;
-                }
-
-                //Debug.Log("stage two " + goalData[order[i]].name + " " + goalData[order[i]].target);
-                
-                goalData[order[i]].label.transform.parent = TitlePosition;
-                goalData[order[i]].ActiveLabel();
-            }
-        }
-    }
     void CreateLables(int ticket) //identity for the spefiic goalData being refernceced
     {
-        if (!goalData[ticket].active)
+        Debug.Log("1 ticket " + ticket + "Creating new Label");
+        if (!goalData[ticket].active && goalData[ticket].place < numOfLabels)
         {
+            Debug.Log("2 ticket " + ticket + "Creating new Label");
             int place = goalData[ticket].place;
             //create the location of the label
             Vector3 tempPostion = TitlePosition.position;
@@ -341,11 +292,13 @@ public class GoalTracker : MonoBehaviour
             //identifty what type of label needs to be created
             if (goalData[ticket].target > 1)
             {
+                //Debug.Log("Check if 2 working");
                 goalData[ticket].label = Instantiate(labelNumPrefab, tempPostion, Quaternion.identity);
                 goalData[ticket].toggleON = false;
             }
             else
             {
+                //Debug.Log("Check if 1 working");
                 goalData[ticket].label = Instantiate(labelCheckPrefab, tempPostion,  Quaternion.identity);  
                 goalData[ticket].toggleON = true;
             }
@@ -359,7 +312,7 @@ public class GoalTracker : MonoBehaviour
     }
     public void CompletedGoal(int ticket)
     {
-        Debug.Log(ticket);
+        //Debug.Log(ticket);
         goalData[ticket].progress += 1;
         goalData[ticket].GoalAchieved();
         if (goalData[ticket].place != 0)
@@ -377,6 +330,8 @@ public class GoalTracker : MonoBehaviour
             goalData[ticket].place = 0;
             MoveLable(ticket);
 
+            CycleLables(newPlace);
+
             
         }
 
@@ -387,6 +342,7 @@ public class GoalTracker : MonoBehaviour
     }
     void MoveLable(int ticket) //take one label and move it to new position
     {
+        //Debug.Log(ticket + "Moving");
         if (goalData[ticket].place < numOfLabels)
         {
             //need to consider how to add movement in furture design improvements
@@ -402,18 +358,23 @@ public class GoalTracker : MonoBehaviour
                 CreateLables(ticket);
             }
         }
-        else
+        else if (goalData[ticket].place >= numOfLabels)
         {
             goalData[ticket].UnActiveLabel();
         }
     }
     void CycleLables(int space) // the new space that has now been made that must be filled
     {
+       // Debug.Log(goalData.Length + "   " + order.Length);
         for (int i = space + 1; i < goalData.Length; i ++)
         {
-            order[i - 1] = order[i];
-            goalData[order[i]].place = i - 1;
-            MoveLable(order[i - 1]);
+            if (order[i] > -1)
+            {
+                //Debug.Log("Cycling Label at " + i);
+                order[i - 1] = order[i];
+                goalData[order[i]].place = i - 1;
+                MoveLable(order[i - 1]);
+            }
         }
     }
 }

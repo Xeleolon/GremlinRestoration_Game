@@ -82,10 +82,10 @@ public class OnCollision : Interactable
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Test 1 " + trigger + activate.enter);
+        //Debug.Log("Test 1 " + trigger + activate.enter);
         if (trigger && activate.enter)
         {
-            Debug.Log("Test 2");
+            //Debug.Log("Test 2");
            CheckCollisionTag(other.gameObject, activate.onEnter);
         }
     }

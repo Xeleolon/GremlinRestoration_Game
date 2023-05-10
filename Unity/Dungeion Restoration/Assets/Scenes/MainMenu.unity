@@ -1271,7 +1271,7 @@ MonoBehaviour:
   level:
   - LevelOne
   testScene: Test Scene
-  testSceneLock: 1
+  testSceneLock: 0
   levelText: {fileID: 1191499947}
   codeText: {fileID: 458652841}
 --- !u!4 &1213977859
