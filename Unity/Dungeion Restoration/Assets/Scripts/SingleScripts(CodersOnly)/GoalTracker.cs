@@ -42,18 +42,9 @@ public class GoalTracker : MonoBehaviour
         }
         public bool UnActiveLabel()
         {
-            //Debug.Log(label);
-            //Debug.Log(active);
-            if (label != null && active)
-            {
-                //Debug.Log("I do come through here");
-                Destroy(label);
-                active = false;
-                return true;
-            }
-            return false;
-
-            //Debug.Log("Label Destoryed " + place + label + active);
+            Destroy(label);
+            active = false;
+            return true;
         }
 
         public void GoalAchieved()
@@ -205,7 +196,7 @@ public class GoalTracker : MonoBehaviour
                 if (goalData[1].UnActiveLabel())
                 {
                     Debug.Log("Destory label");
-                    CreateLables(0);
+                    CreateLables(1);
                 }
             }
             //Debug.Log("Target" + goalData[1].name + " = " + goalData[1].target);
@@ -219,7 +210,7 @@ public class GoalTracker : MonoBehaviour
                 goalData[2].toggleON = false;
                 if (goalData[2].UnActiveLabel())
                 {
-                    CreateLables(0);
+                    CreateLables(2);
                 }
             }
             //Debug.Log("Target" + goalData[2].name + " = " + goalData[2].target);
