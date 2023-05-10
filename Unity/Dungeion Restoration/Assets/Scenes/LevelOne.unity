@@ -3795,6 +3795,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6547,7 +6552,7 @@ GameObject:
   - component: {fileID: 161180402}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7895,6 +7900,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273904, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Size.y
@@ -8175,7 +8185,7 @@ GameObject:
   - component: {fileID: 201032480}
   m_Layer: 0
   m_Name: Cube (7)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10803,6 +10813,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12439,7 +12454,7 @@ GameObject:
   - component: {fileID: 331541438}
   m_Layer: 0
   m_Name: Triangle (5)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12991,7 +13006,7 @@ GameObject:
   - component: {fileID: 336168826}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13506,6 +13521,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273904, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -14108,6 +14128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273904, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -15418,7 +15443,7 @@ GameObject:
   - component: {fileID: 368884098}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21240,6 +21265,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273904, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Size.y
@@ -22420,6 +22450,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
+      propertyPath: groundTag
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
       propertyPath: interactions.wands.Array.data[1].wand
       value: 
       objectReference: {fileID: 4570514683473616663}
@@ -22556,7 +22591,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1768008629, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894620918582959069, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
@@ -22801,7 +22836,7 @@ GameObject:
   - component: {fileID: 583437891}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23629,7 +23664,7 @@ GameObject:
   - component: {fileID: 605702637}
   m_Layer: 0
   m_Name: Triangle (2)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24720,7 +24755,7 @@ GameObject:
   - component: {fileID: 641751330}
   m_Layer: 0
   m_Name: Hallway2
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25534,7 +25569,7 @@ GameObject:
   - component: {fileID: 673391182}
   m_Layer: 0
   m_Name: StartRoomFloor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28188,7 +28223,7 @@ GameObject:
   - component: {fileID: 722491080}
   m_Layer: 0
   m_Name: MainRoomFloor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34243,7 +34278,7 @@ GameObject:
   - component: {fileID: 891494282}
   m_Layer: 0
   m_Name: PressurePlate (9)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35395,6 +35430,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273904, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Size.y
@@ -36059,7 +36099,7 @@ GameObject:
   - component: {fileID: 933537230}
   m_Layer: 0
   m_Name: Cube (8)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37553,7 +37593,7 @@ GameObject:
   - component: {fileID: 959920376}
   m_Layer: 0
   m_Name: Triangle (3)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41994,6 +42034,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PressurePlate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -47887,6 +47932,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressurePlate (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -49185,6 +49235,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273904, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -51227,7 +51282,7 @@ GameObject:
   - component: {fileID: 1293654677}
   m_Layer: 0
   m_Name: Triangle (4)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53953,7 +54008,7 @@ GameObject:
   - component: {fileID: 1376132410}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54230,7 +54285,7 @@ GameObject:
   - component: {fileID: 1383493386}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57702,6 +57757,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273904, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Size.y
@@ -59166,7 +59226,7 @@ GameObject:
   - component: {fileID: 1523165760}
   m_Layer: 0
   m_Name: SideRoomFloor (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59358,6 +59418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PressurePlate (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -59715,6 +59780,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressurePlate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -59989,7 +60059,7 @@ GameObject:
   - component: {fileID: 1535394430}
   m_Layer: 0
   m_Name: Cube (9)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61321,6 +61391,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273904, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -64794,6 +64869,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273904, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Size.y
@@ -65190,7 +65270,7 @@ GameObject:
   - component: {fileID: 1655695189}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65287,7 +65367,7 @@ GameObject:
   - component: {fileID: 1657388857}
   m_Layer: 0
   m_Name: Triangle (6)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69181,7 +69261,7 @@ GameObject:
   - component: {fileID: 1737909403}
   m_Layer: 0
   m_Name: SideRoom2Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69996,6 +70076,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PressurePlate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -74467,6 +74552,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273904, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Size.y
@@ -75683,6 +75773,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273904, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Size.y
@@ -76360,6 +76455,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -80168,6 +80268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressurePlate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -83442,6 +83547,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressurePlate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -84185,6 +84295,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PressurePlate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -87891,7 +88006,7 @@ GameObject:
   - component: {fileID: 5598928564330754937}
   m_Layer: 0
   m_Name: PressurePlate (8)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -247,6 +247,7 @@ public class Interact
     [Tooltip("stopping spead")]
     [SerializeField]private float stopSpeed = 1;
     public float jump = 1;
+    public string groundTag;
     [SerializeField] private float fallMultiplier = 2.5f;
     [SerializeField] private float lowJumpMultiplier = 2f;
     
@@ -571,9 +572,9 @@ public class Interact
 
     }
     //attached to a trigger underplayer to decect when the player leaves the ground
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
-        if (!onGround)
+        if (!onGround && other.tag == groundTag)
         {
             if (Input.GetButton("Jump"))
             {
@@ -586,15 +587,15 @@ public class Interact
     }
     void OnTriggerStay(Collider other)
     {
-        if (rb.velocity.y != 0 && !onGround && other.name != "Player")
+        if (rb.velocity.y != 0 && !onGround && other.tag == groundTag && other.name != "Player")
         {
             onGround = true;
         }
     }
 
-    void OnTriggerExit()
+    void OnTriggerExit(Collider other)
     {
-        if (onGround)
+        if (onGround && other.tag == groundTag)
         {
             onGround = false;
         }
