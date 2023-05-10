@@ -174,7 +174,7 @@ public class GoalTracker : MonoBehaviour
             case "1":
             goalData[0].target += 1;
             //Debug.Log("case 1 " + goalData[0].target);
-            if (goalData[0].target == 2 && goalData[0].toggleON);
+            if (goalData[0].target == 2);
             {
                 //Debug.Log("only once");
                 goalData[0].toggleON = false;
@@ -189,13 +189,13 @@ public class GoalTracker : MonoBehaviour
             case "2": 
             goalData[1].target += 1;
             //Debug.Log("case 2 " + goalData[1].target);
-            if (goalData[1].target == 2 && goalData[1].toggleON);
+            if (goalData[1].target == 2);
             {
                 goalData[1].toggleON = false;
-                Debug.Log("attempt Destory label");
+                //Debug.Log("attempt Destory label");
                 if (goalData[1].UnActiveLabel())
                 {
-                    Debug.Log("Destory label");
+                    //Debug.Log("Destory label");
                     CreateLables(1);
                 }
             }
@@ -205,7 +205,7 @@ public class GoalTracker : MonoBehaviour
             case "3": 
             goalData[2].target += 1;
             //Debug.Log("case 3 " + goalData[2].target);
-            if (goalData[2].target == 2 && goalData[2].toggleON);
+            if (goalData[2].target == 2);
             {
                 goalData[2].toggleON = false;
                 if (goalData[2].UnActiveLabel())
@@ -225,7 +225,7 @@ public class GoalTracker : MonoBehaviour
                     {
                         
                         goalData[i].target += 1;
-                        if (goalData[i].target == 2 && goalData[0].toggleON)
+                        if (goalData[i].target == 2)
                         {
                             goalData[i].toggleON = false;
                             if (goalData[i].UnActiveLabel())
@@ -271,10 +271,10 @@ public class GoalTracker : MonoBehaviour
     }
     void CreateLables(int ticket) //identity for the spefiic goalData being refernceced
     {
-        Debug.Log("1 ticket " + ticket + "Creating new Label");
+        //Debug.Log("1 ticket " + ticket + "Creating new Label");
         if (!goalData[ticket].active && goalData[ticket].place < numOfLabels)
         {
-            Debug.Log("2 ticket " + ticket + "Creating new Label");
+            //Debug.Log("2 ticket " + ticket + "Creating new Label");
             int place = goalData[ticket].place;
             //create the location of the label
             Vector3 tempPostion = TitlePosition.position;
