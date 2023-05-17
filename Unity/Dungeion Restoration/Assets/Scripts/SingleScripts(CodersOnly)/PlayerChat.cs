@@ -43,6 +43,7 @@ public class PlayerChat : MonoBehaviour
 
     public void NewMessage(string message)
     {
+        Debug.Log("New message");
         if (!active)
         {
         canvas.SetActive(true);

@@ -28,6 +28,7 @@ public class Interact
     public float scrollWheelSpeed = 10;
     private float clock;
     private Transform player;
+    public GameObject centerSprite;
     public WandData[] wands = new WandData[4];
     public void WandsNotNull()
     {
@@ -78,6 +79,10 @@ public class Interact
                                 Debug.Log("Bug beating to interacting with the interacable before it has chance to make intisise item look into");
                             }
                             fireRay = false;
+                            if (centerSprite != null && centerSprite.activeSelf)
+                            {
+                                centerSprite.SetActive(false);
+                            }
                             clock = refresh;
                         }
                     }
@@ -89,7 +94,11 @@ public class Interact
         {
             if (clock <= 0)
             {
-                fireRay = true; 
+                fireRay = true;
+                if (centerSprite != null && !centerSprite.activeSelf)
+                {
+                    centerSprite.SetActive(true);
+                }
             }
             else
             {
@@ -587,7 +596,8 @@ public class Interact
     }
     void OnTriggerStay(Collider other)
     {
-        if (rb.velocity.y != 0 && !onGround && other.tag == groundTag && other.name != "Player")
+        //Debug.Log("On Ground Stay Decatating " + other);
+        if (!onGround && other.tag == groundTag && other.name != "Player")
         {
             onGround = true;
         }
@@ -595,6 +605,7 @@ public class Interact
 
     void OnTriggerExit(Collider other)
     {
+        //Debug.Log("trying to leave ground");
         if (onGround && other.tag == groundTag)
         {
             onGround = false;
