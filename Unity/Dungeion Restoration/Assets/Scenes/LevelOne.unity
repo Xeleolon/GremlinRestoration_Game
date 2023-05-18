@@ -17985,7 +17985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 441113062}
   m_Layer: 0
-  m_Name: Start Area
+  m_Name: StartArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22516,23 +22516,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
-        type: 3}
       propertyPath: interactions.centerSprite
       value: 
       objectReference: {fileID: 640091627}
-    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
-        type: 3}
-      propertyPath: cameraMaxVerticalAngleFromHorizon
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 8703481612176272303, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703481612176272303, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -24795,7 +24790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641425730}
   m_Layer: 0
-  m_Name: Area2
+  m_Name: AreaTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25839,7 +25834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674591602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -48.032875, y: 4.6161003, z: -49.09}
+  m_LocalPosition: {x: -48.02, y: 4.03, z: -49.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34312,8 +34307,8 @@ Transform:
   m_Children:
   - {fileID: 460346942}
   - {fileID: 1958244546}
-  - {fileID: 7416333261706696309}
   - {fileID: 2005776082}
+  - {fileID: 7416333261706696309}
   - {fileID: 543450652728033473}
   - {fileID: 674591607}
   - {fileID: 1631453723}
@@ -42398,10 +42393,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 591557988}
-  - {fileID: 886892394}
-  - {fileID: 641425730}
   - {fileID: 441113062}
+  - {fileID: 591557988}
+  - {fileID: 641425730}
+  - {fileID: 886892394}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56620,6 +56615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
       propertyPath: interactions.wands.Array.data[1].wand
       value: 
       objectReference: {fileID: 831937662}
@@ -56646,7 +56646,7 @@ PrefabInstance:
     - target: {fileID: 8703481612176272303, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
@@ -77892,7 +77892,7 @@ Transform:
   m_GameObject: {fileID: 1958244545}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -61.782875, y: 1.3661003, z: -49.166897}
-  m_LocalScale: {x: 0.009999996, y: 0.01, z: 0.009999996}
+  m_LocalScale: {x: 0.009999994, y: 0.01, z: 0.009999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 886892394}
@@ -79406,6 +79406,7 @@ GameObject:
   - component: {fileID: 2005776080}
   - component: {fileID: 2005776079}
   - component: {fileID: 2005776083}
+  - component: {fileID: 2005776085}
   m_Layer: 0
   m_Name: GasButton
   m_TagString: Untagged
@@ -79503,8 +79504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c7d614f1aedae4c9617455bdefd473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {x: 5.04, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: -1.42}
+  radius: {x: 5, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: -1.5}
   trapObject: {fileID: 0}
   interactionState: 0
   interacted: 0
@@ -79517,6 +79518,19 @@ MonoBehaviour:
   toggleOn: 1
   toggleOff: 0
   message: Disabled Gas
+--- !u!65 &2005776085
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005776077}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2006101060
 GameObject:
   m_ObjectHideFlags: 0
@@ -84307,8 +84321,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149062261371}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -48.002876, y: 2.7661, z: -49.186897}
-  m_LocalScale: {x: 0.017158624, y: 0.014851763, z: 0.016674621}
+  m_LocalPosition: {x: -48.002876, y: 2.47, z: -49.186897}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 886892394}
@@ -84835,7 +84849,7 @@ GameObject:
   - component: {fileID: 3469287836576911205}
   - component: {fileID: 3469287836576911206}
   m_Layer: 0
-  m_Name: PlinthExport
+  m_Name: Plinth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86039,8 +86053,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 190.63306, y: 200.03616, z: 195.73169}
-  m_Center: {x: -0.000045776367, y: 0, z: -0.000030517578}
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3469287836576911206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86065,8 +86079,9 @@ MonoBehaviour:
     type: 0
   sliderPrefab: {fileID: 1460106237337754549, guid: d72b2fc4b4f6f62468550bdbe52b9d06,
     type: 3}
-  maxValue: 0
-  fillSpeed: 0.1
+  maxValue: 1
+  fillSpeed: 0.2
+  sliderOffSet: 2.5
   gradient:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}

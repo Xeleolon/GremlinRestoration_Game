@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1460106237337754545}
   - component: {fileID: 1460106237337754546}
   - component: {fileID: 1460106237337754547}
-  - component: {fileID: 6254621003861312447}
   m_Layer: 5
   m_Name: ReplenishPopUp
   m_TagString: Untagged
@@ -85,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1460106237337754547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,26 +102,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!95 &6254621003861312447
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460106237337754549}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c9d3037b359f9544e852e19232b374a6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1460106237542033401
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class ReplenishInteract : Interactable
     public float maxValue;
     public float fillSpeed = 0.1f;
     private float fillValue = 0;
+    public float sliderOffSet = 0;
     Slider bar;
     public Gradient gradient;
     Image fill;
@@ -70,7 +71,20 @@ public class ReplenishInteract : Interactable
     }
     private void ActivateSlider()
     {
-        ReplinishCanvas = Instantiate(sliderPrefab, transform.position, Quaternion.identity);
+        Vector3 slidePosition = transform.localScale;
+        slidePosition.x = transform.position.x;
+        slidePosition.z = transform.position.z;
+        if (sliderOffSet == 0)
+        {
+            slidePosition.y += transform.position.y;
+        }
+        else
+        {
+            slidePosition.y = transform.position.y + sliderOffSet;
+        }
+        
+
+        ReplinishCanvas = Instantiate(sliderPrefab, slidePosition, Quaternion.identity);
         bar = ReplinishCanvas.transform.Find("Slider").GetComponent<Slider>();
         fill = bar.transform.Find("Fill Area").transform.Find("Fill").GetComponent<Image>();
 

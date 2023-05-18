@@ -685,7 +685,7 @@ MonoBehaviour:
   respawnLength: 2
   interactActive: 1
   corpse: {fileID: 1390369824979298483, guid: a9177d12996f4fe4a97211bcff95248e, type: 3}
-  speed: 3
+  speed: 5
   acceleration: 10
   sprintSpeed: 6
   stopSpeed: 1
@@ -696,7 +696,7 @@ MonoBehaviour:
   onGround: 1
   cameraAcceleration: {x: 3000, y: 4000}
   cameraSensitivity: {x: 200, y: 200}
-  cameraMaxVerticalAngleFromHorizon: 45
+  cameraMaxVerticalAngleFromHorizon: 90
   cameraInputLagPeriod: 0.02
 --- !u!65 &8703481612176272296
 BoxCollider:
