@@ -101,7 +101,7 @@ public class GoalTracker : MonoBehaviour
     public bool testCompleteTop;
     [Range(0, 10)]
     public int testInt;
-    private float setupMax = 3;
+    //private float setupMax = 3;
     [Header("Goals")]
     [Tooltip("standard labels used")]
     [SerializeField] ChangableGoalData[] standardGoals;
@@ -110,7 +110,7 @@ public class GoalTracker : MonoBehaviour
     public int maxGoals = 10;
     private int filledGoals = 0;
     private int[] order; //hold the order of goals
-    private bool goalSetup = false;
+    //private bool goalSetup = false;
     public GoalData[] goalData; //will become private after finished testing
 
     GameObject[] tempObject;
@@ -158,7 +158,7 @@ public class GoalTracker : MonoBehaviour
             goalData[i].place = i + 3;
             CreateLables(i);
         }
-        goalSetup = true;
+        //goalSetup = true;
     }
     public int CreateGoalData(string state)
     {

@@ -234,6 +234,84 @@ public class Interact
     }
 }
 #endregion
+    #region Camera
+[System.Serializable]
+public class CameraControls
+{
+    [Header("Camera Movement")]
+    //Camera Control
+    [Tooltip("The rotation acceleration, in degrees / second")]
+    [SerializeField] private Vector2 cameraAcceleration;
+    [Tooltip("A mutipler to the input. Describes the maximum speed in degrees / second.")]
+    [SerializeField] private Vector2 cameraSensitivity;
+    [Tooltip("The Maximum angle from the horizon the player can rotote, in degrees")]
+    [SerializeField] private float cameraMaxVerticalAngleFromHorizon;
+    [Tooltip("The period to wait until resetting the input value. Set this as low as possible without encountering stuttering from camera")]
+    [SerializeField] private float cameraInputLagPeriod;
+    private GameObject mainCamera;
+    private Vector2 cameraRotation;
+    private Vector2 cameraVelocity;
+    private Vector2 cameraLastInputEvent;
+    private float cameraInputLagTimer;
+    public void EnableCamera(Transform player)
+    {
+        mainCamera = GameObject.FindWithTag("MainCamera");
+        cameraVelocity = Vector2.zero;
+        cameraInputLagTimer = 0;
+        cameraLastInputEvent = Vector2.zero;
+
+        Vector3 euler = player.localEulerAngles;
+        euler.x = mainCamera.transform.localEulerAngles.x;
+        if(euler.x >= 180)
+        {
+            euler.x -= 360;
+        }
+        euler.x = ClampCameraVerticalAngle(euler.x);
+
+        player.localEulerAngles = new Vector3(0, euler.y, euler.z);
+        mainCamera.transform.localEulerAngles = new Vector3(euler.x,0 , 0);
+
+        cameraRotation = new Vector2(euler.y, euler.x);
+    }
+    public void MoveCamera(Transform player)
+    {
+        Vector2 cameraSpeed = GetMouseInput() * cameraSensitivity;
+
+        // Calculate new rotation and store it for future changes
+        cameraVelocity = new Vector2(
+            Mathf.MoveTowards(cameraVelocity.x, cameraSpeed.x, cameraAcceleration.x * Time.deltaTime),
+            Mathf.MoveTowards(cameraVelocity.y, cameraSpeed.y, cameraAcceleration.y * Time.deltaTime));
+        
+        cameraRotation += cameraVelocity * Time.deltaTime;
+
+        cameraRotation.y = ClampCameraVerticalAngle(cameraRotation.y);
+
+        // convert the camera rotation to euler angles 
+        player.localEulerAngles = new Vector3(0, cameraRotation.x, 0);
+        mainCamera.transform.localEulerAngles = new Vector3(cameraRotation.y, 0 ,0);
+    }
+    private float ClampCameraVerticalAngle(float angle)
+    {
+        return Mathf.Clamp(angle, -cameraMaxVerticalAngleFromHorizon, cameraMaxVerticalAngleFromHorizon);
+    }
+    private Vector2 GetMouseInput()
+    {
+        cameraInputLagTimer += Time.deltaTime;
+
+
+        Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
+
+        if ((Mathf.Approximately(0, mouseInput.x) && Mathf.Approximately(0, mouseInput.y)) == false || cameraInputLagTimer >= cameraInputLagPeriod)
+        {
+            cameraLastInputEvent = mouseInput;
+            cameraInputLagTimer = 0;
+        }
+
+        
+        return cameraLastInputEvent;
+    }
+}
+#endregion
 
     [SerializeField] public Interact interactions;
     [Header("Respawn/Death")]
@@ -277,23 +355,7 @@ public class Interact
     private Rigidbody rb;
 
 
-    #region CameraMomevementVarables
-    [Header("Camera Movement")]
-    //Camera Control
-    [Tooltip("The rotation acceleration, in degrees / second")]
-    [SerializeField] private Vector2 cameraAcceleration;
-    [Tooltip("A mutipler to the input. Describes the maximum speed in degrees / second.")]
-    [SerializeField] private Vector2 cameraSensitivity;
-    [Tooltip("The Maximum angle from the horizon the player can rotote, in degrees")]
-    [SerializeField] private float cameraMaxVerticalAngleFromHorizon;
-    [Tooltip("The period to wait until resetting the input value. Set this as low as possible without encountering stuttering from camera")]
-    [SerializeField] private float cameraInputLagPeriod;
-    private GameObject mainCamera;
-    private Vector2 cameraRotation;
-    private Vector2 cameraVelocity;
-    private Vector2 cameraLastInputEvent;
-    private float cameraInputLagTimer;
-    #endregion
+    public CameraControls cameraControls;
     void OnValidate() //only calls if change when script reloads or change in value
     {
         interactions.WandsNotNull();
@@ -302,36 +364,17 @@ public class Interact
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        mainCamera = GameObject.FindWithTag("MainCamera");
+        cameraControls.EnableCamera(transform);
         lastCheckPoint = transform.position;
         levelManager = LevelManager.instance;
         LevelManager.instance.ChangeInteractUI(interactions.state);
         interactions.WandsNotNull();
     }
-    #region OnEnable
     void OnEnable()
     {
-        //camera Elements
-        mainCamera = GameObject.FindWithTag("MainCamera");
-        cameraVelocity = Vector2.zero;
-        cameraInputLagTimer = 0;
-        cameraLastInputEvent = Vector2.zero;
-
-        Vector3 euler = transform.localEulerAngles;
-        euler.x = mainCamera.transform.localEulerAngles.x;
-        if(euler.x >= 180)
-        {
-            euler.x -= 360;
-        }
-        euler.x = ClampCameraVerticalAngle(euler.x);
-
-        transform.localEulerAngles = new Vector3(0, euler.y, euler.z);
-        mainCamera.transform.localEulerAngles = new Vector3(euler.x,0 , 0);
-
-        cameraRotation = new Vector2(euler.y, euler.x);
+        cameraControls.EnableCamera(transform);
         
     }
-    #endregion
 
     void Update()
     {
@@ -345,24 +388,7 @@ public class Interact
         interactions.ChangeState();
 
 
-        #region CameraMovement
-        // camera Velocity is currenty mouse Input scaled by desired sensitivity
-        // this is the maximum velocity
-        Vector2 cameraSpeed = GetMouseInput() * cameraSensitivity;
-
-        // Calculate new rotation and store it for future changes
-        cameraVelocity = new Vector2(
-            Mathf.MoveTowards(cameraVelocity.x, cameraSpeed.x, cameraAcceleration.x * Time.deltaTime),
-            Mathf.MoveTowards(cameraVelocity.y, cameraSpeed.y, cameraAcceleration.y * Time.deltaTime));
-        
-        cameraRotation += cameraVelocity * Time.deltaTime;
-
-        cameraRotation.y = ClampCameraVerticalAngle(cameraRotation.y);
-
-        // convert the camera rotation to euler angles 
-        transform.localEulerAngles = new Vector3(0, cameraRotation.x, 0);
-        mainCamera.transform.localEulerAngles = new Vector3(cameraRotation.y, 0 ,0);
-        #endregion
+        cameraControls.MoveCamera(transform);
         }
         else if (playerDead)
         {
@@ -406,12 +432,10 @@ public class Interact
     {
         if (playerDead)
         {
-            Debug.Log("player Dead");
             return true;
         }
         else
         {
-             Debug.Log("player Alive");
             return false;
         }
     }
@@ -435,28 +459,6 @@ public class Interact
         Debug.Log("Check Point Saved");
         PlayerChat.instance.NewMessage("Check Point Saved");
     }
-    #region CameraMovementFuctions
-    private float ClampCameraVerticalAngle(float angle)
-    {
-        return Mathf.Clamp(angle, -cameraMaxVerticalAngleFromHorizon, cameraMaxVerticalAngleFromHorizon);
-    }
-    private Vector2 GetMouseInput()
-    {
-        cameraInputLagTimer += Time.deltaTime;
-
-
-        Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-
-        if ((Mathf.Approximately(0, mouseInput.x) && Mathf.Approximately(0, mouseInput.y)) == false || cameraInputLagTimer >= cameraInputLagPeriod)
-        {
-            cameraLastInputEvent = mouseInput;
-            cameraInputLagTimer = 0;
-        }
-
-        
-        return cameraLastInputEvent;
-    }
-    #endregion
     #region Movement
     void MovementInputs()
     {

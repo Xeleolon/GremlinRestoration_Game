@@ -22369,6 +22369,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8703481612176272296, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8703481612176272298, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
       propertyPath: m_RootOrder
@@ -22377,7 +22382,7 @@ PrefabInstance:
     - target: {fileID: 8703481612176272298, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.8
+      value: 24.963
       objectReference: {fileID: 0}
     - target: {fileID: 8703481612176272298, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
@@ -22387,7 +22392,7 @@ PrefabInstance:
     - target: {fileID: 8703481612176272298, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.333
       objectReference: {fileID: 0}
     - target: {fileID: 8703481612176272298, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
@@ -22429,6 +22434,41 @@ PrefabInstance:
       propertyPath: interactions.centerSprite
       value: 
       objectReference: {fileID: 640091627}
+    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
+      propertyPath: cameraControls.cameraSensitivity.x
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
+      propertyPath: cameraControls.cameraSensitivity.y
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
+      propertyPath: cameraControls.cameraAcceleration.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
+      propertyPath: cameraControls.cameraAcceleration.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
+      propertyPath: cameraControls.cameraInputLagPeriod
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
+      propertyPath: cameraControls.cameraMaxVerticalAngleFromHorizon
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703481612176272301, guid: 00298c439054da44db3bf102ab952394,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8703481612176272303, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
       propertyPath: m_Name
@@ -22437,7 +22477,7 @@ PrefabInstance:
     - target: {fileID: 8703481612176272303, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -56240,7 +56280,7 @@ PrefabInstance:
     - target: {fileID: 8703481612176272303, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

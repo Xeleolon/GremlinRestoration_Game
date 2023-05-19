@@ -11,6 +11,7 @@ public class DamagePlayer : Activatable
     private GameObject player;
     private bool willKill;
     public string killMessage = "Player will die in";
+    private PlayerMovements playerScript;
     void OnDisable()
     {
         deathTimer = deathWait;
@@ -19,12 +20,12 @@ public class DamagePlayer : Activatable
     }
     void Update()
     {
-        if (willKill)
+        if (willKill && !playerScript.CheckPlayerLife())
         {
             if (deathTimer <= 0)
             {
                 Debug.Log("Player Killed By " + gameObject.name);
-                player.GetComponent<PlayerMovements>().KillPlayer();
+                playerScript.KillPlayer();
                 willKill = false;
                 activated = false;
             }
@@ -51,9 +52,8 @@ public class DamagePlayer : Activatable
         if (player == null)
         {
             player = GameObject.FindWithTag("Player");
+            playerScript = player.GetComponent<PlayerMovements>();
         }
-        PlayerMovements playerScript;
-        playerScript = player.GetComponent<PlayerMovements>();
         if (!playerScript.CheckPlayerLife())
         {
             if (!willKill)
