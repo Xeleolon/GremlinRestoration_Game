@@ -402,6 +402,19 @@ public class Interact
             PlayerChat.instance.NewMessage("Player Died");
         }
     }
+    public bool CheckPlayerLife()
+    {
+        if (playerDead)
+        {
+            Debug.Log("player Dead");
+            return true;
+        }
+        else
+        {
+             Debug.Log("player Alive");
+            return false;
+        }
+    }
     public void MoveToCheckPoint()
     {
         transform.position = lastCheckPoint;

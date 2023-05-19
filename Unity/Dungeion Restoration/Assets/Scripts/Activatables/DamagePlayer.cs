@@ -25,22 +25,25 @@ public class DamagePlayer : Activatable
             {
                 Debug.Log("Player Killed By " + gameObject.name);
                 player.GetComponent<PlayerMovements>().KillPlayer();
-                deathTimer = deathWait;
-                wholeCheck = deathWait;
                 willKill = false;
+                activated = false;
             }
             else
             {
                 if (deathTimer >= wholeCheck - 0.1 & deathTimer <= wholeCheck + 0.1)
                 {
-                    Debug.Log(killMessage + " " + wholeCheck);
-                    wholeCheck -= 1;
+                    //Debug.Log(killMessage + " " + wholeCheck);
                     PlayerChat.instance.NewMessage(killMessage + " " + wholeCheck);
+                    wholeCheck -= 1;
                 }
 
                 deathTimer -= 1 * Time.deltaTime;
                 
             }
+        }
+        else if (activated)
+        {
+            activated = false;
         }
     }
     public override void Activate()
@@ -49,11 +52,20 @@ public class DamagePlayer : Activatable
         {
             player = GameObject.FindWithTag("Player");
         }
-        if (!willKill)
+        PlayerMovements playerScript;
+        playerScript = player.GetComponent<PlayerMovements>();
+        if (!playerScript.CheckPlayerLife())
         {
-            deathTimer = deathWait;
-            willKill = true;
-            wholeCheck = deathWait;
+            if (!willKill)
+            {
+                deathTimer = deathWait;
+                wholeCheck = deathWait;
+                willKill = true;
+            }
+        }
+        else
+        {
+            willKill = false;
         }
     }
     public override void UnActivate()
