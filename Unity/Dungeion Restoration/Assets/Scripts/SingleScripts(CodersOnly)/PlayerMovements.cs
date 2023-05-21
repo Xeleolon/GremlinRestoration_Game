@@ -353,6 +353,8 @@ public class CameraControls
     bool right = false;
     bool left = false;
     private Rigidbody rb;
+    private int moveStateX = 6;
+    private int moveStateY = 6;
 
 
     public CameraControls cameraControls;
@@ -380,8 +382,12 @@ public class CameraControls
     {
         if (interactActive)
         {
-        MovementInputs();
-        
+            if (onGround)
+            {
+                 MovementInputs();
+            }
+        Moving(moveStateX);
+        Moving(moveStateY);
         
         JumpFunction();
         interactions.ShootRay();
@@ -475,7 +481,7 @@ public class CameraControls
             }
             if (Input.GetAxisRaw("Sprint") > 0)
             {
-                velocity.z = Mathf.LerpUnclamped(0, speed, veritcalAcceleration);
+                moveStateX = 0;
             }
             else
             {
@@ -484,11 +490,8 @@ public class CameraControls
                 {
                     forwardAcceleration = 1;
                 }
-                else
-                {
-                    forwardAcceleration = veritcalAcceleration;
-                }
-                velocity.z = Mathf.Lerp(0, speed, forwardAcceleration);
+                
+                moveStateX = 1;
             }
         }
         else if (Input.GetAxisRaw("Vertical") < 0) //Y for Vertival movement
@@ -502,7 +505,8 @@ public class CameraControls
             {
                 veritcalAcceleration -=acceleration * Time.deltaTime;
             }
-            velocity.z = Mathf.Lerp(-speed, 0, veritcalAcceleration);
+           
+           moveStateX = 2;
         }
         else
         {
@@ -529,6 +533,7 @@ public class CameraControls
 
             //velocity.z = Mathf.Lerp(0, verticalStartStop, verticalStop);
             velocity.z = 0;
+            moveStateX = 5;
         }
 
         if (Input.GetAxisRaw("Horizontal") > 0) //X for Horizontal movement
@@ -542,7 +547,8 @@ public class CameraControls
             {
                 horizontalAcceleration += acceleration * Time.deltaTime;
             }
-            velocity.x = Mathf.Lerp(0, speed, horizontalAcceleration);
+            
+            moveStateY = 3;
         }
         else if (Input.GetAxisRaw("Horizontal") < 0) //X for Horizontal movement
         {
@@ -555,7 +561,8 @@ public class CameraControls
             {
                 horizontalAcceleration -= acceleration * Time.deltaTime;
             }
-            velocity.x = Mathf.Lerp(-speed, 0, horizontalAcceleration);
+            
+            moveStateY = 4;
         }
         else
         {
@@ -568,6 +575,35 @@ public class CameraControls
                 left = false;
             }
             velocity.x = 0;
+            moveStateY = 5;
+        }
+    }
+    void Moving(int state) //help to allow movement to be held while in free fall without reseting and changing
+    {
+        if (state < 5) // 5 for not to be used
+        {
+            switch (state)
+        {
+            case (0): // 0 for sprint forward
+            velocity.z = Mathf.LerpUnclamped(0, speed, veritcalAcceleration);
+            break;
+            
+            case (1): // 1 for forward
+            velocity.z = Mathf.Lerp(0, speed, veritcalAcceleration);
+            break; 
+
+            case (2): // 2 for backwards
+            velocity.z = Mathf.Lerp(-speed, 0, veritcalAcceleration);
+            break;
+
+            case (3): // 3 for right
+            velocity.x = Mathf.Lerp(0, speed, horizontalAcceleration);
+            break;
+
+            case (4): // 4 for left
+            velocity.x = Mathf.Lerp(-speed, 0, horizontalAcceleration);
+            break;
+        }
         }
     }
 
