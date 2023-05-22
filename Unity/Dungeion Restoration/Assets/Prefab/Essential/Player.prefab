@@ -619,7 +619,7 @@ Transform:
   - {fileID: 8703481612947801128}
   - {fileID: 8703481611146569621}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &8703481612176272301
 CapsuleCollider:
@@ -694,10 +694,11 @@ MonoBehaviour:
   fallMultiplier: 2
   lowJumpMultiplier: 2
   onGround: 1
-  cameraAcceleration: {x: 3000, y: 4000}
-  cameraSensitivity: {x: 200, y: 200}
-  cameraMaxVerticalAngleFromHorizon: 90
-  cameraInputLagPeriod: 0.02
+  cameraControls:
+    cameraAcceleration: {x: 4000, y: 4000}
+    cameraSensitivity: {x: 400, y: 400}
+    cameraMaxVerticalAngleFromHorizon: 90
+    cameraInputLagPeriod: 0.001
 --- !u!65 &8703481612176272296
 BoxCollider:
   m_ObjectHideFlags: 0
