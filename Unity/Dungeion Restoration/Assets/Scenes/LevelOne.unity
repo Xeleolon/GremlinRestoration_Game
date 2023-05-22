@@ -5859,7 +5859,7 @@ GameObject:
   - component: {fileID: 147343295}
   m_Layer: 0
   m_Name: ConnectingFloor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22369,11 +22369,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8703481612176272296, guid: 00298c439054da44db3bf102ab952394,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8703481612176272298, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
       propertyPath: m_RootOrder
@@ -22434,50 +22429,10 @@ PrefabInstance:
       propertyPath: interactions.centerSprite
       value: 
       objectReference: {fileID: 640091627}
-    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
-        type: 3}
-      propertyPath: cameraControls.cameraSensitivity.x
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
-        type: 3}
-      propertyPath: cameraControls.cameraSensitivity.y
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
-        type: 3}
-      propertyPath: cameraControls.cameraAcceleration.x
-      value: 4000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
-        type: 3}
-      propertyPath: cameraControls.cameraAcceleration.y
-      value: 4000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
-        type: 3}
-      propertyPath: cameraControls.cameraInputLagPeriod
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703481612176272299, guid: 00298c439054da44db3bf102ab952394,
-        type: 3}
-      propertyPath: cameraControls.cameraMaxVerticalAngleFromHorizon
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703481612176272301, guid: 00298c439054da44db3bf102ab952394,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8703481612176272303, guid: 00298c439054da44db3bf102ab952394,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703481612176272303, guid: 00298c439054da44db3bf102ab952394,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -22573,6 +22528,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1315612298, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6894620918582959069, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_RootOrder
@@ -25830,6 +25789,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressurePlate (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273906, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_RootOrder
@@ -28254,6 +28218,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PressurePlate (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273906, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}

@@ -413,10 +413,10 @@ public class CameraControls
     }
     void FixedUpdate()
     {
-        //if (velocity.x != 0 || velocity.y != 0 || velocity.x != 0)
-        //{
+        if (interactActive)
+        {
         rb.MovePosition(rb.position + transform.TransformDirection(velocity) * Time.fixedDeltaTime);
-        //}
+        }
     }
 
     public void KillPlayer()
