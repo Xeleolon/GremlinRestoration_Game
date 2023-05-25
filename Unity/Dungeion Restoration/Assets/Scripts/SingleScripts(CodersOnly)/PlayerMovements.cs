@@ -344,10 +344,6 @@ public class CameraControls
     private Vector3 velocity;
     float veritcalAcceleration = 0.0f; //container to track when at fall speed
     float horizontalAcceleration = 0.0f;
-    float verticalStartStop = 0.0f;
-    //float horizontalStartStop = 0.0f;
-    float verticalStop = 0.0f;
-    //float horizontalStop = 0.0f;
     bool forward = false; //movement states to check which way the player is current moving.
     bool backward = false;
     bool right = false;
@@ -355,7 +351,8 @@ public class CameraControls
     private Rigidbody rb;
     private int moveStateX = 6;
     private int moveStateY = 6;
-
+    private GameObject rotationFreaze; //a empty gameObject which is holds the player rotation and freaze it postion
+    private bool rotationFreazeMove = false;
 
     public CameraControls cameraControls;
     void OnValidate() //only calls if change when script reloads or change in value
@@ -371,6 +368,9 @@ public class CameraControls
         levelManager = LevelManager.instance;
         LevelManager.instance.ChangeInteractUI(interactions.state);
         interactions.WandsNotNull();
+        rotationFreaze = new GameObject("DontDestoryPlayerRotation");
+        //rotationFreaze.AddComponent<Rigidbody>();
+
     }
     void OnEnable()
     {
@@ -382,9 +382,13 @@ public class CameraControls
     {
         if (interactActive)
         {
-            if (onGround)
+            if (!rotationFreazeMove)
             {
-                 MovementInputs();
+                MovementInputs();
+            }
+            else
+            {
+                SlowDown();
             }
         Moving(moveStateX);
         Moving(moveStateY);
@@ -415,10 +419,19 @@ public class CameraControls
     {
         if (interactActive)
         {
-        rb.MovePosition(rb.position + transform.TransformDirection(velocity) * Time.fixedDeltaTime);
+            if (!rotationFreazeMove)
+            {
+                //Debug.Log(transform.TransformDirection(velocity) + " " + velocity);
+                rb.MovePosition(rb.position + transform.TransformDirection(velocity) * Time.fixedDeltaTime);
+            }
+            else
+            {
+                //work if facing correct forward need to translate last position rotation to be new object rotation.
+                rb.MovePosition(rb.position + rotationFreaze.transform.TransformDirection(velocity) * Time.fixedDeltaTime);
+            }
         }
     }
-
+    # region PlayerLife
     public void KillPlayer()
     {
         if (respawnTimer <= 0 || !playerDead)
@@ -465,6 +478,7 @@ public class CameraControls
         Debug.Log("Check Point Saved");
         PlayerChat.instance.NewMessage("Check Point Saved");
     }
+    #endregion
     #region Movement
     void MovementInputs()
     {
@@ -510,30 +524,17 @@ public class CameraControls
         }
         else
         {
-            if (forward)
+            if (forward) 
             {
                 forward = false;
-                verticalStartStop = velocity.z;
-                verticalStop = veritcalAcceleration;
             }
             else if (backward)
             {
                 backward = false;
-                verticalStartStop = velocity.z;
-                verticalStop = veritcalAcceleration;
             }
-            if (verticalStop < 0.2)
-            {
-                verticalStop -= stopSpeed * Time.deltaTime;
-            }
-            else if (verticalStop > 0.2)
-            {
-                verticalStop += stopSpeed * Time.deltaTime;
-            }
-
-            //velocity.z = Mathf.Lerp(0, verticalStartStop, verticalStop);
             velocity.z = 0;
             moveStateX = 5;
+            moveStateY = 5;
         }
 
         if (Input.GetAxisRaw("Horizontal") > 0) //X for Horizontal movement
@@ -606,8 +607,70 @@ public class CameraControls
         }
         }
     }
+    void SlowDown()
+    {
+        if (forward && veritcalAcceleration != 0)
+        {
+            if (veritcalAcceleration <= 0.1)
+            {
+                veritcalAcceleration = 0;
+                forward = false;
+            }
+            else
+            {
+                //Reduce VerticalAcceleration
+                float newAcceleration = veritcalAcceleration - stopSpeed * Time.deltaTime;
+                veritcalAcceleration = newAcceleration;
+            }
+        }
+        else if (backward && veritcalAcceleration != 1)
+        {
+            if (veritcalAcceleration >= 0.9)
+            {
+                veritcalAcceleration = 1;
+                backward = false;
+            }
+            else
+            {
+                //Reduce VerticalAcceleration
+                float newAcceleration = veritcalAcceleration + stopSpeed * Time.deltaTime;
+                veritcalAcceleration = newAcceleration;
+            }
+        }
 
+        if (right && horizontalAcceleration != 0)
+        {
+            if (horizontalAcceleration <= 0.1)
+            {
+                horizontalAcceleration = 0;
+                right = false;
+            }
+            else
+            {
+                //Reduce VerticalAcceleration
+                float newAcceleration = horizontalAcceleration - stopSpeed * Time.deltaTime;
+                horizontalAcceleration = newAcceleration;
+            }
+        }
+        else if (left && horizontalAcceleration != 1)
+        {
+            if (horizontalAcceleration >= 0.9)
+            {
+                horizontalAcceleration = 1;
+                left = false;
+            }
+            else
+            {
+                //Reduce VerticalAcceleration
+                float newAcceleration = horizontalAcceleration + stopSpeed * Time.deltaTime;
+                horizontalAcceleration = newAcceleration;
+            }
+        }
+        
+    }
 
+    #endregion
+    #region Jump
     void JumpFunction()
     {
         if (Input.GetAxisRaw("Jump") > 0 && onGround && !holdingJump)
@@ -644,6 +707,8 @@ public class CameraControls
             
             //rb.velocity = 0;
         }
+        
+        rotationFreazeMove = false;
     }
     void OnTriggerStay(Collider other)
     {
@@ -652,6 +717,8 @@ public class CameraControls
         {
             onGround = true;
         }
+
+        rotationFreazeMove = false;
     }
 
     void OnTriggerExit(Collider other)
@@ -659,7 +726,40 @@ public class CameraControls
         //Debug.Log("trying to leave ground");
         if (onGround && other.tag == groundTag)
         {
+            //Debug.Log("Leaving ground1");
             onGround = false;
+
+        }
+        rotationFreaze.transform.position = transform.position;
+        rotationFreaze.transform.rotation = transform.rotation;
+        rotationFreazeMove = true;
+        //Debug.Log(gameObject.transform.rotation + " & rotationFreaze:" + rotationFreaze.transform.rotation);
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        if (rotationFreazeMove)
+        {
+            Vector3 contactPoint = rotationFreaze.transform.TransformDirection(other.contacts[0].point);
+            //Debug.Log(contactPoint + " and unchange: " + other.contacts[0].point);
+
+            if (forward && contactPoint.z > (rotationFreaze.transform.position.z + 0.1))
+            {
+                veritcalAcceleration = 0;
+                //Debug.Log("stoping forward momoent");
+            }
+            else if (backward && contactPoint.z < (rotationFreaze.transform.position.z + 0.1))
+            {
+                veritcalAcceleration = 1;
+            }
+
+            if (right && contactPoint.x > (rotationFreaze.transform.position.x + 0.1))
+            {
+                horizontalAcceleration = 0;
+            }
+            else if (left && contactPoint.x < (rotationFreaze.transform.position.x + 0.1))
+            {
+                horizontalAcceleration = 1;
+            }
         }
     }
     #endregion
