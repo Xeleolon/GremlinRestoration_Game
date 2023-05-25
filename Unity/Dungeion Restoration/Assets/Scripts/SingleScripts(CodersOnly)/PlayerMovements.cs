@@ -740,22 +740,19 @@ public class CameraControls
         if (rotationFreazeMove)
         {
             Vector3 contactPoint = rotationFreaze.transform.TransformDirection(other.contacts[0].point);
-            Debug.Log(contactPoint + " and unchange: " + other.contacts[0].point);
-            //Debug.Log(contactPoint);
-            Debug.Log(rotationFreaze.transform.position);
-            if (forward && contactPoint.z > (rotationFreaze.transform.position.z - 0.1))
+            //Debug.Log(contactPoint + " and unchange: " + other.contacts[0].point);
+
+            if (forward && contactPoint.z > (rotationFreaze.transform.position.z + 0.1))
             {
                 veritcalAcceleration = 0;
-                Debug.Log("stoping forward momoent");
-                Debug.Log(contactPoint.z);
-                Debug.Log(rotationFreaze.transform.position.z - 0.1);
+                //Debug.Log("stoping forward momoent");
             }
             else if (backward && contactPoint.z < (rotationFreaze.transform.position.z + 0.1))
             {
                 veritcalAcceleration = 1;
             }
 
-            if (right && contactPoint.x > (rotationFreaze.transform.position.x - 0.1))
+            if (right && contactPoint.x > (rotationFreaze.transform.position.x + 0.1))
             {
                 horizontalAcceleration = 0;
             }
