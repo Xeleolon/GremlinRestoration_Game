@@ -4,6 +4,7 @@ public class DestroyInteract : Interactable
 {
     [Header("Destroy")]
     public float destroyDelay = 0;
+    private ButtonPlate pressurePlate;
     public override void Start()
     {
         acheiveGoal.type = 2;
@@ -16,6 +17,10 @@ public class DestroyInteract : Interactable
         {
             PlayAnimator();
             Completed();
+            if (pressurePlate != null)
+            {
+                pressurePlate.ForceExit(gameObject);
+            }
             string message = new string(gameObject.name + " Destoryed");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
@@ -36,6 +41,18 @@ public class DestroyInteract : Interactable
     public override void Completed()
     {
         base.Completed();
+    }
+    void OnCollisionExit(Collision other)
+    {
+        pressurePlate = other.gameObject.GetComponent<ButtonPlate>();
+        if (pressurePlate != null)
+        {
+            pressurePlate = null;
+        }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        pressurePlate = other.gameObject.GetComponent<ButtonPlate>();
     }
 
 }

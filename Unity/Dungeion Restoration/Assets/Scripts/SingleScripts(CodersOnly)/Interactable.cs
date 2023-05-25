@@ -70,8 +70,9 @@ public class Interactable : MonoBehaviour
     public virtual void Completed()
     {
         //GoalTracker.instance.UpdateChecklist(type);
-        if (!goalUpdated)
+        if (!goalUpdated && acheiveGoal.ticket >= 0)
         {
+            Debug.Log(gameObject.name + " updating goal");
             GoalTracker.instance.CompletedGoal(acheiveGoal.ticket);
             goalUpdated = true;
         }

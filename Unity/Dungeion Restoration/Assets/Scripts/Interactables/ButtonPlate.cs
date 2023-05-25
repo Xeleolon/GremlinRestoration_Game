@@ -25,6 +25,7 @@ public class ButtonPlate : Interactable
     public override void Start()
     {
         base.Start();
+        
         startPosition = transform.position;
         //collisionActive = true;
         rb = GetComponent<Rigidbody>();
@@ -51,8 +52,8 @@ public class ButtonPlate : Interactable
                 if (!trapActivated)
                 {
                     Debug.Log("Trap activated");
-                Activate(false);
-                trapActivated = true;
+                    Activate(false);
+                    trapActivated = true;
                 }
                 //Active Button!!
             }
@@ -78,8 +79,11 @@ public class ButtonPlate : Interactable
     }
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Movable")
+        Rigidbody rbCheck = other.gameObject.GetComponent<Rigidbody>();
+        //Debug.Log(rbCheck);
+        if (rb != null)
         {
+            //Debug.Log(other.gameObject.name + " moveing platform " + gameObject.name);
             numCollision += 1;
             if (!collisionActive)
             {
@@ -97,8 +101,23 @@ public class ButtonPlate : Interactable
     }
     void OnCollisionExit(Collision other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Movable")
+        Rigidbody rbCheck = other.gameObject.GetComponent<Rigidbody>();
+        if (rbCheck != null)
         {
+            //Debug.Log(other.gameObject.name + " leaving platform " + gameObject.name);
+            numCollision -= 1;
+            if (collisionActive && numCollision == 0)
+            {
+                collisionActive = false;
+            }
+        }
+    }
+    public void ForceExit(GameObject other)
+    {
+        Rigidbody rbCheck = other.gameObject.GetComponent<Rigidbody>();
+        if (rbCheck != null)
+        {
+            //Debug.Log(other.gameObject.name + " leaving platform " + gameObject.name);
             numCollision -= 1;
             if (collisionActive && numCollision == 0)
             {

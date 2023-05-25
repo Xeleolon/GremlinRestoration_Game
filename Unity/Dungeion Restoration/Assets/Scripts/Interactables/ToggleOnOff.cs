@@ -14,6 +14,7 @@ public class ToggleOnOff : Interactable
         if (toggleOn && toggleObject.activeSelf)
         {
             toggleObject.SetActive(false);
+            Completed();
             PlayerChat.instance.NewMessage(message);
         }
         else if (toggleOff && !toggleObject.activeSelf)
