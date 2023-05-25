@@ -696,7 +696,7 @@ MonoBehaviour:
   onGround: 1
   cameraControls:
     cameraAcceleration: {x: 4000, y: 4000}
-    cameraSensitivity: {x: 200, y: 400}
+    cameraSensitivity: {x: 400, y: 400}
     cameraMaxVerticalAngleFromHorizon: 90
     cameraInputLagPeriod: 0.01
 --- !u!65 &8703481612176272296
