@@ -27,6 +27,7 @@ public class CheckPoints : MonoBehaviour
             if (player != null)
             {
                 playerSize = player.transform.localScale;
+                playerSize.y = playerSize.y * 2;
                 Debug.Log("playerSize Updated");
             }
             else

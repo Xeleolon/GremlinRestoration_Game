@@ -69674,7 +69674,7 @@ PrefabInstance:
     - target: {fileID: 643017298723621823, guid: 35ef559fc1a64d04dbfac2616a4eb80a,
         type: 3}
       propertyPath: updatePlayerSize
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 643017299269265478, guid: 35ef559fc1a64d04dbfac2616a4eb80a,
         type: 3}
@@ -69684,17 +69684,17 @@ PrefabInstance:
     - target: {fileID: 643017299269265478, guid: 35ef559fc1a64d04dbfac2616a4eb80a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.79
+      value: 0.111
       objectReference: {fileID: 0}
     - target: {fileID: 643017299269265478, guid: 35ef559fc1a64d04dbfac2616a4eb80a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.09
+      value: -1.361
       objectReference: {fileID: 0}
     - target: {fileID: 7168260566536761371, guid: 35ef559fc1a64d04dbfac2616a4eb80a,
         type: 3}
       propertyPath: updatePlayerSize
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -275,6 +275,7 @@ public class CameraControls
     }
     public void MoveCamera(Transform player)
     {
+        //Debug.Log("Moving Camera");
         Vector2 cameraSpeed = GetMouseInput() * cameraSensitivity;
 
         // Calculate new rotation and store it for future changes
@@ -290,8 +291,15 @@ public class CameraControls
         player.localEulerAngles = new Vector3(0, cameraRotation.x, 0);
         mainCamera.transform.localEulerAngles = new Vector3(cameraRotation.y, 0 ,0);
     }
+    public void FreazeCamera(Transform player) //Freaze rotation on pause
+    {
+        //if you want the camera to rotate on pause apply the rotation here.
+        player.localEulerAngles = new Vector3(0, cameraRotation.x, 0);
+        mainCamera.transform.localEulerAngles = new Vector3(cameraRotation.y, 0 ,0);
+    }
     private float ClampCameraVerticalAngle(float angle)
     {
+        //Debug.Log("Clamping camera");
         return Mathf.Clamp(angle, -cameraMaxVerticalAngleFromHorizon, cameraMaxVerticalAngleFromHorizon);
     }
     private Vector2 GetMouseInput()
@@ -414,6 +422,10 @@ public class CameraControls
                 respawnTimer -= 1 * Time.deltaTime;
             }
         }
+        else
+        {
+            cameraControls.FreazeCamera(transform);
+        }
     }
     void FixedUpdate()
     {
@@ -526,10 +538,12 @@ public class CameraControls
         {
             if (forward) 
             {
+                veritcalAcceleration = 0;
                 forward = false;
             }
             else if (backward)
             {
+                veritcalAcceleration = 1;
                 backward = false;
             }
             velocity.z = 0;
@@ -570,10 +584,12 @@ public class CameraControls
             if (right)
             {
                 right = false;
+                horizontalAcceleration = 0;
             }
             else if (left)
             {
                 left = false;
+                horizontalAcceleration = 1;
             }
             velocity.x = 0;
             moveStateY = 5;
