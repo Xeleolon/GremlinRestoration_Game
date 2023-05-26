@@ -65309,8 +65309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a214b52712c94ab48923cdeda37f33ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
+  radius: {x: 2, y: 5, z: 6}
+  offSet: {x: -1.25, y: 2.5, z: 0}
   trapObject: {fileID: 0}
   interactionState: 0
   interacted: 0
@@ -77338,8 +77338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02b3aa19506fd84fb557b57f2608914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3.3, z: 6.19}
-  offSet: {x: 0, y: 1.61, z: 0}
+  radius: {x: 3, y: 5, z: 6.19}
+  offSet: {x: 0, y: 2.5, z: 0}
   trapObject: {fileID: 0}
   interactionState: 0
   interacted: 0
