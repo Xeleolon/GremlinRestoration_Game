@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 public class GoalTracker : MonoBehaviour
 {
@@ -75,6 +76,7 @@ public class GoalTracker : MonoBehaviour
     }
     #region Singleton
     public static GoalTracker instance;
+    private PlayerInputActions playerControls;
 
     void Awake ()
     {
@@ -83,6 +85,9 @@ public class GoalTracker : MonoBehaviour
             Debug.LogWarning("More Than One instance of GoalTacker found!");
         }
         instance = this;
+
+        playerControls = new PlayerInputActions();
+
     }
     #endregion
     
@@ -114,29 +119,34 @@ public class GoalTracker : MonoBehaviour
     public GoalData[] goalData; //will become private after finished testing
 
     GameObject[] tempObject;
+    private InputAction checklistInput;
+
+    #region Methods Before Start
+    void OnEnable()
+    {
+        checklistInput = playerControls.UI.OpenCheckList;
+        checklistInput.Enable();
+        checklistInput.performed += OpenCheckList;
+    }
+    void OnDisable()
+    {
+        checklistInput.Disable();
+    }
+    #endregion
 
     // Update is called once per frame
-    void Update()
+    void OpenCheckList(InputAction.CallbackContext context)
     {
-
-        if (Input.GetAxisRaw("Dropdown") != 0 && !refreshWait)
+        //Debug.Log("Button working");
+        if (checkList.activeSelf)
         {
-            //Debug.Log("Button working");
-            if (checkList.activeSelf)
-            {
-                checkList.SetActive(false);
-            }
-            else
-            {
-                checkList.SetActive(true);
-            }
-            refreshWait = true;
-
+            checkList.SetActive(false);
         }
-        else if (refreshWait && Input.GetAxisRaw("Dropdown") == 0)
+        else
         {
-            refreshWait = false;
+            checkList.SetActive(true);
         }
+        refreshWait = true;
     }
     void SetupStandardLabels()
     {

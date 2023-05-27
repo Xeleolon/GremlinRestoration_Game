@@ -29,13 +29,7 @@ public class MenuManager : MonoBehaviour
             levelText.SetText(level[currentScene]);
         }
     }
-    void Update()
-    {
-        if (Input.GetButtonDown("Submit"))
-        {
-            //codeText.SetText(string.Empty);
-        }
-    }
+    
     
     public void LoadScene()
     {

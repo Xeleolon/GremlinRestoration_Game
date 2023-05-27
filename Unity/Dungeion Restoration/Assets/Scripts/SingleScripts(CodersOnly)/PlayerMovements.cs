@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovements : MonoBehaviour
 {
@@ -30,6 +31,42 @@ public class Interact
     private Transform player;
     public GameObject centerSprite;
     public WandData[] wands = new WandData[4];
+    private bool interactiveActive = true;
+    private InputAction fire;
+    private InputAction interactionOne;
+    private InputAction interactionTwo;
+    private InputAction interactionThree;
+    private InputAction scrollwheel;
+    public void EnableInteraction(PlayerInputActions playerControls)
+    {
+        fire = playerControls.Player.Fire;
+        fire.Enable();
+        fire.performed += ShootRay;
+
+        interactionOne = playerControls.Player.InteractionOne;
+        interactionOne.Enable();
+        interactionOne.performed += InteractOne;
+
+        interactionTwo = playerControls.Player.InteractionTwo;
+        interactionTwo.Enable();
+        interactionTwo.performed += InteractTwo;
+
+        interactionThree = playerControls.Player.InteractionThree;
+        interactionThree.Enable();
+        interactionThree.performed += InteractThree;
+
+        scrollwheel = playerControls.UI.ScrollWheel;
+        scrollwheel.Enable();
+    }
+    public void DisableInteraction()
+    {
+        fire.Disable();
+        interactionOne.Disable();
+        interactionTwo.Disable();
+        interactionThree.Disable();
+        scrollwheel.Disable();
+
+    }
     public void WandsNotNull()
     {
         for(int i = 0; i < wands.Length; i ++)
@@ -40,57 +77,10 @@ public class Interact
             }
         }
     }
-    public void ShootRay()
+    public void UpdateInteractions(bool active)
     {
-        if (fireRay)
-        {
-            if (Input.GetAxisRaw("Fire1") != 0 || Input.GetButtonDown("Fire2"))
-            {
-                //Debug.Log("Fire");
-                Ray ray;
-                
-                ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-                
-                RaycastHit hit;
-                
-                if (Physics.Raycast(ray, out hit, 100, 7))
-                {
-                    //Debug.Log("hit " + hit.collider.gameObject.name);
-                    Interactable interactable = hit.collider.GetComponent<Interactable>();
-
-                    //Debug.Log(interactable);
-
-
-                    if (interactable != null)
-                    {
-                        if (player == null)
-                        {
-                            player = GameObject.FindWithTag("Player").transform;
-                        }
-                        //Debug.Log("Comformed hit");
-                        if (interactable.OnInteract(player, state))
-                        {
-                            if (interactable.acheiveGoal != null)
-                            {
-                                PlayAnimation(interactable.acheiveGoal.type);
-                            }
-                            else
-                            {
-                                Debug.Log("Bug beating to interacting with the interacable before it has chance to make intisise item look into");
-                            }
-                            fireRay = false;
-                            if (centerSprite != null && centerSprite.activeSelf)
-                            {
-                                centerSprite.SetActive(false);
-                            }
-                            clock = refresh;
-                        }
-                    }
-                    
-                }
-            }
-        }
-        else
+        interactiveActive = active;
+        if (interactiveActive && !fireRay)
         {
             if (clock <= 0)
             {
@@ -103,6 +93,53 @@ public class Interact
             else
             {
                 clock -= 1 * Time.deltaTime;
+            }
+        }
+    }
+    private void ShootRay(InputAction.CallbackContext context)
+    {
+        if (interactiveActive && fireRay)
+        {
+                //Debug.Log("Fire");
+            Ray ray;
+                
+            ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+                
+            RaycastHit hit;
+            
+            if (Physics.Raycast(ray, out hit, 100, 7))
+            {
+                //Debug.Log("hit " + hit.collider.gameObject.name);
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+
+                //Debug.Log(interactable);
+
+
+                if (interactable != null)
+                {
+                    if (player == null)
+                    {
+                        player = GameObject.FindWithTag("Player").transform;
+                    }
+                    //Debug.Log("Comformed hit");
+                    if (interactable.OnInteract(player, state))
+                    {
+                        if (interactable.acheiveGoal != null)
+                        {
+                            PlayAnimation(interactable.acheiveGoal.type);
+                        }
+                        else
+                        {
+                            Debug.Log("Bug beating to interacting with the interacable before it has chance to make intisise item look into");
+                        }
+                        fireRay = false;
+                        if (centerSprite != null && centerSprite.activeSelf)
+                        {
+                            centerSprite.SetActive(false);
+                        }
+                        clock = refresh;
+                    }
+                }
             }
         }
     }
@@ -122,31 +159,29 @@ public class Interact
             }
         }
     }
-
-    public void ChangeState()
+    public void InteractOne(InputAction.CallbackContext context)
     {
-        if (Input.GetAxisRaw("InteractOne") != 0 && state != 1)
-        {
-            state = 1;
-            //PlayerChat.instance.NewMessage(new string("interactionState has change to " + interactionState));
-            NewState();
-            //LevelManager.instance.ChangeInteractUI(state);
-        }
+        state = 1;
+        NewState();
+    }
 
-        if (Input.GetAxisRaw("InteractTwo") != 0 && state != 2)
-        {
-            state = 2;
-            NewState();
-        }
+    public void InteractTwo(InputAction.CallbackContext context)
+    {
+        state = 2;
+        NewState();
+    }
 
-        if (Input.GetAxisRaw("InteractThree") != 0 && state != 3)
+    public void InteractThree(InputAction.CallbackContext context)
+    {
+        state = 3;
+        NewState();
+    }
+    public void ScrollWheel()
+    {
+        Vector2 scrollwheelInput = scrollwheel.ReadValue<Vector2>();
+        if (interactiveActive && scrollwheelInput.y != 0)
         {
-            state = 3;
-            NewState();
-        }
-        if (Input.GetAxisRaw("Mouse ScrollWheel") != 0)
-        {
-            tempState += (Input.GetAxisRaw("Mouse ScrollWheel") * scrollWheelSpeed);
+            tempState += (scrollwheelInput.y * scrollWheelSpeed);
             //Debug.Log("Dectecting ScrollWheel, which = " + tempState);
             if (tempState >= 1 || tempState <= -1)
             {
@@ -241,9 +276,9 @@ public class CameraControls
     [Header("Camera Movement")]
     //Camera Control
     [Tooltip("The rotation acceleration, in degrees / second")]
-    [SerializeField] private Vector2 cameraAcceleration;
+    [SerializeField] private float cameraAcceleration;
     [Tooltip("A mutipler to the input. Describes the maximum speed in degrees / second.")]
-    [SerializeField] private Vector2 cameraSensitivity;
+    [SerializeField] private float cameraSensitivity;
     [Tooltip("The Maximum angle from the horizon the player can rotote, in degrees")]
     [SerializeField] private float cameraMaxVerticalAngleFromHorizon;
     [Tooltip("The period to wait until resetting the input value. Set this as low as possible without encountering stuttering from camera")]
@@ -253,7 +288,8 @@ public class CameraControls
     private Vector2 cameraVelocity;
     private Vector2 cameraLastInputEvent;
     private float cameraInputLagTimer;
-    public void EnableCamera(Transform player)
+    private InputAction look;
+    public void EnableCamera(Transform player, PlayerInputActions playerControls)
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
         cameraVelocity = Vector2.zero;
@@ -272,16 +308,24 @@ public class CameraControls
         mainCamera.transform.localEulerAngles = new Vector3(euler.x,0 , 0);
 
         cameraRotation = new Vector2(euler.y, euler.x);
+
+        look = playerControls.Player.Look;
+        look.Enable();
+    }
+
+    public void DisableCamera()
+    {
+        look.Disable();
     }
     public void MoveCamera(Transform player)
     {
         //Debug.Log("Moving Camera");
-        Vector2 cameraSpeed = GetMouseInput() * cameraSensitivity;
+        Vector2 cameraSpeed = GetMouseInput() * new Vector2(cameraSensitivity, cameraSensitivity);
 
         // Calculate new rotation and store it for future changes
         cameraVelocity = new Vector2(
-            Mathf.MoveTowards(cameraVelocity.x, cameraSpeed.x, cameraAcceleration.x * Time.deltaTime),
-            Mathf.MoveTowards(cameraVelocity.y, cameraSpeed.y, cameraAcceleration.y * Time.deltaTime));
+            Mathf.MoveTowards(cameraVelocity.x, cameraSpeed.x, cameraAcceleration * Time.deltaTime),
+            Mathf.MoveTowards(cameraVelocity.y, cameraSpeed.y, cameraAcceleration * Time.deltaTime));
         
         cameraRotation += cameraVelocity * Time.deltaTime;
 
@@ -307,7 +351,8 @@ public class CameraControls
         cameraInputLagTimer += Time.deltaTime;
 
 
-        Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
+        Vector2 mouseInput = look.ReadValue<Vector2>();
+        mouseInput.y = -mouseInput.y; //invert y
 
         if ((Mathf.Approximately(0, mouseInput.x) && Mathf.Approximately(0, mouseInput.y)) == false || cameraInputLagTimer >= cameraInputLagPeriod)
         {
@@ -362,16 +407,56 @@ public class CameraControls
     private GameObject rotationFreaze; //a empty gameObject which is holds the player rotation and freaze it postion
     private bool rotationFreazeMove = false;
 
+
+    //Input System
+    private PlayerInputActions playerControls; //this is the script which holds all the inpuct actions
+    private InputAction move;
+    private InputAction sprint;
+    private InputAction jumpInput;
+
     public CameraControls cameraControls;
     void OnValidate() //only calls if change when script reloads or change in value
     {
         interactions.WandsNotNull();
     }
+    #region Enable & Disable
+    void Awake()
+    {
+        playerControls = new PlayerInputActions();
+
+    }
+    void OnEnable()
+    {
+        cameraControls.EnableCamera(transform, playerControls);
+        interactions.EnableInteraction(playerControls);
+        
+        // Input enable have to do this for the new input system
+        move = playerControls.Player.Move;
+        move.Enable();
+
+        sprint = playerControls.Player.Sprint;
+        sprint.Enable();
+
+        jumpInput = playerControls.Player.Jump;
+        jumpInput.Enable();
+    }
+
+    void OnDisable()
+    {
+        //Input disable have to do this for the new input system
+        move.Disable();
+        sprint.Disable();
+        jumpInput.Disable();
+        interactions.DisableInteraction();
+        cameraControls.DisableCamera();
+    }
+
+    #endregion
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        cameraControls.EnableCamera(transform);
+        //cameraControls.EnableCamera(transform, playerControls);
         lastCheckPoint = transform.position;
         levelManager = LevelManager.instance;
         LevelManager.instance.ChangeInteractUI(interactions.state);
@@ -380,14 +465,11 @@ public class CameraControls
         //rotationFreaze.AddComponent<Rigidbody>();
 
     }
-    void OnEnable()
-    {
-        cameraControls.EnableCamera(transform);
-        
-    }
 
     void Update()
     {
+        interactions.UpdateInteractions(interactActive);
+        interactions.ScrollWheel();
         if (interactActive)
         {
             if (!rotationFreazeMove)
@@ -402,8 +484,6 @@ public class CameraControls
         Moving(moveStateY);
         
         JumpFunction();
-        interactions.ShootRay();
-        interactions.ChangeState();
 
 
         cameraControls.MoveCamera(transform);
@@ -494,7 +574,8 @@ public class CameraControls
     #region Movement
     void MovementInputs()
     {
-        if (Input.GetAxisRaw("Vertical") > 0) //Y for Vertival movement
+        Vector2 moveInputs = move.ReadValue<Vector2>(); //collector data from input before comparing as have a need to split the data into x and y
+        if (moveInputs.y > 0) //Y for Vertival movement
         {
             if (!forward)
             {
@@ -505,7 +586,7 @@ public class CameraControls
             {
                 veritcalAcceleration += acceleration * Time.deltaTime;
             }
-            if (Input.GetAxisRaw("Sprint") > 0)
+            if (sprint.ReadValue<float>() > 0)
             {
                 moveStateX = 0;
             }
@@ -520,7 +601,7 @@ public class CameraControls
                 moveStateX = 1;
             }
         }
-        else if (Input.GetAxisRaw("Vertical") < 0) //Y for Vertival movement
+        else if (moveInputs.y < 0) //Y for Vertival movement
         {
             if (!backward)
             {
@@ -551,7 +632,7 @@ public class CameraControls
             moveStateY = 5;
         }
 
-        if (Input.GetAxisRaw("Horizontal") > 0) //X for Horizontal movement
+        if (moveInputs.x > 0) //X for Horizontal movement
         {
             if (!right)
             {
@@ -565,7 +646,7 @@ public class CameraControls
             
             moveStateY = 3;
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0) //X for Horizontal movement
+        else if (moveInputs.x < 0) //X for Horizontal movement
         {
             if (!left)
             {
@@ -689,7 +770,7 @@ public class CameraControls
     #region Jump
     void JumpFunction()
     {
-        if (Input.GetAxisRaw("Jump") > 0 && onGround && !holdingJump)
+        if (jumpInput.ReadValue<float>() > 0 && onGround && !holdingJump)
         {
            
             rb.velocity = Vector3.up * jump;
@@ -700,11 +781,11 @@ public class CameraControls
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-        else if (rb.velocity.y >= 0 && !Input.GetButton("Jump") && !onGround)
+        else if (rb.velocity.y >= 0 && jumpInput.ReadValue<float>() <= 0 && !onGround)
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
-        if (holdingJump && !Input.GetButton("Jump"))
+        if (holdingJump && jumpInput.ReadValue<float>() <= 0)
         {
             holdingJump = false;
         }
@@ -715,7 +796,7 @@ public class CameraControls
     {
         if (!onGround && other.tag == groundTag)
         {
-            if (Input.GetButton("Jump"))
+            if (jumpInput.ReadValue<float>() > 0)
             {
                 holdingJump = true;
             }

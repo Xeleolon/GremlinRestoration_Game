@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     #region Singleton
     public static LevelManager instance;
+    private PlayerInputActions playerControls;
+
 
     void Awake ()
     {
@@ -16,6 +19,8 @@ public class LevelManager : MonoBehaviour
             Debug.LogWarning("More Than One instance of inventory found!");
         }
         instance = this;
+        playerControls = new PlayerInputActions();
+
     }
     #endregion
     ////////////////////////
@@ -50,6 +55,9 @@ public class LevelManager : MonoBehaviour
     public InteractionsIcons destory;
     public InteractionsIcons restock;
 
+    private InputAction cancel;
+
+    #region Methods Before Start
     void OnValidate() //only calls if change when script reloads or change in value
     {
         if (changeScene)
@@ -59,6 +67,17 @@ public class LevelManager : MonoBehaviour
         //changeScene = false;
         }
     }
+    void OnEnable()
+    {
+        cancel = playerControls.UI.Cancel;
+        cancel.Enable();
+        cancel.performed += Cancel;
+    }
+    void OnDisable()
+    {
+        cancel.Disable();
+    }
+    #endregion
     void Start()
     {
         //ChangeInteractUI(0);
@@ -79,9 +98,9 @@ public class LevelManager : MonoBehaviour
         playerScript = player.GetComponent<PlayerMovements>();
         //Cursor.lockState = CursorLockMode.None;
     }
-    void Update()
+    void Cancel(InputAction.CallbackContext context)
     {
-        if (Input.GetButtonDown("Cancel") && menuCanvas != null)
+        if (menuCanvas != null)
         {
             if (menuCanvas.activeSelf)
             {
