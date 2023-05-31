@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -77025,11 +77025,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1517273618902895990, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 425a92757d7f7444cbb41ec88b183e68, type: 2}
     - target: {fileID: 5016645517801662386, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
       propertyPath: m_RootOrder
@@ -77087,6 +77082,61 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
+      propertyPath: backOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: backOffset.z
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: leftOffset.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: rightOffset.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: rightOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: rightOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: forwardOffset.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: collisionDection.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: collisionDection.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: collisionDection.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: collisionWireFrame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
       propertyPath: interactions.centerSprite
       value: 
       objectReference: {fileID: 640091627}
@@ -77095,11 +77145,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9199919497650620714, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8d15d4ff4fab8f1438fee14293714307, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f4ff8824bf04bd341b9ca6a3a0b36297, type: 3}

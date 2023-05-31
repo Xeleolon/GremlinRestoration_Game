@@ -406,6 +406,13 @@ public class CameraControls
     private int moveStateY = 6;
     private GameObject rotationFreaze; //a empty gameObject which is holds the player rotation and freaze it postion
     private bool rotationFreazeMove = false;
+    [Tooltip("for Collision")]
+    public bool collisionWireFrame = false;
+    public Vector3 collisionDection;
+    public Vector3 rightOffset;
+    public Vector3 leftOffset;
+    public Vector3 backOffset;
+    public Vector3 forwardOffset;
 
 
     //Input System
@@ -449,6 +456,17 @@ public class CameraControls
         jumpInput.Disable();
         interactions.DisableInteraction();
         cameraControls.DisableCamera();
+    }
+    void OnDrawGizmosSelected ()
+    {
+        if (collisionWireFrame)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireCube((transform.position + rightOffset), collisionDection);
+            Gizmos.DrawWireCube((transform.position + leftOffset), collisionDection);
+            Gizmos.DrawWireCube((transform.position + backOffset), collisionDection);
+            Gizmos.DrawWireCube((transform.position + forwardOffset), collisionDection);
+        }
     }
 
     #endregion
@@ -838,26 +856,45 @@ public class CameraControls
         {
             Vector3 contactPoint = rotationFreaze.transform.TransformDirection(other.contacts[0].point);
             //Debug.Log(contactPoint + " and unchange: " + other.contacts[0].point);
+            Vector3 currentForward = rotationFreaze.transform.TransformDirection(transform.position);
 
-            if (forward && contactPoint.z > (rotationFreaze.transform.position.z + 0.1))
+            if (forward && contactPoint.z > (currentForward.z + 0.1))
             {
                 veritcalAcceleration = 0;
                 //Debug.Log("stoping forward momoent");
             }
-            else if (backward && contactPoint.z < (rotationFreaze.transform.position.z + 0.1))
+            else if (backward && contactPoint.z < (currentForward.z + 0.1))
             {
                 veritcalAcceleration = 1;
             }
 
-            if (right && contactPoint.x > (rotationFreaze.transform.position.x + 0.1))
+            if (right && contactPoint.x > (currentForward.x + 0.1))
             {
                 horizontalAcceleration = 0;
             }
-            else if (left && contactPoint.x < (rotationFreaze.transform.position.x + 0.1))
+            else if (left && contactPoint.x < (currentForward.x + 0.1))
             {
                 horizontalAcceleration = 1;
             }
         }
+    }
+
+    bool checkInsideArea(Vector3 area, Vector3 offSet, Vector3 target)
+    {
+        //area is the size of the area where checking
+        //offSet is the location of the area from the player
+        //target is the target who we are checking if inside the area
+        //float angle; transform.localRotation.eulerAngles.y;
+        //Vector3 offSetRotaed = transform.RotateAround(offSet, Vector3.up, angle);
+        Vector3 greaterCorner = area/2 + offSet + transform.position;
+        Vector3 smallerCorner = area/2 - offSet + transform.position;
+        if (greaterCorner.x >= target.x && smallerCorner.x <= target.x &&
+            greaterCorner.y >= target.y && smallerCorner.y <= target.y &&
+            greaterCorner.z >= target.z && smallerCorner.z <= target.z)
+        {
+            return true;
+        }
+        return false;
     }
     #endregion
 }
