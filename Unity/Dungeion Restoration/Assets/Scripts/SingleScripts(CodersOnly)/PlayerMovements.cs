@@ -179,13 +179,14 @@ public class Interact
     public void ScrollWheel()
     {
         Vector2 scrollwheelInput = scrollwheel.ReadValue<Vector2>();
+        //Debug.Log("scrollwheel Input = " + scrollwheelInput);
         if (interactiveActive && scrollwheelInput.y != 0)
         {
             tempState += (scrollwheelInput.y * scrollWheelSpeed);
             //Debug.Log("Dectecting ScrollWheel, which = " + tempState);
-            if (tempState >= 1 || tempState <= -1)
+            if (tempState >= 1)
             {
-                state += (int) tempState;
+                state += 1;
                 if (state <= 0)
                 {
                     state = 3;
@@ -196,7 +197,20 @@ public class Interact
                 }
                 tempState = 0;
                 NewState();
-
+            }
+            else if (tempState <= -1)
+            {
+                state -= 1;
+                if (state <= 0)
+                {
+                    state = 3;
+                }
+                else if (state >= 4)
+                {
+                    state = 1;
+                }
+                tempState = 0;
+                NewState();
             }
         }
 
