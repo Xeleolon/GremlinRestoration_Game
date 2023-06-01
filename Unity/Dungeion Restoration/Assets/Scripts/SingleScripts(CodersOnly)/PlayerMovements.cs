@@ -290,8 +290,10 @@ public class CameraControls
     [Header("Camera Movement")]
     //Camera Control
     [Tooltip("The rotation acceleration, in degrees / second")]
+    [Range(1000, 10000)]
     [SerializeField] private float cameraAcceleration;
     [Tooltip("A mutipler to the input. Describes the maximum speed in degrees / second.")]
+    [Range(1, 20)]
     [SerializeField] private float cameraSensitivity;
     [Tooltip("The Maximum angle from the horizon the player can rotote, in degrees")]
     [SerializeField] private float cameraMaxVerticalAngleFromHorizon;
