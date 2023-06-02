@@ -77150,6 +77150,11 @@ PrefabInstance:
       propertyPath: cameraControls.cameraAcceleration
       value: 5000
       objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662388, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5016645517801662391, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
       propertyPath: m_Name

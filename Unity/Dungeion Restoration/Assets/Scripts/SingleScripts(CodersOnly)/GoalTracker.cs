@@ -100,7 +100,7 @@ public class GoalTracker : MonoBehaviour
     [SerializeField] int numOfLabels = 1;
     [Range(10f, 100)]
     [SerializeField] float labelOffet = 10;
-    bool refreshWait;
+    //bool refreshWait;
     private bool updateGoals = false;
     [Header("Testing Only")]
     public bool testCompleteTop;
@@ -146,7 +146,7 @@ public class GoalTracker : MonoBehaviour
         {
             checkList.SetActive(true);
         }
-        refreshWait = true;
+        //refreshWait = true;
     }
     void SetupStandardLabels()
     {

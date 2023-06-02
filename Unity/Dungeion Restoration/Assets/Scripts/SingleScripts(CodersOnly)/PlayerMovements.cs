@@ -547,8 +547,11 @@ public class CameraControls
         {
             if (!rotationFreazeMove)
             {
-                //Debug.Log(transform.TransformDirection(velocity) + " " + velocity);
                 rb.MovePosition(rb.position + transform.TransformDirection(velocity) * Time.fixedDeltaTime);
+                if (moveStateX == 5 && moveStateY == 5 && onGround)
+                {
+                    rb.velocity = Vector3.zero;
+                }
             }
             else
             {
@@ -808,7 +811,12 @@ public class CameraControls
         {
            
             rb.velocity = Vector3.up * jump;
-            onGround = false;
+            if (onGround)
+            {
+                rb.useGravity = true;
+                //rb.isKinematic = false;
+                onGround = false;
+            }
         }
         
         if (rb.velocity.y <= 0 && !onGround)
@@ -835,6 +843,9 @@ public class CameraControls
                 holdingJump = true;
             }
             onGround = true;
+            rb.useGravity = false;
+            //rb.isKinematic = true;
+
             
             //rb.velocity = 0;
         }
@@ -847,6 +858,8 @@ public class CameraControls
         if (!onGround && other.tag == groundTag && other.name != "Player")
         {
             onGround = true;
+            rb.useGravity = false;
+            //rb.isKinematic = true;
         }
 
         rotationFreazeMove = false;
@@ -859,6 +872,9 @@ public class CameraControls
         {
             //Debug.Log("Leaving ground1");
             onGround = false;
+            //rb.isKinematic = false;
+
+            rb.useGravity = true;
 
         }
         rotationFreaze.transform.position = transform.position;
