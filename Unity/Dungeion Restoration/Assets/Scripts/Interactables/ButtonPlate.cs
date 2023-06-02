@@ -12,6 +12,20 @@ public class ButtonPlate : Interactable
     int numCollision = 0;
     bool trapActivated = false; //let the trap reset before activating again
     Rigidbody rb;
+    void OnEnable()
+    {
+        if (startPosition != Vector3.zero)
+        {
+            transform.position = startPosition;
+            trapActivated = false;
+            numCollision = 0;
+            collisionActive = false;
+        }
+        else
+        {
+            startPosition = transform.position;
+        }
+    }
     public override void Interact()
     {
         string message = new string("It a Trap!");
@@ -66,7 +80,7 @@ public class ButtonPlate : Interactable
             }
             transform.position = Vector3.MoveTowards(transform.position, startPosition, returnSpeed * Time.deltaTime);
         }
-        else if (!rb.isKinematic)
+        else if (!rb.isKinematic) 
         {
             rb.isKinematic = true;
             if (trapActivated)

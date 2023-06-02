@@ -409,6 +409,7 @@ public class CameraControls
     
     [SerializeField] private bool onGround = true;
     private bool holdingJump = false; //is the player still holding jump when they land
+    private bool collisionJump = false; //a bool that force jump to fall if the player collides and loses all motion in moveStateX or moveStateY
     //Movement
     private Vector3 velocity;
     float veritcalAcceleration = 0.0f; //container to track when at fall speed
@@ -423,12 +424,6 @@ public class CameraControls
     private GameObject rotationFreaze; //a empty gameObject which is holds the player rotation and freaze it postion
     private bool rotationFreazeMove = false;
     [Tooltip("for Collision")]
-    public bool collisionWireFrame = false;
-    public Vector3 collisionDection;
-    public Vector3 rightOffset;
-    public Vector3 leftOffset;
-    public Vector3 backOffset;
-    public Vector3 forwardOffset;
 
 
     //Input System
@@ -473,17 +468,6 @@ public class CameraControls
         interactions.DisableInteraction();
         cameraControls.DisableCamera();
     }
-    void OnDrawGizmosSelected ()
-    {
-        if (collisionWireFrame)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube((transform.position + rightOffset), collisionDection);
-            Gizmos.DrawWireCube((transform.position + leftOffset), collisionDection);
-            Gizmos.DrawWireCube((transform.position + backOffset), collisionDection);
-            Gizmos.DrawWireCube((transform.position + forwardOffset), collisionDection);
-        }
-    }
 
     #endregion
 
@@ -508,6 +492,10 @@ public class CameraControls
         {
             if (!rotationFreazeMove)
             {
+                if (collisionJump)
+                {
+                    collisionJump = false;
+                }
                 MovementInputs();
             }
             else
@@ -623,16 +611,16 @@ public class CameraControls
             {
                 veritcalAcceleration += acceleration * Time.deltaTime;
             }
+
             if (sprint.ReadValue<float>() > 0)
             {
                 moveStateX = 0;
             }
             else
             {
-                float forwardAcceleration;
                 if (veritcalAcceleration >= 1)
                 {
-                    forwardAcceleration = 1;
+                    veritcalAcceleration = 1;
                 }
                 
                 moveStateX = 1;
@@ -807,7 +795,7 @@ public class CameraControls
     #region Jump
     void JumpFunction()
     {
-        if (jumpInput.ReadValue<float>() > 0 && onGround && !holdingJump)
+        if (jumpInput.ReadValue<float>() > 0 && onGround && !holdingJump && !collisionJump) //Jump
         {
            
             rb.velocity = Vector3.up * jump;
@@ -819,7 +807,7 @@ public class CameraControls
             }
         }
         
-        if (rb.velocity.y <= 0 && !onGround)
+        if (rb.velocity.y <= 0 && !onGround) //Failing from jump
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
@@ -836,14 +824,26 @@ public class CameraControls
     //attached to a trigger underplayer to decect when the player leaves the ground
     void OnTriggerEnter(Collider other)
     {
-        if (!onGround && other.tag == groundTag)
+        if (!onGround)
         {
-            if (jumpInput.ReadValue<float>() > 0)
+            if (other.tag == groundTag)
             {
-                holdingJump = true;
+                onGround = true;
+                rb.useGravity = true;
+                if (jumpInput.ReadValue<float>() > 0)
+                {
+                    holdingJump = true;
+                }
             }
-            onGround = true;
-            rb.useGravity = false;
+            else if (other.tag == "Ramp")
+            {
+                onGround = true;
+                rb.useGravity = false;
+                if (jumpInput.ReadValue<float>() > 0)
+                {
+                    holdingJump = true;
+                }
+            }
             //rb.isKinematic = true;
 
             
@@ -855,11 +855,18 @@ public class CameraControls
     void OnTriggerStay(Collider other)
     {
         //Debug.Log("On Ground Stay Decatating " + other);
-        if (!onGround && other.tag == groundTag && other.name != "Player")
+        if (!onGround && other.name != "Player")
         {
-            onGround = true;
-            rb.useGravity = false;
-            //rb.isKinematic = true;
+            if (other.tag == groundTag)
+            {
+                onGround = true;
+                rb.useGravity = true;
+            }
+            else if (other.tag == "Ramp")
+            {
+                onGround = true;
+                rb.useGravity = false;
+            }
         }
 
         rotationFreazeMove = false;
@@ -868,13 +875,13 @@ public class CameraControls
     void OnTriggerExit(Collider other)
     {
         //Debug.Log("trying to leave ground");
-        if (onGround && other.tag == groundTag)
+        if (onGround)
         {
-            //Debug.Log("Leaving ground1");
-            onGround = false;
-            //rb.isKinematic = false;
-
-            rb.useGravity = true;
+            if (other.tag == groundTag || other.tag == "Ramp")
+            {
+                onGround = false;
+                rb.useGravity = true;
+            }
 
         }
         rotationFreaze.transform.position = transform.position;
@@ -886,6 +893,7 @@ public class CameraControls
     {
         if (rotationFreazeMove)
         {
+            Debug.Log("Colsion Decected");
             Vector3 contactPoint = rotationFreaze.transform.TransformDirection(other.contacts[0].point);
             //Debug.Log(contactPoint + " and unchange: " + other.contacts[0].point);
             //Vector3 currentForward = rotationFreaze.transform.TransformDirection(transform.position);
@@ -893,27 +901,43 @@ public class CameraControls
             {
                 if (forward && collisionRayCast(new Vector2(0, 0.5f), contactPoint.y, true))
                 {
+                    Debug.Log("Killing Forward Momentem");
                     veritcalAcceleration = 0;
+                    forward = false;
+                    moveStateX = 5;
                 }
                 else if (backward && collisionRayCast(new Vector2(0, 0.5f), contactPoint.y, false))
                 {
                     veritcalAcceleration = 1;
+                    backward = false;
+                    moveStateX = 5;
                 }
 
                 if (right && collisionRayCast(new Vector2(0.5f, 0 ), contactPoint.y, true))
                 {
                     horizontalAcceleration = 0;
+                    right = false;
+                    moveStateY = 5;
                 }
                 else if (left && collisionRayCast(new Vector2(0.5f, 0), contactPoint.y, false))
                 {
+                    moveStateY = 5;
+                    left = false;
                     horizontalAcceleration = 1;
                 }
+            }
+
+            if (moveStateX >= 5 && moveStateY >= 5)
+            {
+                //stop jump if colision and all movement has being killed
+                collisionJump = true;
             }
         }
     }
 
     bool collisionRayCast(Vector2 corners, float hieght, bool postive)
     {
+        Debug.Log("Calculating new Ray");
         Ray corner1 = new Ray();
         Ray corner2 = new Ray();
         callacuteRay(true);
@@ -969,7 +993,7 @@ public class CameraControls
             tempOrign = rotationFreaze.transform.TransformDirection(tempOrign);
             tempDirection = rotationFreaze.transform.TransformDirection(tempDirection);
             Debug.DrawRay(tempOrign, tempDirection + (rotationFreaze.transform.TransformDirection(Vector3.forward) * 1000), Color.white);
-        
+            Debug.Log("Complete Calactulation of Ray");
             if (firstRay)
             {
                 corner1 = new Ray(tempOrign, tempDirection);

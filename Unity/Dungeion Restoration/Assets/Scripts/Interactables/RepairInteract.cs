@@ -5,6 +5,13 @@ public class RepairInteract : Interactable
     
     [Header("Repair")]
     public GameObject FixedObject;
+    void OnEnable()
+    {
+        if (interacted)
+        {
+            interacted = false;
+        }
+    }
     public override void Start()
     {
         acheiveGoal.type = 1;

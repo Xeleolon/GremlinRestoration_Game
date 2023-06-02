@@ -3626,6 +3626,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273907, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273911, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: radius.x
@@ -10225,6 +10230,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273907, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273911, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -21373,7 +21383,7 @@ GameObject:
   - component: {fileID: 605702637}
   m_Layer: 0
   m_Name: Triangle (2)
-  m_TagString: Floor
+  m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33378,7 +33388,7 @@ GameObject:
   - component: {fileID: 959920376}
   m_Layer: 0
   m_Name: Triangle (3)
-  m_TagString: Floor
+  m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36997,6 +37007,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273907, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273911, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -42356,6 +42371,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273907, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273911, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: radius.x
@@ -45349,7 +45369,7 @@ GameObject:
   - component: {fileID: 1293654677}
   m_Layer: 0
   m_Name: Triangle (4)
-  m_TagString: Floor
+  m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52342,6 +52362,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273907, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273911, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: radius.x
@@ -57344,7 +57369,7 @@ GameObject:
   - component: {fileID: 1657388857}
   m_Layer: 0
   m_Name: Triangle (6)
-  m_TagString: Floor
+  m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61820,6 +61845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273907, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273911, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -67625,6 +67655,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273907, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273911, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: radius.x
@@ -70860,6 +70895,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273907, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273911, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: radius.x
@@ -73735,6 +73775,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273907, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273911, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: radius.x
@@ -74482,6 +74527,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273907, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273911, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -76154,6 +76204,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8050298124241596953, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1d1be3c85a8aa6429fe419abd02a3a3, type: 3}
@@ -77090,6 +77145,22 @@ PrefabInstance:
       propertyPath: interactions.centerSprite
       value: 
       objectReference: {fileID: 640091627}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: cameraControls.cameraSensitivity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: cameraControls.cameraAcceleration
+      value: 6000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662389, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1b3508260579f98438853fa7efcb009a,
+        type: 2}
     - target: {fileID: 5016645517801662391, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
       propertyPath: m_Name
