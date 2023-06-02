@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -606,7 +606,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasReplenish (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8305645036092773365, guid: 8f6ec907bd3493f448330c21a273f38e, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6ec907bd3493f448330c21a273f38e, type: 3}
 --- !u!4 &14748048 stripped
@@ -11452,7 +11453,7 @@ GameObject:
   - component: {fileID: 331541438}
   m_Layer: 0
   m_Name: Triangle (5)
-  m_TagString: Floor
+  m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20312,6 +20313,30 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050006008, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050006008, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050006008, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050006008, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050006008, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -161
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050006008, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 6894620918582959069, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_RootOrder
@@ -21386,7 +21411,7 @@ GameObject:
   - component: {fileID: 605702637}
   m_Layer: 0
   m_Name: Triangle (2)
-  m_TagString: Floor
+  m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31458,7 +31483,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasReplenish (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8305645036092773365, guid: 8f6ec907bd3493f448330c21a273f38e, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6ec907bd3493f448330c21a273f38e, type: 3}
 --- !u!4 &907204016 stripped
@@ -33476,7 +33502,7 @@ GameObject:
   - component: {fileID: 959920376}
   m_Layer: 0
   m_Name: Triangle (3)
-  m_TagString: Floor
+  m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45435,7 +45461,7 @@ GameObject:
   - component: {fileID: 1293654677}
   m_Layer: 0
   m_Name: Triangle (4)
-  m_TagString: Floor
+  m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57444,7 +57470,7 @@ GameObject:
   - component: {fileID: 1657388857}
   m_Layer: 0
   m_Name: Triangle (6)
-  m_TagString: Floor
+  m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74653,6 +74679,16 @@ PrefabInstance:
       propertyPath: interactions.centerSprite
       value: 
       objectReference: {fileID: 640091627}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: cameraControls.cameraSensitivity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: cameraControls.cameraAcceleration
+      value: 6500
+      objectReference: {fileID: 0}
     - target: {fileID: 5016645517801662391, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
       propertyPath: m_Name
@@ -74740,7 +74776,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasReplenish (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8305645036092773365, guid: 8f6ec907bd3493f448330c21a273f38e, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6ec907bd3493f448330c21a273f38e, type: 3}
 --- !u!4 &543450651664023603
@@ -76328,6 +76365,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 886892394}
     m_Modifications:
     - target: {fileID: 674591605, guid: ed548f80b14e6fe42b01de75673a3ed8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674591605, guid: ed548f80b14e6fe42b01de75673a3ed8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 378c9244624f4b146be6aecf75cd3d5a, type: 2}
@@ -76392,6 +76433,11 @@ PrefabInstance:
     - target: {fileID: 1958666976480791610, guid: ed548f80b14e6fe42b01de75673a3ed8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532341603953848727, guid: ed548f80b14e6fe42b01de75673a3ed8,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2532341603953848727, guid: ed548f80b14e6fe42b01de75673a3ed8,
