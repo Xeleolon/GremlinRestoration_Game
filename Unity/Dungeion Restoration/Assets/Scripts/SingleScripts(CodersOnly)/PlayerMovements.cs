@@ -888,45 +888,98 @@ public class CameraControls
         {
             Vector3 contactPoint = rotationFreaze.transform.TransformDirection(other.contacts[0].point);
             //Debug.Log(contactPoint + " and unchange: " + other.contacts[0].point);
-            Vector3 currentForward = rotationFreaze.transform.TransformDirection(transform.position);
+            //Vector3 currentForward = rotationFreaze.transform.TransformDirection(transform.position);
+            if (contactPoint.y <= transform.position.y + 1 && contactPoint.y >= transform.position.y - 1)
+            {
+                if (forward && collisionRayCast(new Vector2(0, 0.5f), contactPoint.y, true))
+                {
+                    veritcalAcceleration = 0;
+                }
+                else if (backward && collisionRayCast(new Vector2(0, 0.5f), contactPoint.y, false))
+                {
+                    veritcalAcceleration = 1;
+                }
 
-            if (forward && contactPoint.z > (currentForward.z + 0.1))
-            {
-                veritcalAcceleration = 0;
-                //Debug.Log("stoping forward momoent");
-            }
-            else if (backward && contactPoint.z < (currentForward.z + 0.1))
-            {
-                veritcalAcceleration = 1;
-            }
-
-            if (right && contactPoint.x > (currentForward.x + 0.1))
-            {
-                horizontalAcceleration = 0;
-            }
-            else if (left && contactPoint.x < (currentForward.x + 0.1))
-            {
-                horizontalAcceleration = 1;
+                if (right && collisionRayCast(new Vector2(0.5f, 0 ), contactPoint.y, true))
+                {
+                    horizontalAcceleration = 0;
+                }
+                else if (left && collisionRayCast(new Vector2(0.5f, 0), contactPoint.y, false))
+                {
+                    horizontalAcceleration = 1;
+                }
             }
         }
     }
 
-    bool checkInsideArea(Vector3 area, Vector3 offSet, Vector3 target)
+    bool collisionRayCast(Vector2 corners, float hieght, bool postive)
     {
-        //area is the size of the area where checking
-        //offSet is the location of the area from the player
-        //target is the target who we are checking if inside the area
-        //float angle; transform.localRotation.eulerAngles.y;
-        //Vector3 offSetRotaed = transform.RotateAround(offSet, Vector3.up, angle);
-        Vector3 greaterCorner = area/2 + offSet + transform.position;
-        Vector3 smallerCorner = area/2 - offSet + transform.position;
-        if (greaterCorner.x >= target.x && smallerCorner.x <= target.x &&
-            greaterCorner.y >= target.y && smallerCorner.y <= target.y &&
-            greaterCorner.z >= target.z && smallerCorner.z <= target.z)
+        Ray corner1 = new Ray();
+        Ray corner2 = new Ray();
+        callacuteRay(true);
+        callacuteRay(false);
+        RaycastHit hit;
+
+        if (Physics.Raycast(corner1, out hit, 10, 7))
         {
+            //Debug.DrawRay(corner1, Color.yellow);
+            Debug.Log("Hit with Corner 1");
             return true;
         }
+        else if (Physics.Raycast(corner2, out hit, 10, 7))
+        {
+            Debug.Log("Hit with Corner 2");
+            return true;
+        }
+        
+
         return false;
+        //creates the calcutiation for booth ray
+        void callacuteRay(bool firstRay)
+        {
+            rotationFreaze.transform.position = transform.position;
+            Vector3 tempOrign = transform.position;
+            tempOrign.y = hieght;
+            if (firstRay)
+            {
+                tempOrign.x += corners.x;
+                tempOrign.z += corners.y;
+            }
+            else
+            {
+                tempOrign.x += corners.x;
+                tempOrign.z += corners.y;
+            }
+
+            Vector3 tempDirection = tempOrign;
+            float makeNegative = 1;
+            if (!postive)
+            {
+                makeNegative = -1;
+            }
+            if (corners.x == 0)
+            {
+                tempDirection.y += 0.3f * makeNegative;
+            }
+            else
+            {
+                tempDirection.x += 0.3f * makeNegative;
+            }
+            //rotate the vector to correct rotation
+            tempOrign = rotationFreaze.transform.TransformDirection(tempOrign);
+            tempDirection = rotationFreaze.transform.TransformDirection(tempDirection);
+            Debug.DrawRay(tempOrign, tempDirection + (rotationFreaze.transform.TransformDirection(Vector3.forward) * 1000), Color.white);
+        
+            if (firstRay)
+            {
+                corner1 = new Ray(tempOrign, tempDirection);
+            }
+            else
+            {
+                corner2 = new Ray(tempOrign, tempDirection);
+            }
+        }
     }
+
     #endregion
 }
