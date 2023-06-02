@@ -53,7 +53,7 @@ public class ReplenishInteract : Interactable
             PlayAnimator();
             ActivateSlider();
             Completed();
-            string message = new string(gameObject.name + " Replenish it supples");
+            string message = new string(gameObject.name + " is Replenished");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
             interacted = true;

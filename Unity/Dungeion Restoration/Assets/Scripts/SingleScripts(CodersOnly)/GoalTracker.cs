@@ -91,6 +91,7 @@ public class GoalTracker : MonoBehaviour
     }
     #endregion
     
+    public GameObject tabHint;
     public GameObject checkList;
     public GameObject labelNumPrefab;
     public GameObject labelCheckPrefab;
@@ -140,10 +141,12 @@ public class GoalTracker : MonoBehaviour
         //Debug.Log("Button working");
         if (checkList.activeSelf)
         {
+            tabHint.SetActive(true);
             checkList.SetActive(false);
         }
         else
         {
+            tabHint.SetActive(false);
             checkList.SetActive(true);
         }
         //refreshWait = true;
