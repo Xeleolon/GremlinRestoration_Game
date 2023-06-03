@@ -6219,6 +6219,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -10102,6 +10107,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2294103889165962006, guid: 008f0102baac35443af31d0b633a8bad,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Tutorial
+      objectReference: {fileID: 0}
     - target: {fileID: 5245089114072635085, guid: 008f0102baac35443af31d0b633a8bad,
         type: 3}
       propertyPath: m_IsActive
@@ -11927,6 +11937,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Destroy (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
       objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
@@ -19872,7 +19887,7 @@ MonoBehaviour:
   interacted: 0
   activateAnimation: 
   acheiveGoal:
-    goal: 
+    goal: Refill Gas
     ticket: -1
     type: 0
   sliderPrefab: {fileID: 1460106237337754549, guid: d72b2fc4b4f6f62468550bdbe52b9d06,
@@ -22748,6 +22763,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -25161,6 +25181,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -25467,6 +25492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Destroy (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
       objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
@@ -27524,6 +27554,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -28430,7 +28465,7 @@ MonoBehaviour:
   interacted: 0
   activateAnimation: 
   acheiveGoal:
-    goal: 
+    goal: Refill Gas
     ticket: -1
     type: 0
   sliderPrefab: {fileID: 1460106237337754549, guid: d72b2fc4b4f6f62468550bdbe52b9d06,
@@ -31494,6 +31529,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -33698,6 +33738,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Destroy (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
       objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
@@ -40107,7 +40152,7 @@ MonoBehaviour:
   interacted: 0
   activateAnimation: 
   acheiveGoal:
-    goal: 
+    goal: Refill Gas
     ticket: -1
     type: 0
   sliderPrefab: {fileID: 1460106237337754549, guid: d72b2fc4b4f6f62468550bdbe52b9d06,
@@ -41774,6 +41819,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -42627,6 +42677,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Destroy (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
       objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
@@ -51024,6 +51079,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -51183,6 +51243,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Destroy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
       objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
@@ -52748,6 +52813,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fix
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507595169466378598, guid: 113368d159d441b4f9808b2c60ce6576,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Tutorial
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -54371,7 +54441,7 @@ MonoBehaviour:
   interacted: 0
   activateAnimation: 
   acheiveGoal:
-    goal: 
+    goal: Refill Gas
     ticket: -1
     type: 0
   sliderPrefab: {fileID: 1460106237337754549, guid: d72b2fc4b4f6f62468550bdbe52b9d06,
@@ -56594,6 +56664,11 @@ PrefabInstance:
       propertyPath: radius.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2092678891678258627, guid: 7035b40a88991434ba42a8a3c69d7aa7,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Finsh Level
+      objectReference: {fileID: 0}
     - target: {fileID: 2092678891678258629, guid: 7035b40a88991434ba42a8a3c69d7aa7,
         type: 3}
       propertyPath: m_Name
@@ -57756,6 +57831,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Destroy (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
       objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
@@ -60580,6 +60660,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -60997,7 +61082,7 @@ MonoBehaviour:
   interacted: 0
   activateAnimation: 
   acheiveGoal:
-    goal: 
+    goal: Refill Gas
     ticket: -1
     type: 0
   sliderPrefab: {fileID: 1460106237337754549, guid: d72b2fc4b4f6f62468550bdbe52b9d06,
@@ -64143,6 +64228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Destroy (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
       objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
@@ -71925,6 +72015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -74817,6 +74912,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Tutorial
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -75525,6 +75625,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -75601,6 +75706,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Destroy (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
       objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
@@ -78996,6 +79106,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -79233,6 +79348,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destroy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 850437705102162278, guid: 152593e2c6bc33d4894f9bd47d1ad351,
+        type: 3}
+      propertyPath: acheiveGoal.goal
+      value: Remove Rubble
+      objectReference: {fileID: 0}
     - target: {fileID: 850437705102162279, guid: 152593e2c6bc33d4894f9bd47d1ad351,
         type: 3}
       propertyPath: m_RootOrder
@@ -79346,7 +79466,7 @@ MonoBehaviour:
   interacted: 0
   activateAnimation: 
   acheiveGoal:
-    goal: 
+    goal: Refill Gas
     ticket: -1
     type: 0
   sliderPrefab: {fileID: 1460106237337754549, guid: d72b2fc4b4f6f62468550bdbe52b9d06,
@@ -80580,7 +80700,7 @@ MonoBehaviour:
   interacted: 0
   activateAnimation: 
   acheiveGoal:
-    goal: 
+    goal: Refill Gas
     ticket: -1
     type: 0
   sliderPrefab: {fileID: 1460106237337754549, guid: d72b2fc4b4f6f62468550bdbe52b9d06,
@@ -93340,7 +93460,7 @@ MonoBehaviour:
   interacted: 0
   activateAnimation: 
   acheiveGoal:
-    goal: 
+    goal: Refill Gas
     ticket: -1
     type: 0
   sliderPrefab: {fileID: 1460106237337754549, guid: d72b2fc4b4f6f62468550bdbe52b9d06,
