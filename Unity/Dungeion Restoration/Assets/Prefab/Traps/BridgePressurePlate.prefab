@@ -31,7 +31,7 @@ Transform:
   - {fileID: 8050298124241596952}
   - {fileID: 8050298123491480579}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2453059509677568433
 PrefabInstance:
@@ -65,7 +65,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6cf87deba94cf264c849f48981bff45d, type: 2}
+      objectReference: {fileID: 2100000, guid: c818d57c0ee50614ab0f33a875558ffd, type: 2}
     - target: {fileID: 5598928563623273906, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_RootOrder
@@ -199,7 +199,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2abea1285585fa440868594e4a92344b, type: 2}
+      objectReference: {fileID: 2100000, guid: fae7a67198af9b643ab6f8057d7285cf, type: 2}
     - target: {fileID: 5598928563623273906, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_RootOrder
