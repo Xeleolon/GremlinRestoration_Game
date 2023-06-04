@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4488,6 +4488,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePressurePlate (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
       propertyPath: radius.x
@@ -7317,6 +7322,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePressurePlate (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
       propertyPath: radius.x
@@ -9037,6 +9047,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BridgePressurePlate (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
@@ -12724,6 +12739,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePressurePlate (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
       propertyPath: radius.x
@@ -13982,6 +14002,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BridgePressurePlate (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
@@ -15520,6 +15545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BridgePressurePlate (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
@@ -22657,6 +22687,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePressurePlate (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
       propertyPath: radius.x
@@ -22927,6 +22962,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BridgePressurePlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
@@ -33898,6 +33938,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePressurePlate (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
       propertyPath: radius.x
@@ -35852,6 +35897,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePressurePlate (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
       propertyPath: radius.x
@@ -36483,6 +36533,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BridgePressurePlate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
@@ -38470,6 +38525,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePressurePlate (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
       propertyPath: radius.x
@@ -39726,6 +39786,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BridgePressurePlate (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
@@ -49154,6 +49219,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePressurePlate (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
       propertyPath: radius.x
@@ -56342,7 +56412,7 @@ GameObject:
   - component: {fileID: 1473691812}
   m_Layer: 0
   m_Name: Bridge
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61541,6 +61611,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BridgePressurePlate (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
@@ -69144,6 +69219,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BridgePressurePlate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
@@ -77320,6 +77400,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePressurePlate (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
       propertyPath: radius.x
@@ -80897,6 +80982,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePressurePlate (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1002365442908397980, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 2173936389655196364, guid: e1d1be3c85a8aa6429fe419abd02a3a3,
         type: 3}
       propertyPath: radius.x
@@ -83778,7 +83868,7 @@ GameObject:
   - component: {fileID: 4713350253258019721}
   m_Layer: 0
   m_Name: DungeonLevelOne_RoomWall44
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

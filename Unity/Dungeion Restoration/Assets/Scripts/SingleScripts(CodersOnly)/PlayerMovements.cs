@@ -934,6 +934,7 @@ public class CameraControls
             }
         }
     }
+    
 
     bool collisionRayCast(Vector2 corners, float hieght, bool postive)
     {
