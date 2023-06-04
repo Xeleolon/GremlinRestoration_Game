@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7197121337858007122}
   m_Layer: 0
   m_Name: BridgePressurePlate
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   - {fileID: 8050298124241596952}
   - {fileID: 8050298123491480579}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2453059509677568433
 PrefabInstance:
@@ -193,7 +193,7 @@ PrefabInstance:
     - target: {fileID: 5598928563623273805, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
       propertyPath: m_TagString
-      value: Floor
+      value: MovingPlate
       objectReference: {fileID: 0}
     - target: {fileID: 5598928563623273905, guid: 4ed72e13ea758714090a3ed3f8d00846,
         type: 3}
@@ -284,6 +284,11 @@ PrefabInstance:
         type: 3}
       propertyPath: radius.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598928563623273911, guid: 4ed72e13ea758714090a3ed3f8d00846,
+        type: 3}
+      propertyPath: disableJump
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5598928563623273908, guid: 4ed72e13ea758714090a3ed3f8d00846, type: 3}

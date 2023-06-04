@@ -408,6 +408,7 @@ public class CameraControls
     [SerializeField] private float lowJumpMultiplier = 2f;
     
     [SerializeField] private bool onGround = true;
+    private bool delayOnGround = false;
     private bool holdingJump = false; //is the player still holding jump when they land
     private bool collisionJump = false; //a bool that force jump to fall if the player collides and loses all motion in moveStateX or moveStateY
     //Movement
@@ -441,7 +442,6 @@ public class CameraControls
     void Awake()
     {
         playerControls = new PlayerInputActions();
-
     }
     void OnEnable()
     {
@@ -536,7 +536,7 @@ public class CameraControls
             if (!rotationFreazeMove)
             {
                 rb.MovePosition(rb.position + transform.TransformDirection(velocity) * Time.fixedDeltaTime);
-                if (moveStateX == 5 && moveStateY == 5 && onGround)
+                if (moveStateX == 5 && moveStateY == 5 && onGround && !delayOnGround)
                 {
                     rb.velocity = Vector3.zero;
                 }
@@ -844,6 +844,16 @@ public class CameraControls
                     holdingJump = true;
                 }
             }
+            else if (other.tag == "MovingPlate")
+            {
+                delayOnGround = true;
+                onGround = true;
+                rb.useGravity = true;
+                if (jumpInput.ReadValue<float>() > 0)
+                {
+                    holdingJump = true;
+                }
+            }
             //rb.isKinematic = true;
 
             
@@ -855,17 +865,24 @@ public class CameraControls
     void OnTriggerStay(Collider other)
     {
         //Debug.Log("On Ground Stay Decatating " + other);
-        if (!onGround && other.name != "Player")
+        if (!onGround && other.tag != "Player")
         {
-            if (other.tag == groundTag)
+            if (!delayOnGround)
             {
-                onGround = true;
-                rb.useGravity = true;
+                if (other.tag == groundTag || other.tag == "MovingPlate")
+                {
+                    onGround = true;
+                    rb.useGravity = true;
+                }
+                else if (other.tag == "Ramp")
+                {
+                    onGround = true;
+                    rb.useGravity = false;
+                }
             }
-            else if (other.tag == "Ramp")
+            else if (other.tag != "MovingPlate")
             {
-                onGround = true;
-                rb.useGravity = false;
+                delayOnGround = false;
             }
         }
 
@@ -888,6 +905,18 @@ public class CameraControls
         rotationFreaze.transform.rotation = transform.rotation;
         rotationFreazeMove = true;
         //Debug.Log(gameObject.transform.rotation + " & rotationFreaze:" + rotationFreaze.transform.rotation);
+    }
+    public void ForceOnGround(bool state)
+    {
+        if (state)
+        {
+            onGround = true;
+        }
+        else
+        {
+            onGround = false;
+            delayOnGround = true;
+        }
     }
     void OnCollisionEnter(Collision other)
     {

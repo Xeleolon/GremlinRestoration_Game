@@ -6,11 +6,13 @@ public class ButtonPlate : Interactable
     [Tooltip("how far down before activating")]
     [SerializeField] private float pressureDistance = 1;
     [SerializeField] private float returnSpeed = 1;
+    public bool disableJump = false;
     Vector3 startPosition;
     bool collisionActive = false; //is they a collision currently
     
     int numCollision = 0;
     bool trapActivated = false; //let the trap reset before activating again
+    PlayerMovements playerScript;
     Rigidbody rb;
     void OnEnable()
     {
@@ -85,6 +87,10 @@ public class ButtonPlate : Interactable
             rb.isKinematic = true;
             if (trapActivated)
             {
+                if (disableJump && playerScript != null)
+                {
+                    playerScript.ForceOnGround(false);
+                }
                 Activate(true);
             }
             trapActivated = false;
@@ -94,6 +100,10 @@ public class ButtonPlate : Interactable
     void OnCollisionEnter(Collision other)
     {
         Rigidbody rbCheck = other.gameObject.GetComponent<Rigidbody>();
+        if (other.gameObject.tag == "Player")
+        {
+            playerScript = other.gameObject.GetComponent<PlayerMovements>();
+        }
         //Debug.Log(rbCheck);
         if (rb != null)
         {
@@ -115,6 +125,10 @@ public class ButtonPlate : Interactable
     }
     void OnCollisionExit(Collision other)
     {
+        if (other.gameObject.tag == "Player")
+        {
+            playerScript = null;
+        }
         Rigidbody rbCheck = other.gameObject.GetComponent<Rigidbody>();
         if (rbCheck != null)
         {
