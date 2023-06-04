@@ -409,6 +409,7 @@ public class CameraControls
     
     [SerializeField] private bool onGround = true;
     private bool delayOnGround = false;
+    private bool onRamp = false;
     private bool holdingJump = false; //is the player still holding jump when they land
     private bool collisionJump = false; //a bool that force jump to fall if the player collides and loses all motion in moveStateX or moveStateY
     //Movement
@@ -536,7 +537,7 @@ public class CameraControls
             if (!rotationFreazeMove)
             {
                 rb.MovePosition(rb.position + transform.TransformDirection(velocity) * Time.fixedDeltaTime);
-                if (moveStateX == 5 && moveStateY == 5 && onGround && !delayOnGround)
+                if (moveStateX == 5 && moveStateY == 5 && onGround && onRamp)
                 {
                     rb.velocity = Vector3.zero;
                 }
@@ -807,7 +808,7 @@ public class CameraControls
             }
         }
         
-        if (rb.velocity.y <= 0 && !onGround) //Failing from jump
+        if (rb.velocity.y <= 0 && onGround) //Failing from jump
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
@@ -845,6 +846,7 @@ public class CameraControls
                 {
                     delayOnGround = false;
                 }
+                onRamp = true;
                 onGround = true;
                 rb.useGravity = false;
                 if (jumpInput.ReadValue<float>() > 0)
@@ -883,6 +885,7 @@ public class CameraControls
             else if (other.tag == "Ramp")
             {
                 onGround = true;
+                onRamp = true;
                 rb.useGravity = false;
             }
             else if (other.tag == "MovingPlate")
@@ -901,10 +904,15 @@ public class CameraControls
         //Debug.Log("trying to leave ground");
         if (onGround)
         {
-            if (other.tag == groundTag || other.tag == "Ramp")
+            if (other.tag == groundTag || other.tag == "Ramp" || other.tag == "MovingPlate")
             {
                 onGround = false;
                 rb.useGravity = true;
+            }
+
+            if (other.tag == "Ramp")
+            {
+                onRamp = false;
             }
 
         }
