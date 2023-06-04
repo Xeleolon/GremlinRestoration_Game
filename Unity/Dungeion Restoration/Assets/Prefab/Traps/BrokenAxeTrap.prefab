@@ -140,7 +140,7 @@ MonoBehaviour:
     goal: 
     ticket: -1
     type: 0
-  FixedObject: {fileID: 0}
+  FixedObject: {fileID: 4001520000366802997}
 --- !u!65 &3692192922219127688
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -230,6 +230,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 601822cf359faa94f99ceed44b692794, type: 3}
+--- !u!1 &4001520000366802997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2637963906398023344, guid: 601822cf359faa94f99ceed44b692794,
+    type: 3}
+  m_PrefabInstance: {fileID: 1374634790310647429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4378503318411649679 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3445322566914782218, guid: 601822cf359faa94f99ceed44b692794,
