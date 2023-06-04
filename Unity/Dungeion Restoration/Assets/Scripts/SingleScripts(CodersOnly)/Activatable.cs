@@ -21,13 +21,13 @@ public class Activatable : MonoBehaviour
     {
         if (!activated && !disable)
         {
-            Activate();
             activated = true;
+            Activate();
         }
         else if (activated && disable)
         {
-            UnActivate();
             activated = false;
+            UnActivate();
         }
     }
 

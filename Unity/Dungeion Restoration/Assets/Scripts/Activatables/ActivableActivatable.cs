@@ -13,6 +13,7 @@ public class ActivableActivatable : Activatable
             turnOnOff.SetActive(true);
             if (turnOffSelf)
             {
+                activated = false;
                 gameObject.SetActive(false);
             }
         }

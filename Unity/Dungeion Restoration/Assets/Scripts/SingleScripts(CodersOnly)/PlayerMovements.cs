@@ -830,6 +830,10 @@ public class CameraControls
             {
                 onGround = true;
                 rb.useGravity = true;
+                if (delayOnGround)
+                {
+                    delayOnGround = false;
+                }
                 if (jumpInput.ReadValue<float>() > 0)
                 {
                     holdingJump = true;
@@ -837,6 +841,10 @@ public class CameraControls
             }
             else if (other.tag == "Ramp")
             {
+                if (delayOnGround)
+                {
+                    delayOnGround = false;
+                }
                 onGround = true;
                 rb.useGravity = false;
                 if (jumpInput.ReadValue<float>() > 0)
@@ -867,22 +875,21 @@ public class CameraControls
         //Debug.Log("On Ground Stay Decatating " + other);
         if (!onGround && other.tag != "Player")
         {
-            if (!delayOnGround)
+            if (other.tag == groundTag || other.tag == "MovingPlate")
             {
-                if (other.tag == groundTag || other.tag == "MovingPlate")
-                {
-                    onGround = true;
-                    rb.useGravity = true;
-                }
-                else if (other.tag == "Ramp")
-                {
-                    onGround = true;
-                    rb.useGravity = false;
-                }
+                onGround = true;
+                rb.useGravity = true;
             }
-            else if (other.tag != "MovingPlate")
+            else if (other.tag == "Ramp")
             {
-                delayOnGround = false;
+                onGround = true;
+                rb.useGravity = false;
+            }
+            else if (other.tag == "MovingPlate")
+            {
+                delayOnGround = true;
+                onGround = true;
+                rb.useGravity = true;
             }
         }
 
