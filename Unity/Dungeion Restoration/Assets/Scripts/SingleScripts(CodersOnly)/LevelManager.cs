@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
             Debug.LogWarning("More Than One instance of inventory found!");
         }
         instance = this;
+        
         playerControls = new PlayerInputActions();
 
     }
