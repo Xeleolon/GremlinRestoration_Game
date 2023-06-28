@@ -25725,6 +25725,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -25
       objectReference: {fileID: 0}
+    - target: {fileID: 3935343657115783133, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6894620918582959069, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_RootOrder
@@ -48185,6 +48190,65 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096785444}
   m_Mesh: {fileID: -1095735935765241046, guid: dc51a5f4eca56094c91abe4261ade2e1, type: 3}
+--- !u!1 &1097334517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1097334519}
+  - component: {fileID: 1097334518}
+  m_Layer: 0
+  m_Name: StartDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1097334518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097334517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2fa4011cc3ab4cbae6e024ecd5840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activated: 0
+  onStart: 1
+  dialogue:
+    name: DungeonMaster
+    sentences:
+    - "Welcome to the Mastermind\u2019s Dungeon.\r\n\r\nYou can call this dungeon
+      a sort of \u2026 Initiation."
+    - "The Mastermind is unsure if you\u2019re fit to revitalise his more profitable
+      and dangerous dungeons after they\u2019ve been ransacked by passing adventurers
+      seeking glory. So, this.\r"
+    - "Your job is to assess the damage that\u2019s been done, find what\u2019s missing
+      and fix it. Refill empty cannisters, Break Rubble and Repair Traps."
+    - Of course, some traps are still in their active states, so you must be careful.
+      Others, however, can still break after being reset.
+    time: 8
+--- !u!4 &1097334519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097334517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.92556, y: 17.506138, z: 31.972889}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1099171096
 GameObject:
   m_ObjectHideFlags: 0
