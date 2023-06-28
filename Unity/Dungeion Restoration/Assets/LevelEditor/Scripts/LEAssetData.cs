@@ -15,9 +15,9 @@ public class LEAssetData : MonoBehaviour
 
     [Header("Height of Floor from bottom of object")]
     public float facePostiveX = 0;
-    public float facePostiveY = 0;
+    public float facePostiveZ = 0;
     public float faceNegativeX = 0;
-    public float faceNegativeY = 0;
+    public float faceNegativeZ = 0;
 
 
 }
