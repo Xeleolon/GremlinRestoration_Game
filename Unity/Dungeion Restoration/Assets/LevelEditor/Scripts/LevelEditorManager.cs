@@ -66,6 +66,11 @@ public class LevelEditorManager : EditorWindow //The Editor Window for snapping 
             }
         }
 
+        if (GUILayout.Button("Check Forward"))
+        {
+            CheckForward(moveObject);
+        }
+
         
         SnapButton();
     }
@@ -232,5 +237,11 @@ public class LevelEditorManager : EditorWindow //The Editor Window for snapping 
         moveTo += scaleHome + scaleMove;
             
         moveObject.transform.position = moveTo;
+    }
+
+    void CheckForward(GameObject target)
+    {
+        Debug.Log("target forward = " + target.transform.forward);
+        Debug.Log("target right = " + target.transform.right);
     }
 }
