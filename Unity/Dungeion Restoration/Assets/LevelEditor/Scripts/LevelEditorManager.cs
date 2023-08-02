@@ -1,12 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
 public class LevelEditorManager : EditorWindow //The Editor Window for snapping object to each other
 {
-    //Examples from 
-    Color color;
-    string myString = "hello, WOrld!";
     GameObject moveObject;
     bool changeMove = false;
     GameObject homeObject;
@@ -26,13 +24,13 @@ public class LevelEditorManager : EditorWindow //The Editor Window for snapping 
     void OnGUI()
     {
         UpdateSelection();
-        //Examples From Research and learning!
-        myString = EditorGUILayout.TextField("Name", myString);
+        homeObject = EditorGUILayout.ObjectField("Destiation", homeObject, typeof(GameObject), true) as GameObject;
+        changeHome = EditorGUILayout.Toggle("Lock Destiation", changeHome);
 
-        GUILayout.Label(" Testing Coloizing.", EditorStyles.boldLabel);
+        moveObject = EditorGUILayout.ObjectField("Moving", moveObject, typeof(GameObject), true) as GameObject;
+        changeMove = EditorGUILayout.Toggle("Lock Moving", changeMove);
 
-        color = EditorGUILayout.ColorField("Color", color);
-        if (GUILayout.Button("Empty Objects"))
+        if (GUILayout.Button("Clear Locked Objects"))
         {
             if (!changeMove)
             {
@@ -45,31 +43,14 @@ public class LevelEditorManager : EditorWindow //The Editor Window for snapping 
             }
         }
 
-        moveObject = EditorGUILayout.ObjectField("Moving", moveObject, typeof(GameObject), true) as GameObject;
-        changeMove = EditorGUILayout.Toggle("Lock Moving", changeMove);
-
-        homeObject = EditorGUILayout.ObjectField("Moving To", homeObject, typeof(GameObject), true) as GameObject;
-        changeHome = EditorGUILayout.Toggle("Lock Home", changeHome);
-
         testingMove = EditorGUILayout.Vector3Field("Testing moving", testingMove);
         testingHome = EditorGUILayout.Vector3Field("Testing home", testingHome);
 
-        if (GUILayout.Button("Colorise!"))
-        {
-            foreach (GameObject obj in Selection.gameObjects)
-            {
-                Renderer renderer = obj.GetComponent<Renderer>();
-                if (renderer != null)
-                {
-                    renderer.sharedMaterial.color = color;
-                }
-            }
-        }
 
-        if (GUILayout.Button("Check Forward"))
+        /*if (GUILayout.Button("Check Forward"))
         {
             CheckForward(moveObject);
-        }
+        }*/
 
         
         SnapButton();
@@ -101,6 +82,36 @@ public class LevelEditorManager : EditorWindow //The Editor Window for snapping 
             }
         }
     }
+    /*void OnDrawGizmosSelected()
+    {
+        Debug.Log("Testing two");
+        if (moveObject != null)
+        {
+            Debug.Log("Test");
+            Vector3 scaleMove = moveObject.transform.localScale;
+
+            if (movingData != null)
+            {
+                scaleMove = Vector3.Scale(scaleMove, Vector3.Scale(movingData.alterScale, movingData.size)); //updates the scale to any changes
+            }
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(moveObject.transform.position, scaleMove);
+        }
+        
+        if (homeObject != null)
+        {
+            Vector3 scaleHome = homeObject.transform.localScale;
+
+            if (homeData != null)
+            {
+                scaleHome = Vector3.Scale(scaleHome, Vector3.Scale(homeData.alterScale, homeData.size));
+            }
+
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireCube(homeObject.transform.position, scaleHome);
+        }
+    }*/
     void SnapButton()
     {
         if (moveObject != null && homeObject != null)
