@@ -406,6 +406,11 @@ public class CameraControls
     public string groundTag;
     [SerializeField] private float fallMultiplier = 2.5f;
     [SerializeField] private float lowJumpMultiplier = 2f;
+
+    [SerializeField] private float playerHeight = 1;
+    [Range(0,90)]
+    [SerializeField] private float maxSlopeAngle = 40;
+    private RaycastHit slopeHit;
     
     [SerializeField] private bool onGround = true;
     private bool delayOnGround = false;
@@ -427,7 +432,7 @@ public class CameraControls
     private bool rotationFreazeMove = false;
     [Tooltip("for Collision")]
 
-
+    #region Enable & Disable
     //Input System
     private PlayerInputActions playerControls; //this is the script which holds all the inpuct actions
     private InputAction move;
@@ -439,7 +444,6 @@ public class CameraControls
     {
         interactions.WandsNotNull();
     }
-    #region Enable & Disable
     void Awake()
     {
         playerControls = new PlayerInputActions();
@@ -536,7 +540,16 @@ public class CameraControls
         {
             if (!rotationFreazeMove)
             {
-                rb.MovePosition(rb.position + transform.TransformDirection(velocity) * Time.fixedDeltaTime);
+                Vector3 finalVelocity = velocity;//transform.TransformDirection(velocity);
+                if (OnSlope())
+                {
+                    //Debug.Log("Slope function working");
+                    finalVelocity = GetSlopeMoveDirection();
+                }
+                //rb.MovePosition(rb.position + finalVelocity * Time.fixedDeltaTime);
+                //Debug.Log(finalVelocity);
+                rb.AddRelativeForce(finalVelocity);
+                
                 if (moveStateX == 5 && moveStateY == 5 && onGround && onRamp)
                 {
                     rb.velocity = Vector3.zero;
@@ -545,7 +558,8 @@ public class CameraControls
             else
             {
                 //work if facing correct forward need to translate last position rotation to be new object rotation.
-                rb.MovePosition(rb.position + rotationFreaze.transform.TransformDirection(velocity) * Time.fixedDeltaTime);
+                //rb.MovePosition(rb.position + rotationFreaze.transform.TransformDirection(velocity) * Time.fixedDeltaTime);
+                rb.AddRelativeForce(rotationFreaze.transform.TransformDirection(velocity));
             }
         }
     }
@@ -790,6 +804,23 @@ public class CameraControls
             }
         }
         
+    }
+
+    private bool OnSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f, 7))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+
+            return angle < maxSlopeAngle && angle != 0;
+        }
+
+        return false;
+    }
+
+    private Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(transform.TransformDirection(velocity), slopeHit.normal).normalized;
     }
 
     #endregion
