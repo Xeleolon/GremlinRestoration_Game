@@ -386,7 +386,7 @@ public class CameraControls
     [Header("Respawn/Death")]
     [Tooltip("How long Before Player Respawns")]
     [SerializeField] private float respawnLength = 5;
-    private float respawnTimer = 0;
+    private float respawnClock = 0;
     [Tooltip("if true input will work otherwise player isn't active")]
     public bool interactActive = true;
     private bool playerDead = false;
@@ -395,42 +395,17 @@ public class CameraControls
     LevelManager levelManager;
 
     [Header("Player Movement")]
-    public float speed = 3;
-    [Tooltip("the rate for velocity to reach speed. Larger the Value is the faster you reach maxSpeed")]
-    [SerializeField]private float acceleration = 0.3f;
-    [Tooltip("the Added Speed to create the sprint")]
-    [SerializeField]private float sprintSpeed = 6;
-    [Tooltip("stopping spead")]
-    [SerializeField]private float stopSpeed = 1;
-    public float jump = 1;
-    public string groundTag;
-    [SerializeField] private float fallMultiplier = 2.5f;
-    [SerializeField] private float lowJumpMultiplier = 2f;
-
-    [SerializeField] private float playerHeight = 1;
-    [Range(0,90)]
-    [SerializeField] private float maxSlopeAngle = 40;
-    private RaycastHit slopeHit;
     
-    [SerializeField] private bool onGround = true;
-    private bool delayOnGround = false;
-    private bool onRamp = false;
-    private bool holdingJump = false; //is the player still holding jump when they land
-    private bool collisionJump = false; //a bool that force jump to fall if the player collides and loses all motion in moveStateX or moveStateY
-    //Movement
-    private Vector3 velocity;
-    float veritcalAcceleration = 0.0f; //container to track when at fall speed
-    float horizontalAcceleration = 0.0f;
-    bool forward = false; //movement states to check which way the player is current moving.
-    bool backward = false;
-    bool right = false;
-    bool left = false;
+    [SerializeField] private float speed = 3;
+    [SerializeField] private float jump = 3;
+    [SerializeField] private float maxSlopeAngle = 45;
+    [SerializeField] private float playerHeight = 2;
+
     private Rigidbody rb;
-    private int moveStateX = 6;
-    private int moveStateY = 6;
-    private GameObject rotationFreaze; //a empty gameObject which is holds the player rotation and freaze it postion
-    private bool rotationFreazeMove = false;
-    [Tooltip("for Collision")]
+
+    private Vector3 Velocity;
+
+    private RaycastHit slopeHit;
 
     #region Enable & Disable
     //Input System
@@ -503,13 +478,7 @@ public class CameraControls
                 }
                 MovementInputs();
             }
-            else
-            {
-                SlowDown();
-            }
-        Moving(moveStateX);
-        Moving(moveStateY);
-        
+
         JumpFunction();
 
 
@@ -517,7 +486,7 @@ public class CameraControls
         }
         else if (playerDead)
         {
-            if (respawnTimer <= 0)
+            if (respawnClock <= 0)
             {
                 levelManager.DeathMenu(false);
                 playerDead = false;
@@ -526,7 +495,7 @@ public class CameraControls
             }
             else
             {
-                respawnTimer -= 1 * Time.deltaTime;
+                respawnClock -= 1 * Time.deltaTime;
             }
         }
         else
@@ -538,35 +507,16 @@ public class CameraControls
     {
         if (interactActive)
         {
-            if (!rotationFreazeMove)
-            {
-                Vector3 finalVelocity = velocity;//transform.TransformDirection(velocity);
-                if (OnSlope())
-                {
-                    //Debug.Log("Slope function working");
-                    finalVelocity = GetSlopeMoveDirection();
-                }
-                //rb.MovePosition(rb.position + finalVelocity * Time.fixedDeltaTime);
-                //Debug.Log(finalVelocity);
-                rb.AddRelativeForce(finalVelocity);
+            
+            rb.AddRelativeForce();
                 
-                if (moveStateX == 5 && moveStateY == 5 && onGround && onRamp)
-                {
-                    rb.velocity = Vector3.zero;
-                }
-            }
-            else
-            {
-                //work if facing correct forward need to translate last position rotation to be new object rotation.
-                //rb.MovePosition(rb.position + rotationFreaze.transform.TransformDirection(velocity) * Time.fixedDeltaTime);
-                rb.AddRelativeForce(rotationFreaze.transform.TransformDirection(velocity));
-            }
+            
         }
     }
     # region PlayerLife
     public void KillPlayer()
     {
-        if (respawnTimer <= 0 || !playerDead)
+        if (respawnClock <= 0 || !playerDead)
         {
             playerDead = true;
             levelManager.DeathMenu(true);
@@ -574,7 +524,7 @@ public class CameraControls
             
             MoveToCheckPoint(); //sepatated from kill player allowing me to move to the checkpoint without killing the player
             interactActive = false;
-            respawnTimer = respawnLength;
+            respawnClock = respawnLength;
             Debug.Log("Player Died");
             PlayerChat.instance.NewMessage("Player Died");
         }
@@ -615,195 +565,10 @@ public class CameraControls
     void MovementInputs()
     {
         Vector2 moveInputs = move.ReadValue<Vector2>(); //collector data from input before comparing as have a need to split the data into x and y
-        if (moveInputs.y > 0) //Y for Vertival movement
-        {
-            if (!forward)
-            {
-                veritcalAcceleration = 0;
-                forward = true;
-            }
-            else if (veritcalAcceleration < (1 + (sprintSpeed * 0.1)))
-            {
-                veritcalAcceleration += acceleration * Time.deltaTime;
-            }
-
-            if (sprint.ReadValue<float>() > 0)
-            {
-                moveStateX = 0;
-            }
-            else
-            {
-                if (veritcalAcceleration >= 1)
-                {
-                    veritcalAcceleration = 1;
-                }
-                
-                moveStateX = 1;
-            }
-        }
-        else if (moveInputs.y < 0) //Y for Vertival movement
-        {
-            if (!backward)
-            {
-                veritcalAcceleration = 1;
-                backward = true;
-            }
-            else if(veritcalAcceleration > 0)
-            {
-                veritcalAcceleration -=acceleration * Time.deltaTime;
-            }
-           
-           moveStateX = 2;
-        }
-        else
-        {
-            if (forward) 
-            {
-                veritcalAcceleration = 0;
-                forward = false;
-            }
-            else if (backward)
-            {
-                veritcalAcceleration = 1;
-                backward = false;
-            }
-            velocity.z = 0;
-            moveStateX = 5;
-            moveStateY = 5;
-        }
-
-        if (moveInputs.x > 0) //X for Horizontal movement
-        {
-            if (!right)
-            {
-                horizontalAcceleration = 0;
-                right = true;
-            }
-            else if (horizontalAcceleration < 1)
-            {
-                horizontalAcceleration += acceleration * Time.deltaTime;
-            }
-            
-            moveStateY = 3;
-        }
-        else if (moveInputs.x < 0) //X for Horizontal movement
-        {
-            if (!left)
-            {
-                horizontalAcceleration = 1;
-                left = true;
-            }
-            else if (horizontalAcceleration > 0)
-            {
-                horizontalAcceleration -= acceleration * Time.deltaTime;
-            }
-            
-            moveStateY = 4;
-        }
-        else
-        {
-            if (right)
-            {
-                right = false;
-                horizontalAcceleration = 0;
-            }
-            else if (left)
-            {
-                left = false;
-                horizontalAcceleration = 1;
-            }
-            velocity.x = 0;
-            moveStateY = 5;
-        }
-    }
-    void Moving(int state) //help to allow movement to be held while in free fall without reseting and changing
-    {
-        if (state < 5) // 5 for not to be used
-        {
-            switch (state)
-        {
-            case (0): // 0 for sprint forward
-            velocity.z = Mathf.LerpUnclamped(0, speed, veritcalAcceleration);
-            break;
-            
-            case (1): // 1 for forward
-            velocity.z = Mathf.Lerp(0, speed, veritcalAcceleration);
-            break; 
-
-            case (2): // 2 for backwards
-            velocity.z = Mathf.Lerp(-speed, 0, veritcalAcceleration);
-            break;
-
-            case (3): // 3 for right
-            velocity.x = Mathf.Lerp(0, speed, horizontalAcceleration);
-            break;
-
-            case (4): // 4 for left
-            velocity.x = Mathf.Lerp(-speed, 0, horizontalAcceleration);
-            break;
-        }
-        }
-    }
-    void SlowDown()
-    {
-        if (forward && veritcalAcceleration != 0)
-        {
-            if (veritcalAcceleration <= 0.1)
-            {
-                veritcalAcceleration = 0;
-                forward = false;
-            }
-            else
-            {
-                //Reduce VerticalAcceleration
-                float newAcceleration = veritcalAcceleration - stopSpeed * Time.deltaTime;
-                veritcalAcceleration = newAcceleration;
-            }
-        }
-        else if (backward && veritcalAcceleration != 1)
-        {
-            if (veritcalAcceleration >= 0.9)
-            {
-                veritcalAcceleration = 1;
-                backward = false;
-            }
-            else
-            {
-                //Reduce VerticalAcceleration
-                float newAcceleration = veritcalAcceleration + stopSpeed * Time.deltaTime;
-                veritcalAcceleration = newAcceleration;
-            }
-        }
-
-        if (right && horizontalAcceleration != 0)
-        {
-            if (horizontalAcceleration <= 0.1)
-            {
-                horizontalAcceleration = 0;
-                right = false;
-            }
-            else
-            {
-                //Reduce VerticalAcceleration
-                float newAcceleration = horizontalAcceleration - stopSpeed * Time.deltaTime;
-                horizontalAcceleration = newAcceleration;
-            }
-        }
-        else if (left && horizontalAcceleration != 1)
-        {
-            if (horizontalAcceleration >= 0.9)
-            {
-                horizontalAcceleration = 1;
-                left = false;
-            }
-            else
-            {
-                //Reduce VerticalAcceleration
-                float newAcceleration = horizontalAcceleration + stopSpeed * Time.deltaTime;
-                horizontalAcceleration = newAcceleration;
-            }
-        }
         
+        Velocity.x = moveInputs.x * speed * Time.deltaTime;
+
+        Velocity.z = moveInputs.y * speed * Time.deltaTime;
     }
 
     private bool OnSlope()
@@ -827,259 +592,13 @@ public class CameraControls
     #region Jump
     void JumpFunction()
     {
-        if (jumpInput.ReadValue<float>() > 0 && onGround && !holdingJump && !collisionJump) //Jump
+        if (jumpInput.ReadValue<float>() > 0 )
         {
-           
-            rb.velocity = Vector3.up * jump;
-            if (onGround)
-            {
-                rb.useGravity = true;
-                //rb.isKinematic = false;
-                onGround = false;
-            }
-        }
-        
-        if (rb.velocity.y <= 0 && onGround) //Failing from jump
-        {
-            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        }
-        else if (rb.velocity.y >= 0 && jumpInput.ReadValue<float>() <= 0 && !onGround)
-        {
-            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
-        if (holdingJump && jumpInput.ReadValue<float>() <= 0)
-        {
-            holdingJump = false;
-        }
-
-    }
-    //attached to a trigger underplayer to decect when the player leaves the ground
-    void OnTriggerEnter(Collider other)
-    {
-        if (!onGround)
-        {
-            if (other.tag == groundTag)
-            {
-                onGround = true;
-                rb.useGravity = true;
-                if (delayOnGround)
-                {
-                    delayOnGround = false;
-                }
-                if (jumpInput.ReadValue<float>() > 0)
-                {
-                    holdingJump = true;
-                }
-            }
-            else if (other.tag == "Ramp")
-            {
-                if (delayOnGround)
-                {
-                    delayOnGround = false;
-                }
-                onRamp = true;
-                onGround = true;
-                rb.useGravity = false;
-                if (jumpInput.ReadValue<float>() > 0)
-                {
-                    holdingJump = true;
-                }
-            }
-            else if (other.tag == "MovingPlate")
-            {
-                delayOnGround = true;
-                onGround = true;
-                rb.useGravity = true;
-                if (jumpInput.ReadValue<float>() > 0)
-                {
-                    holdingJump = true;
-                }
-            }
-            //rb.isKinematic = true;
-
-            
-            //rb.velocity = 0;
-        }
-        
-        rotationFreazeMove = false;
-    }
-    void OnTriggerStay(Collider other)
-    {
-        //Debug.Log("On Ground Stay Decatating " + other);
-        if (!onGround && other.tag != "Player")
-        {
-            if (other.tag == groundTag || other.tag == "MovingPlate")
-            {
-                onGround = true;
-                rb.useGravity = true;
-            }
-            else if (other.tag == "Ramp")
-            {
-                onGround = true;
-                onRamp = true;
-                rb.useGravity = false;
-            }
-            else if (other.tag == "MovingPlate")
-            {
-                delayOnGround = true;
-                onGround = true;
-                rb.useGravity = true;
-            }
-        }
-
-        rotationFreazeMove = false;
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        //Debug.Log("trying to leave ground");
-        if (onGround)
-        {
-            if (other.tag == groundTag || other.tag == "Ramp" || other.tag == "MovingPlate")
-            {
-                onGround = false;
-                rb.useGravity = true;
-            }
-
-            if (other.tag == "Ramp")
-            {
-                onRamp = false;
-            }
 
         }
-        rotationFreaze.transform.position = transform.position;
-        rotationFreaze.transform.rotation = transform.rotation;
-        rotationFreazeMove = true;
-        //Debug.Log(gameObject.transform.rotation + " & rotationFreaze:" + rotationFreaze.transform.rotation);
-    }
-    public void ForceOnGround(bool state)
-    {
-        if (state)
-        {
-            onGround = true;
-        }
-        else
-        {
-            onGround = false;
-            delayOnGround = true;
-        }
-    }
-    void OnCollisionEnter(Collision other)
-    {
-        if (rotationFreazeMove)
-        {
-            Debug.Log("Colsion Decected");
-            Vector3 contactPoint = rotationFreaze.transform.TransformDirection(other.contacts[0].point);
-            //Debug.Log(contactPoint + " and unchange: " + other.contacts[0].point);
-            //Vector3 currentForward = rotationFreaze.transform.TransformDirection(transform.position);
-            if (contactPoint.y <= transform.position.y + 1 && contactPoint.y >= transform.position.y - 1)
-            {
-                if (forward && collisionRayCast(new Vector2(0, 0.5f), contactPoint.y, true))
-                {
-                    Debug.Log("Killing Forward Momentem");
-                    veritcalAcceleration = 0;
-                    forward = false;
-                    moveStateX = 5;
-                }
-                else if (backward && collisionRayCast(new Vector2(0, 0.5f), contactPoint.y, false))
-                {
-                    veritcalAcceleration = 1;
-                    backward = false;
-                    moveStateX = 5;
-                }
 
-                if (right && collisionRayCast(new Vector2(0.5f, 0 ), contactPoint.y, true))
-                {
-                    horizontalAcceleration = 0;
-                    right = false;
-                    moveStateY = 5;
-                }
-                else if (left && collisionRayCast(new Vector2(0.5f, 0), contactPoint.y, false))
-                {
-                    moveStateY = 5;
-                    left = false;
-                    horizontalAcceleration = 1;
-                }
-            }
-
-            if (moveStateX >= 5 && moveStateY >= 5)
-            {
-                //stop jump if colision and all movement has being killed
-                collisionJump = true;
-            }
-        }
     }
     
-
-    bool collisionRayCast(Vector2 corners, float hieght, bool postive)
-    {
-        Debug.Log("Calculating new Ray");
-        Ray corner1 = new Ray();
-        Ray corner2 = new Ray();
-        callacuteRay(true);
-        callacuteRay(false);
-        RaycastHit hit;
-
-        if (Physics.Raycast(corner1, out hit, 10, 7))
-        {
-            //Debug.DrawRay(corner1, Color.yellow);
-            Debug.Log("Hit with Corner 1");
-            return true;
-        }
-        else if (Physics.Raycast(corner2, out hit, 10, 7))
-        {
-            Debug.Log("Hit with Corner 2");
-            return true;
-        }
-        
-
-        return false;
-        //creates the calcutiation for booth ray
-        void callacuteRay(bool firstRay)
-        {
-            rotationFreaze.transform.position = transform.position;
-            Vector3 tempOrign = transform.position;
-            tempOrign.y = hieght;
-            if (firstRay)
-            {
-                tempOrign.x += corners.x;
-                tempOrign.z += corners.y;
-            }
-            else
-            {
-                tempOrign.x += corners.x;
-                tempOrign.z += corners.y;
-            }
-
-            Vector3 tempDirection = tempOrign;
-            float makeNegative = 1;
-            if (!postive)
-            {
-                makeNegative = -1;
-            }
-            if (corners.x == 0)
-            {
-                tempDirection.y += 0.3f * makeNegative;
-            }
-            else
-            {
-                tempDirection.x += 0.3f * makeNegative;
-            }
-            //rotate the vector to correct rotation
-            tempOrign = rotationFreaze.transform.TransformDirection(tempOrign);
-            tempDirection = rotationFreaze.transform.TransformDirection(tempDirection);
-            Debug.DrawRay(tempOrign, tempDirection + (rotationFreaze.transform.TransformDirection(Vector3.forward) * 1000), Color.white);
-            Debug.Log("Complete Calactulation of Ray");
-            if (firstRay)
-            {
-                corner1 = new Ray(tempOrign, tempDirection);
-            }
-            else
-            {
-                corner2 = new Ray(tempOrign, tempDirection);
-            }
-        }
-    }
 
     #endregion
 }
