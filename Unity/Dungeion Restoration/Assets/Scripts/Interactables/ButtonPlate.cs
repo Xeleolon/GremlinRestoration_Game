@@ -89,7 +89,7 @@ public class ButtonPlate : Interactable
             {
                 if (disableJump && playerScript != null)
                 {
-                    playerScript.ForceOnGround(false);
+                    //playerScript.ForceOnGround(false);
                 }
                 Activate(true);
             }

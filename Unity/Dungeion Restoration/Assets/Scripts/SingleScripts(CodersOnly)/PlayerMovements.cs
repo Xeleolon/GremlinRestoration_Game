@@ -107,7 +107,7 @@ public class Interact
                 
             RaycastHit hit;
             
-            if (Physics.Raycast(ray, out hit, 100, 7))
+            if (Physics.Raycast(ray, out hit, 100, 10))
             {
                 //Debug.Log("hit " + hit.collider.gameObject.name);
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
@@ -397,15 +397,30 @@ public class CameraControls
     [Header("Player Movement")]
     
     [SerializeField] private float speed = 3;
-    [SerializeField] private float jump = 3;
+
+
+    [SerializeField] private float jumpForce = 3;
+    [SerializeField] private float jumpCooldown = 1;
+    [SerializeField] private float airMultiplier = 1;
+    private bool readyToJump;
+
+
+    [SerializeField] private float groundDrag;
+
     [SerializeField] private float maxSlopeAngle = 45;
-    [SerializeField] private float playerHeight = 2;
+
+    private Vector3 velocity;
+    private Vector3 moveDirection;
+    private bool exitingSlope;
 
     private Rigidbody rb;
 
-    private Vector3 Velocity;
-
     private RaycastHit slopeHit;
+
+    [Header ("Ground Check")]
+    [SerializeField] private float playerHeight = 2;
+    [SerializeField] private LayerMask whatIsGround;
+    bool grounded;
 
     #region Enable & Disable
     //Input System
@@ -459,7 +474,8 @@ public class CameraControls
         levelManager = LevelManager.instance;
         LevelManager.instance.ChangeInteractUI(interactions.state);
         interactions.WandsNotNull();
-        rotationFreaze = new GameObject("DontDestoryPlayerRotation");
+        ResetJump();
+        //rotationFreaze = new GameObject("DontDestoryPlayerRotation");
         //rotationFreaze.AddComponent<Rigidbody>();
 
     }
@@ -470,19 +486,14 @@ public class CameraControls
         interactions.ScrollWheel();
         if (interactActive)
         {
-            if (!rotationFreazeMove)
-            {
-                if (collisionJump)
-                {
-                    collisionJump = false;
-                }
-                MovementInputs();
-            }
+            rb.useGravity = !OnSlope();
+            GroundCheck();
+            MovementInputs();
 
-        JumpFunction();
+            JumpFunction();
 
 
-        cameraControls.MoveCamera(transform);
+            cameraControls.MoveCamera(transform);
         }
         else if (playerDead)
         {
@@ -507,10 +518,25 @@ public class CameraControls
     {
         if (interactActive)
         {
-            
-            rb.AddRelativeForce();
-                
-            
+
+            if (OnSlope() && !exitingSlope)
+            {
+                rb.AddForce(GetSlopeMoveDirection() * speed * 20f, ForceMode.Force);
+
+                if(rb.velocity.y > 0)
+                {
+                    rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+                }
+            }
+            else if (grounded)
+            {
+                rb.AddForce(moveDirection.normalized * speed * 10f, ForceMode.Force);
+            }
+            else if (!grounded)
+            {
+                rb.AddForce(moveDirection.normalized * speed * 10f * airMultiplier, ForceMode.Force);
+            }
+
         }
     }
     # region PlayerLife
@@ -566,37 +592,76 @@ public class CameraControls
     {
         Vector2 moveInputs = move.ReadValue<Vector2>(); //collector data from input before comparing as have a need to split the data into x and y
         
-        Velocity.x = moveInputs.x * speed * Time.deltaTime;
+        moveDirection = transform.forward * moveInputs.y + transform.right * moveInputs.x;
 
-        Velocity.z = moveInputs.y * speed * Time.deltaTime;
+        //SpeedControl
+
+        if (OnSlope() && !exitingSlope && rb.velocity.magnitude > speed)
+        {
+            rb.velocity = rb.velocity.normalized * speed;
+        }
+        else
+        { 
+            Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+            //limit velocity if needed
+            if (flatVel.magnitude > speed)
+            {
+                Vector3 limitedVel = flatVel.normalized * speed;
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            }
+
+        }
     }
 
     private bool OnSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f, 7))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-
             return angle < maxSlopeAngle && angle != 0;
         }
-
         return false;
     }
 
     private Vector3 GetSlopeMoveDirection()
     {
-        return Vector3.ProjectOnPlane(transform.TransformDirection(velocity), slopeHit.normal).normalized;
+        return Vector3.ProjectOnPlane(transform.TransformDirection(moveDirection), slopeHit.normal).normalized;
     }
 
-    #endregion
-    #region Jump
-    void JumpFunction()
+    private void GroundCheck()
     {
-        if (jumpInput.ReadValue<float>() > 0 )
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
+        if (grounded)
         {
+            rb.drag = groundDrag;
+        }
+        else
+        {
+            rb.drag = 0;
+        }
+    }
+    private void JumpFunction()
+    {
+        if (jumpInput.ReadValue<float>() > 0 && readyToJump && grounded)
+        {
+            exitingSlope = true;
+            readyToJump = false;
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+            Invoke(nameof(ResetJump), jumpCooldown);
 
         }
 
+    }
+
+    private void ResetJump()
+    {
+        readyToJump = true;
+        exitingSlope = false;
     }
     
 
