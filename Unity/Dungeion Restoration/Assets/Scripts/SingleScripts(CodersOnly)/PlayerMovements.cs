@@ -98,18 +98,19 @@ public class Interact
     }
     private void ShootRay(InputAction.CallbackContext context)
     {
+        //Debug.Log("Fire");
         if (interactiveActive && fireRay)
         {
-                //Debug.Log("Fire");
+                //Debug.Log("Fire2");
             Ray ray;
                 
             ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
                 
             RaycastHit hit;
             
-            if (Physics.Raycast(ray, out hit, 100, 10))
+            if (Physics.Raycast(ray, out hit, 100))
             {
-                //Debug.Log("hit " + hit.collider.gameObject.name);
+                Debug.Log("hit " + hit.collider.gameObject.name);
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
 
                 //Debug.Log(interactable);

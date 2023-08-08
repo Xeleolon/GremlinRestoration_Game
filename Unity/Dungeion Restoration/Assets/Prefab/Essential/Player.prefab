@@ -239,7 +239,7 @@ Transform:
   - {fileID: 5016645517565970480}
   - {fileID: 5016645516717435789}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &5016645517801662389
 CapsuleCollider:
@@ -285,9 +285,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
     state: 1
-    refresh: 0.5
+    refresh: 0.2
     fireRay: 1
-    scrollWheelSpeed: 10
+    scrollWheelSpeed: 0.02
     centerSprite: {fileID: 0}
     wands:
     - name: Neutral
@@ -316,8 +316,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   cameraControls:
-    cameraAcceleration: 5000
-    cameraSensitivity: 7
+    cameraAcceleration: 6500
+    cameraSensitivity: 10
     cameraMaxVerticalAngleFromHorizon: 90
     cameraInputLagPeriod: 0.01
 --- !u!114 &4419806864863105512
