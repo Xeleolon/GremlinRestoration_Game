@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5016645516717435789}
   - component: {fileID: 5016645516717435787}
   - component: {fileID: 5016645516717435786}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5016645516717435788}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5016645517801662386}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5016645517565970495}
   - component: {fileID: 5016645517565970494}
   - component: {fileID: 5016645517565970481}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5016645517565970483}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -0.06}
+  m_LocalPosition: {x: 0, y: 0.263, z: -0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -216,9 +216,8 @@ GameObject:
   - component: {fileID: 5016645517801662389}
   - component: {fileID: 5016645517801662388}
   - component: {fileID: 5016645517801662387}
-  - component: {fileID: 5016645517801662384}
   - component: {fileID: 4419806864863105512}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -240,7 +239,7 @@ Transform:
   - {fileID: 5016645517565970480}
   - {fileID: 5016645516717435789}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &5016645517801662389
 CapsuleCollider:
@@ -249,11 +248,11 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5016645517801662391}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1b3508260579f98438853fa7efcb009a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5016645517801662388
@@ -306,39 +305,21 @@ MonoBehaviour:
   respawnLength: 2
   interactActive: 1
   corpse: {fileID: 1390369824979298483, guid: a9177d12996f4fe4a97211bcff95248e, type: 3}
-  speed: 5
-  acceleration: 10
-  sprintSpeed: 6
-  stopSpeed: 1
-  jump: 7
-  groundTag: Floor
-  fallMultiplier: 2
-  lowJumpMultiplier: 2
-  onGround: 0
-  collisionWireFrame: 1
-  collisionDection: {x: 3, y: 3, z: 3}
-  rightOffset: {x: 1.5, y: 0, z: 0}
-  leftOffset: {x: -1.5, y: 0, z: 0}
-  backOffset: {x: 0, y: 0, z: -1.5}
-  forwardOffset: {x: 0, y: 0, z: 1.5}
+  speed: 3
+  jumpForce: 5
+  jumpCooldown: 0.4
+  airMultiplier: 1
+  groundDrag: 2
+  maxSlopeAngle: 45
+  playerHeight: 1
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
   cameraControls:
     cameraAcceleration: 5000
     cameraSensitivity: 7
     cameraMaxVerticalAngleFromHorizon: 90
     cameraInputLagPeriod: 0.01
---- !u!65 &5016645517801662384
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5016645517801662391}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.1, z: 0.5}
-  m_Center: {x: 0, y: -1, z: 0}
 --- !u!114 &4419806864863105512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +359,16 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5016645517565970480}
     m_Modifications:
+    - target: {fileID: 2028041161960652238, guid: 888fd5ac297b25e4fb2480b78ed671b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068582453215423534, guid: 888fd5ac297b25e4fb2480b78ed671b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5130058500637835148, guid: 888fd5ac297b25e4fb2480b78ed671b9,
         type: 3}
       propertyPath: m_RootOrder
@@ -437,6 +428,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StaffRepair
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510842069902288182, guid: 888fd5ac297b25e4fb2480b78ed671b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -523,8 +519,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3298008021398160724, guid: ae2515e589b603c43a03379dab1160fa,
         type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298008021398160724, guid: ae2515e589b603c43a03379dab1160fa,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239242676491229456, guid: ae2515e589b603c43a03379dab1160fa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -608,6 +614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MalletUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943543865355231111, guid: 895cc807982c99d43901cfef21abcc68,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1943543865355231111, guid: 895cc807982c99d43901cfef21abcc68,
         type: 3}

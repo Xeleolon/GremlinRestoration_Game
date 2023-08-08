@@ -27106,31 +27106,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 134322786130228411, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1109742273160919666, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1150248380043602834, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645516717435788, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517565970483, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5016645517801662386, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
       propertyPath: m_RootOrder
@@ -27186,84 +27161,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: jumpForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: stopSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: groundDrag
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: jumpCooldown
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: playerHeight
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: whatIsGround.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: cameraControls.cameraSensitivity
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: cameraControls.cameraAcceleration
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662389, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 1b3508260579f98438853fa7efcb009a,
-        type: 2}
     - target: {fileID: 5016645517801662391, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662391, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6893319798129865578, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7254263783810951423, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9105886586577163823, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5016645517801662384, guid: f4ff8824bf04bd341b9ca6a3a0b36297, type: 3}
+    m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f4ff8824bf04bd341b9ca6a3a0b36297, type: 3}
 --- !u!1 &1823537961

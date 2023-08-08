@@ -663,6 +663,11 @@ public class CameraControls
         readyToJump = true;
         exitingSlope = false;
     }
+
+    public void ForceOnGround(bool newOnGround)
+    {
+        grounded = newOnGround;
+    }
     
 
     #endregion
