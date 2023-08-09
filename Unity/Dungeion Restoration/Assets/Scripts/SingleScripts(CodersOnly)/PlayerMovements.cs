@@ -410,7 +410,6 @@ public class CameraControls
 
     [SerializeField] private float maxSlopeAngle = 45;
 
-    private Vector3 velocity;
     private Vector3 moveDirection;
     private bool exitingSlope;
 
@@ -570,8 +569,7 @@ public class CameraControls
     public void MoveToCheckPoint()
     {
         transform.position = lastCheckPoint;
-        velocity.x = 0;
-        velocity.z = 0;
+        rb.velocity = Vector3.zero;
     }
     private void GenerateCorpse(Vector3 CorpsePosition)
     {
