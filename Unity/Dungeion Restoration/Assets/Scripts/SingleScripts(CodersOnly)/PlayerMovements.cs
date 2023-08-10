@@ -409,6 +409,7 @@ public class CameraControls
     [SerializeField] private float groundDrag;
 
     [SerializeField] private float maxSlopeAngle = 45;
+    [Tooltip("How long before slope caluciation apply")]
 
     private Vector3 moveDirection;
     private bool exitingSlope;
@@ -521,11 +522,11 @@ public class CameraControls
 
             if (OnSlope() && !exitingSlope)
             {
-                rb.AddForce(GetSlopeMoveDirection() * speed * 20f, ForceMode.Force);
+                rb.AddForce(GetSlopeMoveDirection() * speed * 15f, ForceMode.Force);
 
                 if(rb.velocity.y > 0)
                 {
-                    rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+                    rb.AddForce(Vector3.down * 60f, ForceMode.Force);
                 }
             }
             else if (grounded)
@@ -625,7 +626,7 @@ public class CameraControls
 
     private Vector3 GetSlopeMoveDirection()
     {
-        return Vector3.ProjectOnPlane(transform.TransformDirection(moveDirection), slopeHit.normal).normalized;
+        return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
 
     private void GroundCheck()
@@ -634,7 +635,7 @@ public class CameraControls
 
         if (grounded)
         {
-            rb.drag = groundDrag;
+                rb.drag = groundDrag;
         }
         else
         {

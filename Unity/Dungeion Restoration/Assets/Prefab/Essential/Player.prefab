@@ -239,7 +239,7 @@ Transform:
   - {fileID: 5016645517565970480}
   - {fileID: 5016645516717435789}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &5016645517801662389
 CapsuleCollider:
@@ -309,7 +309,7 @@ MonoBehaviour:
   jumpForce: 5
   jumpCooldown: 0.4
   airMultiplier: 1
-  groundDrag: 2
+  groundDrag: 3
   maxSlopeAngle: 45
   playerHeight: 1
   whatIsGround:

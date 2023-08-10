@@ -3,7 +3,9 @@ using UnityEngine;
 public class DestroyInteract : Interactable
 {
     [Header("Destroy")]
-    public float destroyDelay = 0;
+    [SerializeField] private float destroyDelay = 0;
+    [Tooltip("doesn't require an item to be pickup, fill in only with item required to pick up")]
+    [SerializeField] private Item itemPickup;
     private ButtonPlate pressurePlate;
     public override void Start()
     {
@@ -25,6 +27,10 @@ public class DestroyInteract : Interactable
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
             interacted = true;
+            if (itemPickup != null)
+            {
+                Inventory.instance.Add(itemPickup);
+            }
             Destroy(gameObject, destroyDelay);
         }
         else

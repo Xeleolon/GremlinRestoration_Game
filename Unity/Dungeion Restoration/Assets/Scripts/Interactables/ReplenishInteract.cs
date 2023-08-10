@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class ReplenishInteract : Interactable
 {
     [Header("Replinish Variables")]
+    [Tooltip("place Required Item to Refill, leave blank if no item required to Refill")]
+    [SerializeField] private Item requiredItem;
     public GameObject sliderPrefab;
     private GameObject ReplinishCanvas;
     public float maxValue;
@@ -48,7 +50,18 @@ public class ReplenishInteract : Interactable
     public override void Interact()
     {
         base.Interact();
-        if (interactionState == 3)
+        if (!Refill(interactionState))
+        {
+            string message = new string("Beep Boop Bop");
+            Debug.Log(message);
+            PlayerChat.instance.NewMessage(message);
+        }
+    }
+
+    private bool Refill(int interactState)
+    {
+        Debug.Log("Testing");
+        if (interactState == 3 && Inventory.instance.Remove(requiredItem))
         {
             PlayAnimator();
             ActivateSlider();
@@ -57,13 +70,9 @@ public class ReplenishInteract : Interactable
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
             interacted = true;
+            return true;
         }
-        else
-        {
-            string message = new string("Beep Boop Bop");
-            Debug.Log(message);
-            PlayerChat.instance.NewMessage(message);
-        }
+        return false;
     }
     public override void PlayAnimator()
     {

@@ -4,7 +4,9 @@ public class RepairInteract : Interactable
 {
     
     [Header("Repair")]
-    public GameObject FixedObject;
+    public GameObject FixedModel;
+    [Tooltip("place Required Item to fix, leave blank if no item required to fix")]
+    [SerializeField] private Item requiredItem;
     void OnEnable()
     {
         if (interacted)
@@ -20,20 +22,7 @@ public class RepairInteract : Interactable
     public override void Interact()
     {
         base.Interact();
-        if (interactionState == 1)
-        {
-            PlayAnimator();
-            Completed();
-            if (FixedObject != null)
-            {
-                RepairObject();
-            }
-            string message = new string(gameObject.name + " Repaired");
-            Debug.Log(message);
-            PlayerChat.instance.NewMessage(message);
-            interacted = true;
-        }
-        else
+        if (!Repair(interactionState))
         {
             string message = new string("Beep Boop Bop");
             Debug.Log(message);
@@ -49,9 +38,29 @@ public class RepairInteract : Interactable
         base.Completed();
     }
 
-    public void RepairObject()
+    private bool Repair(int interactionState)
     {
-        FixedObject.SetActive(true);
+        if (interactionState == 1 && Inventory.instance.Remove(requiredItem))
+        {
+            PlayAnimator();
+            Completed();
+            if (FixedModel != null)
+            {
+                RepairModel();
+            }
+            string message = new string(gameObject.name + " Repaired");
+            Debug.Log(message);
+            PlayerChat.instance.NewMessage(message);
+            interacted = true;
+            return true;
+        }
+
+        return false;
+    }
+
+    public void RepairModel()
+    {
+        FixedModel.SetActive(true);
         gameObject.SetActive(false);
     }
 
