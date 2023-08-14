@@ -52,7 +52,7 @@ public class NpcAI : MonoBehaviour
 
     void CycleDestination()
     {
-        Debug.Log("Cycling at " + targetPlace);
+        //Debug.Log("Cycling at " + targetPlace);
         if (targetPlace >= target.Length - 1)
         {
             targetPlace = 0;
@@ -67,7 +67,7 @@ public class NpcAI : MonoBehaviour
 
     void RandomisedCycle()
     {
-        Debug.Log("Ramdomising at " + targetPlace);
+        //Debug.Log("Ramdomising at " + targetPlace);
         int newPlace = targetPlace;
         
         while(newPlace == targetPlace)

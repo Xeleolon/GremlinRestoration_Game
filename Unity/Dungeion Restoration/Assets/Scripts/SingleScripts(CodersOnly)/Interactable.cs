@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Interactable : MonoBehaviour
 {
@@ -14,17 +15,11 @@ public class Interactable : MonoBehaviour
     }
     [Header("Standard Interactable")]
     [Tooltip("Radius which player can interact with object")]
-    //public float radius = 3f;
     public Vector3 radius = new Vector3(3, 3, 3);
     [Tooltip("the offset of the position of the interaction border")]
     public Vector3 offSet;
     [Tooltip("gameObject being activated Interaction")]
     public GameObject trapObject;
-    //[Tooltip("can the button once pressed again disable the trap when pressed again")]
-    //[SerializeField] private bool disableTrap = false;
-    //[Tooltip("0 for neutral, 1 for repair, 2 for destory, 3 for replinish")]
-    //[Range(0, 3)]
-    //public int interactionType = 0;
     public int interactionState = 0;
     public bool interacted = false;
     private Animator animator;
@@ -33,6 +28,26 @@ public class Interactable : MonoBehaviour
     public AcheiveGoal acheiveGoal;
     Vector3 radiusHalf;
     private bool goalUpdated = false;
+
+    private PlayerInputActions playerControls;
+    public InputAction fire;
+
+    void Awake()
+    {
+        playerControls = new PlayerInputActions();
+    }
+
+    public virtual void OnEnable()
+    {
+        fire = playerControls.Player.Fire;
+        fire.Enable();
+    }
+
+    void OnDisable()
+    {
+        fire.Disable();
+    }
+
     public virtual void Start()
     {
         if (acheiveGoal.goal != "")

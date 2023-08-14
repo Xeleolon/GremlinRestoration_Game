@@ -51,6 +51,15 @@ public class Inventory : MonoBehaviour
 
         return true;
     }
+    public bool CheckAvalability(Item item)
+    {
+        if (item == null || infiniteItems || items.Contains(item))
+        {
+            return true;
+        }
+
+        return false;
+    }
 
     public bool Remove(Item item)
     {

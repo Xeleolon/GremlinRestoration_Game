@@ -14,8 +14,9 @@ public class ButtonPlate : Interactable
     bool trapActivated = false; //let the trap reset before activating again
     PlayerMovements playerScript;
     Rigidbody rb;
-    void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
         if (startPosition != Vector3.zero)
         {
             transform.position = startPosition;

@@ -7,8 +7,15 @@ public class RepairInteract : Interactable
     public GameObject FixedModel;
     [Tooltip("place Required Item to fix, leave blank if no item required to fix")]
     [SerializeField] private Item requiredItem;
-    void OnEnable()
+    [SerializeField] private float holdInteractFor = 1;
+
+    private bool interactHold;
+    private float holdClock;
+
+
+    public override void OnEnable()
     {
+        base.OnEnable();
         if (interacted)
         {
             interacted = false;
@@ -19,9 +26,45 @@ public class RepairInteract : Interactable
         acheiveGoal.type = 1;
         base.Start();
     }
+    void Update()
+    {
+        if (interactHold)
+        { 
+            float fireKey = fire.ReadValue<float>();
+
+            if (fireKey > 0)
+            {
+                if (holdClock <= 0)
+                {
+                    Inventory.instance.Remove(requiredItem);
+                    Completed();
+                    if (FixedModel != null)
+                    {
+                        RepairModel();
+                    }
+                    string message = new string(gameObject.name + " Repaired");
+                    Debug.Log(message);
+                    PlayerChat.instance.NewMessage(message);
+                    interacted = true;
+                    interactHold = false;
+                }
+                else
+                {
+                    holdClock -= 1 * Time.deltaTime;
+                }
+            }
+        }
+    }
     public override void Interact()
     {
         base.Interact();
+        if (!interactHold && interactionState == 1 && Inventory.instance.CheckAvalability(requiredItem)) //This is the initial interaction of the interact
+        {
+            PlayAnimator();
+            holdClock = holdInteractFor;
+            interactHold = true;
+        }
+
         if (!Repair(interactionState))
         {
             string message = new string("Beep Boop Bop");
@@ -29,6 +72,8 @@ public class RepairInteract : Interactable
             PlayerChat.instance.NewMessage(message);
         }
     }
+
+    
     public override void PlayAnimator()
     {
         base.PlayAnimator();
