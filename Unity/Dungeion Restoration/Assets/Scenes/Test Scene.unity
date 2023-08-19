@@ -21599,10 +21599,10 @@ MonoBehaviour:
     ticket: -1
     type: 0
   fire:
-    m_Name: 
+    m_Name: Fire
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: 95ee6140-2e90-4b6e-bba5-fa35d843b0c1
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -32025,6 +32025,16 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1132245960}
     m_Modifications:
+    - target: {fileID: 2139228206839718312, guid: dfa4ed459d160674abd69161429543a1,
+        type: 3}
+      propertyPath: fire.m_Id
+      value: e7d886d4-b1d4-40e8-8230-68f698411ecb
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139228206839718312, guid: dfa4ed459d160674abd69161429543a1,
+        type: 3}
+      propertyPath: fire.m_Name
+      value: Fire
+      objectReference: {fileID: 0}
     - target: {fileID: 2139228206839718314, guid: dfa4ed459d160674abd69161429543a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -32038,7 +32048,7 @@ PrefabInstance:
     - target: {fileID: 2139228206839718314, guid: dfa4ed459d160674abd69161429543a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.785143
+      value: 11.65
       objectReference: {fileID: 0}
     - target: {fileID: 2139228206839718314, guid: dfa4ed459d160674abd69161429543a1,
         type: 3}
@@ -32155,6 +32165,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294103889165962006, guid: 008f0102baac35443af31d0b633a8bad,
+        type: 3}
+      propertyPath: fire.m_Id
+      value: c2f00287-193f-4ccf-9ef5-d612fdc7c8c1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294103889165962006, guid: 008f0102baac35443af31d0b633a8bad,
+        type: 3}
+      propertyPath: fire.m_Name
+      value: Fire
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
