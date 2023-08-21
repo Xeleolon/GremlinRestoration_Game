@@ -361,6 +361,16 @@ MonoBehaviour:
     goal: 
     ticket: -1
     type: 0
+  fire:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a009169c-09f2-4e7b-affa-cd8cc9652a1d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  requiredItem: {fileID: 0}
   sliderPrefab: {fileID: 1460106237337754549, guid: d72b2fc4b4f6f62468550bdbe52b9d06,
     type: 3}
   maxValue: 1

@@ -121,7 +121,18 @@ MonoBehaviour:
     goal: 
     ticket: -1
     type: 1
-  FixedObject: {fileID: 0}
+  fire:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 716b0c75-521c-499a-9958-36c46445c847
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  FixedModel: {fileID: 0}
+  requiredItem: {fileID: 0}
+  holdInteractFor: 1
 --- !u!54 &1507595169466378599
 Rigidbody:
   m_ObjectHideFlags: 0

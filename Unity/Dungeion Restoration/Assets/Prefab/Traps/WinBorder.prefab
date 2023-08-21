@@ -69,6 +69,15 @@ MonoBehaviour:
     goal: 
     ticket: -1
     type: 0
+  fire:
+    m_Name: Fire
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a31bb681-0971-4ca4-a081-ce1246eb6647
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   checkTag: Player
   trigger: 1
   activate:

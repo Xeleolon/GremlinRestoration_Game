@@ -128,9 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8eb5887e3fe0045a86f9afc7c8f6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0
+  radius: {x: 3, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 5598928563623273805}
-  disableTrap: 0
   interactionState: 0
   interacted: 0
   activateAnimation: 
@@ -138,8 +138,18 @@ MonoBehaviour:
     goal: 
     ticket: -1
     type: 0
+  fire:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8ca202c3-67dd-4921-8a4b-0f089bd4a70a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   pressureDistance: 0.2
   returnSpeed: 1
+  disableJump: 0
 --- !u!114 &5598928563623273908
 MonoBehaviour:
   m_ObjectHideFlags: 0

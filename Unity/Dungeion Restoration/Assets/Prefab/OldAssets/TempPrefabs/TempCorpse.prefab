@@ -138,4 +138,14 @@ MonoBehaviour:
     goal: Clean Corpse
     ticket: -1
     type: 2
+  fire:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d24f1955-67a1-4a2a-9831-9831644d6021
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   destroyDelay: 0
+  itemPickup: {fileID: 0}

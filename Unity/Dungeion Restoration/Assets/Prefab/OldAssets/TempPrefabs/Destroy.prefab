@@ -121,7 +121,17 @@ MonoBehaviour:
     goal: 
     ticket: -1
     type: 2
+  fire:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 34ff4ac5-0a5e-4a7f-a62a-ed7e22bd706c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   destroyDelay: 0
+  itemPickup: {fileID: 0}
 --- !u!54 &850437705102162281
 Rigidbody:
   m_ObjectHideFlags: 0
