@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6282285380204140063}
   - component: {fileID: 9172406406506390116}
   - component: {fileID: 6294361376842842102}
-  - component: {fileID: 225280611204027529}
+  - component: {fileID: 4172104913745639737}
   m_Layer: 8
   m_Name: StairWireFrame
   m_TagString: Untagged
@@ -125,7 +125,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5314569752882958187}
-  m_Mesh: {fileID: -2944874628434398287, guid: 96e437afeced3b541824bf65ea55c623, type: 3}
+  m_Mesh: {fileID: -2944874628434398287, guid: f95fe6b91b18fc246ad5af5b2740f829, type: 3}
 --- !u!23 &6294361376842842102
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 96e437afeced3b541824bf65ea55c623, type: 3}
+  - {fileID: 2100000, guid: 2b1203cd0dd464e4d8319240db44af37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,7 +168,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &225280611204027529
+--- !u!64 &4172104913745639737
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,4 +181,4 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -2944874628434398287, guid: 96e437afeced3b541824bf65ea55c623, type: 3}
+  m_Mesh: {fileID: -2944874628434398287, guid: f95fe6b91b18fc246ad5af5b2740f829, type: 3}

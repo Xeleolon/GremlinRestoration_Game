@@ -63,7 +63,7 @@ public class ReplenishInteract : Interactable
         Debug.Log("Testing");
         if (interactState == 3 && Inventory.instance.Remove(requiredItem))
         {
-            PlayAnimator();
+            //PlayAnimator();
             ActivateSlider();
             Completed();
             string message = new string(gameObject.name + " is Replenished");
@@ -73,10 +73,6 @@ public class ReplenishInteract : Interactable
             return true;
         }
         return false;
-    }
-    public override void PlayAnimator()
-    {
-        base.PlayAnimator();
     }
     private void ActivateSlider()
     {

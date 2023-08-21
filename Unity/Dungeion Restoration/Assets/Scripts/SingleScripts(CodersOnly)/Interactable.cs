@@ -23,7 +23,6 @@ public class Interactable : MonoBehaviour
     public int interactionState = 0;
     public bool interacted = false;
     private Animator animator;
-    public string activateAnimation;
     Transform player;
     public AcheiveGoal acheiveGoal;
     Vector3 radiusHalf;
@@ -50,6 +49,7 @@ public class Interactable : MonoBehaviour
 
     public virtual void Start()
     {
+        animator = GetComponent<Animator>();
         if (acheiveGoal.goal != "")
         {
             //Debug.Log("Using string");
@@ -69,17 +69,16 @@ public class Interactable : MonoBehaviour
     {
         //this method is meant to be overwritten
         Debug.Log("Interacting with " + transform.name);
-        animator = GetComponent<Animator>();
     }
     public virtual void Activate(bool unActivate)
     {
         trapObject.GetComponent<Activatable>().OnActivate(unActivate);
     }
-    public virtual void PlayAnimator()
+    public virtual void PlayAnimator(string playAnimation)
     {
-        if (activateAnimation != "")
+        if (playAnimation != "")
         {
-            animator.Play(activateAnimation);
+            animator.Play(playAnimation);
         }
     }
     public virtual void Completed()

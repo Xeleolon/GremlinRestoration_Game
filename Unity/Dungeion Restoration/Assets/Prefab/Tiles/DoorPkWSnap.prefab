@@ -478,6 +478,8 @@ GameObject:
   - component: {fileID: 2338324636491816273}
   - component: {fileID: 4384206389711651608}
   - component: {fileID: 8639024765403797506}
+  - component: {fileID: 7400815966520505238}
+  - component: {fileID: 6359039368911871833}
   m_Layer: 0
   m_Name: SmallGate
   m_TagString: Untagged
@@ -493,7 +495,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5199095688423935341}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75000054, y: -0.0000004172325, z: -0.00000023841858}
+  m_LocalPosition: {x: 0.75, y: 1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -515,7 +517,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5199095688423935341}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -559,10 +561,64 @@ BoxCollider:
   m_GameObject: {fileID: 5199095688423935341}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.099999905, y: 2.0806546, z: 1.1763852}
   m_Center: {x: 0, y: 1.0403273, z: 0.0041892827}
+--- !u!95 &7400815966520505238
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199095688423935341}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73437cc6f6068e049a6b30754fd38b6c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6359039368911871833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199095688423935341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29ff2fd6d8c0e04ab5a77dcf06a45eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: {x: 5, y: 3, z: 3}
+  offSet: {x: 0, y: 0, z: 0}
+  trapObject: {fileID: 0}
+  interactionState: 0
+  interacted: 0
+  acheiveGoal:
+    goal: 
+    ticket: -1
+    type: 0
+  fire:
+    m_Name: Fire
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 677df4f9-f517-4df4-ae96-49dfa8fe9634
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  doorOpen: 0
+  activateOnInteract: 1
+  closingAnimation: SmallGateClosing
+  openingAnimation: SmallGateOpening
 --- !u!1 &5737547450723493769
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +713,9 @@ GameObject:
   - component: {fileID: 7584476121737423221}
   - component: {fileID: 8833293753639751994}
   - component: {fileID: 4497004665678316958}
-  - component: {fileID: 1647858633162593985}
+  - component: {fileID: 4157645434315671412}
+  - component: {fileID: 3390603198107223519}
+  - component: {fileID: 7589824474527035020}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -673,7 +731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6909367761257534050}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0.77344775, y: -0.028683305, z: -0.5701457}
+  m_LocalPosition: {x: 0.938, y: -0.028683305, z: -0.5701457}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -733,8 +791,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1647858633162593985
-MeshCollider:
+--- !u!65 &4157645434315671412
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -743,7 +801,60 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1402893, y: 0.12000179, z: 2.0770304}
+  m_Center: {x: -0.57014537, y: -0.039999448, z: -1.0385152}
+--- !u!95 &3390603198107223519
+Animator:
   serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2619086233303812490, guid: 96e437afeced3b541824bf65ea55c623, type: 3}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6909367761257534050}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d85b0ae8f0dacf441bbdd5b517754778, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7589824474527035020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6909367761257534050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29ff2fd6d8c0e04ab5a77dcf06a45eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: {x: 5, y: 3, z: 3}
+  offSet: {x: 0, y: 1.5, z: 0.6}
+  trapObject: {fileID: 0}
+  interactionState: 0
+  interacted: 0
+  acheiveGoal:
+    goal: 
+    ticket: -1
+    type: 0
+  fire:
+    m_Name: Fire
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 895544dd-fd61-46a6-a303-f32fc3760ff4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  doorOpen: 0
+  activateOnInteract: 1
+  closingAnimation: DoorClosing
+  openingAnimation: DoorOpening

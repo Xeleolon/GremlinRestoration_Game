@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11228,6 +11228,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 225280611204027529, guid: 242ae61ecacb8a04ba90973e9d2d5167,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2233596155973403262, guid: 242ae61ecacb8a04ba90973e9d2d5167,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11291,6 +11296,11 @@ PrefabInstance:
     - target: {fileID: 4556784971946756468, guid: 242ae61ecacb8a04ba90973e9d2d5167,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294361376842842102, guid: 242ae61ecacb8a04ba90973e9d2d5167,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15692,6 +15702,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPkWSnap
       objectReference: {fileID: 0}
+    - target: {fileID: 5199095688423935341, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8767430440821123448, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -15747,7 +15762,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1647858633162593985, guid: 35f8e65a95b8cf648b94b138c8b516f3, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8767430440821123448, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
@@ -17163,6 +17179,11 @@ PrefabInstance:
     - target: {fileID: 5671271314840923277, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909367761257534050, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8639024765403797506, guid: 35f8e65a95b8cf648b94b138c8b516f3,

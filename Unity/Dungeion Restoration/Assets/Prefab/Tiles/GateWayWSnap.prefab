@@ -228,6 +228,8 @@ GameObject:
   - component: {fileID: 2521484056665289466}
   - component: {fileID: 5595575659924666885}
   - component: {fileID: 8648866740467184337}
+  - component: {fileID: 2268016423673241193}
+  - component: {fileID: 7063702072251995772}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -243,7 +245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5936068646134451450}
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.000000029802322, y: 0.00024223328, z: -0.10193086}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -313,6 +315,60 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.099999905, y: 3.1815414, z: 4.446129}
   m_Center: {x: 0, y: 1.5907707, z: 0}
+--- !u!95 &2268016423673241193
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5936068646134451450}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e3984d8d4eee185489d5e720f17e604b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7063702072251995772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5936068646134451450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29ff2fd6d8c0e04ab5a77dcf06a45eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: {x: 3, y: 3, z: 4}
+  offSet: {x: 0, y: 0, z: 0}
+  trapObject: {fileID: 0}
+  interactionState: 0
+  interacted: 0
+  acheiveGoal:
+    goal: 
+    ticket: -1
+    type: 0
+  fire:
+    m_Name: Fire
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: fd8193ba-77d5-45d0-a491-e12c0935c06d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  doorOpen: 0
+  activateOnInteract: 1
+  closingAnimation: GateClosing
+  openingAnimation: GateOpening
 --- !u!1 &9097280309980131992
 GameObject:
   m_ObjectHideFlags: 0

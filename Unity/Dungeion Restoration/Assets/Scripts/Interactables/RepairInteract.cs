@@ -60,7 +60,7 @@ public class RepairInteract : Interactable
         base.Interact();
         if (!interactHold && interactionState == 1 && Inventory.instance.CheckAvalability(requiredItem)) //This is the initial interaction of the interact
         {
-            PlayAnimator();
+            //PlayAnimator();
             holdClock = holdInteractFor;
             interactHold = true;
         }
@@ -73,11 +73,6 @@ public class RepairInteract : Interactable
         }
     }
 
-    
-    public override void PlayAnimator()
-    {
-        base.PlayAnimator();
-    }
     public override void Completed()
     {
         base.Completed();
@@ -87,7 +82,7 @@ public class RepairInteract : Interactable
     {
         if (interactionState == 1 && Inventory.instance.Remove(requiredItem))
         {
-            PlayAnimator();
+            //PlayAnimator();
             Completed();
             if (FixedModel != null)
             {

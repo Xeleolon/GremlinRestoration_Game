@@ -17,7 +17,7 @@ public class DestroyInteract : Interactable
         base.Interact();
         if (interactionState == 2)
         {
-            PlayAnimator();
+            //PlayAnimator();
             Completed();
             if (pressurePlate != null)
             {
@@ -40,10 +40,7 @@ public class DestroyInteract : Interactable
             PlayerChat.instance.NewMessage(message);
         }
     }
-    public override void PlayAnimator()
-    {
-        base.PlayAnimator();
-    }
+    
     public override void Completed()
     {
         base.Completed();
