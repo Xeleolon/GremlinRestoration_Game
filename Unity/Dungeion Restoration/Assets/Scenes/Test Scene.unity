@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5925,7 +5925,8 @@ MonoBehaviour:
   trapObject: {fileID: 0}
   interactionState: 0
   interacted: 0
-  activateAnimation: 
+  taskForDoor: {fileID: 0}
+  orderInteractionMessage: 0
   acheiveGoal:
     goal: 
     ticket: -1
@@ -11543,58 +11544,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770199272}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &780452049
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 780452051}
-  - component: {fileID: 780452050}
-  m_Layer: 0
-  m_Name: DialogueStart
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &780452050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780452049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b2fa4011cc3ab4cbae6e024ecd5840, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activated: 0
-  onStart: 1
-  dialogue:
-    name: Dungeon Master
-    sentences:
-    - Welcome to Test Scene for technical elements
-    - All eleements are testing purpose
-    time: 5
---- !u!4 &780452051
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780452049}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.92556, y: 17.506138, z: 31.972889}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &780981763
 GameObject:
   m_ObjectHideFlags: 0
@@ -20906,7 +20855,8 @@ MonoBehaviour:
   trapObject: {fileID: 0}
   interactionState: 0
   interacted: 0
-  activateAnimation: 
+  taskForDoor: {fileID: 0}
+  orderInteractionMessage: 0
   acheiveGoal:
     goal: 
     ticket: -1
@@ -21121,7 +21071,8 @@ MonoBehaviour:
   trapObject: {fileID: 1432236094}
   interactionState: 0
   interacted: 0
-  activateAnimation: 
+  taskForDoor: {fileID: 0}
+  orderInteractionMessage: 0
   acheiveGoal:
     goal: 
     ticket: 0
@@ -21593,7 +21544,8 @@ MonoBehaviour:
   trapObject: {fileID: 0}
   interactionState: 0
   interacted: 0
-  activateAnimation: 
+  taskForDoor: {fileID: 0}
+  orderInteractionMessage: 0
   acheiveGoal:
     goal: 
     ticket: -1
@@ -28643,7 +28595,8 @@ MonoBehaviour:
   trapObject: {fileID: 0}
   interactionState: 0
   interacted: 0
-  activateAnimation: 
+  taskForDoor: {fileID: 0}
+  orderInteractionMessage: 0
   acheiveGoal:
     goal: 
     ticket: -1
@@ -29012,7 +28965,8 @@ MonoBehaviour:
   trapObject: {fileID: 0}
   interactionState: 0
   interacted: 0
-  activateAnimation: 
+  taskForDoor: {fileID: 0}
+  orderInteractionMessage: 0
   acheiveGoal:
     goal: 
     ticket: -1
@@ -31601,7 +31555,8 @@ MonoBehaviour:
   trapObject: {fileID: 2133483732}
   interactionState: 0
   interacted: 0
-  activateAnimation: 
+  taskForDoor: {fileID: 0}
+  orderInteractionMessage: 0
   acheiveGoal:
     goal: 
     ticket: -1
@@ -31954,7 +31909,7 @@ PrefabInstance:
     - target: {fileID: 2906372489342062557, guid: aa7f2f73b432cb446b60e560f9f44c9e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2906372489342062557, guid: aa7f2f73b432cb446b60e560f9f44c9e,
         type: 3}
@@ -32351,7 +32306,7 @@ PrefabInstance:
     - target: {fileID: 4703790089115317537, guid: 08f592b227c936e4da4a2ee9355b60dd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4703790089115317537, guid: 08f592b227c936e4da4a2ee9355b60dd,
         type: 3}
@@ -32500,34 +32455,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6771066656934419448, guid: 2eb7dd88447395d4abd9c20d4561766c,
+    - target: {fileID: 2042492266188434457, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
-      propertyPath: infiniteItems
-      value: 0
+      propertyPath: onStart
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6771066656934419448, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: items.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6771066656934419448, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: items.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: b26e9fbe716e1f641a1526eefb8a7e78,
-        type: 2}
-    - target: {fileID: 6771066656934419448, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: items.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: b26e9fbe716e1f641a1526eefb8a7e78,
-        type: 2}
-    - target: {fileID: 6771066656934419448, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: items.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: b26e9fbe716e1f641a1526eefb8a7e78,
-        type: 2}
     - target: {fileID: 6894620918582959069, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_RootOrder

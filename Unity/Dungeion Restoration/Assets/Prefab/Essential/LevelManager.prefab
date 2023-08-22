@@ -428,7 +428,7 @@ RectTransform:
   - {fileID: 4782817104708637751}
   m_Father: {fileID: 6894620918582959069}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.901, y: -1.648, z: 0.674}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4618,6 +4618,7 @@ GameObject:
   - component: {fileID: 417379002}
   - component: {fileID: 6894620917830773565}
   - component: {fileID: 6771066656934419448}
+  - component: {fileID: 2042492266188434457}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -4644,7 +4645,7 @@ Transform:
   - {fileID: 578497408}
   - {fileID: 428826341}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6894620918582959058
 MonoBehaviour:
@@ -4757,7 +4758,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   space: 20
   infiniteItems: 0
-  items: []
+  items:
+  - {fileID: 11400000, guid: b26e9fbe716e1f641a1526eefb8a7e78, type: 2}
+  - {fileID: 11400000, guid: b26e9fbe716e1f641a1526eefb8a7e78, type: 2}
+  - {fileID: 11400000, guid: b26e9fbe716e1f641a1526eefb8a7e78, type: 2}
+--- !u!114 &2042492266188434457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894620918582959071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2fa4011cc3ab4cbae6e024ecd5840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart: 1
+  dialogues:
+  - name: Dungeion Master
+    sentences:
+    - Welcome
+    time: 2
+  - name: Door
+    sentences:
+    - Task Not Completed!
+    time: 0
+  - name: Door
+    sentences:
+    - Door Lock Go Get a Key!
+    time: 0
+  - name: Door
+    sentences:
+    - Door Unlocked!
+    time: 0
 --- !u!1 &6894620918881282468
 GameObject:
   m_ObjectHideFlags: 0

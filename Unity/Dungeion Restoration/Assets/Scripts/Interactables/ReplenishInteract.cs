@@ -64,6 +64,7 @@ public class ReplenishInteract : Interactable
         if (interactState == 3 && Inventory.instance.Remove(requiredItem))
         {
             //PlayAnimator();
+            FinishTask();
             ActivateSlider();
             Completed();
             string message = new string(gameObject.name + " is Replenished");

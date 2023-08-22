@@ -352,6 +352,8 @@ MonoBehaviour:
   trapObject: {fileID: 0}
   interactionState: 0
   interacted: 0
+  taskForDoor: {fileID: 0}
+  orderInteractionMessage: 0
   acheiveGoal:
     goal: 
     ticket: -1
@@ -367,6 +369,10 @@ MonoBehaviour:
     m_Flags: 0
   doorOpen: 0
   activateOnInteract: 1
+  requireKey: {fileID: 0}
+  messageTaskNotComplete: 1
+  messageUnlocked: 3
+  messagelocked: 2
   closingAnimation: GateClosing
   openingAnimation: GateOpening
 --- !u!1 &9097280309980131992

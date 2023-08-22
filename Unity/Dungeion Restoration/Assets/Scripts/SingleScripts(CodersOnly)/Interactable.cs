@@ -24,6 +24,11 @@ public class Interactable : MonoBehaviour
     public bool interacted = false;
     private Animator animator;
     Transform player;
+    [Tooltip("place a door or gate wich has the doorController script this task will become a requirement before opening")]
+    [SerializeField] private DoorController taskForDoor;
+    private bool finishTask = false;
+    [Tooltip("upon Interaction order message number leave 0 if no message is to be sent")]
+    [SerializeField] private int orderInteractionMessage = 0;
     public AcheiveGoal acheiveGoal;
     Vector3 radiusHalf;
     private bool goalUpdated = false;
@@ -64,11 +69,25 @@ public class Interactable : MonoBehaviour
         radiusHalf.x = radius.x/2;
         radiusHalf.y = radius.y/2;
         radiusHalf.z = radius.z/2;
+
+        if (taskForDoor != null)
+        {
+            taskForDoor.AddTasks();
+        }
     }
     public virtual void Interact ()
     {
         //this method is meant to be overwritten
         Debug.Log("Interacting with " + transform.name);
+        OrderMessage(orderInteractionMessage);
+    }
+
+    public void OrderMessage(int num)
+    {
+        if (num > 0)
+        {
+            DialogueTrigger.instance.PlayDialogue(num);
+        }
     }
     public virtual void Activate(bool unActivate)
     {
@@ -89,6 +108,17 @@ public class Interactable : MonoBehaviour
             Debug.Log(gameObject.name + " updating goal");
             GoalTracker.instance.CompletedGoal(acheiveGoal.ticket);
             goalUpdated = true;
+        }
+    }
+    public void FinishTask()
+    {
+        if (taskForDoor != null)
+        {
+            if (!finishTask)
+            {
+                taskForDoor.CheckTaskOff();
+                finishTask = true;
+            }
         }
     }
     public bool OnInteract (Transform playerTransform, int state)

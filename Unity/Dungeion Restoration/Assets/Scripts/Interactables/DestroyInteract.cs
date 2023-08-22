@@ -19,6 +19,7 @@ public class DestroyInteract : Interactable
         {
             //PlayAnimator();
             Completed();
+            FinishTask();
             if (pressurePlate != null)
             {
                 pressurePlate.ForceExit(gameObject);

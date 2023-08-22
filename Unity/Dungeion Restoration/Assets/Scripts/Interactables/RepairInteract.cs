@@ -83,6 +83,7 @@ public class RepairInteract : Interactable
         if (interactionState == 1 && Inventory.instance.Remove(requiredItem))
         {
             //PlayAnimator();
+            FinishTask();
             Completed();
             if (FixedModel != null)
             {
