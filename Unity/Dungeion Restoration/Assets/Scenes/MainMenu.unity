@@ -1152,6 +1152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level:
   - LevelOne
+  - LevelTwo
   testScene: Test Scene
   testSceneLock: 0
   levelText: {fileID: 1191499947}

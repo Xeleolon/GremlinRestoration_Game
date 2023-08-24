@@ -150,19 +150,127 @@ MonoBehaviour:
     m_StrikethroughOffset: 23.2
     m_StrikethroughThickness: 4.482422
     m_TabWidth: 18
-  m_GlyphTable: []
-  m_CharacterTable: []
+  m_GlyphTable:
+  - m_Index: 401
+    m_Metrics:
+      m_Width: 60.296875
+      m_Height: 13.9375
+      m_HorizontalBearingX: 4.34375
+      m_HorizontalBearingY: 13.9375
+      m_HorizontalAdvance: 68.8125
+    m_GlyphRect:
+      m_X: 10
+      m_Y: 10
+      m_Width: 61
+      m_Height: 14
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 66
+    m_Metrics:
+      m_Width: 35.421875
+      m_Height: 9.796875
+      m_HorizontalBearingX: 0.265625
+      m_HorizontalBearingY: 9.796875
+      m_HorizontalAdvance: 36.4375
+    m_GlyphRect:
+      m_X: 90
+      m_Y: 10
+      m_Width: 36
+      m_Height: 10
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 31
+    m_Metrics:
+      m_Width: 29.703125
+      m_Height: 53.578125
+      m_HorizontalBearingX: 3.25
+      m_HorizontalBearingY: 55.90625
+      m_HorizontalAdvance: 38.015625
+    m_GlyphRect:
+      m_X: 145
+      m_Y: 10
+      m_Width: 30
+      m_Height: 54
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 33
+    m_Metrics:
+      m_Width: 29.71875
+      m_Height: 53.578125
+      m_HorizontalBearingX: 5.046875
+      m_HorizontalBearingY: 55.90625
+      m_HorizontalAdvance: 38.015625
+    m_GlyphRect:
+      m_X: 90
+      m_Y: 39
+      m_Width: 30
+      m_Height: 54
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  m_CharacterTable:
+  - m_ElementType: 1
+    m_Unicode: 8230
+    m_GlyphIndex: 401
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 95
+    m_GlyphIndex: 66
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 60
+    m_GlyphIndex: 31
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 62
+    m_GlyphIndex: 33
+    m_Scale: 1
   m_AtlasTextures:
   - {fileID: 28256370963634744}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 1
-  m_UsedGlyphRects: []
-  m_FreeGlyphRects:
+  m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
-    m_Width: 1023
+    m_Width: 80
+    m_Height: 33
+  - m_X: 80
+    m_Y: 0
+    m_Width: 55
+    m_Height: 29
+  - m_X: 135
+    m_Y: 0
+    m_Width: 49
+    m_Height: 73
+  - m_X: 80
+    m_Y: 29
+    m_Width: 49
+    m_Height: 73
+  m_FreeGlyphRects:
+  - m_X: 184
+    m_Y: 0
+    m_Width: 839
     m_Height: 1023
+  - m_X: 0
+    m_Y: 102
+    m_Width: 1023
+    m_Height: 921
+  - m_X: 129
+    m_Y: 73
+    m_Width: 894
+    m_Height: 950
+  - m_X: 0
+    m_Y: 33
+    m_Width: 80
+    m_Height: 990
+  - m_X: 129
+    m_Y: 29
+    m_Width: 6
+    m_Height: 994
   m_fontInfo:
     Name: Oswald
     PointSize: 71
