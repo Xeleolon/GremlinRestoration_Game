@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4556784971946756468}
   - component: {fileID: 8900378363827328950}
   - component: {fileID: 2233596155973403262}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StoneStair
   m_TagString: Untagged
   m_Icon: {fileID: 0}

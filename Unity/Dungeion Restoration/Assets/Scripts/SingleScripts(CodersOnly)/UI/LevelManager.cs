@@ -100,7 +100,7 @@ public class LevelManager : MonoBehaviour
     }
     void Cancel(InputAction.CallbackContext context)
     {
-        if (menuCanvas != null)
+        /*if (menuCanvas != null)
         {
             if (menuCanvas.activeSelf)
             {
@@ -112,7 +112,9 @@ public class LevelManager : MonoBehaviour
                 playerScript.interactActive = false;
                 menuCanvas.SetActive(true);
             }
-        }
+        }*/
+        Cursor.lockState = CursorLockMode.Confined;
+        playerScript.interactActive = false;
     }
     public int ChangeNumLevels(bool newLevel)
     {
