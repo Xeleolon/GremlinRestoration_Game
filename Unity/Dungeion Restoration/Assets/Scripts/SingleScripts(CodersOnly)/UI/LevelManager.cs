@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject menuCanvas;
     [SerializeField] GameObject victoryCanvas;
     [SerializeField] GameObject deathCanvas;
+    [SerializeField] GameObject replensihCanvas;
     PlayerMovements playerScript;
     ///////////////////////////
     [Header("Level Functions")]
@@ -56,6 +57,9 @@ public class LevelManager : MonoBehaviour
     public InteractionsIcons repair;
     public InteractionsIcons destory;
     public InteractionsIcons restock;
+
+    [SerializeField] private bool freeze;
+    private bool curFreeze;
 
     private InputAction cancel;
 
@@ -109,13 +113,36 @@ public class LevelManager : MonoBehaviour
         }
         //Cursor.lockState = CursorLockMode.None;
     }
+
+    void Update()
+    {
+        if (freeze && !curFreeze)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            playerScript.interactActive = false;
+            curFreeze = freeze;
+        }
+        else if (!freeze && curFreeze)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            playerScript.interactActive = true;
+            curFreeze = freeze;
+        }
+    }
     void Cancel(InputAction.CallbackContext context)
     {
-        /*if (menuCanvas != null)
+        if (replensihCanvas != null && replensihCanvas.activeSelf)
+        {
+            replensihCanvas.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else if (menuCanvas != null)
         {
             if (menuCanvas.activeSelf)
             {
-                ExitMenu();
+                Cursor.lockState = CursorLockMode.Locked;
+                playerScript.interactActive = true;
+                menuCanvas.SetActive(false);
             }
             else
             {
@@ -123,9 +150,7 @@ public class LevelManager : MonoBehaviour
                 playerScript.interactActive = false;
                 menuCanvas.SetActive(true);
             }
-        }*/
-        Cursor.lockState = CursorLockMode.Confined;
-        playerScript.interactActive = false;
+        }
     }
     public int ChangeNumLevels(bool newLevel)
     {
@@ -189,21 +214,20 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
     #region Menu Systems
-    public void ExitMenu()
-    {
-        if (menuCanvas != null && menuCanvas.activeSelf)
-        {
-        Cursor.lockState = CursorLockMode.Locked;
-        playerScript.interactActive = true;
-        menuCanvas.SetActive(false);
-        }
-    }
 
     public void LoadMenu()
     {
         {
             Debug.Log("Loading " + levelData.MenuName);
             SceneManager.LoadScene(levelData.MenuName);
+        }
+    }
+
+    public void OpenReplenish()
+    {
+        if (replensihCanvas != null && !replensihCanvas.activeSelf)
+        {
+            replensihCanvas.SetActive(true);
         }
     }
 
@@ -226,7 +250,15 @@ public class LevelManager : MonoBehaviour
     }
     public void LastCheckPoint()
     {
-        ExitMenu();
+        if (menuCanvas != null)
+        {
+            if (menuCanvas.activeSelf)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                playerScript.interactActive = true;
+                menuCanvas.SetActive(false);
+            }
+        }
         playerScript.MoveToCheckPoint();
         PlayerChat.instance.NewMessage("Player Respawned");
     }
