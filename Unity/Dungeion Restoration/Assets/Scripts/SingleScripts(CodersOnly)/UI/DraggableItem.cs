@@ -13,6 +13,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [SerializeField] public Item item;
 
     [HideInInspector] public Transform parentAfterDrag;
+    private Transform homeTransform;
     [SerializeField] private Canvas canvas;
 
     public void OnBeginDrag(PointerEventData eventData) 
@@ -20,9 +21,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         
         if (item != null)
         {
-            Debug.Log("Begin Drag");
+           // Debug.Log("Begin Drag");
     
             parentAfterDrag = transform.parent;
+            homeTransform = transform.parent;
     
             transform.SetParent(transform.root);
     
@@ -35,7 +37,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (item != null)
         {
-            Debug.Log("Dragging");
+           // Debug.Log("Dragging");
             
             PointerEventData pointerData = (PointerEventData)eventData;
     
@@ -50,7 +52,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (item != null)
         {
-            Debug.Log("End Drag");
+            //Debug.Log("End Drag");
             transform.SetParent(parentAfterDrag);
             image.raycastTarget = true;
         }
@@ -63,12 +65,20 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
-    public void NewItem(Item newItem)
+    public void NewItem(Item newItem, GameObject newCanvas)
     {
         item = newItem;
         if (item.icon != null)
         {
             image.sprite = item.icon;
         }
+
+        canvas = newCanvas.GetComponent<Canvas>();
+    }
+
+    public void ReturnHome()
+    {
+        transform.SetParent(homeTransform);
+        image.raycastTarget = true;
     }
 }

@@ -38,6 +38,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 draggableItem.parentAfterDrag = transform;
 
                 LevelManager.instance.ReplenishReceipt(true);
+                draggableItem.ReturnHome();
             }
         }
     }

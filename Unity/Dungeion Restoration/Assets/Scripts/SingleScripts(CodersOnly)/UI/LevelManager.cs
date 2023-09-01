@@ -32,16 +32,24 @@ public class LevelManager : MonoBehaviour
         public Color offColor;
     }
     
+    [System.Serializable] 
+    public class MenuCanvas
+    {
+        //area for referneced canvas and gameobjects by the level manager to be kept so organised better
+        public  GameObject menuCanvas;
+        public  GameObject victoryCanvas;
+        public  GameObject deathCanvas;
+        public  GameObject replensihCanvas;
+        [Tooltip("Place the target replenish inventory slot here")]
+        public InventorySlot replenishTargetSlot;
+
+        public Transform replenishInventory;
+        public Item[] mobItems;
+    }
     [Header("Menu Systems")]
     [SerializeField] LevelData levelData;
-    public string nextLevel;
-    public string MenuName;
-    [SerializeField] GameObject menuCanvas;
-    [SerializeField] GameObject victoryCanvas;
-    [SerializeField] GameObject deathCanvas;
-    [SerializeField] GameObject replensihCanvas;
-    [Tooltip("Place the target replenish inventory slot here")]
-    [SerializeField] InventorySlot replenishTargetSlot;
+
+    [SerializeField] MenuCanvas menuCanvas;
     private ReplenishInteract lastCustomer;
     PlayerMovements playerScript;
     ///////////////////////////
@@ -91,17 +99,17 @@ public class LevelManager : MonoBehaviour
     {
         //ChangeInteractUI(0);
         Cursor.lockState = CursorLockMode.Locked;
-        if (menuCanvas.activeSelf)
+        if (menuCanvas.menuCanvas.activeSelf)
         {
-            menuCanvas.SetActive(false);
+            menuCanvas.menuCanvas.SetActive(false);
         }
-        if (victoryCanvas.activeSelf)
+        if (menuCanvas.victoryCanvas.activeSelf)
         {
-            victoryCanvas.SetActive(false);
+            menuCanvas.victoryCanvas.SetActive(false);
         }
-        if (deathCanvas.activeSelf)
+        if (menuCanvas.deathCanvas.activeSelf)
         {
-            deathCanvas.SetActive(false);
+            menuCanvas.deathCanvas.SetActive(false);
         }
         GameObject player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<PlayerMovements>();
@@ -134,25 +142,25 @@ public class LevelManager : MonoBehaviour
     }
     void Cancel(InputAction.CallbackContext context)
     {
-        if (replensihCanvas != null && replensihCanvas.activeSelf)
+        if (menuCanvas.replensihCanvas != null && menuCanvas.replensihCanvas.activeSelf)
         {
-            replensihCanvas.SetActive(false);
+            menuCanvas.replensihCanvas.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             playerScript.interactActive = false;
         }
-        else if (menuCanvas != null)
+        else if (menuCanvas.menuCanvas != null)
         {
-            if (menuCanvas.activeSelf)
+            if (menuCanvas.menuCanvas.activeSelf)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 playerScript.interactActive = true;
-                menuCanvas.SetActive(false);
+                menuCanvas.menuCanvas.SetActive(false);
             }
             else
             {
                 Cursor.lockState = CursorLockMode.Confined;
                 playerScript.interactActive = false;
-                menuCanvas.SetActive(true);
+                menuCanvas.menuCanvas.SetActive(true);
             }
         }
     }
@@ -247,13 +255,13 @@ public class LevelManager : MonoBehaviour
     }
     public void LastCheckPoint()
     {
-        if (menuCanvas != null)
+        if (menuCanvas.menuCanvas != null)
         {
-            if (menuCanvas.activeSelf)
+            if (menuCanvas.menuCanvas.activeSelf)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 playerScript.interactActive = true;
-                menuCanvas.SetActive(false);
+                menuCanvas.menuCanvas.SetActive(false);
             }
         }
         playerScript.MoveToCheckPoint();
@@ -261,20 +269,20 @@ public class LevelManager : MonoBehaviour
     }
     public void DeathMenu(bool on)
     {
-        if (on && !deathCanvas.activeSelf)
+        if (on && !menuCanvas.deathCanvas.activeSelf)
         {
-            deathCanvas.SetActive(true);
+            menuCanvas.deathCanvas.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
         }
-        else if (!on && deathCanvas.activeSelf)
+        else if (!on && menuCanvas.deathCanvas.activeSelf)
         {
-            deathCanvas.SetActive(false);
+            menuCanvas.deathCanvas.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
     public void Victory()
     {
-        victoryCanvas.SetActive(true);
+        menuCanvas.victoryCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
     }
 
@@ -282,29 +290,53 @@ public class LevelManager : MonoBehaviour
     {
         lastCustomer = customer; // set the desestion for the reply call to be made to
 
-        replenishTargetSlot.item = target; //sets the item desired by the target
+        menuCanvas.replenishTargetSlot.item = target; //sets the item desired by the target
 
 
-        if (replensihCanvas != null && !replensihCanvas.activeSelf)
+        if (menuCanvas.replensihCanvas != null && !menuCanvas.replensihCanvas.activeSelf)
         {
             if (requestMobs) //true for requesting mode inventory type
             {
-                //set the inventory to the mob inventory slots
+                if (menuCanvas.mobItems.Length > 0 && menuCanvas.replenishInventory.childCount > 0)
+                {
+                    
+                    for (int i = 0; i < menuCanvas.replenishInventory.childCount; i++)
+                    {
+                        Transform currentSlot = menuCanvas.replenishInventory.GetChild(i);
+                        GameObject dragableItem = currentSlot.GetChild(0).gameObject;
+                        if (menuCanvas.mobItems.Length > i)
+                        {
+                            if (!dragableItem.activeSelf)
+                            {
+                                dragableItem.SetActive(true);
+                            }
+                            dragableItem.GetComponent<DraggableItem>().NewItem(menuCanvas.mobItems[i], menuCanvas.replensihCanvas);
+                            Debug.Log("Replenish Mob Hunt active");
+                        }
+                        else if (dragableItem.activeSelf)
+                        {
+                            dragableItem.SetActive(false);
+                        }
+                    }
+                }
             }
             else
             {
+                Debug.Log("Inventory slot active");
                 //set buy inventory to the inventory slots
+
+
             }
 
             Cursor.lockState = CursorLockMode.Confined;
             playerScript.interactActive = false;
-            replensihCanvas.SetActive(true);
+            menuCanvas.replensihCanvas.SetActive(true);
         }
     }
 
     public void ReplenishReceipt(bool receipt)
     {
-        replensihCanvas.SetActive(false);
+        menuCanvas.replensihCanvas.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         playerScript.interactActive = true;
         if (lastCustomer != null)
