@@ -6,98 +6,55 @@ public class ReplenishInteract : Interactable
     [Header("Replinish Variables")]
     [Tooltip("place Required Item to Refill, leave blank if no item required to Refill")]
     [SerializeField] private Item requiredItem;
-    public GameObject sliderPrefab;
-    private GameObject ReplinishCanvas;
-    public float maxValue;
-    public float fillSpeed = 0.1f;
-    private float fillValue = 0;
-    public float sliderOffSet = 0;
-    Slider bar;
-    public Gradient gradient;
-    Image fill;
-    Transform playerHead;
-    public float speed = 1.0f;
+
+    [Tooltip("set true if this is requesting monster")]
+    [SerializeField] private bool MonsterRequest;
+
+    [SerializeField] private int FailedMessage = 0;
+    
     public override void Start()
     {
         acheiveGoal.type = 3;
         base.Start();
-        playerHead = GameObject.FindWithTag("MainCamera").transform;
 
-    }
-    void Update()
-    {
-        if (ReplinishCanvas != null)
+        if (requiredItem == null)
         {
-            //Transform Ui To Face Player
-            Vector3 targetRotation = playerHead.position - ReplinishCanvas.transform.position;
-            float step = speed * Time.deltaTime;
-            Vector3 newRotation = Vector3.RotateTowards(ReplinishCanvas.transform.forward, targetRotation, step, 0.0f);
-            ReplinishCanvas.transform.rotation = Quaternion.LookRotation(newRotation);
-
-            bar.value = Mathf.Lerp(bar.value, fillValue, Time.deltaTime);
-            fill.color = gradient.Evaluate(bar.normalizedValue);
-
-            if (fillValue >= (maxValue * 2))
-            {
-                Destroy(ReplinishCanvas);
-            }
-            else
-            {
-                fillValue += fillSpeed * Time.deltaTime;
-            }
+            Debug.LogWarning(gameObject.name + " No Required Item so no refill can be made");
         }
+
     }
+    
     public override void Interact()
     {
         base.Interact();
-        if (!Refill(interactionState))
+        if (interactionState == 3 && requiredItem != null)
         {
-            string message = new string("Beep Boop Bop");
-            Debug.Log(message);
-            PlayerChat.instance.NewMessage(message);
+            LevelManager.instance.OpenReplenishUI(requiredItem, this, MonsterRequest);
         }
+
     }
 
-    private bool Refill(int interactState)
+    
+
+    public void Refill(bool success)
     {
-        Debug.Log("Testing");
-        if (interactState == 3 && Inventory.instance.Remove(requiredItem))
+        if (success)
         {
-            //PlayAnimator();
             FinishTask();
-            ActivateSlider();
             Completed();
             string message = new string(gameObject.name + " is Replenished");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
             interacted = true;
-            return true;
-        }
-        return false;
-    }
-    private void ActivateSlider()
-    {
-        Vector3 slidePosition = transform.localScale;
-        slidePosition.x = transform.position.x;
-        slidePosition.z = transform.position.z;
-        if (sliderOffSet == 0)
-        {
-            slidePosition.y += transform.position.y;
         }
         else
         {
-            slidePosition.y = transform.position.y + sliderOffSet;
+            OrderMessage(FailedMessage);
+            Debug.Log(gameObject.name + " TaskFailed");
         }
-        
-
-        ReplinishCanvas = Instantiate(sliderPrefab, slidePosition, Quaternion.identity);
-        bar = ReplinishCanvas.transform.Find("Slider").GetComponent<Slider>();
-        fill = bar.transform.Find("Fill Area").transform.Find("Fill").GetComponent<Image>();
-
-        bar.maxValue = maxValue;
-        bar.value = 0;
     }
-    public override void Completed()
+    
+    public override void Completed() //old checking off for task list
     {
         base.Completed();
     }

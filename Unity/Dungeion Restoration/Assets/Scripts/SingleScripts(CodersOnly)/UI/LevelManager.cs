@@ -40,6 +40,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject victoryCanvas;
     [SerializeField] GameObject deathCanvas;
     [SerializeField] GameObject replensihCanvas;
+    [Tooltip("Place the target replenish inventory slot here")]
+    [SerializeField] InventorySlot replenishTargetSlot;
+    private ReplenishInteract lastCustomer;
     PlayerMovements playerScript;
     ///////////////////////////
     [Header("Level Functions")]
@@ -135,6 +138,7 @@ public class LevelManager : MonoBehaviour
         {
             replensihCanvas.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            playerScript.interactActive = false;
         }
         else if (menuCanvas != null)
         {
@@ -223,13 +227,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void OpenReplenish()
-    {
-        if (replensihCanvas != null && !replensihCanvas.activeSelf)
-        {
-            replensihCanvas.SetActive(true);
-        }
-    }
 
     public void ReloadScene()
     {
@@ -280,6 +277,43 @@ public class LevelManager : MonoBehaviour
         victoryCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
     }
+
+    public void OpenReplenishUI(Item target, ReplenishInteract customer, bool requestMobs) //open the replenish ui and updates it to the current inventory UI layout
+    {
+        lastCustomer = customer; // set the desestion for the reply call to be made to
+
+        replenishTargetSlot.item = target; //sets the item desired by the target
+
+
+        if (replensihCanvas != null && !replensihCanvas.activeSelf)
+        {
+            if (requestMobs) //true for requesting mode inventory type
+            {
+                //set the inventory to the mob inventory slots
+            }
+            else
+            {
+                //set buy inventory to the inventory slots
+            }
+
+            Cursor.lockState = CursorLockMode.Confined;
+            playerScript.interactActive = false;
+            replensihCanvas.SetActive(true);
+        }
+    }
+
+    public void ReplenishReceipt(bool receipt)
+    {
+        replensihCanvas.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        playerScript.interactActive = true;
+        if (lastCustomer != null)
+        {
+            lastCustomer.Refill(receipt);
+            lastCustomer = null;
+        }
+    }
     #endregion
+
 
 }

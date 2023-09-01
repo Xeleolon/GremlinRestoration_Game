@@ -86,7 +86,7 @@ public class Interactable : MonoBehaviour
     {
         if (num > 0)
         {
-            DialogueTrigger.instance.PlayDialogue(num);
+            DialogueManager.instance.PlayDialogue(num);
         }
     }
     public virtual void Activate(bool unActivate)

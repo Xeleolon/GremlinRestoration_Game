@@ -27,9 +27,17 @@ public class DialogueManager : MonoBehaviour
     private float dialogueCount;
     private bool nextMessage = false;
     private Queue<string> sentences;
+    
+    [Header("Dialogue Trigger")]
+    [SerializeField]private bool onStart = false;
+    public Dialogue[] dialogues;
     void Start()
     {
         //sentences = new Queue<string>();
+        if (onStart)
+        {
+            PlayDialogue(0);
+        }
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -106,6 +114,18 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         //dialogueBox.SetActive(false);
 
+    }
+
+    public void PlayDialogue(int place)
+    {
+        if (dialogues.Length > place)
+        {
+            DialogueManager.instance.StartDialogue(dialogues[place]);
+        }
+        else
+        {
+            Debug.Log(place + " not enough space");
+        }
     }
 
     

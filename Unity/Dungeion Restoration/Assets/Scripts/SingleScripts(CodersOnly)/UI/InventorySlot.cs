@@ -36,6 +36,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             if (draggableItem.item == item)
             {
                 draggableItem.parentAfterDrag = transform;
+
+                LevelManager.instance.ReplenishReceipt(true);
             }
         }
     }
