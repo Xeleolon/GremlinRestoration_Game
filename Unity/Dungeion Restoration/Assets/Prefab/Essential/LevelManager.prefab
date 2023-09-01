@@ -4659,6 +4659,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8f927bb8d8b804f8b8929400618857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelData:
+    levelName: 
+    nextLevel: LevelOne
+    MenuName: MainMenu
   nextLevel: LevelOne
   MenuName: MainMenu
   menuCanvas: {fileID: 5580084697077359888}

@@ -9,24 +9,9 @@ using UnityEngine.EventSystems;
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image image;
-    public RectTransform rect;
     [HideInInspector] public Transform parentAfterDrag;
+    [SerializeField] private Canvas canvas;
 
-    private PlayerInputActions playerControls;
-    private InputAction look;
-    void Awake()
-    {
-        playerControls = new PlayerInputActions();
-    }
-    void OnEnable()
-    {
-        look = playerControls.Player.Look;
-        look.Enable();
-    }
-    void OnDisable()
-    {
-        look.Disable();
-    }
     public void OnBeginDrag(PointerEventData eventData) 
     {
         Debug.Log("Begin Drag");
@@ -42,9 +27,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("Dragging");
-        RectTransform rect = transform.root.GetComponent<RectTransform>();
-        transform.position = Camera.main.ScreenToViewportPoint(look.ReadValue<Vector2>());
-        //transform.position = RectTransformUtlility.ScreenPointToLocalPointInRectangle(rect, Camera.main);
+        
+        PointerEventData pointerData = (PointerEventData)eventData;
+
+        Vector2 position;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)canvas.transform, pointerData.position, canvas.worldCamera, out position);
+
+        transform.position = canvas.transform.TransformPoint(position);
     }
 
     public void OnEndDrag(PointerEventData eventData)

@@ -31,7 +31,9 @@ public class LevelManager : MonoBehaviour
         public Color onColor;
         public Color offColor;
     }
+    
     [Header("Menu Systems")]
+    [SerializeField] LevelData levelData;
     public string nextLevel;
     public string MenuName;
     [SerializeField] GameObject menuCanvas;
@@ -96,6 +98,15 @@ public class LevelManager : MonoBehaviour
         }
         GameObject player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<PlayerMovements>();
+
+        if (levelData == null)
+        {
+            Debug.LogWarning("No Level Data Attached to LevelManager");
+        }
+        else if (levelData.name != SceneManager.GetActiveScene().name)
+        {
+            Debug.LogWarning("Level Data name (" + levelData.name + ") isn't matching up with scene name (" + SceneManager.GetActiveScene().name + ")");
+        }
         //Cursor.lockState = CursorLockMode.None;
     }
     void Cancel(InputAction.CallbackContext context)
@@ -191,8 +202,8 @@ public class LevelManager : MonoBehaviour
     public void LoadMenu()
     {
         {
-            Debug.Log("Loading " + MenuName);
-            SceneManager.LoadScene(MenuName);
+            Debug.Log("Loading " + levelData.MenuName);
+            SceneManager.LoadScene(levelData.MenuName);
         }
     }
 
@@ -200,6 +211,18 @@ public class LevelManager : MonoBehaviour
     {
         string currentScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentScene);
+    }
+
+    public void NextLevel()
+    {
+        if (levelData.nextLevel != "")
+        {
+            SceneManager.LoadScene(levelData.nextLevel);
+        }
+        else
+        {
+            SceneManager.LoadScene(levelData.MenuName);
+        }
     }
     public void LastCheckPoint()
     {
@@ -224,17 +247,6 @@ public class LevelManager : MonoBehaviour
     {
         victoryCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
-    }
-    public void NextLevel()
-    {
-        if (nextLevel != "")
-        {
-            SceneManager.LoadScene(nextLevel);
-        }
-        else
-        {
-            SceneManager.LoadScene(MenuName);
-        }
     }
     #endregion
 
