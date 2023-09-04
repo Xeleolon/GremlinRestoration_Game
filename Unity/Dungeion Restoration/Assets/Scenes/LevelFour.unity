@@ -1900,7 +1900,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
-  MonsterRequest: 0
+  MonsterRequest: 1
   FailedMessage: 0
   refillObject: {fileID: 0}
 --- !u!1001 &180319955
@@ -2517,6 +2517,11 @@ PrefabInstance:
       propertyPath: taskForDoor
       value: 
       objectReference: {fileID: 1385119664}
+    - target: {fileID: 7066400967944731899, guid: e2e6ebd58d5ab0b44972e042a483faaf,
+        type: 3}
+      propertyPath: MonsterRequest
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e2e6ebd58d5ab0b44972e042a483faaf, type: 3}
@@ -5629,6 +5634,11 @@ PrefabInstance:
       propertyPath: taskForDoor
       value: 
       objectReference: {fileID: 1385119664}
+    - target: {fileID: 7066400967944731899, guid: e2e6ebd58d5ab0b44972e042a483faaf,
+        type: 3}
+      propertyPath: MonsterRequest
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e2e6ebd58d5ab0b44972e042a483faaf, type: 3}
@@ -10850,7 +10860,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
-  MonsterRequest: 0
+  MonsterRequest: 1
   FailedMessage: 0
   refillObject: {fileID: 0}
 --- !u!65 &1099854975
@@ -17634,6 +17644,11 @@ PrefabInstance:
       propertyPath: taskForDoor
       value: 
       objectReference: {fileID: 1385119664}
+    - target: {fileID: 7066400967944731899, guid: e2e6ebd58d5ab0b44972e042a483faaf,
+        type: 3}
+      propertyPath: MonsterRequest
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e2e6ebd58d5ab0b44972e042a483faaf, type: 3}

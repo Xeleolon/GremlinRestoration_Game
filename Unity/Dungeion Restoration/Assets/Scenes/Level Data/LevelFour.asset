@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: LevelFour
   levelName: Restock Toturial
-  nextLevel: 
+  nextLevel: LevelFive
   MenuName: MainMenu

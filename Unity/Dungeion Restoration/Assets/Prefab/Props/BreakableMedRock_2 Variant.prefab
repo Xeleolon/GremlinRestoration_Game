@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 162232471219785444, guid: ce9e7cba2bf323f4c97142a15244fa10,
         type: 3}
       propertyPath: m_Name
-      value: BreakableMedRock_2
+      value: BreakableMedRock_2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4698396165992945600, guid: ce9e7cba2bf323f4c97142a15244fa10,
         type: 3}
@@ -116,3 +116,16 @@ MonoBehaviour:
     m_Flags: 0
   destroyDelay: 0
   itemPickup: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
+--- !u!65 &4024086081841497552
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510322968122055773}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0050073, y: 0.6688481, z: 0.87417233}
+  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}
