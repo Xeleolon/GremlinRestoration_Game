@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LevelOne
   m_EditorClassIdentifier: 
   name: LevelOne
-  levelName: 
-  nextLevel: 
+  levelName: Repair Tutorial
+  nextLevel: LevelFour
   MenuName: MainMenu

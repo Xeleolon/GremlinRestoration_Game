@@ -5,6 +5,7 @@ public class RepairInteract : Interactable
     
     [Header("Repair")]
     public GameObject FixedModel;
+    [SerializeField] private bool RemoveModel;
     [Tooltip("place Required Item to fix, leave blank if no item required to fix")]
     [SerializeField] private Item requiredItem;
     [SerializeField] private float holdInteractFor = 1;
@@ -38,10 +39,8 @@ public class RepairInteract : Interactable
                 {
                     Inventory.instance.Remove(requiredItem);
                     Completed();
-                    if (FixedModel != null)
-                    {
-                        RepairModel();
-                    }
+                    RepairModel();
+                    
                     string message = new string(gameObject.name + " Repaired");
                     Debug.Log(message);
                     PlayerChat.instance.NewMessage(message);
@@ -85,10 +84,7 @@ public class RepairInteract : Interactable
             //PlayAnimator();
             FinishTask();
             Completed();
-            if (FixedModel != null)
-            {
-                RepairModel();
-            }
+            RepairModel();
             string message = new string(gameObject.name + " Repaired");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);
@@ -101,8 +97,15 @@ public class RepairInteract : Interactable
 
     public void RepairModel()
     {
-        FixedModel.SetActive(true);
-        gameObject.SetActive(false);
+        if (FixedModel != null)
+        {
+            FixedModel.SetActive(true);
+            gameObject.SetActive(false);
+        }
+        else if (RemoveModel)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 }

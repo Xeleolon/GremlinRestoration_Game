@@ -11,6 +11,7 @@ public class ReplenishInteract : Interactable
     [SerializeField] private bool MonsterRequest;
 
     [SerializeField] private int FailedMessage = 0;
+    [SerializeField] private GameObject refillObject;
     
     public override void Start()
     {
@@ -41,6 +42,10 @@ public class ReplenishInteract : Interactable
         if (success)
         {
             FinishTask();
+            if (refillObject != null && !refillObject.activeSelf)
+            {
+                refillObject.SetActive(true);
+            }
             Completed();
             string message = new string(gameObject.name + " is Replenished");
             Debug.Log(message);

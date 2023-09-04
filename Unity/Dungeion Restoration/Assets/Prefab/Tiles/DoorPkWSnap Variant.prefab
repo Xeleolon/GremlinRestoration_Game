@@ -96,6 +96,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 1584848590495490868, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fba0747bf6e7fab4c85267dfaffe29dd, type: 2}
     - target: {fileID: 2228145652125754522, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
       propertyPath: m_CastShadows
@@ -141,6 +146,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2857745778908907698, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fba0747bf6e7fab4c85267dfaffe29dd, type: 2}
     - target: {fileID: 3043576871758028688, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -156,11 +166,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPkWSnap Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4497004665678316958, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fba0747bf6e7fab4c85267dfaffe29dd, type: 2}
     - target: {fileID: 5199095688423935341, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5504291525768346611, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 58475122ea29f024ebd3f4c54a0af0f9, type: 2}
     - target: {fileID: 5737547450723493769, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
       propertyPath: m_IsActive
@@ -174,7 +194,7 @@ PrefabInstance:
     - target: {fileID: 8767430440821123448, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8767430440821123448, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}

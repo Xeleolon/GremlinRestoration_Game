@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 091734e33ae974e4b9d9d088f6260e4b, type: 2}
+  - {fileID: 2100000, guid: 64259ea8759ded04eaaab6682fba71dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 091734e33ae974e4b9d9d088f6260e4b, type: 2}
+  - {fileID: 2100000, guid: 64259ea8759ded04eaaab6682fba71dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -197,7 +197,7 @@ Transform:
   - {fileID: 7938885558667471491}
   - {fileID: 1565202491178555792}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3781429486906315346
 GameObject:
@@ -260,7 +260,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 091734e33ae974e4b9d9d088f6260e4b, type: 2}
+  - {fileID: 2100000, guid: 64259ea8759ded04eaaab6682fba71dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -343,7 +343,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 091734e33ae974e4b9d9d088f6260e4b, type: 2}
+  - {fileID: 2100000, guid: 64259ea8759ded04eaaab6682fba71dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -426,7 +426,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 091734e33ae974e4b9d9d088f6260e4b, type: 2}
+  - {fileID: 2100000, guid: 64259ea8759ded04eaaab6682fba71dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -509,7 +509,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 091734e33ae974e4b9d9d088f6260e4b, type: 2}
+  - {fileID: 2100000, guid: 64259ea8759ded04eaaab6682fba71dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -593,7 +593,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 091734e33ae974e4b9d9d088f6260e4b, type: 2}
+  - {fileID: 2100000, guid: 64259ea8759ded04eaaab6682fba71dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -689,7 +689,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 091734e33ae974e4b9d9d088f6260e4b, type: 2}
+  - {fileID: 2100000, guid: 64259ea8759ded04eaaab6682fba71dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -781,7 +781,8 @@ MonoBehaviour:
   trapObject: {fileID: 0}
   interactionState: 0
   interacted: 0
-  activateAnimation: 
+  taskForDoor: {fileID: 0}
+  orderInteractionMessage: 0
   acheiveGoal:
     goal: 
     ticket: -1
@@ -796,5 +797,6 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   FixedModel: {fileID: 5875225402619811822}
+  RemoveModel: 0
   requiredItem: {fileID: 0}
   holdInteractFor: 1
