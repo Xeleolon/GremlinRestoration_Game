@@ -148,9 +148,7 @@ public class LevelManager : MonoBehaviour
     {
         if (menuCanvas.replensihCanvas != null && menuCanvas.replensihCanvas.activeSelf)
         {
-            menuCanvas.replensihCanvas.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            playerScript.interactActive = false;
+            CloseReplenishUi();
         }
         else if (menuCanvas.menuCanvas != null)
         {
@@ -288,6 +286,15 @@ public class LevelManager : MonoBehaviour
     {
         menuCanvas.victoryCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
+    }
+    public void CloseReplenishUi()
+    {
+        if (menuCanvas.replensihCanvas != null && menuCanvas.replensihCanvas.activeSelf)
+        {
+            menuCanvas.replensihCanvas.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            playerScript.interactActive = true;
+        }
     }
 
     public void OpenReplenishUI(Item target, ReplenishInteract customer, bool requestMobs) //open the replenish ui and updates it to the current inventory UI layout
