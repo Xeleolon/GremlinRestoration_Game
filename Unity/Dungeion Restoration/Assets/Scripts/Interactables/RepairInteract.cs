@@ -9,6 +9,7 @@ public class RepairInteract : Interactable
     [Tooltip("place Required Item to fix, leave blank if no item required to fix")]
     [SerializeField] private Item requiredItem;
     [SerializeField] private float holdInteractFor = 1;
+    [SerializeField] ParticleSystem puffEffect;
 
     private bool interactHold;
     private float holdClock;
@@ -82,6 +83,10 @@ public class RepairInteract : Interactable
         if (interactionState == 1 && Inventory.instance.Remove(requiredItem))
         {
             //PlayAnimator();
+            if (puffEffect != null)
+            {
+                puffEffect.Play();
+            }
             FinishTask();
             Completed();
             RepairModel();

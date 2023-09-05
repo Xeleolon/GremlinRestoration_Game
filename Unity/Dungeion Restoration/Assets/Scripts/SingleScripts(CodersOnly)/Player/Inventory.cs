@@ -87,12 +87,18 @@ public class Inventory : MonoBehaviour
 
     public bool Remove(Item item)
     {
+        if (infiniteItems || item == null)
+        {
+            return true;
+        }
+
         if (key == item && numKeys > 0)
         {
             numKeys -= 1;
             ItemChanged();
             return true;
         }
+
         
         int place = Contains(item);
 
@@ -111,6 +117,7 @@ public class Inventory : MonoBehaviour
             ItemChanged();
             return true;
         }
+
 
         
 
