@@ -47,6 +47,10 @@ public class ReplenishInteract : Interactable
                 refillObject.SetActive(true);
             }
             Completed();
+            if (!MonsterRequest)
+            {
+                Inventory.instance.Remove(requiredItem);
+            }
             string message = new string(gameObject.name + " is Replenished");
             Debug.Log(message);
             PlayerChat.instance.NewMessage(message);

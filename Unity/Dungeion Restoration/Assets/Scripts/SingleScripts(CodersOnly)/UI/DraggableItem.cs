@@ -72,6 +72,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             image.sprite = item.icon;
         }
+        else 
+        {
+            image.color = item.tempColor;
+        }
 
         canvas = newCanvas.GetComponent<Canvas>();
     }

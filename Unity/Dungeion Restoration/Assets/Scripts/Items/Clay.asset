@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Clay
   icon: {fileID: 0}
+  tempColor: {r: 0.9528302, g: 0.9474314, b: 0.6606889, a: 1}
   dropModel: {fileID: 0}
   hiddenIcon: {fileID: 0}

@@ -16,7 +16,8 @@ public class NpcAI : MonoBehaviour
 
     [SerializeField] private bool completeRandom;
 
-    [SerializeField] private bool stopCycle = true;
+    private bool stopCycle = true;
+    [SerializeField] private bool freaze = false;
 
 
     void Start()
@@ -33,7 +34,7 @@ public class NpcAI : MonoBehaviour
             stopCycle = true;
         }
 
-        if (!stopCycle)
+        if (!stopCycle && !freaze)
         {
             if (transform.position == new Vector3(target[targetPlace].x, transform.position.y, target[targetPlace].z))
             {

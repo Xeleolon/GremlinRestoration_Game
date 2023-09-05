@@ -45,6 +45,7 @@ public class LevelManager : MonoBehaviour
 
         public Transform replenishInventory;
         public Item[] mobItems;
+        public GameObject[] dragableItem;
     }
     [Header("Menu Systems")]
     [SerializeField] LevelData levelData;
@@ -73,6 +74,7 @@ public class LevelManager : MonoBehaviour
     private bool curFreeze;
 
     private InputAction cancel;
+    private Inventory inventory;
 
     #region Methods Before Start
     void OnValidate() //only calls if change when script reloads or change in value
@@ -122,6 +124,8 @@ public class LevelManager : MonoBehaviour
         {
             Debug.LogWarning("Level Data name (" + levelData.name + ") isn't matching up with scene name (" + SceneManager.GetActiveScene().name + ")");
         }
+
+        inventory = Inventory.instance;
         //Cursor.lockState = CursorLockMode.None;
     }
 
@@ -290,8 +294,8 @@ public class LevelManager : MonoBehaviour
     {
         lastCustomer = customer; // set the desestion for the reply call to be made to
 
-        menuCanvas.replenishTargetSlot.item = target; //sets the item desired by the target
-
+        menuCanvas.replenishTargetSlot.UpdateTarget(target); //sets the item desired by the target
+    
 
         if (menuCanvas.replensihCanvas != null && !menuCanvas.replensihCanvas.activeSelf)
         {
@@ -299,31 +303,57 @@ public class LevelManager : MonoBehaviour
             {
                 if (menuCanvas.mobItems.Length > 0 && menuCanvas.replenishInventory.childCount > 0)
                 {
-                    
                     for (int i = 0; i < menuCanvas.replenishInventory.childCount; i++)
                     {
-                        Transform currentSlot = menuCanvas.replenishInventory.GetChild(i);
-                        GameObject dragableItem = currentSlot.GetChild(0).gameObject;
                         if (menuCanvas.mobItems.Length > i)
                         {
-                            if (!dragableItem.activeSelf)
+                            if (!menuCanvas.dragableItem[i].activeSelf)
                             {
-                                dragableItem.SetActive(true);
+                                menuCanvas.dragableItem[i].SetActive(true);
                             }
-                            dragableItem.GetComponent<DraggableItem>().NewItem(menuCanvas.mobItems[i], menuCanvas.replensihCanvas);
+                            menuCanvas.dragableItem[i].GetComponent<DraggableItem>().NewItem(menuCanvas.mobItems[i], menuCanvas.replensihCanvas);
+                            menuCanvas.replenishInventory.GetChild(i).gameObject.GetComponent<InventorySlot>().UpdateNumOnly(-1);
+                            
                             Debug.Log("Replenish Mob Hunt active");
                         }
-                        else if (dragableItem.activeSelf)
+                        else if (menuCanvas.dragableItem[i].activeSelf)
                         {
-                            dragableItem.SetActive(false);
+                            menuCanvas.dragableItem[i].SetActive(false);
+                            menuCanvas.replenishInventory.GetChild(i).gameObject.GetComponent<InventorySlot>().UpdateNumOnly(-1);
                         }
                     }
                 }
             }
             else
             {
-                Debug.Log("Inventory slot active");
-                //set buy inventory to the inventory slots
+                //Debug.Log("Inventory slot active");
+                if (inventory.items.Length > 0 && menuCanvas.replenishInventory.childCount > 0)
+                {
+                    int startPlace = 0;
+                    for (int i = 0; i < menuCanvas.replenishInventory.childCount; i++)
+                    {
+                        
+                        startPlace = inventory.checkNull(startPlace);
+
+                        if (inventory.items.Length > startPlace && inventory.items[startPlace] != null)
+                        {
+                            if (!menuCanvas.dragableItem[i].activeSelf)
+                            {
+                                menuCanvas.dragableItem[i].SetActive(true);
+                            }
+                            menuCanvas.dragableItem[i].GetComponent<DraggableItem>().NewItem(inventory.items[startPlace], menuCanvas.replensihCanvas);
+                            menuCanvas.replenishInventory.GetChild(i).gameObject.GetComponent<InventorySlot>().UpdateNumOnly(inventory.itemNumber[startPlace]);
+
+                            Debug.Log("Replenish Mob Hunt active");
+                            startPlace++;
+                        }
+                        else if (menuCanvas.dragableItem[i].activeSelf)
+                        {
+                            menuCanvas.dragableItem[i].SetActive(false);
+                            menuCanvas.replenishInventory.GetChild(i).gameObject.GetComponent<InventorySlot>().UpdateNumOnly(-1);
+                        }
+                    }
+                }
 
 
             }
