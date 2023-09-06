@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -36,12 +35,12 @@ public class MenuManager : MonoBehaviour
         if (currentScene < 0)
         {
             Debug.Log("Loading Test Scene");
-            SceneManager.LoadScene(testScene);
+            LevelLoader.instance.LoadLevel(testScene);
         }
         else if (level[currentScene] != "")
         {
         Debug.Log("Scene " + level[currentScene]);
-        SceneManager.LoadScene(level[currentScene]);
+        LevelLoader.instance.LoadLevel(level[currentScene]);
         }
         else
         {

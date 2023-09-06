@@ -320,6 +320,7 @@ MonoBehaviour:
     cameraSensitivity: 10
     cameraMaxVerticalAngleFromHorizon: 90
     cameraInputLagPeriod: 0.01
+    mainCamera: {fileID: 5016645517565970483}
 --- !u!114 &4419806864863105512
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -245,26 +245,25 @@ public class LevelManager : MonoBehaviour
     {
         {
             Debug.Log("Loading " + levelData.MenuName);
-            SceneManager.LoadScene(levelData.MenuName);
+            LevelLoader.instance.LoadLevel(levelData.MenuName);
         }
     }
 
 
     public void ReloadScene()
     {
-        string currentScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentScene);
+        LevelLoader.instance.ReloadLevel();
     }
 
     public void NextLevel()
     {
         if (levelData.nextLevel != "")
         {
-            SceneManager.LoadScene(levelData.nextLevel);
+            LevelLoader.instance.LoadLevel(levelData.nextLevel);
         }
         else
         {
-            SceneManager.LoadScene(levelData.MenuName);
+            LevelLoader.instance.LoadLevel(levelData.MenuName);
         }
     }
     public void LastCheckPoint()

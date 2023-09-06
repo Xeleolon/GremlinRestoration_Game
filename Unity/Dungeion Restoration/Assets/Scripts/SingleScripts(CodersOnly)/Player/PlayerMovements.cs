@@ -303,7 +303,7 @@ public class CameraControls
     [SerializeField] private float cameraMaxVerticalAngleFromHorizon;
     [Tooltip("The period to wait until resetting the input value. Set this as low as possible without encountering stuttering from camera")]
     [SerializeField] private float cameraInputLagPeriod;
-    private GameObject mainCamera;
+    [SerializeField] private GameObject mainCamera;
     private Vector2 cameraRotation;
     private Vector2 cameraVelocity;
     private Vector2 cameraLastInputEvent;
@@ -311,7 +311,7 @@ public class CameraControls
     private InputAction look;
     public void EnableCamera(Transform player, PlayerInputActions playerControls)
     {
-        mainCamera = GameObject.FindWithTag("MainCamera");
+        //mainCamera = GameObject.FindWithTag("MainCamera");
         cameraVelocity = Vector2.zero;
         cameraInputLagTimer = 0;
         cameraLastInputEvent = Vector2.zero;
