@@ -9,7 +9,6 @@ public class RepairInteract : Interactable
     [Tooltip("place Required Item to fix, leave blank if no item required to fix")]
     [SerializeField] private Item requiredItem;
     [SerializeField] private float holdInteractFor = 1;
-    [SerializeField] ParticleSystem puffEffect;
 
     private bool interactHold;
     private float holdClock;
@@ -44,7 +43,8 @@ public class RepairInteract : Interactable
                     
                     string message = new string(gameObject.name + " Repaired");
                     Debug.Log(message);
-                    PlayerChat.instance.NewMessage(message);
+                    Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
+                    DebugController.instance.AddLog(dialogue);
                     interacted = true;
                     interactHold = false;
                 }
@@ -68,8 +68,11 @@ public class RepairInteract : Interactable
         if (!Repair(interactionState))
         {
             string message = new string("Beep Boop Bop");
+            SpawnEffect(false);
             Debug.Log(message);
-            PlayerChat.instance.NewMessage(message);
+            Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
+            DebugController.instance.AddLog(dialogue);
+            
         }
     }
 
@@ -83,16 +86,14 @@ public class RepairInteract : Interactable
         if (interactionState == 1 && Inventory.instance.Remove(requiredItem))
         {
             //PlayAnimator();
-            if (puffEffect != null)
-            {
-                puffEffect.Play();
-            }
+            SpawnEffect(true);
             FinishTask();
             Completed();
             RepairModel();
             string message = new string(gameObject.name + " Repaired");
             Debug.Log(message);
-            PlayerChat.instance.NewMessage(message);
+            Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
+            DebugController.instance.AddLog(dialogue);
             interacted = true;
             return true;
         }

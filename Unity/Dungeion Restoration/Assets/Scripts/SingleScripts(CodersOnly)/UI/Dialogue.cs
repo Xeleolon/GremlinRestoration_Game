@@ -9,4 +9,13 @@ public class Dialogue
     [TextArea(3, 10)]
     public string[] sentences;
     public float time = 0;
+
+    public Dialogue(string newName, string newSentences, float newTime)
+    {
+        name = newName;
+
+        sentences = new string[1];
+        sentences[0] = newSentences;
+        time = newTime;
+    }
 }

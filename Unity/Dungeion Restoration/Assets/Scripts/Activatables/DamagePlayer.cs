@@ -25,6 +25,8 @@ public class DamagePlayer : Activatable
             if (deathTimer <= 0)
             {
                 Debug.Log("Player Killed By " + gameObject.name);
+                Dialogue dialogue = new Dialogue(gameObject.name, " Player Killed", 0);
+                DebugController.instance.AddLog(dialogue);
                 playerScript.KillPlayer();
                 willKill = false;
                 activated = false;
@@ -34,7 +36,8 @@ public class DamagePlayer : Activatable
                 if (deathTimer >= wholeCheck - 0.1 & deathTimer <= wholeCheck + 0.1)
                 {
                     //Debug.Log(killMessage + " " + wholeCheck);
-                    PlayerChat.instance.NewMessage(killMessage + " " + wholeCheck);
+                    Dialogue dialogue = new Dialogue(gameObject.name, killMessage + " " + wholeCheck, 0);
+                    DebugController.instance.AddLog(dialogue);
                     wholeCheck -= 1;
                 }
 
@@ -73,7 +76,8 @@ public class DamagePlayer : Activatable
         if (willKill)
         {
             willKill = false;
-            PlayerChat.instance.NewMessage("Player Recovered");
+            Dialogue dialogue = new Dialogue(gameObject.name, "Player Recovered", 0);
+            DebugController.instance.AddLog(dialogue);
         }
     }
 }

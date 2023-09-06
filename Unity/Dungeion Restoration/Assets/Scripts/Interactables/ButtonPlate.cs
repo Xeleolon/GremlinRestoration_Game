@@ -31,9 +31,10 @@ public class ButtonPlate : Interactable
     }
     public override void Interact()
     {
-        string message = new string("It a Trap!");
+        string message = new string("acting trap!");
         Debug.Log(message);
-        PlayerChat.instance.NewMessage(message);
+        Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
+        DebugController.instance.AddLog(dialogue);
     }
     public override void Activate(bool unActivate)
     {

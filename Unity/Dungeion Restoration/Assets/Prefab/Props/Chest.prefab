@@ -108,7 +108,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3386351667021250738}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.5000105, y: 1.00002, z: 4.5000067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -117,7 +117,7 @@ Transform:
   - {fileID: 977794514294270563}
   - {fileID: 4389620700960126475}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7267828285394951332
 MonoBehaviour:
@@ -138,6 +138,13 @@ MonoBehaviour:
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
+  particalSpawnOffset: {x: 0, y: 0.4, z: 0}
+  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+    type: 3}
+  particalDudPrefab: {fileID: 0}
+  animator: {fileID: 2901809399471582984}
+  animatationStartOpen: 0
+  animationTriggerName: StartOpen
   acheiveGoal:
     goal: 
     ticket: -1
@@ -151,7 +158,8 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  item: {fileID: 11400000, guid: 0a43855331daae04d91d0a10c90c8f4c, type: 2}
+  item: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
+  animationName: ChestOpening
 --- !u!65 &4712743164611010562
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -259,6 +267,7 @@ GameObject:
   - component: {fileID: 4389620700960126475}
   - component: {fileID: 9217921783560238099}
   - component: {fileID: 621179906966859143}
+  - component: {fileID: 2901809399471582984}
   m_Layer: 0
   m_Name: Treasure_Roof
   m_TagString: Untagged
@@ -332,3 +341,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &2901809399471582984
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7731298413602352707}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3184fe141ba2faf41b1f9396436df7e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
      public int[] itemNumber = new int[4];
     [SerializeField] Item key;
     [SerializeField] int numKeys;
-    [SerializeField] bool infiniteItems;
+    [SerializeField] public bool infiniteItems;
     public delegate void OnItemChanged(); //allow other script to subscribe to this function and be informed off changes.
     public OnItemChanged onItemChangedCallback;
 

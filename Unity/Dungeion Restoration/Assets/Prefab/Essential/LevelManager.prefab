@@ -5574,10 +5574,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6894620918582959069}
   - component: {fileID: 6894620918582959058}
-  - component: {fileID: 6894620918582959068}
   - component: {fileID: 417379002}
   - component: {fileID: 6894620917830773565}
   - component: {fileID: 6771066656934419448}
+  - component: {fileID: 692912478}
+  - component: {fileID: 692912479}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -5606,7 +5607,7 @@ Transform:
   - {fileID: 6229233045903724259}
   - {fileID: 685945955}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6894620918582959058
 MonoBehaviour:
@@ -5620,7 +5621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8f927bb8d8b804f8b8929400618857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelData: {fileID: 11400000, guid: 78a7bf20867ff2548924c21b6dfd5055, type: 2}
+  levelData: {fileID: 11400000, guid: 286087c8782ae3e4e80f207cbe22bce8, type: 2}
   menuCanvas:
     menuCanvas: {fileID: 5580084697077359888}
     victoryCanvas: {fileID: 578497404}
@@ -5656,21 +5657,6 @@ MonoBehaviour:
     onColor: {r: 0.06666667, g: 0.454902, b: 0.5176471, a: 1}
     offColor: {r: 0.43529415, g: 0.8745099, b: 0.95294124, a: 1}
   freeze: 0
---- !u!114 &6894620918582959068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894620918582959071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecdb02a0dd0e2354f8b7b819d8045234, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 6894620918881282468}
-  chatText: {fileID: 6894620919750201591}
-  maxTime: 3
 --- !u!114 &417379002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5750,16 +5736,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
+  - {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  itemNumber: 01000000000000000000000000000000
+  itemNumber: 14000000000000000000000000000000
   key: {fileID: 11400000, guid: 0a43855331daae04d91d0a10c90c8f4c, type: 2}
   numKeys: 0
   infiniteItems: 0
   itemsParent: {fileID: 1031415162}
   keySlot: {fileID: 646093656}
+--- !u!114 &692912478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894620918582959071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 8355ac7d24982584087b33aa06142cef,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &692912479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894620918582959071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4f7f87aed7951478490a4e4361c140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDebugLog: 0
+  debugList: []
+  debugLogSize: 20
 --- !u!1 &6894620918881282468
 GameObject:
   m_ObjectHideFlags: 0

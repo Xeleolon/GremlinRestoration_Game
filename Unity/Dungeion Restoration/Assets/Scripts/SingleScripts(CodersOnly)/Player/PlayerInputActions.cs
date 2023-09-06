@@ -667,6 +667,24 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleDebug"",
+                    ""type"": ""Button"",
+                    ""id"": ""c503ec24-18b2-4e22-b94d-c75708d1223c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleDebugLog"",
+                    ""type"": ""Button"",
+                    ""id"": ""bed489d3-b663-45e5-b3ec-4c9371a8c5ff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -947,6 +965,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""25e952f1-7e02-4522-a8e2-408488683803"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""82627dcc-3b13-4ba9-841d-e4b746d6553e"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -1175,6 +1204,39 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""OpenCheckList"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d1f96fde-bfdd-4d4f-bbe9-af4136dda2fe"",
+                    ""path"": ""<Keyboard>/f5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ToggleDebug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36f36398-45d0-4f61-accb-18b880205b1e"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ToggleDebug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1e8b4e2-ff4e-48f7-8641-43f5f1c21cc4"",
+                    ""path"": ""<Keyboard>/f2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleDebugLog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1265,6 +1327,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_OpenCheckList = m_UI.FindAction("OpenCheckList", throwIfNotFound: true);
+        m_UI_ToggleDebug = m_UI.FindAction("ToggleDebug", throwIfNotFound: true);
+        m_UI_ToggleDebugLog = m_UI.FindAction("ToggleDebugLog", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1424,6 +1488,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_OpenCheckList;
+    private readonly InputAction m_UI_ToggleDebug;
+    private readonly InputAction m_UI_ToggleDebugLog;
     public struct UIActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1439,6 +1505,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @OpenCheckList => m_Wrapper.m_UI_OpenCheckList;
+        public InputAction @ToggleDebug => m_Wrapper.m_UI_ToggleDebug;
+        public InputAction @ToggleDebugLog => m_Wrapper.m_UI_ToggleDebugLog;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1481,6 +1549,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @OpenCheckList.started -= m_Wrapper.m_UIActionsCallbackInterface.OnOpenCheckList;
                 @OpenCheckList.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnOpenCheckList;
                 @OpenCheckList.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnOpenCheckList;
+                @ToggleDebug.started -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebug;
+                @ToggleDebug.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebug;
+                @ToggleDebug.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebug;
+                @ToggleDebugLog.started -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebugLog;
+                @ToggleDebugLog.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebugLog;
+                @ToggleDebugLog.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebugLog;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1518,6 +1592,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @OpenCheckList.started += instance.OnOpenCheckList;
                 @OpenCheckList.performed += instance.OnOpenCheckList;
                 @OpenCheckList.canceled += instance.OnOpenCheckList;
+                @ToggleDebug.started += instance.OnToggleDebug;
+                @ToggleDebug.performed += instance.OnToggleDebug;
+                @ToggleDebug.canceled += instance.OnToggleDebug;
+                @ToggleDebugLog.started += instance.OnToggleDebugLog;
+                @ToggleDebugLog.performed += instance.OnToggleDebugLog;
+                @ToggleDebugLog.canceled += instance.OnToggleDebugLog;
             }
         }
     }
@@ -1591,5 +1671,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnOpenCheckList(InputAction.CallbackContext context);
+        void OnToggleDebug(InputAction.CallbackContext context);
+        void OnToggleDebugLog(InputAction.CallbackContext context);
     }
 }

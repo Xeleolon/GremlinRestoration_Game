@@ -15,12 +15,15 @@ public class ToggleOnOff : Interactable
         {
             toggleObject.SetActive(false);
             Completed();
-            PlayerChat.instance.NewMessage(message);
+            
+            Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
+            DebugController.instance.AddLog(dialogue);
         }
         else if (toggleOff && !toggleObject.activeSelf)
         {
             toggleObject.SetActive(true);
-            PlayerChat.instance.NewMessage(message);
+            Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
+            DebugController.instance.AddLog(dialogue);
         }
     }
 }

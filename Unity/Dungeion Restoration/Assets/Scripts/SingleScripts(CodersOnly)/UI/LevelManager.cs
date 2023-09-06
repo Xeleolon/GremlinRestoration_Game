@@ -75,6 +75,8 @@ public class LevelManager : MonoBehaviour
 
     private InputAction cancel;
     private Inventory inventory;
+    private InputAction submit;
+    private InputAction toggleDebug;
 
     #region Methods Before Start
     void OnValidate() //only calls if change when script reloads or change in value
@@ -91,10 +93,20 @@ public class LevelManager : MonoBehaviour
         cancel = playerControls.UI.Cancel;
         cancel.Enable();
         cancel.performed += Cancel;
+
+        submit = playerControls.UI.Submit;
+        submit.Enable();
+        submit.performed += EnterDebug;
+
+        toggleDebug = playerControls.UI.ToggleDebug;
+        toggleDebug.Enable();
+        toggleDebug.performed += OpenDebug;
     }
     void OnDisable()
     {
         cancel.Disable();
+        submit.Disable();
+        toggleDebug.Disable();
     }
     #endregion
     void Start()
@@ -267,7 +279,8 @@ public class LevelManager : MonoBehaviour
             }
         }
         playerScript.MoveToCheckPoint();
-        PlayerChat.instance.NewMessage("Player Respawned");
+        Dialogue dialogue = new Dialogue(gameObject.name, "Player Respawned", 0);
+        DebugController.instance.AddLog(dialogue);
     }
     public void DeathMenu(bool on)
     {
@@ -287,6 +300,21 @@ public class LevelManager : MonoBehaviour
         menuCanvas.victoryCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
     }
+    public void PauseGame(bool pause)
+    {
+        if (pause)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            playerScript.interactActive = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            playerScript.interactActive = true;
+        }
+    }
+    #endregion
+    #region ReplenishUI
     public void CloseReplenishUi()
     {
         if (menuCanvas.replensihCanvas != null && menuCanvas.replensihCanvas.activeSelf)
@@ -314,12 +342,7 @@ public class LevelManager : MonoBehaviour
                     {
                         if (menuCanvas.mobItems.Length > i)
                         {
-                            if (!menuCanvas.dragableItem[i].activeSelf)
-                            {
-                                menuCanvas.dragableItem[i].SetActive(true);
-                            }
-                            menuCanvas.dragableItem[i].GetComponent<DraggableItem>().NewItem(menuCanvas.mobItems[i], menuCanvas.replensihCanvas);
-                            menuCanvas.replenishInventory.GetChild(i).gameObject.GetComponent<InventorySlot>().UpdateNumOnly(-1);
+                            RequestInventorySlot(menuCanvas.mobItems[i], i, -1);
                             
                             Debug.Log("Replenish Mob Hunt active");
                         }
@@ -337,27 +360,46 @@ public class LevelManager : MonoBehaviour
                 if (inventory.items.Length > 0 && menuCanvas.replenishInventory.childCount > 0)
                 {
                     int startPlace = 0;
+
+                    bool checkTargetSpawned = false;
+
+                    bool infinity = inventory.infiniteItems;
+                    int availableSpace = 0;
+
                     for (int i = 0; i < menuCanvas.replenishInventory.childCount; i++)
                     {
                         
                         startPlace = inventory.checkNull(startPlace);
+                        Debug.Log("start place = " + startPlace);
 
                         if (inventory.items.Length > startPlace && inventory.items[startPlace] != null)
                         {
-                            if (!menuCanvas.dragableItem[i].activeSelf)
-                            {
-                                menuCanvas.dragableItem[i].SetActive(true);
-                            }
-                            menuCanvas.dragableItem[i].GetComponent<DraggableItem>().NewItem(inventory.items[startPlace], menuCanvas.replensihCanvas);
-                            menuCanvas.replenishInventory.GetChild(i).gameObject.GetComponent<InventorySlot>().UpdateNumOnly(inventory.itemNumber[startPlace]);
+                            RequestInventorySlot(inventory.items[startPlace], i, inventory.itemNumber[startPlace]);
 
-                            Debug.Log("Replenish Mob Hunt active");
+                            if (infinity && target == inventory.items[startPlace])
+                            {
+                                checkTargetSpawned = true;
+                            }
                             startPlace++;
+                            availableSpace++;
                         }
                         else if (menuCanvas.dragableItem[i].activeSelf)
                         {
                             menuCanvas.dragableItem[i].SetActive(false);
                             menuCanvas.replenishInventory.GetChild(i).gameObject.GetComponent<InventorySlot>().UpdateNumOnly(-1);
+                        }
+                    }
+
+                    if (infinity && !checkTargetSpawned)
+                    {
+                        Debug.Log("start place = " + startPlace);
+                        if (availableSpace < menuCanvas.replenishInventory.childCount && availableSpace >= 0)
+                        {
+                            RequestInventorySlot(target, availableSpace, 1);
+                        }
+                        else
+                        {
+                            RequestInventorySlot(target, 0, 1);
                         }
                     }
                 }
@@ -369,6 +411,16 @@ public class LevelManager : MonoBehaviour
             playerScript.interactActive = false;
             menuCanvas.replensihCanvas.SetActive(true);
         }
+    }
+
+    void RequestInventorySlot(Item item, int menuPlace, int itemNum)
+    {
+        if (!menuCanvas.dragableItem[menuPlace].activeSelf)
+        {
+            menuCanvas.dragableItem[menuPlace].SetActive(true);
+        }
+            menuCanvas.dragableItem[menuPlace].GetComponent<DraggableItem>().NewItem(item, menuCanvas.replensihCanvas);
+            menuCanvas.replenishInventory.GetChild(menuPlace).gameObject.GetComponent<InventorySlot>().UpdateNumOnly(itemNum);
     }
 
     public void ReplenishReceipt(bool receipt)
@@ -383,6 +435,19 @@ public class LevelManager : MonoBehaviour
         }
     }
     #endregion
+    #region Debug Button Calls
 
+    private void OpenDebug(InputAction.CallbackContext context)
+    {
+        //Debug.Log("Opening Debug");
+        //DebugController.instance.OnToggleDebug();
+    }
+
+    private void EnterDebug(InputAction.CallbackContext context)
+    {
+        //Debug.Log("Submit entry");
+        //DebugController.instance.OnReturn();
+    }
+    #endregion
 
 }

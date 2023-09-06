@@ -20,13 +20,15 @@ public class DestroyInteract : Interactable
             //PlayAnimator();
             Completed();
             FinishTask();
+            SpawnEffect(false);
             if (pressurePlate != null)
             {
                 pressurePlate.ForceExit(gameObject);
             }
             string message = new string(gameObject.name + " Destoryed");
             Debug.Log(message);
-            PlayerChat.instance.NewMessage(message);
+            Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
+            DebugController.instance.AddLog(dialogue);
             interacted = true;
             if (itemPickup != null)
             {
@@ -36,9 +38,11 @@ public class DestroyInteract : Interactable
         }
         else
         {
-            string message = new string("Beep Boop Bop");
+            string message = new string("Beep Boop Bop, wrong mode selecting");
+            SpawnEffect(true);
             Debug.Log(message);
-            PlayerChat.instance.NewMessage(message);
+            Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
+            DebugController.instance.AddLog(dialogue);
         }
     }
     

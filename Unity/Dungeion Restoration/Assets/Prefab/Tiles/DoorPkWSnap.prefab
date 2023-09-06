@@ -366,7 +366,7 @@ Transform:
   - {fileID: 2781825188591632920}
   - {fileID: 565495145412668894}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3588687203421943185
 GameObject:
@@ -688,6 +688,12 @@ MonoBehaviour:
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
+  particalSpawnOffset: {x: 0, y: 1, z: 0}
+  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+    type: 3}
+  particalDudPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+    type: 3}
+  animator: {fileID: 7400815966520505238}
   acheiveGoal:
     goal: 
     ticket: -1
@@ -933,6 +939,12 @@ MonoBehaviour:
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
+  particalSpawnOffset: {x: 0, y: 1, z: 0}
+  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+    type: 3}
+  particalDudPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+    type: 3}
+  animator: {fileID: 3390603198107223519}
   acheiveGoal:
     goal: 
     ticket: -1

@@ -113,6 +113,9 @@ public class Interact
                 Debug.Log("hit " + hit.collider.gameObject.name);
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
 
+                Dialogue dialogue = new Dialogue(hit.collider.gameObject.name, "hit with raycast interaction", 0);
+                DebugController.instance.AddLog(dialogue);
+
                 //Debug.Log(interactable);
 
 
@@ -503,7 +506,9 @@ public class CameraControls
                 levelManager.DeathMenu(false);
                 playerDead = false;
                 interactActive = true;
-                PlayerChat.instance.NewMessage("Player Respawned");
+                Dialogue dialogue = new Dialogue(gameObject.name, "Player Repawned", 0);
+                DebugController.instance.AddLog(dialogue);
+                
             }
             else
             {
@@ -553,7 +558,8 @@ public class CameraControls
             interactActive = false;
             respawnClock = respawnLength;
             Debug.Log("Player Died");
-            PlayerChat.instance.NewMessage("Player Died");
+            Dialogue dialogue = new Dialogue(gameObject.name, "Player Died", 0);
+            DebugController.instance.AddLog(dialogue);
         }
     }
     public bool CheckPlayerLife()
@@ -584,7 +590,8 @@ public class CameraControls
         CheckPoint.y = CheckPoint.y + (transform.localScale.y / 2);
         lastCheckPoint = CheckPoint;
         Debug.Log("Check Point Saved");
-        PlayerChat.instance.NewMessage("Check Point Saved");
+        Dialogue dialogue = new Dialogue(gameObject.name, "Check Point Saved", 0);
+        DebugController.instance.AddLog(dialogue);
     }
     #endregion
     #region Movement

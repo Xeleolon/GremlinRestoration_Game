@@ -12,6 +12,7 @@ public class ReplenishInteract : Interactable
 
     [SerializeField] private int FailedMessage = 0;
     [SerializeField] private GameObject refillObject;
+    [SerializeField] private string animationName;
     
     public override void Start()
     {
@@ -42,6 +43,8 @@ public class ReplenishInteract : Interactable
         if (success)
         {
             FinishTask();
+            SpawnEffect(false);
+            PlayAnimator(animationName);
             if (refillObject != null && !refillObject.activeSelf)
             {
                 refillObject.SetActive(true);
@@ -53,7 +56,8 @@ public class ReplenishInteract : Interactable
             }
             string message = new string(gameObject.name + " is Replenished");
             Debug.Log(message);
-            PlayerChat.instance.NewMessage(message);
+            Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
+            DebugController.instance.AddLog(dialogue);
             interacted = true;
         }
         else

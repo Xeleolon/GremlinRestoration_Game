@@ -194,7 +194,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -306,10 +306,10 @@ MonoBehaviour:
   interactActive: 1
   corpse: {fileID: 1390369824979298483, guid: a9177d12996f4fe4a97211bcff95248e, type: 3}
   speed: 3
-  jumpForce: 5
-  jumpCooldown: 0.4
+  jumpForce: 4
+  jumpCooldown: 0.5
   airMultiplier: 1
-  groundDrag: 3
+  groundDrag: 4.5
   maxSlopeAngle: 45
   playerHeight: 1
   whatIsGround:

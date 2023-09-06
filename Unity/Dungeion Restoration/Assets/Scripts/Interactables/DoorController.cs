@@ -9,6 +9,7 @@ public class DoorController : Interactable
     [SerializeField] private bool activateOnInteract = true;
 
     [SerializeField] private Item requireKey;
+    private bool skeltonKey = false;
     private bool locked;
 
     private int taskCount;
@@ -37,13 +38,15 @@ public class DoorController : Interactable
         {
             locked = false;
         }
+
+        DebugController.instance.onSkeltonKeyCallback += SkeltonUnlock;
     }
     public override void Interact()
     {
         //base.Interact();
-        if (taskCount <= 0)
+        if (skeltonKey || taskCount <= 0)
         {
-            if (activateOnInteract)
+            if (skeltonKey || activateOnInteract)
             {
                 if (doorOpen)
                 {
@@ -57,8 +60,11 @@ public class DoorController : Interactable
         }
         else
         {
+            SpawnEffect(true);
             OrderMessage(messageTaskNotComplete);
             Debug.Log("TaskNotComplete!");
+            Dialogue dialogue = new Dialogue(gameObject.name, "Task not Complete!", 0);
+            DebugController.instance.AddLog(dialogue);
         }
     }
 
@@ -74,7 +80,7 @@ public class DoorController : Interactable
 
     private void OpenDoor()
     {
-        if (!locked)
+        if (skeltonKey || !locked)
         {
             doorOpen = true;
             PlayAnimator(openingAnimation);
@@ -83,12 +89,18 @@ public class DoorController : Interactable
         {
             locked = false;
             OrderMessage(messageUnlocked);
+            SpawnEffect(false);
             Debug.Log("door unlocked");
+            Dialogue dialogue = new Dialogue(gameObject.name, "door unlocked", 0);
+            DebugController.instance.AddLog(dialogue);
         }
         else
         {
+            SpawnEffect(true);
             OrderMessage(messagelocked);
             Debug.Log("Requrie Key");
+            Dialogue dialogue = new Dialogue(gameObject.name, "Door Locked Require Keys", 0);
+            DebugController.instance.AddLog(dialogue);
         }
     }
 
@@ -96,6 +108,10 @@ public class DoorController : Interactable
     {
         doorOpen = false;
         PlayAnimator(closingAnimation);
+    }
+    private void SkeltonUnlock()
+    {
+        skeltonKey = !skeltonKey;
     }
 
 

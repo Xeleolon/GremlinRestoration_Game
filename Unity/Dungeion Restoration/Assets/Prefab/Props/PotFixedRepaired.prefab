@@ -196,7 +196,6 @@ Transform:
   m_Children:
   - {fileID: 7938885558667471491}
   - {fileID: 1565202491178555792}
-  - {fileID: 2738835729773331143}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -784,6 +783,10 @@ MonoBehaviour:
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
+  particalSpawnOffset: {x: 0, y: 0.4, z: 0}
+  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+    type: 3}
+  particalDudPrefab: {fileID: 0}
   acheiveGoal:
     goal: 
     ticket: -1
@@ -801,117 +804,3 @@ MonoBehaviour:
   RemoveModel: 0
   requiredItem: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
   holdInteractFor: 1
-  puffEffect: {fileID: 356303265740000802}
---- !u!1001 &1070328945386429202
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 2906372489342062557}
-    m_Modifications:
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.447
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6828529662362709612, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 2.9768816e+18
-      objectReference: {fileID: 0}
-    - target: {fileID: 6828529662362709612, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 1.02e-43
-      objectReference: {fileID: 0}
-    - target: {fileID: 6828529662362709612, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
-        type: 3}
-      propertyPath: m_Name
-      value: Puff_ParticalEffect
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: 72baaf45944356b41ad620e5b68807d1, type: 3}
---- !u!198 &356303265740000802 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 732755711518119216, guid: 72baaf45944356b41ad620e5b68807d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1070328945386429202}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2738835729773331143 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2943346536481429973, guid: 72baaf45944356b41ad620e5b68807d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1070328945386429202}
-  m_PrefabAsset: {fileID: 0}

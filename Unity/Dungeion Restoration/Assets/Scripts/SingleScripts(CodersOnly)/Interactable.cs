@@ -22,23 +22,49 @@ public class Interactable : MonoBehaviour
     public GameObject trapObject;
     public int interactionState = 0;
     public bool interacted = false;
-    private Animator animator;
     Transform player;
+
+
     [Tooltip("place a door or gate wich has the doorController script this task will become a requirement before opening")]
     [SerializeField] private DoorController taskForDoor;
-    private bool finishTask = false;
+
     [Tooltip("upon Interaction order message number leave 0 if no message is to be sent")]
     [SerializeField] private int orderInteractionMessage = 0;
+
+
+    [Header("Particals")]
+    [Tooltip("The Prefab with a partical effect or an object you wish to spawn in the partical place")]
+    [SerializeField] private Vector3 particalSpawnOffset;
+    [SerializeField] private GameObject particalPrefab;
+    [Tooltip("Effect associated with a dud use")]
+    [SerializeField] private GameObject particalDudPrefab;
+
+    [SerializeField] private Animator animator;
+    [SerializeField] private bool animatationStartOpen;
+    [SerializeField] private string animationTriggerName;
+
+    
+    private bool finishTask = false;
     public AcheiveGoal acheiveGoal;
     Vector3 radiusHalf;
     private bool goalUpdated = false;
 
     private PlayerInputActions playerControls;
-    public InputAction fire;
+    [HideInInspector]public InputAction fire;
 
     void Awake()
     {
         playerControls = new PlayerInputActions();
+
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        if (animationTriggerName != "")
+        {
+            animator.SetBool(animationTriggerName, animatationStartOpen);
+        }
     }
 
     public virtual void OnEnable()
@@ -54,7 +80,8 @@ public class Interactable : MonoBehaviour
 
     public virtual void Start()
     {
-        animator = GetComponent<Animator>();
+
+        ;
         if (acheiveGoal.goal != "")
         {
             //Debug.Log("Using string");
@@ -95,9 +122,22 @@ public class Interactable : MonoBehaviour
     }
     public virtual void PlayAnimator(string playAnimation)
     {
-        if (playAnimation != "")
+        if (playAnimation != "" && animator != null)
         {
             animator.Play(playAnimation);
+        }
+    }
+
+    public void SpawnEffect(bool dud)
+    {
+        Vector3 spawnPosition = transform.position + particalSpawnOffset;
+        if (dud && particalDudPrefab != null)
+        {
+            Instantiate(particalDudPrefab, spawnPosition, Quaternion.identity);
+        }
+        else if (particalPrefab != null)
+        {
+            Instantiate(particalPrefab, spawnPosition, Quaternion.identity);
         }
     }
     public virtual void Completed()
