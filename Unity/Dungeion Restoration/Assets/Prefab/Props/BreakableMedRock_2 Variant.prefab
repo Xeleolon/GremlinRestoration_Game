@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMedRock_2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 162232471219785444, guid: ce9e7cba2bf323f4c97142a15244fa10,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4698396165992945600, guid: ce9e7cba2bf323f4c97142a15244fa10,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -82,6 +87,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8384260174219940537}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &7419720639563873037
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510322968122055773}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6503541749761517332, guid: e2825b46d6adb6c4a82da6ef5b425257, type: 3}
 --- !u!114 &2075175519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +120,12 @@ MonoBehaviour:
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
+  particalSpawnOffset: {x: 0, y: 0, z: 0}
+  particalPrefab: {fileID: 0}
+  particalDudPrefab: {fileID: 0}
+  animator: {fileID: 0}
+  animatationStartOpen: 0
+  animationTriggerName: 
   acheiveGoal:
     goal: 
     ticket: -1
@@ -116,16 +141,3 @@ MonoBehaviour:
     m_Flags: 0
   destroyDelay: 0
   itemPickup: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
---- !u!65 &4024086081841497552
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8510322968122055773}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0050073, y: 0.6688481, z: 0.87417233}
-  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}

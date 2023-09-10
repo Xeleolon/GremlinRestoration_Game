@@ -9,6 +9,7 @@ public class RepairInteract : Interactable
     [Tooltip("place Required Item to fix, leave blank if no item required to fix")]
     [SerializeField] private Item requiredItem;
     [SerializeField] private float holdInteractFor = 1;
+    [SerializeField] private int failedMessage = 0;
 
     private bool interactHold;
     private float holdClock;
@@ -70,6 +71,7 @@ public class RepairInteract : Interactable
             string message = new string("Beep Boop Bop");
             SpawnEffect(false);
             Debug.Log(message);
+            OrderMessage(failedMessage);
             Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
             DebugController.instance.AddLog(dialogue);
             

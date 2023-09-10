@@ -787,6 +787,9 @@ MonoBehaviour:
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 0}
+  animator: {fileID: 0}
+  animatationStartOpen: 0
+  animationTriggerName: 
   acheiveGoal:
     goal: 
     ticket: -1
@@ -801,6 +804,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   FixedModel: {fileID: 5875225402619811822}
-  RemoveModel: 0
+  RemoveModel: 1
   requiredItem: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
   holdInteractFor: 1
+  failedMessage: 0
