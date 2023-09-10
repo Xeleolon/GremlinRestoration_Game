@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class LevelLoader : MonoBehaviour
     public Slider slider;
     private string currentscene;
     private GameObject player;
+
+
 
     
 
