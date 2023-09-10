@@ -21,6 +21,7 @@ public class DestroyInteract : Interactable
             Completed();
             FinishTask();
             SpawnEffect(false);
+            Activate(false);
             if (pressurePlate != null)
             {
                 pressurePlate.ForceExit(gameObject);

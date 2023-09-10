@@ -251,10 +251,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 1b3508260579f98438853fa7efcb009a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.45
+  m_Height: 0.9
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!54 &5016645517801662388
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
   airMultiplier: 1
   groundDrag: 4.5
   maxSlopeAngle: 70
-  playerHeight: 1
+  playerHeight: 0.9
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
