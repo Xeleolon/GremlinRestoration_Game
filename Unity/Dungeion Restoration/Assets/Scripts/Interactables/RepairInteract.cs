@@ -106,9 +106,10 @@ public class RepairInteract : Interactable
         if (FixedModel != null)
         {
             FixedModel.SetActive(true);
-            gameObject.SetActive(false);
+            
         }
-        else if (RemoveModel)
+
+        if (RemoveModel)
         {
             gameObject.SetActive(false);
         }

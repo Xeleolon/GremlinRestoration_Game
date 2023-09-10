@@ -614,7 +614,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f24e491a4c4570942a77d3a8b4ae16c7, type: 2}
+  - {fileID: 2100000, guid: 3c21da242ef956848b4a167ee74d1c67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -694,6 +694,8 @@ MonoBehaviour:
   particalDudPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   animator: {fileID: 7400815966520505238}
+  animatationStartOpen: 0
+  animationTriggerName: 
   acheiveGoal:
     goal: 
     ticket: -1
@@ -945,6 +947,8 @@ MonoBehaviour:
   particalDudPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   animator: {fileID: 3390603198107223519}
+  animatationStartOpen: 0
+  animationTriggerName: 
   acheiveGoal:
     goal: 
     ticket: -1

@@ -254,6 +254,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPkWSnap Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4384206389711651608, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c21da242ef956848b4a167ee74d1c67, type: 2}
     - target: {fileID: 4497004665678316958, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
