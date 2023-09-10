@@ -310,7 +310,7 @@ MonoBehaviour:
   jumpCooldown: 0.5
   airMultiplier: 1
   groundDrag: 4.5
-  maxSlopeAngle: 45
+  maxSlopeAngle: 70
   playerHeight: 1
   whatIsGround:
     serializedVersion: 2

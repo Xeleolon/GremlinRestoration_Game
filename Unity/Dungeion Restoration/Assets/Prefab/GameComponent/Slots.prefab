@@ -62,14 +62,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8773585, g: 0.81494826, b: 0.49247953, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d923a51b02789de48b0aba556c8233de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -94,6 +94,7 @@ MonoBehaviour:
   item: {fileID: 0}
   target: 0
   inventory: 1
+  draggableParent: {fileID: 0}
   image: {fileID: 8312455498497956571}
   numText: {fileID: 1843282883850598691}
   TextCanvas: {fileID: 6799970004042005969}
@@ -375,7 +376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 780cb6268e8f0514e9f767514781ad12, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

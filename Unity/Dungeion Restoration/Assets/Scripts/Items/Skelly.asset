@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: New Item
   icon: {fileID: 21300000, guid: d2f85140bd62b1c43bb975be8ad192be, type: 3}
+  tempColor: {r: 1, g: 1, b: 1, a: 1}
   dropModel: {fileID: 0}
-  hiddenIcon: {fileID: 0}
+  hiddenIcon: {fileID: 21300000, guid: 754ee9073e70d5747b7b24e5be78d3d2, type: 3}

@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 7369643765921262388}
   - component: {fileID: 7297300115383039004}
   - component: {fileID: 3307070550900724647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StairWireFrame3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8054609119331959294
 Transform:
@@ -109,12 +109,12 @@ GameObject:
   - component: {fileID: 7427821192186165335}
   - component: {fileID: 3494009739941824023}
   - component: {fileID: 5543786019629621104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7427821192186165335
 Transform:
@@ -192,12 +192,12 @@ GameObject:
   - component: {fileID: 63936698914302621}
   - component: {fileID: 2582466725847515944}
   - component: {fileID: 7385937851962723908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StoneStairSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &63936698914302621
 Transform:
@@ -214,7 +214,7 @@ Transform:
   - {fileID: 7427821192186165335}
   - {fileID: 8054609119331959294}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2582466725847515944
 MeshFilter:

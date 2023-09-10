@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 3103754058677078243}
   - component: {fileID: 2352911416035567293}
   - component: {fileID: 6211908332299754502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WoodStairSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3103754058677078243
 Transform:
@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 5495125646030513043}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2352911416035567293
 MeshFilter:
@@ -96,12 +96,12 @@ GameObject:
   - component: {fileID: 4593012093223405591}
   - component: {fileID: 2870833993099288274}
   - component: {fileID: 7075086048975062989}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StairWireFrame4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5495125646030513043
 Transform:
