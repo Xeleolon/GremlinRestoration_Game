@@ -14,7 +14,6 @@ public class ToggleOnOff : Interactable
         if (toggleOn && toggleObject.activeSelf)
         {
             toggleObject.SetActive(false);
-            Completed();
             
             Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
             DebugController.instance.AddLog(dialogue);

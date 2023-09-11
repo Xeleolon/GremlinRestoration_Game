@@ -48,17 +48,13 @@ public class LevelManager : MonoBehaviour
         public GameObject[] dragableItem;
     }
     [Header("Menu Systems")]
-    [SerializeField] LevelData levelData;
+    public LevelData levelData;
 
     [SerializeField] MenuCanvas menuCanvas;
     private ReplenishInteract lastCustomer;
     PlayerMovements playerScript;
-    ///////////////////////////
-    [Header("Level Functions")]
-    private int numLevels = 0;
-    [Range(0, 2)]
-    public int currentLevel;
-    ///////////////////////////
+    
+
     [Header("Player Ui System")]
     public bool changeScene = false;
     [Tooltip("0, for off, 4 for on, 1,2,3 for interactState")]
@@ -177,16 +173,6 @@ public class LevelManager : MonoBehaviour
                 menuCanvas.menuCanvas.SetActive(true);
             }
         }
-    }
-    public int ChangeNumLevels(bool newLevel)
-    {
-
-        if (newLevel)
-        {
-            numLevels += 1;
-            return numLevels;
-        }
-        return 0;
     }
     #region InteractUI Color Change Function
     public void ChangeInteractUI(int newState)

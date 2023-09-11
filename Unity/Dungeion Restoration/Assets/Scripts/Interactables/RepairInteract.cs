@@ -25,7 +25,7 @@ public class RepairInteract : Interactable
     }
     public override void Start()
     {
-        acheiveGoal.type = 1;
+        interactionType = 1;
         base.Start();
     }
     void Update()
@@ -39,7 +39,6 @@ public class RepairInteract : Interactable
                 if (holdClock <= 0)
                 {
                     Inventory.instance.Remove(requiredItem);
-                    Completed();
                     RepairModel();
                     
                     string message = new string(gameObject.name + " Repaired");
@@ -78,10 +77,6 @@ public class RepairInteract : Interactable
         }
     }
 
-    public override void Completed()
-    {
-        base.Completed();
-    }
 
     private bool Repair(int interactionState)
     {
@@ -90,7 +85,6 @@ public class RepairInteract : Interactable
             //PlayAnimator();
             SpawnEffect(true);
             FinishTask();
-            Completed();
             RepairModel();
             string message = new string(gameObject.name + " Repaired");
             Debug.Log(message);

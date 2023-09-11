@@ -128,14 +128,9 @@ public class Interact
                     //Debug.Log("Comformed hit");
                     if (interactable.OnInteract(player, state))
                     {
-                        if (interactable.acheiveGoal != null)
-                        {
-                            PlayAnimation(interactable.acheiveGoal.type);
-                        }
-                        else
-                        {
-                            Debug.Log("Bug beating to interacting with the interacable before it has chance to make intisise item look into");
-                        }
+                        PlayAnimation(interactable.interactionType);
+
+                        
                         fireRay = false;
                         if (centerSprite != null && centerSprite.activeSelf)
                         {

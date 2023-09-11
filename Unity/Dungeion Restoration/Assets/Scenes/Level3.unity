@@ -4384,6 +4384,17 @@ PrefabInstance:
       propertyPath: infiniteItems
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6771066656934419448, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ac6e744bb820c2d42b2ec8ef898f7e42,
+        type: 2}
+    - target: {fileID: 6771066656934419448, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: itemNumber.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: dialogues.Array.data[0].name

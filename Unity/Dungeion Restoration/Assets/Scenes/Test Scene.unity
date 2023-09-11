@@ -847,6 +847,7 @@ MonoBehaviour:
   RemoveModel: 0
   requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
   holdInteractFor: 1
+  failedMessage: 0
 --- !u!65 &71529195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6283,6 +6284,7 @@ MonoBehaviour:
   RemoveModel: 0
   requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
   holdInteractFor: 1
+  failedMessage: 0
 --- !u!65 &444861862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10287,6 +10289,7 @@ MonoBehaviour:
   RemoveModel: 0
   requiredItem: {fileID: 11400000, guid: a6ba2db9d6c3d8c49b031f3181280269, type: 2}
   holdInteractFor: 1
+  failedMessage: 0
 --- !u!65 &701115512
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10956,6 +10959,7 @@ MonoBehaviour:
   RemoveModel: 0
   requiredItem: {fileID: 11400000, guid: 0a43855331daae04d91d0a10c90c8f4c, type: 2}
   holdInteractFor: 1
+  failedMessage: 0
 --- !u!65 &724172137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11480,6 +11484,7 @@ MonoBehaviour:
   RemoveModel: 0
   requiredItem: {fileID: 11400000, guid: f1fb61bd768a4da4e904b6350b850bdb, type: 2}
   holdInteractFor: 1
+  failedMessage: 0
 --- !u!65 &741959064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11720,6 +11725,7 @@ MonoBehaviour:
   RemoveModel: 0
   requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
   holdInteractFor: 1
+  failedMessage: 0
 --- !u!65 &744829559
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14021,6 +14027,7 @@ MonoBehaviour:
   RemoveModel: 0
   requiredItem: {fileID: 11400000, guid: 41964fddf44c5544883ccf4c0aa7afde, type: 2}
   holdInteractFor: 1
+  failedMessage: 0
 --- !u!65 &871558850
 BoxCollider:
   m_ObjectHideFlags: 0

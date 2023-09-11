@@ -11,4 +11,8 @@ public class LevelData : ScriptableObject
 
     public string nextLevel;
     public string MenuName = "MainMenu";
+
+    public int numKeys = 0;
+    public Item[] items = new Item[4];
+    public int[] itemNumber = new int[4];
 }

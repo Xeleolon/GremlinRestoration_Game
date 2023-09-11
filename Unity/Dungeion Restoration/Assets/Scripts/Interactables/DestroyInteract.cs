@@ -9,8 +9,9 @@ public class DestroyInteract : Interactable
     private ButtonPlate pressurePlate;
     public override void Start()
     {
-        acheiveGoal.type = 2;
+        interactionType = 2;
         base.Start();
+
     }
     public override void Interact()
     {
@@ -18,7 +19,6 @@ public class DestroyInteract : Interactable
         if (interactionState == 2)
         {
             //PlayAnimator();
-            Completed();
             FinishTask();
             SpawnEffect(false);
             Activate(false);
@@ -45,11 +45,6 @@ public class DestroyInteract : Interactable
             Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
             DebugController.instance.AddLog(dialogue);
         }
-    }
-    
-    public override void Completed()
-    {
-        base.Completed();
     }
     void OnCollisionExit(Collision other)
     {

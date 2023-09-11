@@ -19,11 +19,11 @@ public class Inventory : MonoBehaviour
 
     [Header("Inventory")]
 
-    [SerializeField] public Item[] items = new Item[4];
-     public int[] itemNumber = new int[4];
+    [HideInInspector] public Item[] items = new Item[4];
+    [HideInInspector] public int[] itemNumber = new int[4];
     [SerializeField] Item key;
-    [SerializeField] int numKeys;
-    [SerializeField] public bool infiniteItems;
+    int numKeys;
+    public bool infiniteItems;
     public delegate void OnItemChanged(); //allow other script to subscribe to this function and be informed off changes.
     public OnItemChanged onItemChangedCallback;
 
@@ -34,6 +34,13 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
+        LevelData levelData = gameObject.GetComponent<LevelManager>().levelData;
+        numKeys = levelData.numKeys;
+        for (int i = 0; i < items.Length; i++)
+        {
+            items[i] = levelData.items[i];
+            itemNumber[i] = levelData.itemNumber[i];
+        }
         onItemChangedCallback += UpdateUI;
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 

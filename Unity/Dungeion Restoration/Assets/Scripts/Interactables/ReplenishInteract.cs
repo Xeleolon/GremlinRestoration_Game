@@ -16,7 +16,6 @@ public class ReplenishInteract : Interactable
     
     public override void Start()
     {
-        acheiveGoal.type = 3;
         base.Start();
 
         if (requiredItem == null)
@@ -49,7 +48,6 @@ public class ReplenishInteract : Interactable
             {
                 refillObject.SetActive(true);
             }
-            Completed();
             if (!MonsterRequest)
             {
                 Inventory.instance.Remove(requiredItem);
@@ -65,11 +63,6 @@ public class ReplenishInteract : Interactable
             OrderMessage(FailedMessage);
             Debug.Log(gameObject.name + " TaskFailed");
         }
-    }
-    
-    public override void Completed() //old checking off for task list
-    {
-        base.Completed();
     }
 
 }

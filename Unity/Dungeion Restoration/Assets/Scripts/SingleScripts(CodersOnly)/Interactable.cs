@@ -5,14 +5,6 @@ using UnityEngine.InputSystem;
 
 public class Interactable : MonoBehaviour
 {
-    [System.Serializable]
-    public class AcheiveGoal
-    {
-        public string goal;
-        public int ticket = -1; //a log of the location inside goalTracker for the location of the item.
-        [Range(0, 3)][Tooltip("0 if no string named no goal will be made, 1,2,3 will make a basic goal if no string named")]
-        public int type = 0;
-    }
     [Header("Standard Interactable")]
     [Tooltip("Radius which player can interact with object")]
     public Vector3 radius = new Vector3(3, 3, 3);
@@ -20,8 +12,9 @@ public class Interactable : MonoBehaviour
     public Vector3 offSet;
     [Tooltip("gameObject being activated Interaction")]
     public GameObject trapObject;
-    public int interactionState = 0;
-    public bool interacted = false;
+    [HideInInspector] public int interactionType = 0;
+    [HideInInspector] public int interactionState = 0;
+    [HideInInspector] public bool interacted = false;
     Transform player;
 
 
@@ -45,10 +38,8 @@ public class Interactable : MonoBehaviour
 
     
     private bool finishTask = false;
-    public AcheiveGoal acheiveGoal;
+    
     Vector3 radiusHalf;
-    private bool goalUpdated = false;
-
     private PlayerInputActions playerControls;
     [HideInInspector]public InputAction fire;
 
@@ -80,18 +71,6 @@ public class Interactable : MonoBehaviour
 
     public virtual void Start()
     {
-
-        ;
-        if (acheiveGoal.goal != "")
-        {
-            //Debug.Log("Using string");
-            acheiveGoal.ticket = GoalTracker.instance.CreateGoalData(acheiveGoal.goal);
-        }
-        else if (acheiveGoal.type != 0)
-        {
-            //Debug.Log("using number");
-            acheiveGoal.ticket = GoalTracker.instance.CreateGoalData(acheiveGoal.type.ToString());
-        }
 
         radiusHalf.x = radius.x/2;
         radiusHalf.y = radius.y/2;
@@ -138,16 +117,6 @@ public class Interactable : MonoBehaviour
         else if (particalPrefab != null)
         {
             Instantiate(particalPrefab, spawnPosition, Quaternion.identity);
-        }
-    }
-    public virtual void Completed()
-    {
-        //GoalTracker.instance.UpdateChecklist(type);
-        if (!goalUpdated && acheiveGoal.ticket >= 0)
-        {
-            Debug.Log(gameObject.name + " updating goal");
-            GoalTracker.instance.CompletedGoal(acheiveGoal.ticket);
-            goalUpdated = true;
         }
     }
     public void FinishTask()
