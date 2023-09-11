@@ -429,6 +429,9 @@ MonoBehaviour:
   inventory: 0
   draggableParent: {fileID: 0}
   image: {fileID: 304650386}
+  pickUpObject: {fileID: 0}
+  pickUpImage: {fileID: 0}
+  ItemPickUpAnimation: 
   numText: {fileID: 0}
   TextCanvas: {fileID: 0}
 --- !u!1 &334331340
@@ -1001,6 +1004,9 @@ MonoBehaviour:
   inventory: 1
   draggableParent: {fileID: 0}
   image: {fileID: 646093658}
+  pickUpObject: {fileID: 0}
+  pickUpImage: {fileID: 0}
+  ItemPickUpAnimation: 
   numText: {fileID: 1998229957}
   TextCanvas: {fileID: 1998229954}
 --- !u!1 &685945954
@@ -5186,7 +5192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8f927bb8d8b804f8b8929400618857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelData: {fileID: 11400000, guid: 286087c8782ae3e4e80f207cbe22bce8, type: 2}
+  levelData: {fileID: 11400000, guid: e53044284aba2ac46ab09783fc8cfbbd, type: 2}
   menuCanvas:
     menuCanvas: {fileID: 5580084697077359888}
     victoryCanvas: {fileID: 578497404}
@@ -5241,8 +5247,9 @@ MonoBehaviour:
   dialogues:
   - name: Dungeon Master
     sentences:
-    - Welcome
-    time: 2
+    - "\"Welcome to the Dungeon, humble Gremlin. This is the Courtyard, where you\u2019ll
+      learn the uses of the Repair Tool.\""
+    time: 7
   - name: Door
     sentences:
     - Task Not Completed
@@ -5255,6 +5262,10 @@ MonoBehaviour:
     sentences:
     - Door Unlocked!
     time: 2
+  - name: BrokenBookshelf
+    sentences:
+    - You need Some Duct Tape, go to check the Service room
+    time: 3
 --- !u!114 &6771066656934419448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5730,6 +5741,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slots
+      objectReference: {fileID: 0}
+    - target: {fileID: 7566727339313460857, guid: 1dd93b7035bf3bf49b9e8afae419f6d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

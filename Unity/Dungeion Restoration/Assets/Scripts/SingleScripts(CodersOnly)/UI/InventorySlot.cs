@@ -14,11 +14,20 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     [SerializeField] private bool inventory = false;
     [SerializeField] private Transform draggableParent;
     [SerializeField] private Image image;
+    private GameObject pickUpObject;
+    [SerializeField] private Image pickUpImage;
+    private Animator pickUpAnimator;
+    [SerializeField] private string ItemPickUpAnimation;
     [SerializeField] TMP_Text numText;
     [SerializeField] GameObject TextCanvas;
 
     void Start()
     {
+        if (pickUpImage != null)
+        {
+            pickUpObject = pickUpImage.gameObject;
+            pickUpAnimator = pickUpObject.GetComponent<Animator>();
+        }
         if (item != null)
         {
             if (target && item.hiddenIcon != null)
@@ -77,18 +86,32 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         }
         if (inventory && newItem != null)
         {
-            item = newItem;
+            if (item != newItem)
+            {
+                item = newItem;
+                if (item.icon != null)
+                {
+                    Debug.Log("adding sprite");
+                    image.sprite = item.icon;
 
-            if (item.icon != null)
-            {
-                Debug.Log("adding sprite");
-                image.sprite = item.icon;
+                    if (pickUpImage != null)
+                    {
+                        if (!pickUpObject.activeSelf)
+                        {
+                            pickUpObject.SetActive(true);
+                        }
+                        pickUpImage.sprite = item.icon;
+                        pickUpAnimator.Play(ItemPickUpAnimation);
+                    }
+                }
+                else
+                {
+                    //Debug.Log("adding color");
+                    image.color = item.tempColor;
+                }
             }
-            else
-            {
-                //Debug.Log("adding color");
-                image.color = item.tempColor;
-            }
+
+            
             
             if (numText != null)
             {
