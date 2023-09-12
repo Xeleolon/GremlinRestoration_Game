@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1903718483598437366}
   - component: {fileID: 6712233224091695577}
   m_Layer: 0
-  m_Name: Puff_ParticalEffect
+  m_Name: Success_ParticalEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4886,4 +4886,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5339b90943aeeab4bb33a0423988b959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clock: 5
+  clock: 2

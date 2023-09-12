@@ -68,7 +68,7 @@ public class RepairInteract : Interactable
         if (!Repair(interactionState))
         {
             string message = new string("Beep Boop Bop");
-            SpawnEffect(false);
+            SpawnEffect(true);
             Debug.Log(message);
             OrderMessage(failedMessage);
             Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
@@ -83,7 +83,7 @@ public class RepairInteract : Interactable
         if (interactionState == 1 && Inventory.instance.Remove(requiredItem))
         {
             //PlayAnimator();
-            SpawnEffect(true);
+            SpawnEffect(false);
             FinishTask();
             RepairModel();
             string message = new string(gameObject.name + " Repaired");

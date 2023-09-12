@@ -22,6 +22,8 @@ public class Inventory : MonoBehaviour
     [HideInInspector] public Item[] items = new Item[4];
     [HideInInspector] public int[] itemNumber = new int[4];
     [SerializeField] Item key;
+    private int newItemPlace = -1;
+    private bool addingKey = false;
     int numKeys;
     public bool infiniteItems;
     public delegate void OnItemChanged(); //allow other script to subscribe to this function and be informed off changes.
@@ -53,6 +55,7 @@ public class Inventory : MonoBehaviour
         if (item == key)
         {
             numKeys += 1;
+            addingKey = true;
             ItemChanged();
             return true;
             
@@ -63,6 +66,7 @@ public class Inventory : MonoBehaviour
             if (place >= 0)
             {
                 itemNumber[place] += 1;
+                newItemPlace = place;
                 ItemChanged();
                 return true;
             }
@@ -71,6 +75,7 @@ public class Inventory : MonoBehaviour
                 place = FindSpace();
                 if (place >= 0)
                 {
+                    newItemPlace = place;
                     Debug.Log("Adding " + item.name + "to Inventory");
                     //organise a new spot then
                     items[place] = item; //set item
@@ -173,7 +178,11 @@ public class Inventory : MonoBehaviour
     private void UpdateUI()
     {
         Debug.Log("Updating UI");
-        keySlot.AddItem(key, numKeys);
+        keySlot.AddItem(key, numKeys, addingKey);
+        if (addingKey)
+        {
+            addingKey = !addingKey;
+        }
         int usedItem = 0;
 
         for (int i = 0; i < slots.Length; i++)
@@ -182,7 +191,13 @@ public class Inventory : MonoBehaviour
 
             if (usedItem < items.Length && items[usedItem] != null)
             {
-                slots[i].AddItem(items[usedItem], itemNumber[usedItem]);
+                bool playAnimation = false;
+                if (newItemPlace >= 0 && newItemPlace == usedItem)
+                {
+                    playAnimation = true;
+                    newItemPlace = -1;
+                }
+                slots[i].AddItem(items[usedItem], itemNumber[usedItem], playAnimation);
                 usedItem ++;
             }
             else

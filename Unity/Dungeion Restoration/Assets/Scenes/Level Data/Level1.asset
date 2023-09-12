@@ -16,10 +16,10 @@ MonoBehaviour:
   levelName: CourtYard
   nextLevel: Level2
   MenuName: MainMenu
-  keyNumber: 0
+  numKeys: 0
   items:
   - {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  numberItems: 14000000000000000000000000000000
+  itemNumber: 14000000000000000000000000000000

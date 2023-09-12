@@ -184,8 +184,6 @@ public class LevelManager : MonoBehaviour
             repair.icon.transform.localScale = offScale;
             destory.icon.GetComponent<RawImage>().color = destory.offColor;
             destory.icon.transform.localScale = offScale;
-            restock.icon.GetComponent<RawImage>().color = restock.offColor;
-            restock.icon.transform.localScale = offScale;
             break;
             case 1:
             repair.icon.GetComponent<RawImage>().color = repair.onColor;
@@ -193,8 +191,6 @@ public class LevelManager : MonoBehaviour
             //turn off color not on
             destory.icon.GetComponent<RawImage>().color = destory.offColor;
             destory.icon.transform.localScale = offScale;
-            restock.icon.GetComponent<RawImage>().color = restock.offColor;
-            restock.icon.transform.localScale = offScale;
             break;
             case 2:
             destory.icon.GetComponent<RawImage>().color = destory.onColor;
@@ -202,25 +198,12 @@ public class LevelManager : MonoBehaviour
             //turn off color not on
             repair.icon.GetComponent<RawImage>().color = repair.offColor;
             repair.icon.transform.localScale = offScale;
-            restock.icon.GetComponent<RawImage>().color = restock.offColor;
-            restock.icon.transform.localScale = offScale;
             break;
             case 3:
-            restock.icon.GetComponent<RawImage>().color = restock.onColor;
-            restock.icon.transform.localScale = onScale;
-            //turn off color not on
-            repair.icon.GetComponent<RawImage>().color = repair.offColor;
-            repair.icon.transform.localScale = offScale;
-            destory.icon.GetComponent<RawImage>().color = destory.offColor;
-            destory.icon.transform.localScale = offScale;
-            break;
-            case 4:
             repair.icon.GetComponent<RawImage>().color = repair.onColor;
             repair.icon.transform.localScale = onScale;
             destory.icon.GetComponent<RawImage>().color = destory.onColor;
-            destory.icon.transform.localScale = onScale;
-            restock.icon.GetComponent<RawImage>().color = restock.onColor;
-            restock.icon.transform.localScale = onScale;            
+            destory.icon.transform.localScale = onScale;   
             break;
         }
     }

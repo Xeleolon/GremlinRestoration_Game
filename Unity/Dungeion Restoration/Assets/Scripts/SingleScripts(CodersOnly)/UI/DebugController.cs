@@ -17,6 +17,9 @@ public class DebugController : MonoBehaviour
     [SerializeField] private float maxPopupLength = 3;
 
     [SerializeField] private Transform teloportGroup;
+
+    private bool freazeGameAllowed;
+    private bool freazeGame;
     private Transform[] teloportPoints;
     public delegate void OnSkeltonKeyChanged();
     public OnSkeltonKeyChanged onSkeltonKeyCallback;
@@ -27,6 +30,11 @@ public class DebugController : MonoBehaviour
     public static DebugCommand teloport_Help;
     public static DebugCommand help;
     public static DebugCommand skelton_Key;
+    public static DebugCommand<string> load_Level;
+    public static DebugCommand load_Menu;
+    public static DebugCommand reload_Level;
+
+    public static DebugCommand enableGameFreazing;
 
     
 
@@ -63,6 +71,23 @@ public class DebugController : MonoBehaviour
     {
 
         showDebugLog = !showDebugLog;
+    }
+
+    public void OnToggleDebugFreaze(InputValue value)
+    {
+        if (freazeGameAllowed)
+        {
+            freazeGame = !freazeGame;
+        }
+
+        if (freazeGameAllowed && freazeGame)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public static DebugController instance;
@@ -192,9 +217,38 @@ public class DebugController : MonoBehaviour
             {
                 showHelp = false;
             }
-            
-            
-            showTeloportHelp = true;
+            showTeloportHelp = !showTeloportHelp;
+        });
+
+        load_Level = new DebugCommand<string>("load","load level by giving level name","load (level name)", (x) =>
+        {
+            LevelLoader.instance.LoadLevel(x);
+        });
+
+        load_Menu = new DebugCommand("load_menu","Load the menu level","load_menu", () =>
+        {
+            LevelLoader.instance.LoadLevel("MainMenu");
+        });
+
+        reload_Level = new DebugCommand("reload_level","Reload Current level","reload_level", () =>
+        {
+            LevelLoader.instance.ReloadLevel();
+        });
+
+        enableGameFreazing = new DebugCommand("enable_freaze", "Unlock the abitlity to freaze the game by F3", "enable_freaze", () =>
+        {
+            freazeGameAllowed = !freazeGameAllowed;
+
+            Dialogue dialogue;
+            if (freazeGameAllowed)
+            {
+                dialogue = new Dialogue("DebugController", "freaze game allowed", maxPopupLength);
+            }
+            else
+            {
+                dialogue = new Dialogue("DebugController", "freaze game not allowed", maxPopupLength);
+            }
+            AddLog(dialogue);
         });
 
         commandList = new List<object>
@@ -205,6 +259,10 @@ public class DebugController : MonoBehaviour
             teloport_Help,
             teloport,
             teloport_To,
+            reload_Level,
+            load_Menu,
+            load_Level,
+            enableGameFreazing,
         };
     }
 

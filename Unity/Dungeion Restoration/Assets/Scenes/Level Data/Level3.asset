@@ -16,10 +16,10 @@ MonoBehaviour:
   levelName: Catapults & Slimey
   nextLevel: Level4
   MenuName: MainMenu
-  keyNumber: 0
+  numKeys: 0
   items:
   - {fileID: 11400000, guid: ac6e744bb820c2d42b2ec8ef898f7e42, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  numberItems: 01000000000000000000000000000000
+  itemNumber: 01000000000000000000000000000000

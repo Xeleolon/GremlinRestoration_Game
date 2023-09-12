@@ -727,6 +727,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleDebugFreaze"",
+                    ""type"": ""Button"",
+                    ""id"": ""f056a96f-0d7c-44a6-98cc-55e3026a04e7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1279,6 +1288,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""ToggleDebugLog"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a32bc0c-136b-4b61-8c0b-0f2783bd3052"",
+                    ""path"": ""<Keyboard>/f3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleDebugFreaze"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1372,6 +1392,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_UI_OpenCheckList = m_UI.FindAction("OpenCheckList", throwIfNotFound: true);
         m_UI_ToggleDebug = m_UI.FindAction("ToggleDebug", throwIfNotFound: true);
         m_UI_ToggleDebugLog = m_UI.FindAction("ToggleDebugLog", throwIfNotFound: true);
+        m_UI_ToggleDebugFreaze = m_UI.FindAction("ToggleDebugFreaze", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1541,6 +1562,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_OpenCheckList;
     private readonly InputAction m_UI_ToggleDebug;
     private readonly InputAction m_UI_ToggleDebugLog;
+    private readonly InputAction m_UI_ToggleDebugFreaze;
     public struct UIActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1558,6 +1580,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @OpenCheckList => m_Wrapper.m_UI_OpenCheckList;
         public InputAction @ToggleDebug => m_Wrapper.m_UI_ToggleDebug;
         public InputAction @ToggleDebugLog => m_Wrapper.m_UI_ToggleDebugLog;
+        public InputAction @ToggleDebugFreaze => m_Wrapper.m_UI_ToggleDebugFreaze;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1606,6 +1629,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @ToggleDebugLog.started -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebugLog;
                 @ToggleDebugLog.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebugLog;
                 @ToggleDebugLog.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebugLog;
+                @ToggleDebugFreaze.started -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebugFreaze;
+                @ToggleDebugFreaze.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebugFreaze;
+                @ToggleDebugFreaze.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebugFreaze;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1649,6 +1675,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @ToggleDebugLog.started += instance.OnToggleDebugLog;
                 @ToggleDebugLog.performed += instance.OnToggleDebugLog;
                 @ToggleDebugLog.canceled += instance.OnToggleDebugLog;
+                @ToggleDebugFreaze.started += instance.OnToggleDebugFreaze;
+                @ToggleDebugFreaze.performed += instance.OnToggleDebugFreaze;
+                @ToggleDebugFreaze.canceled += instance.OnToggleDebugFreaze;
             }
         }
     }
@@ -1725,5 +1754,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnOpenCheckList(InputAction.CallbackContext context);
         void OnToggleDebug(InputAction.CallbackContext context);
         void OnToggleDebugLog(InputAction.CallbackContext context);
+        void OnToggleDebugFreaze(InputAction.CallbackContext context);
     }
 }

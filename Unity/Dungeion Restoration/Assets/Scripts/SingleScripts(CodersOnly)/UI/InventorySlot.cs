@@ -12,10 +12,13 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     [SerializeField] private bool target; //is the object item a target or a container
     [Tooltip("Is this being used part of the Inventory systems")]
     [SerializeField] private bool inventory = false;
+    [SerializeField] private bool keyItem = false;
     [SerializeField] private Transform draggableParent;
     [SerializeField] private Image image;
     private GameObject pickUpObject;
     [SerializeField] private Image pickUpImage;
+    [SerializeField] private float animationMax = 0.45f;
+    private float animationClock;
     private Animator pickUpAnimator;
     [SerializeField] private string ItemPickUpAnimation;
     [SerializeField] TMP_Text numText;
@@ -25,7 +28,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     {
         if (pickUpImage != null)
         {
-            pickUpObject = pickUpImage.gameObject;
+            pickUpObject = pickUpImage.gameObject.transform.parent.gameObject;
             pickUpAnimator = pickUpObject.GetComponent<Animator>();
         }
         if (item != null)
@@ -43,6 +46,21 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         if (draggableParent == null)
         {
             draggableParent = transform;
+        }
+    }
+    private void Update()
+    {
+        if (pickUpObject != null && pickUpObject.activeSelf)
+        {
+            if (animationClock <= 0)
+            {
+                pickUpObject.SetActive(false);
+            }
+            else
+            {
+                animationClock -= 1 * Time.deltaTime;
+            }
+
         }
     }
 
@@ -78,7 +96,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         }
     }
 
-    public void AddItem(Item newItem, int num)
+    public void AddItem(Item newItem, int num, bool playAnimation)
     {
         if (image == null)
         {
@@ -94,12 +112,13 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                     Debug.Log("adding sprite");
                     image.sprite = item.icon;
 
-                    if (pickUpImage != null)
+                    if (playAnimation && pickUpImage != null)
                     {
                         if (!pickUpObject.activeSelf)
                         {
                             pickUpObject.SetActive(true);
                         }
+                        animationClock = animationMax;
                         pickUpImage.sprite = item.icon;
                         pickUpAnimator.Play(ItemPickUpAnimation);
                     }
@@ -111,7 +130,16 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 }
             }
 
-            
+            if (playAnimation && pickUpImage != null)
+            {
+                if (!pickUpObject.activeSelf)
+                {
+                    pickUpObject.SetActive(true);
+                }
+                animationClock = animationMax;
+                pickUpImage.sprite = item.icon;
+                pickUpAnimator.Play(ItemPickUpAnimation);
+            }
             
             if (numText != null)
             {
@@ -138,6 +166,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             }
         }
     }
+
     public void UpdateNumOnly(int num)
     {
         if (numText != null)

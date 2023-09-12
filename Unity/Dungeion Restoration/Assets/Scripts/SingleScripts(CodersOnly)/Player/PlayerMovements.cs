@@ -16,8 +16,8 @@ public class Interact
         public GameObject wand;
         public string animation;
     }
-    [Tooltip("1 for repair, 2 for destory, 3 for replinish")]
-    [Range(1, 3)]
+    [Tooltip("1 for repair, 2 for destory")]
+    [Range(1, 2)]
     public int state = 1;
     float tempState;
     //[Tooltip("Bool For game to know to input methods for controller or keyboard")]
@@ -172,8 +172,8 @@ public class Interact
 
     public void InteractThree(InputAction.CallbackContext context)
     {
-        state = 3;
-        NewState();
+        //state = 3;
+        //NewState();
     }
     public void ScrollWheel()
     {
@@ -188,9 +188,9 @@ public class Interact
                 state += 1;
                 if (state <= 0)
                 {
-                    state = 3;
+                    state = 2;
                 }
-                else if (state >= 4)
+                else if (state >= 3)
                 {
                     state = 1;
                 }
@@ -202,9 +202,9 @@ public class Interact
                 state -= 1;
                 if (state <= 0)
                 {
-                    state = 3;
+                    state = 2;
                 }
-                else if (state >= 4)
+                else if (state >= 3)
                 {
                     state = 1;
                 }

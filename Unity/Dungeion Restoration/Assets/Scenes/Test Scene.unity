@@ -820,6 +820,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -830,10 +831,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 1
   fire:
     m_Name: Fire
     m_Type: 0
@@ -2639,7 +2636,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209085683}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -2819,7 +2816,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214159353}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -6257,6 +6254,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -6267,10 +6265,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 1
   fire:
     m_Name: Fire
     m_Type: 0
@@ -8726,7 +8720,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605865208}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -10262,6 +10256,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -10272,10 +10267,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 1
   fire:
     m_Name: Fire
     m_Type: 0
@@ -10932,6 +10923,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -10942,10 +10934,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 1
   fire:
     m_Name: Fire
     m_Type: 0
@@ -11457,6 +11445,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -11467,10 +11456,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 1
   fire:
     m_Name: Fire
     m_Type: 0
@@ -11698,6 +11683,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -11708,10 +11694,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 1
   fire:
     m_Name: Fire
     m_Type: 0
@@ -12855,7 +12837,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801127813}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -14000,6 +13982,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -14010,10 +13993,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 1
   fire:
     m_Name: Fire
     m_Type: 0
@@ -15564,7 +15543,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980431171}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -20096,7 +20075,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301186995}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -22381,6 +22360,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -22391,10 +22371,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: Fire
     m_Type: 0
@@ -22408,6 +22384,7 @@ MonoBehaviour:
   MonsterRequest: 1
   FailedMessage: 0
   refillObject: {fileID: 0}
+  hideObject: {fileID: 0}
   animationName: 
 --- !u!65 &1426188965
 BoxCollider:
@@ -22572,6 +22549,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 1432236094}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -22582,10 +22560,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: 0
-    type: 0
   fire:
     m_Name: 
     m_Type: 0
@@ -23051,6 +23025,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -23061,10 +23036,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: Fire
     m_Type: 0
@@ -23078,6 +23049,7 @@ MonoBehaviour:
   MonsterRequest: 1
   FailedMessage: 0
   refillObject: {fileID: 0}
+  hideObject: {fileID: 0}
   animationName: 
 --- !u!65 &1469409215
 BoxCollider:
@@ -24068,7 +24040,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514912619}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -25340,7 +25312,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595943932}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -28708,7 +28680,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815065500}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -29325,7 +29297,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854240755}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -30449,7 +30421,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927297760}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -33137,6 +33109,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 2133483732}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -33147,10 +33120,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: 
     m_Type: 0
@@ -33567,6 +33536,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3370714643934613111}
   m_Mesh: {fileID: 2443237146360861554, guid: 2baf2f7e7bb36124f8bd6a9a65924e11, type: 3}
+--- !u!1001 &1455847397962995785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3066939285738880430, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066939285738880430, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066939285738880430, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066939285738880430, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066939285738880430, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066939285738880430, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066939285738880430, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066939285738880430, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066939285738880430, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066939285738880430, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066939285738880430, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239539915095594440, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
+      propertyPath: m_Name
+      value: Puff_ParticalEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0799612b3a79b9f4d9315545d694e89a, type: 3}
 --- !u!1001 &1507595169864147622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34071,6 +34111,16 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 646093656, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: animationMax
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620918582959058, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: levelData
+      value: 
+      objectReference: {fileID: 11400000, guid: 286087c8782ae3e4e80f207cbe22bce8,
+        type: 2}
     - target: {fileID: 6894620918582959069, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_RootOrder
@@ -34130,126 +34180,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864016729668, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864016729668, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864016729668, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864016729668, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864016729668, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864016729668, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864017896307, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864017896307, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864017896307, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864017896307, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864017896307, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864017896307, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864947019020, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864947019020, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864947019020, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864947019020, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864947019020, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410544864947019020, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441423184678512589, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441423184678512589, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441423184678512589, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441423184678512589, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441423184678512589, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441423184678512589, guid: 2eb7dd88447395d4abd9c20d4561766c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

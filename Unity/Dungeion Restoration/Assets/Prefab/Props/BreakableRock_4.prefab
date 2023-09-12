@@ -98,22 +98,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
+  offSet: {x: 0, y: 1.5, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
+  particalSpawnOffset: {x: 0, y: 0.5, z: 0}
+  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+    type: 3}
+  particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
+    type: 3}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: 
     m_Type: 0

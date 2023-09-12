@@ -171,9 +171,11 @@ MonoBehaviour:
   item: {fileID: 0}
   target: 0
   inventory: 1
+  keyItem: 0
   draggableParent: {fileID: 0}
   image: {fileID: 8312455498497956571}
-  pickUpImage: {fileID: 4893264564593379699}
+  pickUpImage: {fileID: 6956729652604957418}
+  animationMax: 0.8
   ItemPickUpAnimation: PickUpItem
   numText: {fileID: 1843282883850598691}
   TextCanvas: {fileID: 6799970004042005969}
@@ -483,7 +485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5874994489471449252
 RectTransform:
   m_ObjectHideFlags: 0

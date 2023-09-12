@@ -97,7 +97,11 @@ public class Interactable : MonoBehaviour
     }
     public virtual void Activate(bool unActivate)
     {
-        trapObject.GetComponent<Activatable>().OnActivate(unActivate);
+        Debug.Log(trapObject);
+        if (trapObject != null)
+        {
+            trapObject.GetComponent<Activatable>().OnActivate(unActivate);
+        }
     }
     public virtual void PlayAnimator(string playAnimation)
     {

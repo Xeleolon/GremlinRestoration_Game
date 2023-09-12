@@ -5375,7 +5375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &214000405
 Transform:
   m_ObjectHideFlags: 0
@@ -5383,15 +5383,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214000404}
-  m_LocalRotation: {x: 0.444025, y: -0.40543216, z: -0.538782, w: 0.59006834}
-  m_LocalPosition: {x: 0.07290943, y: -0.0531769, z: -0.30052635}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.000000026077032, y: 0.7071068, z: -0.0000000093132275, w: 0.7071068}
+  m_LocalPosition: {x: -23.836166, y: 86, z: -13.956914}
+  m_LocalScale: {x: 100.00004, y: 100.00002, z: 100.000015}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1688960288}
   - {fileID: 611038345}
   - {fileID: 381598261}
-  m_Father: {fileID: 449648732}
+  m_Father: {fileID: 1209528658}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &216363740
@@ -9832,6 +9832,39 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 363549405}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &363851668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 363851669}
+  m_Layer: 0
+  m_Name: DinnerRequest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &363851669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363851668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2112378875}
+  - {fileID: 2063757343}
+  m_Father: {fileID: 1120279025}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &366019073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9920,8 +9953,13 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 2010166003}
+    m_TransformParent: {fileID: 1209528658}
     m_Modifications:
+    - target: {fileID: 2163413822645371806, guid: 238ecfaef6d34f64f862890c0c578b91,
+        type: 3}
+      propertyPath: hideObject
+      value: 
+      objectReference: {fileID: 449648731}
     - target: {fileID: 2163413822645371806, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: taskForDoor
@@ -9968,17 +10006,17 @@ PrefabInstance:
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 99.99996
+      value: 100.000015
       objectReference: {fileID: 0}
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 100.00002
       objectReference: {fileID: 0}
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 100
+      value: 100.00003
       objectReference: {fileID: 0}
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
@@ -9998,22 +10036,22 @@ PrefabInstance:
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.13055749
+      value: 0.13055748
       objectReference: {fileID: 0}
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0670033
+      value: 0.067003325
       objectReference: {fileID: 0}
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7039252
+      value: 0.7039251
       objectReference: {fileID: 0}
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.6949495
+      value: 0.69494945
       objectReference: {fileID: 0}
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
@@ -10031,11 +10069,7 @@ PrefabInstance:
       value: 84.797
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
-        type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 214000405}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 238ecfaef6d34f64f862890c0c578b91, type: 3}
 --- !u!1001 &374534396
 PrefabInstance:
@@ -10335,20 +10369,19 @@ MonoBehaviour:
   radius: {x: 4, y: 3, z: 4}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
+  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+    type: 3}
+  particalDudPrefab: {fileID: 7239539915095594440, guid: 0799612b3a79b9f4d9315545d694e89a,
+    type: 3}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: 
     m_Type: 0
@@ -11590,49 +11623,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 372890605}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &449648733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449648731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1aa5ec17e5291b44a981c9991a8701d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
-  fire:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
-  MonsterRequest: 0
-  FailedMessage: 0
-  refillObject: {fileID: 0}
-  animationName: 
 --- !u!1001 &450341530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18224,7 +18214,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8010681323368242918, guid: 3dde1a9c110b0674fbabeb42d4fb8f89,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1541140522}
+      addedObject: {fileID: 770412536}
   m_SourcePrefab: {fileID: 100100000, guid: 3dde1a9c110b0674fbabeb42d4fb8f89, type: 3}
 --- !u!1001 &716585760
 PrefabInstance:
@@ -19667,6 +19657,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1713222580}
     m_Modifications:
+    - target: {fileID: 5359692466627585444, guid: 3dde1a9c110b0674fbabeb42d4fb8f89,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7232913579589502044, guid: 3dde1a9c110b0674fbabeb42d4fb8f89,
         type: 3}
       propertyPath: m_Name
@@ -19727,7 +19722,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5359692466627585444, guid: 3dde1a9c110b0674fbabeb42d4fb8f89, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dde1a9c110b0674fbabeb42d4fb8f89, type: 3}
 --- !u!4 &767633677 stripped
@@ -19755,24 +19751,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
+  offSet: {x: 0, y: 1, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
+  particalSpawnOffset: {x: 0, y: 1, z: 0}
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
-  particalDudPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+  particalDudPrefab: {fileID: 7239539915095594440, guid: 0799612b3a79b9f4d9315545d694e89a,
     type: 3}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: 
     m_Type: 0
@@ -19787,6 +19780,19 @@ MonoBehaviour:
   requiredItem: {fileID: 11400000, guid: 6666e83022cad9a4694c3841ae12cefe, type: 2}
   holdInteractFor: 1
   failedMessage: 0
+--- !u!65 &767633680
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767633678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 104.660835, y: 95.311646, z: 212.15901}
+  m_Center: {x: 0.000009536743, y: 47.655823, z: -0.0000076293945}
 --- !u!1 &768639447
 GameObject:
   m_ObjectHideFlags: 0
@@ -19821,6 +19827,39 @@ Transform:
   - {fileID: 114976259}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &770412535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 770412536}
+  m_Layer: 0
+  m_Name: DinnerRequest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &770412536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770412535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1791331735}
+  - {fileID: 1541140522}
+  m_Father: {fileID: 2093334414}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &770549839
 PrefabInstance:
@@ -23482,6 +23521,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -23493,10 +23533,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: 
     m_Type: 0
@@ -25031,6 +25067,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -25038,14 +25075,11 @@ MonoBehaviour:
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
-  particalDudPrefab: {fileID: 0}
+  particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
+    type: 3}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: 
     m_Type: 0
@@ -31290,8 +31324,13 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 2093334414}
+    m_TransformParent: {fileID: 770412536}
     m_Modifications:
+    - target: {fileID: 2163413822645371806, guid: 238ecfaef6d34f64f862890c0c578b91,
+        type: 3}
+      propertyPath: hideObject
+      value: 
+      objectReference: {fileID: 1541140521}
     - target: {fileID: 2163413822645371806, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: trapObject
@@ -31372,7 +31411,7 @@ PrefabInstance:
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0670033
+      value: 0.06700333
       objectReference: {fileID: 0}
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
@@ -31400,11 +31439,7 @@ PrefabInstance:
       value: 84.797
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1791331735}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 238ecfaef6d34f64f862890c0c578b91, type: 3}
 --- !u!1001 &1161614575
 PrefabInstance:
@@ -32972,6 +33007,39 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1207133837}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1209528657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1209528658}
+  m_Layer: 0
+  m_Name: DinnerRequest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1209528658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209528657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 449648732}
+  - {fileID: 214000405}
+  m_Father: {fileID: 2010166003}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1209845959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39098,7 +39166,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8010681323368242918, guid: 3dde1a9c110b0674fbabeb42d4fb8f89,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 449648732}
+      addedObject: {fileID: 1209528658}
   m_SourcePrefab: {fileID: 100100000, guid: 3dde1a9c110b0674fbabeb42d4fb8f89, type: 3}
 --- !u!1001 &1434842945
 PrefabInstance:
@@ -40347,20 +40415,19 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 1459503347}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
+  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+    type: 3}
+  particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
+    type: 3}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: 
     m_Type: 0
@@ -40880,6 +40947,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -40891,10 +40959,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: 
     m_Type: 0
@@ -42061,49 +42125,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1161563605}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1541140523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541140521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1aa5ec17e5291b44a981c9991a8701d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
-  fire:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
-  MonsterRequest: 0
-  FailedMessage: 0
-  refillObject: {fileID: 0}
-  animationName: 
 --- !u!1001 &1543185052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44200,6 +44221,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -44207,14 +44229,11 @@ MonoBehaviour:
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
-  particalDudPrefab: {fileID: 0}
+  particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
+    type: 3}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: 
     m_Type: 0
@@ -46159,7 +46178,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8010681323368242918, guid: 3dde1a9c110b0674fbabeb42d4fb8f89,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2112378875}
+      addedObject: {fileID: 363851669}
   m_SourcePrefab: {fileID: 100100000, guid: 3dde1a9c110b0674fbabeb42d4fb8f89, type: 3}
 --- !u!1001 &1662991410
 PrefabInstance:
@@ -46421,6 +46440,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3653220064825925742, guid: 9c877177958b3dc4cbde260318033262,
+        type: 3}
+      propertyPath: particalDudPrefab
+      value: 
+      objectReference: {fileID: 7239539915095594440, guid: 0799612b3a79b9f4d9315545d694e89a,
+        type: 3}
     - target: {fileID: 3653220064914514856, guid: 9c877177958b3dc4cbde260318033262,
         type: 3}
       propertyPath: m_RootOrder
@@ -49627,14 +49652,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791331734}
-  m_LocalRotation: {x: 0.44402498, y: -0.40543213, z: -0.53878194, w: 0.59006834}
-  m_LocalPosition: {x: -0.18762699, y: -0.046203822, z: -0.28733158}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.0000000037252894, y: 0.70710677, z: 0.000000018626451, w: 0.70710677}
+  m_LocalPosition: {x: 1.4000121, y: 80.09998, z: -10.899984}
+  m_LocalScale: {x: 100.00003, y: 100.00002, z: 100.000015}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1437419359}
   - {fileID: 219723011}
-  m_Father: {fileID: 1541140522}
+  m_Father: {fileID: 770412536}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1812452024
@@ -50856,8 +50881,13 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 1120279025}
+    m_TransformParent: {fileID: 363851669}
     m_Modifications:
+    - target: {fileID: 2163413822645371806, guid: 238ecfaef6d34f64f862890c0c578b91,
+        type: 3}
+      propertyPath: hideObject
+      value: 
+      objectReference: {fileID: 2112378874}
     - target: {fileID: 2163413822645371806, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: taskForDoor
@@ -50939,7 +50969,7 @@ PrefabInstance:
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0670033
+      value: 0.06700333
       objectReference: {fileID: 0}
     - target: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
@@ -50967,11 +50997,7 @@ PrefabInstance:
       value: 84.797
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6711182951579860769, guid: 238ecfaef6d34f64f862890c0c578b91,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 2063757343}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 238ecfaef6d34f64f862890c0c578b91, type: 3}
 --- !u!1001 &1852966319
 PrefabInstance:
@@ -55078,6 +55104,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -55089,10 +55116,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: 
     m_Type: 0
@@ -56372,7 +56395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2063757343
 Transform:
   m_ObjectHideFlags: 0
@@ -56380,15 +56403,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063757342}
-  m_LocalRotation: {x: -0.53878194, y: -0.59006834, z: -0.44402498, w: -0.40543213}
-  m_LocalPosition: {x: -0.058579355, y: 0.089055076, z: -0.29356208}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.0000000037252903, y: -0.70710677, z: -0.000000007450581,
+    w: 0.70710677}
+  m_LocalPosition: {x: -12.300019, y: 83.39999, z: 1.4000095}
+  m_LocalScale: {x: 100.00002, y: 100.00002, z: 100.000015}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 329934152}
   - {fileID: 1765505937}
   - {fileID: 1987277903}
-  m_Father: {fileID: 2112378875}
+  m_Father: {fileID: 363851669}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2067949465
@@ -57735,49 +57759,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1852020467}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2112378876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112378874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1aa5ec17e5291b44a981c9991a8701d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
-  fire:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
-  MonsterRequest: 0
-  FailedMessage: 0
-  refillObject: {fileID: 0}
-  animationName: 
 --- !u!1001 &2114131529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59344,6 +59325,7 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 4}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -59354,10 +59336,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: Fire
     m_Type: 0

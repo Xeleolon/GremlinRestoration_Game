@@ -11,7 +11,6 @@ public class DestroyInteract : Interactable
     {
         interactionType = 2;
         base.Start();
-
     }
     public override void Interact()
     {

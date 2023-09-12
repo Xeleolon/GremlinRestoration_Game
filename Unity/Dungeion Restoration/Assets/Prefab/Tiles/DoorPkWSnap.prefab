@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 565495145412668894}
   - component: {fileID: 5337079412026302402}
   - component: {fileID: 8367967188073863125}
+  - component: {fileID: 2321715259246606916}
   m_Layer: 0
   m_Name: Wall_TopPortion (1)
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2321715259246606916
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125953962772333369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 36463435572313138, guid: f95fe6b91b18fc246ad5af5b2740f829, type: 3}
 --- !u!1 &388793119908893476
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +562,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8410210012199242527, guid: 96e437afeced3b541824bf65ea55c623, type: 3}
 --- !u!1 &5199095688423935341
@@ -684,6 +699,7 @@ MonoBehaviour:
   radius: {x: 5, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -696,10 +712,6 @@ MonoBehaviour:
   animator: {fileID: 7400815966520505238}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: Fire
     m_Type: 0
@@ -728,6 +740,7 @@ GameObject:
   - component: {fileID: 2781825188591632920}
   - component: {fileID: 3206044285568366193}
   - component: {fileID: 4303406958109579931}
+  - component: {fileID: 1882440382553510465}
   m_Layer: 0
   m_Name: Wall_TopPortion
   m_TagString: Untagged
@@ -800,6 +813,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1882440382553510465
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737547450723493769}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 36463435572313138, guid: f95fe6b91b18fc246ad5af5b2740f829, type: 3}
 --- !u!1 &6909367761257534050
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +964,7 @@ MonoBehaviour:
   radius: {x: 5, y: 3, z: 3}
   offSet: {x: 0, y: 1.5, z: 0.6}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
@@ -949,10 +977,6 @@ MonoBehaviour:
   animator: {fileID: 3390603198107223519}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: Fire
     m_Type: 0

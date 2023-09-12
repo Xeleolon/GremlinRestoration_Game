@@ -398,20 +398,18 @@ MonoBehaviour:
   radius: {x: 5, y: 5, z: 5}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
-  particalPrefab: {fileID: 0}
+  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+    type: 3}
   particalDudPrefab: {fileID: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
   fire:
     m_Name: 
     m_Type: 0
@@ -425,6 +423,7 @@ MonoBehaviour:
   MonsterRequest: 1
   FailedMessage: 0
   refillObject: {fileID: 161729180}
+  hideObject: {fileID: 0}
   animationName: 
 --- !u!65 &2867391072803863747
 BoxCollider:

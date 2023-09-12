@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7117413791629026445}
   - component: {fileID: 5305577900354796781}
   - component: {fileID: 3263867438230468812}
+  - component: {fileID: 6501657023602487981}
   m_Layer: 0
   m_Name: DoorDoubleTile (2)
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6501657023602487981
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4902612898815991466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6327423289681924279, guid: 559695915f88f244c852e14192a30bb1, type: 3}
 --- !u!1 &8483985192228082333
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +109,7 @@ GameObject:
   - component: {fileID: 632429089798982969}
   - component: {fileID: 1687423029043478279}
   - component: {fileID: 5277311150771795164}
+  - component: {fileID: 3264617219085780588}
   m_Layer: 0
   m_Name: DoorDoubleTile (1)
   m_TagString: Untagged
@@ -166,6 +182,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3264617219085780588
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483985192228082333}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6327423289681924279, guid: 559695915f88f244c852e14192a30bb1, type: 3}
 --- !u!1001 &786377428804910332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -183,6 +213,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544371217083438944, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1584848590495490868, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
@@ -239,6 +274,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fba0747bf6e7fab4c85267dfaffe29dd, type: 2}
+    - target: {fileID: 2964412190792429697, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3043576871758028688, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -268,6 +308,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504291525768346611, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5504291525768346611, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}

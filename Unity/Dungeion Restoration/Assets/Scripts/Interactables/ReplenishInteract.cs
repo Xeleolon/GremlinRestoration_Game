@@ -12,6 +12,7 @@ public class ReplenishInteract : Interactable
 
     [SerializeField] private int FailedMessage = 0;
     [SerializeField] private GameObject refillObject;
+    [SerializeField] private GameObject hideObject;
     [SerializeField] private string animationName;
     
     public override void Start()
@@ -28,7 +29,7 @@ public class ReplenishInteract : Interactable
     public override void Interact()
     {
         base.Interact();
-        if (interactionState == 3 && requiredItem != null)
+        if (requiredItem != null)
         {
             LevelManager.instance.OpenReplenishUI(requiredItem, this, MonsterRequest);
         }
@@ -48,6 +49,7 @@ public class ReplenishInteract : Interactable
             {
                 refillObject.SetActive(true);
             }
+
             if (!MonsterRequest)
             {
                 Inventory.instance.Remove(requiredItem);
@@ -57,6 +59,13 @@ public class ReplenishInteract : Interactable
             Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
             DebugController.instance.AddLog(dialogue);
             interacted = true;
+
+            Activate(false);
+            if (hideObject != null && hideObject.activeSelf)
+            {
+                Debug.Log(gameObject.name + " hiding this object");
+                hideObject.SetActive(false);
+            }
         }
         else
         {

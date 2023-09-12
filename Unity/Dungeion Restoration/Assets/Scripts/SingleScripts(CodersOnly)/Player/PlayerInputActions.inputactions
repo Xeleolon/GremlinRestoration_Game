@@ -705,6 +705,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleDebugFreaze",
+                    "type": "Button",
+                    "id": "f056a96f-0d7c-44a6-98cc-55e3026a04e7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1255,6 +1264,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ToggleDebugLog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a32bc0c-136b-4b61-8c0b-0f2783bd3052",
+                    "path": "<Keyboard>/f3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleDebugFreaze",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
