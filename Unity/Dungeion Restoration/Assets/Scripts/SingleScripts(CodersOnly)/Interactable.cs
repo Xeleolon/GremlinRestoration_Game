@@ -30,7 +30,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private Vector3 particalSpawnOffset;
     [SerializeField] private GameObject particalPrefab;
     [Tooltip("Effect associated with a dud use")]
-    [SerializeField] private GameObject particalDudPrefab;
+    public GameObject particalDudPrefab;
 
     [SerializeField] private Animator animator;
     [SerializeField] private bool animatationStartOpen;
@@ -71,7 +71,10 @@ public class Interactable : MonoBehaviour
 
     public virtual void Start()
     {
-
+        if (particalPrefab == null)
+        {
+            particalPrefab = LevelManager.instance.sharedPrefabs.successPE;
+        }
         radiusHalf.x = radius.x/2;
         radiusHalf.y = radius.y/2;
         radiusHalf.z = radius.z/2;

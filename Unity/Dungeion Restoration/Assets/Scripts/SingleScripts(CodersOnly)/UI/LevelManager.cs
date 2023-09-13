@@ -42,13 +42,28 @@ public class LevelManager : MonoBehaviour
         public  GameObject replensihCanvas;
         [Tooltip("Place the target replenish inventory slot here")]
         public InventorySlot replenishTargetSlot;
+        public GameObject inventoryCanvas;
 
         public Transform replenishInventory;
         public Item[] mobItems;
         public GameObject[] dragableItem;
     }
+
+    [System.Serializable]
+
+    public class SharedPrefabs // a counter with all the sharedprefabs required like effects
+    {
+        [Header("Partical Effects")]
+        public GameObject successPE;
+        public GameObject destoryFailedPE;
+        public GameObject repairFailedPE;
+
+        public GameObject tokenPrefab;
+    }
     [Header("Menu Systems")]
     public LevelData levelData;
+    public bool freeze;
+    private bool curFreeze;
 
     [SerializeField] MenuCanvas menuCanvas;
     private ReplenishInteract lastCustomer;
@@ -66,8 +81,8 @@ public class LevelManager : MonoBehaviour
     public InteractionsIcons destory;
     public InteractionsIcons restock;
 
-    [SerializeField] private bool freeze;
-    private bool curFreeze;
+    public SharedPrefabs sharedPrefabs;
+
 
     private InputAction cancel;
     private Inventory inventory;
@@ -143,12 +158,14 @@ public class LevelManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
             playerScript.interactActive = false;
+            DialogueManager.instance.freeze = true;
             curFreeze = freeze;
         }
         else if (!freeze && curFreeze)
         {
             Cursor.lockState = CursorLockMode.Locked;
             playerScript.interactActive = true;
+            DialogueManager.instance.freeze = false;
             curFreeze = freeze;
         }
     }
@@ -287,6 +304,10 @@ public class LevelManager : MonoBehaviour
     {
         if (menuCanvas.replensihCanvas != null && menuCanvas.replensihCanvas.activeSelf)
         {
+            if (menuCanvas.inventoryCanvas != null && !menuCanvas.inventoryCanvas.activeSelf)
+            {
+                menuCanvas.inventoryCanvas.SetActive(true);
+            }
             menuCanvas.replensihCanvas.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             playerScript.interactActive = true;
@@ -298,7 +319,13 @@ public class LevelManager : MonoBehaviour
         lastCustomer = customer; // set the desestion for the reply call to be made to
 
         menuCanvas.replenishTargetSlot.UpdateTarget(target); //sets the item desired by the target
-    
+
+        if (menuCanvas.inventoryCanvas != null && menuCanvas.inventoryCanvas.activeSelf)
+        {
+            menuCanvas.inventoryCanvas.SetActive(false);
+        }
+        Cursor.lockState = CursorLockMode.Confined;
+        playerScript.interactActive = false;
 
         if (menuCanvas.replensihCanvas != null && !menuCanvas.replensihCanvas.activeSelf)
         {
@@ -374,9 +401,6 @@ public class LevelManager : MonoBehaviour
 
 
             }
-
-            Cursor.lockState = CursorLockMode.Confined;
-            playerScript.interactActive = false;
             menuCanvas.replensihCanvas.SetActive(true);
         }
     }
@@ -393,6 +417,10 @@ public class LevelManager : MonoBehaviour
 
     public void ReplenishReceipt(bool receipt)
     {
+        if (menuCanvas.inventoryCanvas != null && !menuCanvas.inventoryCanvas.activeSelf)
+        {
+            menuCanvas.inventoryCanvas.SetActive(true);
+        }
         menuCanvas.replensihCanvas.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         playerScript.interactActive = true;

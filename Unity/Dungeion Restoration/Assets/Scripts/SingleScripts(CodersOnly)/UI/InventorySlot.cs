@@ -12,7 +12,6 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     [SerializeField] private bool target; //is the object item a target or a container
     [Tooltip("Is this being used part of the Inventory systems")]
     [SerializeField] private bool inventory = false;
-    [SerializeField] private bool keyItem = false;
     [SerializeField] private Transform draggableParent;
     [SerializeField] private Image image;
     private GameObject pickUpObject;

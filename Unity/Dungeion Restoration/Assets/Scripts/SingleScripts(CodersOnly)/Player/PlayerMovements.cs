@@ -17,7 +17,7 @@ public class Interact
         public string animation;
     }
     [Tooltip("1 for repair, 2 for destory")]
-    [Range(1, 2)]
+    [Range(0, 2)]
     public int state = 1;
     float tempState;
     //[Tooltip("Bool For game to know to input methods for controller or keyboard")]
@@ -30,6 +30,8 @@ public class Interact
     private float clock;
     private Transform player;
     public GameObject centerSprite;
+    [HideInInspector] public bool hideDestory;
+    public int toolMax = 2;
     public WandData[] wands = new WandData[4];
     private bool interactiveActive = true;
     private InputAction fire;
@@ -166,8 +168,11 @@ public class Interact
 
     public void InteractTwo(InputAction.CallbackContext context)
     {
-        state = 2;
-        NewState();
+        if (!hideDestory)
+        {
+            state = 2;
+            NewState();
+        }
     }
 
     public void InteractThree(InputAction.CallbackContext context)
@@ -186,13 +191,13 @@ public class Interact
             if (tempState >= 1)
             {
                 state += 1;
-                if (state <= 0)
+                if (state <= -1)
                 {
-                    state = 2;
+                    state = toolMax;
                 }
-                else if (state >= 3)
+                else if (state >= toolMax + 1)
                 {
-                    state = 1;
+                    state = 0;
                 }
                 tempState = 0;
                 NewState();
@@ -200,13 +205,13 @@ public class Interact
             else if (tempState <= -1)
             {
                 state -= 1;
-                if (state <= 0)
+                if (state <= -1)
                 {
-                    state = 2;
+                    state = toolMax;
                 }
-                else if (state >= 3)
+                else if (state >= toolMax + 1)
                 {
-                    state = 1;
+                    state = 0;
                 }
                 tempState = 0;
                 NewState();
@@ -219,8 +224,35 @@ public class Interact
     {
         switch (state)
         {
+            case 0:
+            LevelManager.instance.ChangeInteractUI(state);
+            if (wands[0].wand != null && wands[0].wand.activeSelf)
+            {
+                wands[0].wand.SetActive(true);
+            }
+
+            if (wands[1].wand != null && wands[1].wand.activeSelf)
+            {
+                wands[1].wand.SetActive(false);
+            }
+
+            if (wands[2].wand != null && wands[2].wand.activeSelf)
+            {
+                wands[2].wand.SetActive(false);
+            }
+
+            if (wands[3].wand != null && wands[3].wand.activeSelf)
+            {
+                wands[3].wand.SetActive(false);
+            }
+            break;
             case 1:
             LevelManager.instance.ChangeInteractUI(state);
+
+            if (wands[0].wand != null && wands[0].wand.activeSelf)
+            {
+                wands[0].wand.SetActive(false);
+            }
             
             if (wands[1].wand != null && !wands[1].wand.activeSelf)
             {
@@ -240,6 +272,12 @@ public class Interact
 
             case 2:
             LevelManager.instance.ChangeInteractUI(state);
+
+            if (wands[0].wand != null && wands[0].wand.activeSelf)
+            {
+                wands[0].wand.SetActive(false);
+            }
+
             if (wands[1].wand != null && wands[1].wand.activeSelf)
             {
                 wands[1].wand.SetActive(false);
@@ -258,6 +296,12 @@ public class Interact
 
             case 3:
             LevelManager.instance.ChangeInteractUI(state);
+
+            if (wands[0].wand != null && wands[0].wand.activeSelf)
+            {
+                wands[0].wand.SetActive(false);
+            }
+
             if (wands[1].wand != null && wands[1].wand.activeSelf)
             {
                 wands[1].wand.SetActive(false);

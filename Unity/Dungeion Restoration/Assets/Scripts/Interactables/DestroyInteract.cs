@@ -11,6 +11,10 @@ public class DestroyInteract : Interactable
     {
         interactionType = 2;
         base.Start();
+        if (particalDudPrefab == null)
+        {
+            particalDudPrefab = LevelManager.instance.sharedPrefabs.destoryFailedPE;
+        }
     }
     public override void Interact()
     {

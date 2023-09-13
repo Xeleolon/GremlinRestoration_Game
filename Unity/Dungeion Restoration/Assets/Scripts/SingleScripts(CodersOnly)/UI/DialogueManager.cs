@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     private float count;
     private float dialogueCount;
     private bool nextMessage = false;
+    public bool freeze = false;
     private Queue<string> sentences;
     
     [Header("Dialogue Trigger")]
@@ -72,7 +73,7 @@ public class DialogueManager : MonoBehaviour
                 nextMessage = false;
                 DisplayNextSentence();
             }
-            else
+            else if (!freeze)
             {
                 count -= 1 * Time.deltaTime;
             }
