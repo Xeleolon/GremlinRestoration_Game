@@ -28,9 +28,15 @@ public class Interactable : MonoBehaviour
     [Header("Particals")]
     [Tooltip("The Prefab with a partical effect or an object you wish to spawn in the partical place")]
     [SerializeField] private Vector3 particalSpawnOffset;
+    [SerializeField] private bool debugParticalPosition;
     [SerializeField] private GameObject particalPrefab;
     [Tooltip("Effect associated with a dud use")]
     public GameObject particalDudPrefab;
+    private GameObject tokenPrefab;
+    [SerializeField] private Vector3 tokenOffset;
+    [SerializeField] private bool debugTokenPositions;
+    [SerializeField] private Vector3 tokenDesination;
+    private GameObject token;
 
     [SerializeField] private Animator animator;
     [SerializeField] private bool animatationStartOpen;
@@ -74,6 +80,10 @@ public class Interactable : MonoBehaviour
         if (particalPrefab == null)
         {
             particalPrefab = LevelManager.instance.sharedPrefabs.successPE;
+        }
+        if (tokenPrefab == null)
+        {
+            tokenPrefab = LevelManager.instance.sharedPrefabs.tokenPrefab;
         }
         radiusHalf.x = radius.x/2;
         radiusHalf.y = radius.y/2;
@@ -163,10 +173,36 @@ public class Interactable : MonoBehaviour
             }
     }
 
+    public void SpawnToken(Item newItem)
+    {
+        if (token == null)
+        {
+            Debug.Log("Token be made");
+            Quaternion objectRotation = Quaternion.identity;
+            objectRotation.eulerAngles = new Vector3(-90, 0, 0);
+            token = Instantiate(tokenPrefab, (transform.position + tokenOffset), objectRotation);
+            token.GetComponent<Token>().SetTarget((transform.position + tokenDesination), newItem);
+        }
+    }
+
     void OnDrawGizmosSelected ()
     {
         Gizmos.color = Color.yellow;
         //Gizmos.DrawWireSphere(transform.position, radius);
         Gizmos.DrawWireCube((transform.position + offSet), radius);
+
+        if (debugParticalPosition)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube((transform.position + particalSpawnOffset), new Vector3(0.2f, 0.2f, 0.2f));
+        }
+
+        if (debugTokenPositions)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube((transform.position + tokenOffset), new Vector3(0.2f, 0.2f, 0.2f));
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube((transform.position + tokenDesination), new Vector3(0.2f, 0.2f, 0.2f));
+        }
     }
 }

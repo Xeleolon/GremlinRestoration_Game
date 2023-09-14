@@ -5010,7 +5010,8 @@ MonoBehaviour:
       type: 3}
     repairFailedPE: {fileID: 7239539915095594440, guid: 0799612b3a79b9f4d9315545d694e89a,
       type: 3}
-    tokenPrefab: {fileID: 0}
+    tokenPrefab: {fileID: 420114100037978304, guid: a1a10f86511a6964b8071d341faafa01,
+      type: 3}
 --- !u!114 &6894620917830773565
 MonoBehaviour:
   m_ObjectHideFlags: 0

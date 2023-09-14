@@ -73,7 +73,8 @@ public class RepairInteract : Interactable
         {
             string message = new string("Beep Boop Bop");
             SpawnEffect(true);
-            Debug.Log(message);
+            SpawnToken(requiredItem);
+            //Debug.Log(message);
             OrderMessage(failedMessage);
             Dialogue dialogue = new Dialogue(gameObject.name, message, 0);
             DebugController.instance.AddLog(dialogue);

@@ -12,7 +12,7 @@ public class DestoryWTimer : MonoBehaviour
         {
             clock -= 1 * Time.deltaTime;
         }
-        else if (clock >= 0)
+        else if (clock <= 0)
         {
             Destroy(gameObject);
         }
