@@ -329,6 +329,16 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 7808464347251036010}
+    - target: {fileID: 6359039368911871833, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: closingAnimation
+      value: SmallGateCenteredClosing
+      objectReference: {fileID: 0}
+    - target: {fileID: 6359039368911871833, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: openingAnimation
+      value: SmallGateCenteredOpening
+      objectReference: {fileID: 0}
     - target: {fileID: 7400815966520505238, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
       propertyPath: m_Controller

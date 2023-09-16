@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 5292195335861836760, guid: ce9e7cba2bf323f4c97142a15244fa10,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5292195335861836760, guid: ce9e7cba2bf323f4c97142a15244fa10,
         type: 3}
@@ -121,14 +121,19 @@ MonoBehaviour:
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 1.5, z: 0}
+  particalSpawnOffset: {x: 0, y: 0.3, z: 0}
+  debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
     type: 3}
+  tokenOffset: {x: 0, y: 0, z: 0}
+  debugTokenPositions: 0
+  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
+  correctObject: {fileID: 0}
   fire:
     m_Name: Fire
     m_Type: 0
@@ -140,3 +145,5 @@ MonoBehaviour:
     m_Flags: 0
   destroyDelay: 0
   itemPickup: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
+  noDestroy: 0
+  brokenVaraint: {fileID: 0}
