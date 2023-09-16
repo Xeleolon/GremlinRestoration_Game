@@ -4,8 +4,12 @@ public class RepairInteract : Interactable
 {
     
     [Header("Repair")]
-    public GameObject FixedModel;
-    [SerializeField] private bool RemoveModel;
+    public GameObject fixedModel;
+    [SerializeField] private bool removeModel;
+    [SerializeField] private Vector3 spawnOffset;
+    [SerializeField] private Vector3 spawnRotation;
+    [SerializeField] private bool UseParentRotation;
+    [SerializeField] private bool destroyMode;
     [Tooltip("place Required Item to fix, leave blank if no item required to fix")]
     [SerializeField] private Item requiredItem;
     [SerializeField] private float holdInteractFor = 1;
@@ -104,15 +108,39 @@ public class RepairInteract : Interactable
 
     public void RepairModel()
     {
-        if (FixedModel != null)
+        if (destroyMode)
         {
-            FixedModel.SetActive(true);
+            if (fixedModel != null)
+            {
+                if (!UseParentRotation)
+                {
+                    Quaternion objectRotation = Quaternion.identity;
+                    objectRotation.eulerAngles = spawnRotation;
+                    Instantiate(fixedModel, transform.position + spawnOffset, objectRotation);
+                }
+                else
+                {
+                    Instantiate(fixedModel, transform.parent);
+                }
+            }
+
+            if (removeModel)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+        if (fixedModel != null && !fixedModel.activeSelf)
+        {
+            fixedModel.SetActive(true);
             
         }
 
-        if (RemoveModel)
+        if (removeModel)
         {
             gameObject.SetActive(false);
+        }
         }
     }
 

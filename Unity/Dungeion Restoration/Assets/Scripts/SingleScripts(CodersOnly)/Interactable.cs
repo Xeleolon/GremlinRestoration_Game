@@ -41,6 +41,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private bool animatationStartOpen;
     [SerializeField] private string animationTriggerName;
+    public GameObject correctObject;
 
     
     private bool finishTask = false;

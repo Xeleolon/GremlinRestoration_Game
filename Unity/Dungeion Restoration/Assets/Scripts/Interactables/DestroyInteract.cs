@@ -6,6 +6,8 @@ public class DestroyInteract : Interactable
     [SerializeField] private float destroyDelay = 0;
     [Tooltip("doesn't require an item to be pickup, fill in only with item required to pick up")]
     [SerializeField] private Item itemPickup;
+    [SerializeField] bool noDestroy = false;
+    [SerializeField] private GameObject brokenVaraint;
     private ButtonPlate pressurePlate;
     public override void Start()
     {
@@ -38,7 +40,23 @@ public class DestroyInteract : Interactable
             {
                 Inventory.instance.Add(itemPickup);
             }
-            Destroy(gameObject, destroyDelay);
+            if (!noDestroy)
+            {
+                if (brokenVaraint != null)
+                { 
+                    Instantiate(brokenVaraint, transform.parent);
+                }
+                Destroy(gameObject, destroyDelay);
+            }
+            else
+            {
+                if (brokenVaraint != null && !brokenVaraint.activeSelf)
+                {
+                brokenVaraint.SetActive(true);
+                }
+                //Debug.Log("Logging i just arrived");
+                gameObject.SetActive(false);
+            }
         }
         else
         {
