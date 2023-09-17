@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5540181819285078622}
   - component: {fileID: 4499097402115254813}
   - component: {fileID: 7286308493317255238}
+  - component: {fileID: 2739249469391380121}
   m_Layer: 0
   m_Name: StairWireFrame1
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2739249469391380121
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312080076825212929}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1266420276219660835, guid: f95fe6b91b18fc246ad5af5b2740f829, type: 3}
 --- !u!1 &5316254990926296192
 GameObject:
   m_ObjectHideFlags: 0
