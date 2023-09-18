@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8171,7 +8171,7 @@ PrefabInstance:
     - target: {fileID: 548571328593865247, guid: e2e6ebd58d5ab0b44972e042a483faaf,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1063221483635894917, guid: e2e6ebd58d5ab0b44972e042a483faaf,
         type: 3}
@@ -33973,7 +33973,7 @@ PrefabInstance:
     - target: {fileID: 1954327003, guid: 20a40b0e88d8e354a81985276ff4da01, type: 3}
       propertyPath: itemPickup
       value: 
-      objectReference: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266,
+      objectReference: {fileID: 11400000, guid: 44583eba877e72b44803b96fac847912,
         type: 2}
     - target: {fileID: 1954327003, guid: 20a40b0e88d8e354a81985276ff4da01, type: 3}
       propertyPath: taskForDoor
@@ -34297,7 +34297,7 @@ PrefabInstance:
     - target: {fileID: 2075175519, guid: 790891db2fab41044a6de0871752ca14, type: 3}
       propertyPath: itemPickup
       value: 
-      objectReference: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266,
+      objectReference: {fileID: 11400000, guid: 44583eba877e72b44803b96fac847912,
         type: 2}
     - target: {fileID: 2075175519, guid: 790891db2fab41044a6de0871752ca14, type: 3}
       propertyPath: taskForDoor
@@ -34383,7 +34383,7 @@ PrefabInstance:
     - target: {fileID: 1196477842, guid: 748389ec5c8e43a4f83c1203d26c9fcb, type: 3}
       propertyPath: itemPickup
       value: 
-      objectReference: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266,
+      objectReference: {fileID: 11400000, guid: 44583eba877e72b44803b96fac847912,
         type: 2}
     - target: {fileID: 1196477842, guid: 748389ec5c8e43a4f83c1203d26c9fcb, type: 3}
       propertyPath: taskForDoor

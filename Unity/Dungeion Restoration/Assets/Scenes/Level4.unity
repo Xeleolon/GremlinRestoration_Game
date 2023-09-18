@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1750,6 +1750,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6507999567466303065, guid: 8a729868466296442873675e04171491,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a729868466296442873675e04171491, type: 3}
@@ -2764,6 +2769,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 692971510}
     m_Modifications:
+    - target: {fileID: 4458398701278068670, guid: 584c45f42bbb99948b2c591a8d3cf4c3,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6380268469554349586, guid: 584c45f42bbb99948b2c591a8d3cf4c3,
         type: 3}
       propertyPath: m_RootOrder
@@ -4197,6 +4207,11 @@ PrefabInstance:
     - target: {fileID: 5339619876076418358, guid: 8a729868466296442873675e04171491,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507999567466303065, guid: 8a729868466296442873675e04171491,
+        type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -16196,6 +16211,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bookshelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168058838420477912, guid: 7c76e7f93cebb6447a0b0e4ba47d2916,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -33933,6 +33953,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 646883584251974286, guid: 5d2acc190e13d60479c6c9d1e7cf4498,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 646883584251974286, guid: 5d2acc190e13d60479c6c9d1e7cf4498,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b2539e8f4598652428269c4e6ac86955, type: 2}
@@ -41800,6 +41825,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 882691918}
     m_Modifications:
+    - target: {fileID: 4458398701278068670, guid: 584c45f42bbb99948b2c591a8d3cf4c3,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6380268469554349586, guid: 584c45f42bbb99948b2c591a8d3cf4c3,
         type: 3}
       propertyPath: m_RootOrder
@@ -44034,7 +44064,7 @@ MonoBehaviour:
   spawnRotation: {x: 0, y: 0, z: 0}
   UseParentRotation: 0
   destroyMode: 1
-  requiredItem: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
+  requiredItem: {fileID: 11400000, guid: 44583eba877e72b44803b96fac847912, type: 2}
   holdInteractFor: 1
   failedMessage: 0
 --- !u!1001 &1145027367
@@ -54266,6 +54296,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507999567466303065, guid: 8a729868466296442873675e04171491,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6507999567466303065, guid: 8a729868466296442873675e04171491,
         type: 3}
@@ -67400,7 +67435,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747142593}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1b3508260579f98438853fa7efcb009a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -67414,7 +67449,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747142593}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -68301,6 +68336,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 523665296}
     m_Modifications:
+    - target: {fileID: 646883584251974286, guid: 5d2acc190e13d60479c6c9d1e7cf4498,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1439688712051061595, guid: 5d2acc190e13d60479c6c9d1e7cf4498,
         type: 3}
       propertyPath: m_Name
@@ -69618,6 +69658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507999567466303065, guid: 8a729868466296442873675e04171491,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -74021,6 +74066,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 782552787}
     m_Modifications:
+    - target: {fileID: 646883584251974286, guid: 5d2acc190e13d60479c6c9d1e7cf4498,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1439688712051061595, guid: 5d2acc190e13d60479c6c9d1e7cf4498,
         type: 3}
       propertyPath: m_Name
@@ -74316,6 +74366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507999567466303065, guid: 8a729868466296442873675e04171491,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -79212,6 +79267,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 647009336}
     m_Modifications:
+    - target: {fileID: 646883584251974286, guid: 5d2acc190e13d60479c6c9d1e7cf4498,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1439688712051061595, guid: 5d2acc190e13d60479c6c9d1e7cf4498,
         type: 3}
       propertyPath: m_Name
