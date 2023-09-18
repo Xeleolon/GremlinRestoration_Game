@@ -33,7 +33,7 @@ Transform:
   - {fileID: 5517587021108507747}
   - {fileID: 7970077394843561389}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7787816359633700880
 BoxCollider:
@@ -63,14 +63,22 @@ MonoBehaviour:
   radius: {x: 5, y: 1.5, z: 3}
   offSet: {x: 0, y: 0.75, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
+  particalSpawnOffset: {x: 0, y: 0, z: 0}
+  debugParticalPosition: 0
+  particalPrefab: {fileID: 0}
+  particalDudPrefab: {fileID: 0}
+  tokenOffset: {x: 0, y: 0, z: 0}
+  debugTokenPositions: 0
+  tokenDesination: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
+  animatationStartOpen: 0
+  animationTriggerName: 
+  correctObject: {fileID: 0}
   fire:
     m_Name: Fire
     m_Type: 0
@@ -84,6 +92,8 @@ MonoBehaviour:
   MonsterRequest: 0
   FailedMessage: 0
   refillObject: {fileID: 548571328593865247}
+  hideObject: {fileID: 0}
+  animationName: 
 --- !u!1 &548571328593865247
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 94253f870b82e4d40add19ae1018ac15, type: 2}
+  - {fileID: 2100000, guid: ac6cdc0b82539f34bab2e3b9b8bd034a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

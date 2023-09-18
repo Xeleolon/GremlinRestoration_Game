@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DuctTape
   m_EditorClassIdentifier: 
   name: DuctTape
-  icon: {fileID: 21300000, guid: f2bff5dae3e22664990c2c615c6b7952, type: 3}
+  icon: {fileID: 21300000, guid: 2ee0a630ba2dbe04181db6c2813405c9, type: 3}
   tempColor: {r: 1, g: 1, b: 1, a: 1}
   dropModel: {fileID: 0}
   hiddenIcon: {fileID: 0}

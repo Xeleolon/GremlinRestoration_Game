@@ -3692,7 +3692,7 @@ PrefabInstance:
         type: 3}
       propertyPath: requiredItem
       value: 
-      objectReference: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266,
+      objectReference: {fileID: 11400000, guid: 44583eba877e72b44803b96fac847912,
         type: 2}
     - target: {fileID: 7066400967944731899, guid: e2e6ebd58d5ab0b44972e042a483faaf,
         type: 3}
@@ -8168,6 +8168,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniCatapault
       objectReference: {fileID: 0}
+    - target: {fileID: 548571328593865247, guid: e2e6ebd58d5ab0b44972e042a483faaf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1063221483635894917, guid: e2e6ebd58d5ab0b44972e042a483faaf,
         type: 3}
       propertyPath: m_RootOrder
@@ -8232,7 +8237,7 @@ PrefabInstance:
         type: 3}
       propertyPath: requiredItem
       value: 
-      objectReference: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266,
+      objectReference: {fileID: 11400000, guid: 44583eba877e72b44803b96fac847912,
         type: 2}
     - target: {fileID: 7066400967944731899, guid: e2e6ebd58d5ab0b44972e042a483faaf,
         type: 3}
@@ -30153,7 +30158,7 @@ PrefabInstance:
         type: 3}
       propertyPath: requiredItem
       value: 
-      objectReference: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266,
+      objectReference: {fileID: 11400000, guid: 44583eba877e72b44803b96fac847912,
         type: 2}
     - target: {fileID: 7066400967944731899, guid: e2e6ebd58d5ab0b44972e042a483faaf,
         type: 3}
@@ -34061,6 +34066,11 @@ PrefabInstance:
       propertyPath: taskForDoor
       value: 
       objectReference: {fileID: 1878026785}
+    - target: {fileID: 172830065, guid: 710f34911a8470c4abb489c2b0e1d8c3, type: 3}
+      propertyPath: requiredItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 580b6cfbba16c5148a6b764e083af165,
+        type: 2}
     - target: {fileID: 1469669135060732854, guid: 710f34911a8470c4abb489c2b0e1d8c3,
         type: 3}
       propertyPath: m_RootOrder

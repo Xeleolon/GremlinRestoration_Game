@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   name: Key
-  icon: {fileID: 21300000, guid: eef559332712efc4087678f34faf92f6, type: 3}
+  icon: {fileID: 21300000, guid: 310e912b250f3584191a1f8e553fc384, type: 3}
   tempColor: {r: 0.5660378, g: 0.49682954, b: 0.06674973, a: 1}
   dropModel: {fileID: 0}
   hiddenIcon: {fileID: 0}

@@ -6792,7 +6792,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3e4ab2260ca17464cb488db54dfa42fb, type: 2}
+      objectReference: {fileID: 2100000, guid: a31bf9264df60524ba54b9c9dec501ff, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4744c369b8f6aa24f81576a6e2ae0f5d, type: 3}
@@ -13249,7 +13249,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3e4ab2260ca17464cb488db54dfa42fb, type: 2}
+      objectReference: {fileID: 2100000, guid: a31bf9264df60524ba54b9c9dec501ff, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4744c369b8f6aa24f81576a6e2ae0f5d, type: 3}
@@ -18162,7 +18162,7 @@ MonoBehaviour:
   spawnRotation: {x: 0, y: 0, z: 0}
   UseParentRotation: 0
   destroyMode: 0
-  requiredItem: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
+  requiredItem: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   holdInteractFor: 1
   failedMessage: 4
 --- !u!4 &944363172 stripped
@@ -44159,7 +44159,7 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c,
+      objectReference: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04,
         type: 2}
     - target: {fileID: 7731298413602352707, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}

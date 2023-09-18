@@ -144,6 +144,6 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
+  itemPickup: {fileID: 11400000, guid: 44583eba877e72b44803b96fac847912, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}

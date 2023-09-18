@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MagicDust
   m_EditorClassIdentifier: 
   name: Magic Dust
-  icon: {fileID: 21300000, guid: b88931a64e327db4aabbc6d365ed01a7, type: 3}
+  icon: {fileID: 21300000, guid: abba5f6fbd9f21444ba778b247f7947d, type: 3}
   tempColor: {r: 1, g: 1, b: 1, a: 1}
   dropModel: {fileID: 0}
   hiddenIcon: {fileID: 0}

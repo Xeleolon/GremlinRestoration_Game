@@ -2904,12 +2904,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1034512878}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &83658563 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7232913579589502044, guid: 3dde1a9c110b0674fbabeb42d4fb8f89,
-    type: 3}
-  m_PrefabInstance: {fileID: 2036356101}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &84371249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3973,7 +3967,7 @@ MonoBehaviour:
   spawnRotation: {x: 0, y: 0, z: 0}
   UseParentRotation: 0
   destroyMode: 0
-  requiredItem: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
+  requiredItem: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   holdInteractFor: 1
   failedMessage: 0
 --- !u!65 &113048544
@@ -4455,12 +4449,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4092868991354697175, guid: 5805c61925534264dbcfc2eb0af307f3,
     type: 3}
   m_PrefabInstance: {fileID: 132092853}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &132716341 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7933917481714820201, guid: 1e45335ba7329cc4ab55e81fdbc8f94f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1712149794}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &132840434 stripped
 Transform:
@@ -8113,7 +8101,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 0}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!65 &293645638
@@ -12015,7 +12003,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!136 &444011568
@@ -14140,52 +14128,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2036356101}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &517373839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83658563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e91975827bf7546adbf749d79af2bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3, z: 4}
-  offSet: {x: 0, y: 0, z: 1}
-  trapObject: {fileID: 0}
-  interactionType: 0
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  debugParticalPosition: 0
-  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
-    type: 3}
-  particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
-    type: 3}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  correctObject: {fileID: 0}
-  fire:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  destroyDelay: 0
-  itemPickup: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
-  noDestroy: 0
-  brokenVaraint: {fileID: 0}
 --- !u!4 &524918808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2435461000070856297, guid: eb55504ce36506443b2dba5596685376,
@@ -16055,7 +15997,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!136 &574388412
@@ -17652,7 +17594,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!65 &618478449
@@ -17894,7 +17836,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!136 &622701002
@@ -20331,7 +20273,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!136 &711124986
@@ -21006,12 +20948,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: eb55504ce36506443b2dba5596685376, type: 3}
---- !u!1 &758413170 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1439688712051061595, guid: 5d2acc190e13d60479c6c9d1e7cf4498,
-    type: 3}
-  m_PrefabInstance: {fileID: 961093712}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &761559887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26878,7 +26814,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!1001 &996647226
@@ -35675,7 +35611,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 0}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!65 &1394559224
@@ -38986,7 +38922,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!1001 &1520053224
@@ -41193,52 +41129,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 961093712}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1609558634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 758413170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e91975827bf7546adbf749d79af2bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
-  interactionType: 0
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  debugParticalPosition: 0
-  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
-    type: 3}
-  particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
-    type: 3}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  correctObject: {fileID: 0}
-  fire:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  destroyDelay: 0
-  itemPickup: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
-  noDestroy: 0
-  brokenVaraint: {fileID: 0}
 --- !u!4 &1610219837 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 278814684249051268, guid: 5618d0c19aaffb74ebaeb1fc2c59a2c7,
@@ -42064,7 +41954,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 0}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!65 &1637059606
@@ -44402,7 +44292,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 0}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!65 &1739749966
@@ -45071,7 +44961,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!136 &1777591503
@@ -49389,7 +49279,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 0}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!65 &1968539793
@@ -51407,7 +51297,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   destroyDelay: 0
-  itemPickup: {fileID: 0}
+  itemPickup: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04, type: 2}
   noDestroy: 0
   brokenVaraint: {fileID: 0}
 --- !u!65 &2053193799
@@ -52396,52 +52286,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1712149794}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2108162081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 132716341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e91975827bf7546adbf749d79af2bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
-  interactionType: 0
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  debugParticalPosition: 0
-  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
-    type: 3}
-  particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
-    type: 3}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  correctObject: {fileID: 0}
-  fire:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  destroyDelay: 0
-  itemPickup: {fileID: 0}
-  noDestroy: 0
-  brokenVaraint: {fileID: 0}
 --- !u!1001 &2109043590
 PrefabInstance:
   m_ObjectHideFlags: 0

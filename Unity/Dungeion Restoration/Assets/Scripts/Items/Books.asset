@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Books
   m_EditorClassIdentifier: 
   name: Books
-  icon: {fileID: 21300000, guid: 780cb6268e8f0514e9f767514781ad12, type: 3}
+  icon: {fileID: 21300000, guid: f7fbb3f42d5114246ba09768a7a8d824, type: 3}
   tempColor: {r: 1, g: 1, b: 1, a: 1}
   dropModel: {fileID: 0}
   hiddenIcon: {fileID: 0}
