@@ -84,5 +84,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         transform.SetParent(homeTransform);
         image.raycastTarget = true;
+        transform.localScale = Vector3.one;
     }
 }
