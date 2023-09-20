@@ -101,7 +101,7 @@ public class LevelLoader : MonoBehaviour
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentscene));
             Debug.Log(oldSceneName + " was unloaded");
             loadingScreen.SetActive(false);
-            if (player != null)
+            if (player != null && LevelManager.instance.pauseRequest <= 0)
             {
                 player.GetComponent<PlayerMovements>().interactActive = true;
             }

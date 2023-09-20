@@ -25780,6 +25780,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 1252884409, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252884409, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252884409, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9607844
+      objectReference: {fileID: 0}
     - target: {fileID: 1876325015, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -25791,6 +25803,18 @@ PrefabInstance:
     - target: {fileID: 1876325015, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876325016, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.50980395
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876325016, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.76470596
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876325016, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7607844
       objectReference: {fileID: 0}
     - target: {fileID: 6771066656934419448, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
@@ -25861,6 +25885,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 6894620918582959058, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
+      propertyPath: startPaused
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620918582959058, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
       propertyPath: testOnColors
       value: 0
       objectReference: {fileID: 0}
@@ -25922,6 +25951,11 @@ PrefabInstance:
     - target: {fileID: 6894620918582959071, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620918582959071, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_TagString
       value: LevelManager
       objectReference: {fileID: 0}
     - target: {fileID: 8410544864016729668, guid: 2eb7dd88447395d4abd9c20d4561766c,

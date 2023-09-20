@@ -62,8 +62,9 @@ public class LevelManager : MonoBehaviour
     }
     [Header("Menu Systems")]
     public LevelData levelData;
-    public bool freeze;
-    private bool curFreeze;
+    public bool freeze; //debug system only don't refenece
+    private bool curFreeze = false; //debug system only don't refenece
+    [HideInInspector] public int pauseRequest;
 
     [SerializeField] MenuCanvas menuCanvas;
     private ReplenishInteract lastCustomer;
@@ -86,8 +87,6 @@ public class LevelManager : MonoBehaviour
 
     private InputAction cancel;
     private Inventory inventory;
-    private InputAction submit;
-    private InputAction toggleDebug;
 
     #region Methods Before Start
     void OnValidate() //only calls if change when script reloads or change in value
@@ -105,19 +104,11 @@ public class LevelManager : MonoBehaviour
         cancel.Enable();
         cancel.performed += Cancel;
 
-        submit = playerControls.UI.Submit;
-        submit.Enable();
-        submit.performed += EnterDebug;
-
-        toggleDebug = playerControls.UI.ToggleDebug;
-        toggleDebug.Enable();
-        toggleDebug.performed += OpenDebug;
+        
     }
     void OnDisable()
     {
         cancel.Disable();
-        submit.Disable();
-        toggleDebug.Disable();
     }
     #endregion
     void Start()
@@ -148,14 +139,21 @@ public class LevelManager : MonoBehaviour
             Debug.LogWarning("Level Data name (" + levelData.name + ") isn't matching up with scene name (" + SceneManager.GetActiveScene().name + ")");
         }
 
+
         inventory = Inventory.instance;
         //Cursor.lockState = CursorLockMode.None;
     }
 
     void Update()
     {
+        if (playerScript == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            playerScript = player.GetComponent<PlayerMovements>();
+        }
         if (freeze && !curFreeze)
         {
+            Debug.Log("Freazing game by update");
             Cursor.lockState = CursorLockMode.Confined;
             playerScript.interactActive = false;
             DialogueManager.instance.freeze = true;
@@ -163,6 +161,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (!freeze && curFreeze)
         {
+            Debug.Log("UNFreazing game by update");
             Cursor.lockState = CursorLockMode.Locked;
             playerScript.interactActive = true;
             DialogueManager.instance.freeze = false;
@@ -179,14 +178,12 @@ public class LevelManager : MonoBehaviour
         {
             if (menuCanvas.menuCanvas.activeSelf)
             {
-                Cursor.lockState = CursorLockMode.Locked;
-                playerScript.interactActive = true;
+                PauseGame(false);
                 menuCanvas.menuCanvas.SetActive(false);
             }
             else
             {
-                Cursor.lockState = CursorLockMode.Confined;
-                playerScript.interactActive = false;
+                PauseGame(true);
                 menuCanvas.menuCanvas.SetActive(true);
             }
         }
@@ -289,13 +286,20 @@ public class LevelManager : MonoBehaviour
     {
         if (pause)
         {
+            Debug.Log("pausing game");
             Cursor.lockState = CursorLockMode.Confined;
             playerScript.interactActive = false;
+            pauseRequest += 1;
         }
-        else
+        else if (pauseRequest <= 1)
         {
             Cursor.lockState = CursorLockMode.Locked;
             playerScript.interactActive = true;
+            pauseRequest = 0;
+        }
+        else
+        {
+            pauseRequest -= 1;
         }
     }
     #endregion
@@ -429,20 +433,6 @@ public class LevelManager : MonoBehaviour
             lastCustomer.Refill(receipt);
             lastCustomer = null;
         }
-    }
-    #endregion
-    #region Debug Button Calls
-
-    private void OpenDebug(InputAction.CallbackContext context)
-    {
-        //Debug.Log("Opening Debug");
-        //DebugController.instance.OnToggleDebug();
-    }
-
-    private void EnterDebug(InputAction.CallbackContext context)
-    {
-        //Debug.Log("Submit entry");
-        //DebugController.instance.OnReturn();
     }
     #endregion
 

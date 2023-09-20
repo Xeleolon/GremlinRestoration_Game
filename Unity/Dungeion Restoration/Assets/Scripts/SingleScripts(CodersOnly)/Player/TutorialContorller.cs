@@ -23,7 +23,8 @@ public class TutorialContorller : MonoBehaviour
     }
     void Start()
     {
-        LevelManager.instance.freeze = true;
+        LevelManager.instance.PauseGame(true);
+        
         PlayerMovements player = GameObject.FindWithTag("Player").GetComponent<PlayerMovements>();
         player.interactions.toolMax = numbertoolOn;
         player.interactions.hideDestory = hideDestory;
@@ -48,7 +49,7 @@ public class TutorialContorller : MonoBehaviour
     }
     public void TutorialComplete()
     {
-        LevelManager.instance.freeze = false;
+        LevelManager.instance.PauseGame(false);
         Destroy(gameObject);
     }
 
