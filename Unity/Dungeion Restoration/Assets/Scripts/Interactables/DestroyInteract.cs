@@ -9,6 +9,7 @@ public class DestroyInteract : Interactable
     [SerializeField] bool noDestroy = false;
     [SerializeField] private GameObject brokenVaraint;
     private ButtonPlate pressurePlate;
+    [SerializeField] private bool useParent = false;
     public override void Start()
     {
         interactionType = 2;
@@ -46,7 +47,14 @@ public class DestroyInteract : Interactable
                 { 
                     Instantiate(brokenVaraint, transform.parent);
                 }
-                Destroy(gameObject, destroyDelay);
+                if (useParent)
+                {
+                    Destroy(transform.parent.gameObject, destroyDelay);
+                }
+                else
+                {
+                    Destroy(gameObject, destroyDelay);
+                }
             }
             else
             {
@@ -55,7 +63,14 @@ public class DestroyInteract : Interactable
                 brokenVaraint.SetActive(true);
                 }
                 //Debug.Log("Logging i just arrived");
-                gameObject.SetActive(false);
+                if (useParent)
+                {
+                    transform.parent.gameObject.SetActive(false);
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
             }
         }
         else

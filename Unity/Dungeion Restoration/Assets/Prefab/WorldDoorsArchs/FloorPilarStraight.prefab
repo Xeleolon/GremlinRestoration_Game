@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5215363183382497028}
   - component: {fileID: 7441062000009305703}
   - component: {fileID: 3983803652757922902}
-  - component: {fileID: 4909231543571834224}
   m_Layer: 0
   m_Name: FloorPilarStraight
   m_TagString: Untagged
@@ -32,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7441062000009305703
 MeshFilter:
@@ -84,16 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4909231543571834224
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877607881631532808}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.40706253, y: 0.3871178, z: 1.5}
-  m_Center: {x: 0.003531456, y: 0.19355884, z: -6.9245235e-12}
