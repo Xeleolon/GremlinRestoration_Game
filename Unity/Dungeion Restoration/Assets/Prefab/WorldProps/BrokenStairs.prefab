@@ -68,22 +68,24 @@ MonoBehaviour:
   radius: {x: 4, y: 3, z: 4}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 0}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
+  particalSpawnOffset: {x: 0, y: 0.5, z: 0}
+  debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
+  tokenOffset: {x: 0, y: 0.1, z: 0}
+  debugTokenPositions: 1
+  tokenDesination: {x: 0, y: 0.7, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
+  correctObject: {fileID: 0}
   fire:
     m_Name: 
     m_Type: 0
@@ -93,8 +95,12 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  FixedModel: {fileID: 7418691793807982083}
-  RemoveModel: 1
+  fixedModel: {fileID: 0}
+  removeModel: 0
+  spawnOffset: {x: 0, y: 0, z: 0}
+  spawnRotation: {x: 0, y: 0, z: 0}
+  UseParentRotation: 0
+  destroyMode: 0
   requiredItem: {fileID: 11400000, guid: d1f173b1c506a9c46866ae6457a7db2c, type: 2}
   holdInteractFor: 1
   failedMessage: 0
@@ -220,12 +226,6 @@ PrefabInstance:
 --- !u!4 &1846589733601517416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3103754058677078243, guid: 31ee885b6f072164f9909b5f2ffc440e,
-    type: 3}
-  m_PrefabInstance: {fileID: 3653220064463443851}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7418691793807982083 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6072722199363185032, guid: 31ee885b6f072164f9909b5f2ffc440e,
     type: 3}
   m_PrefabInstance: {fileID: 3653220064463443851}
   m_PrefabAsset: {fileID: 0}
