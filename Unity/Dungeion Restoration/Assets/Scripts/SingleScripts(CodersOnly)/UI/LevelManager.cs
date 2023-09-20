@@ -318,7 +318,7 @@ public class LevelManager : MonoBehaviour
     {
         lastCustomer = customer; // set the desestion for the reply call to be made to
 
-        menuCanvas.replenishTargetSlot.UpdateTarget(target); //sets the item desired by the target
+        menuCanvas.replenishTargetSlot.UpdateTarget(target, requestMobs); //sets the item desired by the target
 
         if (menuCanvas.inventoryCanvas != null && menuCanvas.inventoryCanvas.activeSelf)
         {

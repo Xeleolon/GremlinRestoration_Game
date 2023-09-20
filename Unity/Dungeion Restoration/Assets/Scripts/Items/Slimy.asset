@@ -16,4 +16,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 740b5713f567ecb45adfdcaf7a9ee1f6, type: 3}
   tempColor: {r: 0.51780427, g: 0.9622642, b: 0.004538993, a: 1}
   dropModel: {fileID: 0}
-  hiddenIcon: {fileID: 21300000, guid: d7c18bd6062793f4c8aec2b744233e1c, type: 3}
+  hiddenIcon: {fileID: 0}

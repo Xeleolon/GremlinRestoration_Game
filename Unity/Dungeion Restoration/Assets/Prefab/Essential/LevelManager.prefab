@@ -429,6 +429,7 @@ MonoBehaviour:
   inventory: 0
   draggableParent: {fileID: 0}
   image: {fileID: 304650386}
+  hiddenSprite: {fileID: 21300000, guid: d7c18bd6062793f4c8aec2b744233e1c, type: 3}
   pickUpImage: {fileID: 0}
   animationMax: 0.45
   ItemPickUpAnimation: 
@@ -1004,6 +1005,7 @@ MonoBehaviour:
   inventory: 1
   draggableParent: {fileID: 0}
   image: {fileID: 646093658}
+  hiddenSprite: {fileID: 0}
   pickUpImage: {fileID: 2959570225370296754}
   animationMax: 0.8
   ItemPickUpAnimation: PickUpKey

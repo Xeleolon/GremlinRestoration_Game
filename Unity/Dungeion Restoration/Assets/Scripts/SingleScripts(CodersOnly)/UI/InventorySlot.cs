@@ -14,6 +14,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     [SerializeField] private bool inventory = false;
     [SerializeField] private Transform draggableParent;
     [SerializeField] private Image image;
+    [SerializeField] private Sprite hiddenSprite;
     private GameObject pickUpObject;
     [SerializeField] private Image pickUpImage;
     [SerializeField] private float animationMax = 0.45f;
@@ -63,14 +64,19 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         }
     }
 
-    public void UpdateTarget(Item targetItem)
+    public void UpdateTarget(Item targetItem, bool requestMobs)
     {
         item = targetItem;
         if (item != null)
         {
-            if (target && item.hiddenIcon != null)
+            if (requestMobs && target && hiddenSprite != null)
+            {
+                image.sprite = hiddenSprite;
+            }
+            else if (target && item.hiddenIcon != null)
             {
                 image.sprite = item.hiddenIcon;
+                
             }
             else if (item.icon != null)
             {
