@@ -327,6 +327,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2223397294321059306, guid: 2c671b27389eb8c43891fa9599a4ebd4,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2692997181805065550, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}
       propertyPath: m_IsActive
@@ -335,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 2717197019028052488, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2717197019028052488, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}
@@ -405,7 +410,7 @@ PrefabInstance:
     - target: {fileID: 3386351667021250738, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}
       propertyPath: m_Name
-      value: BoxOfWood
+      value: BoxOfWood Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4712743164611010562, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}
@@ -416,6 +421,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.y
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946773649980443749, guid: 2c671b27389eb8c43891fa9599a4ebd4,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006540915012538654, guid: 2c671b27389eb8c43891fa9599a4ebd4,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7267828285394951332, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}

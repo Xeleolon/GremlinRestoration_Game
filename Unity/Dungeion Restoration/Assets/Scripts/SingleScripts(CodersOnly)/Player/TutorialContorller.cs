@@ -23,7 +23,7 @@ public class TutorialContorller : MonoBehaviour
     }
     void Start()
     {
-        LevelManager.instance.PauseGame(true);
+        //LevelManager.instance.PauseGame(true);
         
         PlayerMovements player = GameObject.FindWithTag("Player").GetComponent<PlayerMovements>();
         player.interactions.toolMax = numbertoolOn;
@@ -33,6 +33,7 @@ public class TutorialContorller : MonoBehaviour
         {
             hideIcon.SetActive(false);
         }
+        LevelManager.instance.PauseGame(true);
     }
 
     void EnableCompletion(InputAction.CallbackContext context)
