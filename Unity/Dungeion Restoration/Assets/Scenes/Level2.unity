@@ -3939,15 +3939,15 @@ MonoBehaviour:
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
+  particalSpawnOffset: {x: 0, y: 0.3, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 7239539915095594440, guid: 0799612b3a79b9f4d9315545d694e89a,
     type: 3}
-  tokenOffset: {x: 0, y: 0, z: 0}
+  tokenOffset: {x: 0, y: 0.2, z: 0}
   debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
+  tokenDesination: {x: 0, y: 0.7, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 

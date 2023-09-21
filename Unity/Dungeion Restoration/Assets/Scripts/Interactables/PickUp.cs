@@ -7,6 +7,8 @@ public class PickUp : Interactable
     [SerializeField] private Item item;
     private bool pickedUp = false;
     [SerializeField] private string animationName;
+    [SerializeField] private GameObject removeObject;
+    [SerializeField] private GameObject replaceObject;
 
     public override void Interact()
     {
@@ -20,6 +22,15 @@ public class PickUp : Interactable
             PlayAnimator(animationName);
             FinishTask();
             pickedUp = true;
+            if (replaceObject != null && !replaceObject.activeSelf)
+            {
+                replaceObject.SetActive(true);
+            }
+
+            if (removeObject != null && removeObject.activeSelf)
+            {
+                removeObject.SetActive(false);
+            }
         }
     }
 }
