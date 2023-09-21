@@ -156,7 +156,7 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Freazing game by update");
             Cursor.lockState = CursorLockMode.Confined;
             playerScript.interactActive = false;
-            DialogueManager.instance.freeze = true;
+            //DialogueManager.instance.freeze = true;
             curFreeze = freeze;
         }
         else if (!freeze && curFreeze)
@@ -164,7 +164,7 @@ public class LevelManager : MonoBehaviour
             Debug.Log("UNFreazing game by update");
             Cursor.lockState = CursorLockMode.Locked;
             playerScript.interactActive = true;
-            DialogueManager.instance.freeze = false;
+            //DialogueManager.instance.freeze = false;
             curFreeze = freeze;
         }
     }

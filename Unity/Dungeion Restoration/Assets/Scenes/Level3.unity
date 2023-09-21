@@ -4065,6 +4065,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d7c18bd6062793f4c8aec2b744233e1c,
         type: 3}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[0].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[0].sentences.Array.data[0]
+      value: 'Here you find yourself faced with the need to Replenish things. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[0].sentences.Array.data[1]
+      value: "These \u2018things\u2019 will have different requirements, but if you
+        think about them, they should be fairly straight forward."
+      objectReference: {fileID: 0}
     - target: {fileID: 6894620918582959058, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: levelData
@@ -32242,6 +32258,7 @@ MonoBehaviour:
   hideIcon: {fileID: 0}
   levelManager: {fileID: 244059540}
   player: {fileID: 430776736}
+  started: 0
 --- !u!4 &1998383381
 Transform:
   m_ObjectHideFlags: 0

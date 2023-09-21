@@ -28,7 +28,7 @@ public class RepairInteract : Interactable
         }
         if (particalDudPrefab == null)
         {
-            particalDudPrefab = LevelManager.instance.sharedPrefabs.destoryFailedPE;
+            particalDudPrefab = LevelManager.instance.sharedPrefabs.repairFailedPE;
         }
     }
     public override void Start()
