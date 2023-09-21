@@ -23754,6 +23754,8 @@ MonoBehaviour:
   numbertoolOn: 2
   hideDestory: 0
   hideIcon: {fileID: 0}
+  levelManager: {fileID: 980352924}
+  player: {fileID: 1980496955}
 --- !u!4 &902916650
 Transform:
   m_ObjectHideFlags: 0
@@ -26081,6 +26083,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+--- !u!1 &980352924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6894620918582959071, guid: 2eb7dd88447395d4abd9c20d4561766c,
+    type: 3}
+  m_PrefabInstance: {fileID: 980352923}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &981690733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4187887259974504754, guid: 8b1d4243ccceefc46a9c9feaf59ac9c5,
@@ -47202,9 +47210,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Left Click
 
-    To
+    The Icon
 
-    Destroy'
+    To Destroy'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d92d227ccae5f954dbc316c349c60321, type: 2}
   m_sharedMaterial: {fileID: 6256603340223040813, guid: d92d227ccae5f954dbc316c349c60321,
@@ -47271,7 +47279,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1939146725
@@ -48616,6 +48624,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f4ff8824bf04bd341b9ca6a3a0b36297, type: 3}
+--- !u!1 &1980496955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5016645517801662391, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+    type: 3}
+  m_PrefabInstance: {fileID: 1980496954}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1984838521
 PrefabInstance:
   m_ObjectHideFlags: 0

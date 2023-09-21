@@ -4269,6 +4269,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
+--- !u!1 &244059540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6894620918582959071, guid: 2eb7dd88447395d4abd9c20d4561766c,
+    type: 3}
+  m_PrefabInstance: {fileID: 244059539}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &244958022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 332038036761679221, guid: 5b2c8d98a7791214c96293864e941d8a,
@@ -7085,6 +7091,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f4ff8824bf04bd341b9ca6a3a0b36297, type: 3}
+--- !u!1 &430776736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5016645517801662391, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+    type: 3}
+  m_PrefabInstance: {fileID: 430776735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &439873083
 GameObject:
   m_ObjectHideFlags: 0
@@ -32228,6 +32240,8 @@ MonoBehaviour:
   numbertoolOn: 2
   hideDestory: 0
   hideIcon: {fileID: 0}
+  levelManager: {fileID: 244059540}
+  player: {fileID: 430776736}
 --- !u!4 &1998383381
 Transform:
   m_ObjectHideFlags: 0

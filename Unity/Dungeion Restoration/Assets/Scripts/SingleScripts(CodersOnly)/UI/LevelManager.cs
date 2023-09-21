@@ -170,6 +170,11 @@ public class LevelManager : MonoBehaviour
     }
     void Cancel(InputAction.CallbackContext context)
     {
+        OpenMenu();
+    }
+
+    public void OpenMenu()
+    {
         if (menuCanvas.replensihCanvas != null && menuCanvas.replensihCanvas.activeSelf)
         {
             CloseReplenishUi();
@@ -287,12 +292,18 @@ public class LevelManager : MonoBehaviour
         if (pause)
         {
             Debug.Log("pausing game");
+            Dialogue dialogue = new Dialogue("LevelManager", "Pausing Game", 0);
+            DebugController.instance.AddLog(dialogue);
+
             Cursor.lockState = CursorLockMode.Confined;
             playerScript.interactActive = false;
             pauseRequest += 1;
         }
         else if (pauseRequest <= 1)
         {
+            Debug.Log("pausing game");
+            Dialogue dialogue = new Dialogue("LevelManager", "unPausing Game", 0);
+            DebugController.instance.AddLog(dialogue);
             Cursor.lockState = CursorLockMode.Locked;
             playerScript.interactActive = true;
             pauseRequest = 0;
