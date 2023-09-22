@@ -23756,6 +23756,7 @@ MonoBehaviour:
   hideIcon: {fileID: 0}
   levelManager: {fileID: 980352924}
   player: {fileID: 1980496955}
+  started: 0
 --- !u!4 &902916650
 Transform:
   m_ObjectHideFlags: 0
@@ -25877,7 +25878,7 @@ PrefabInstance:
     - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: dialogues.Array.data[0].sentences.Array.data[1]
-      value: Who said magical dungeon directions needed to make sense
+      value: Who said magical dungeon directions needed to make sense?
       objectReference: {fileID: 0}
     - target: {fileID: 6894620918582959058, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
