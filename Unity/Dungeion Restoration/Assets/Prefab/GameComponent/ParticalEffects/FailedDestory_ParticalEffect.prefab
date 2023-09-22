@@ -68,6 +68,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4858901913862119088, guid: 72baaf45944356b41ad620e5b68807d1,
+        type: 3}
+      propertyPath: EventReference.Path
+      value: event:/PickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858901913862119088, guid: 72baaf45944356b41ad620e5b68807d1,
+        type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -379667430
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858901913862119088, guid: 72baaf45944356b41ad620e5b68807d1,
+        type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1075199810
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858901913862119088, guid: 72baaf45944356b41ad620e5b68807d1,
+        type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 165664191
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858901913862119088, guid: 72baaf45944356b41ad620e5b68807d1,
+        type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 738440037
+      objectReference: {fileID: 0}
     - target: {fileID: 6712233224091695577, guid: 72baaf45944356b41ad620e5b68807d1,
         type: 3}
       propertyPath: clock
@@ -76,7 +101,7 @@ PrefabInstance:
     - target: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
         type: 3}
       propertyPath: m_Name
-      value: Puff_ParticalEffect Variant
+      value: FailedDestory_ParticalEffect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

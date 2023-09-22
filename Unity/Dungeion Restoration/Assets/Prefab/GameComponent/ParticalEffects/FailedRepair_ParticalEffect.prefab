@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
         type: 3}
       propertyPath: m_Name
-      value: Puff_ParticalEffect Variant 1
+      value: FailedRepair_ParticalEffect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

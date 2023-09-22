@@ -734,6 +734,10 @@ MonoBehaviour:
   messagelocked: 2
   closingAnimation: SmallGateClosing
   openingAnimation: SmallGateOpening
+  openDoorSound: {fileID: 4386203863164192954, guid: 06948d300c377994d96fe6f5a3cda316,
+    type: 3}
+  closeDoorSound: {fileID: 4992507825410154575, guid: 1fc03922ab7910f4ca7c74601c91653f,
+    type: 3}
 --- !u!1 &5737547450723493769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,3 +1008,7 @@ MonoBehaviour:
   messagelocked: 2
   closingAnimation: DoorClosing
   openingAnimation: DoorOpening
+  openDoorSound: {fileID: 1882260729505380983, guid: ea5b1f4952b5cf541b05d51bed09191b,
+    type: 3}
+  closeDoorSound: {fileID: 9012581675323125010, guid: 4503b6c3650da85499afaec63e92276e,
+    type: 3}

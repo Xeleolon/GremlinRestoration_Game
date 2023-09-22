@@ -34,7 +34,7 @@ Transform:
   - {fileID: 2005251050073293326}
   - {fileID: 3075632125859405414}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7267828285394951332
 MonoBehaviour:
@@ -58,7 +58,7 @@ MonoBehaviour:
   orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0.4, z: 0}
   debugParticalPosition: 0
-  particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
+  particalPrefab: {fileID: 7363148039440380339, guid: e1d7942b4d39fd042bddcd04475dca23,
     type: 3}
   particalDudPrefab: {fileID: 0}
   tokenOffset: {x: 0, y: 0, z: 0}

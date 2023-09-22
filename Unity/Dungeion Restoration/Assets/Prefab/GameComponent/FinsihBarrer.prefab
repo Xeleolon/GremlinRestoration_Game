@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2308240716088159066
 BoxCollider:
@@ -75,20 +75,23 @@ MonoBehaviour:
   radius: {x: 0, y: 0, z: 0}
   offSet: {x: 0, y: 0, z: 0}
   trapObject: {fileID: 2308240716088159141}
+  interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
   orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
-  particalPrefab: {fileID: 0}
+  debugParticalPosition: 0
+  particalPrefab: {fileID: 8195235190902752716, guid: 33963f5d2277699408abeea0617e8fc1,
+    type: 3}
   particalDudPrefab: {fileID: 0}
+  tokenOffset: {x: 0, y: 0, z: 0}
+  debugTokenPositions: 0
+  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
+  correctObject: {fileID: 0}
   fire:
     m_Name: Fire
     m_Type: 0

@@ -44430,6 +44430,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ee0921f11745ac94aa6d5dca987deb04,
         type: 2}
+    - target: {fileID: 7267828285394951332, guid: 2c671b27389eb8c43891fa9599a4ebd4,
+        type: 3}
+      propertyPath: particalPrefab
+      value: 
+      objectReference: {fileID: 7363148039440380339, guid: e1d7942b4d39fd042bddcd04475dca23,
+        type: 3}
     - target: {fileID: 7731298413602352707, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}
       propertyPath: m_StaticEditorFlags

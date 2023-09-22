@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5016645517565970495}
   - component: {fileID: 5016645517565970494}
   - component: {fileID: 5016645517565970481}
+  - component: {fileID: 2685515300633538744}
   m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -170,7 +171,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5016645517565970483}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &5016645517565970481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +205,19 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &2685515300633538744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016645517565970483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 5016645517801662391}
 --- !u!1 &5016645517801662391
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +231,7 @@ GameObject:
   - component: {fileID: 5016645517801662388}
   - component: {fileID: 5016645517801662387}
   - component: {fileID: 4419806864863105512}
+  - component: {fileID: 6179371277656539043}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -354,6 +369,39 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6179371277656539043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016645517801662391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 676186956
+      Data2: 1331229678
+      Data3: -971066949
+      Data4: -202654910
+    Path: event:/MusicLoopV1
+  Event: 
+  PlayEvent: 1
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params:
+  - Name: Volume
+    Value: 0.5
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1428639986973890140
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -36,6 +36,7 @@ public class OnCollision : Interactable
             {
                 if (other.tag == checkTag)
                 {
+                    SpawnEffect(true);
                     if (onOff)
                     {
                         Activate(false);

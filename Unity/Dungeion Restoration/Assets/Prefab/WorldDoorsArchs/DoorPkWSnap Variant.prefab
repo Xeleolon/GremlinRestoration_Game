@@ -354,6 +354,18 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 2730326782274255139}
+    - target: {fileID: 7589824474527035020, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: openDoorSound
+      value: 
+      objectReference: {fileID: 1882260729505380983, guid: ea5b1f4952b5cf541b05d51bed09191b,
+        type: 3}
+    - target: {fileID: 7589824474527035020, guid: 35f8e65a95b8cf648b94b138c8b516f3,
+        type: 3}
+      propertyPath: closeDoorSound
+      value: 
+      objectReference: {fileID: 9012581675323125010, guid: 4503b6c3650da85499afaec63e92276e,
+        type: 3}
     - target: {fileID: 8767430440821123448, guid: 35f8e65a95b8cf648b94b138c8b516f3,
         type: 3}
       propertyPath: m_RootOrder

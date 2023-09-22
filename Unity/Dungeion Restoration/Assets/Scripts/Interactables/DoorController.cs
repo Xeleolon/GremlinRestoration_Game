@@ -26,6 +26,8 @@ public class DoorController : Interactable
     [SerializeField] private string closingAnimation;
     [Tooltip("The Name of the animation being called")]
     [SerializeField] private string openingAnimation;
+    [SerializeField] private GameObject openDoorSound;
+    [SerializeField] private GameObject closeDoorSound;
 
     public override void Start()
     {
@@ -84,6 +86,10 @@ public class DoorController : Interactable
         {
             doorOpen = true;
             PlayAnimator(openingAnimation);
+            if (openDoorSound != null)
+            {
+                //Debug.Log("Play opening door sound");
+                Instantiate(openDoorSound, transform);}
         }
         else if (Inventory.instance.Remove(requireKey))
         {
@@ -106,6 +112,8 @@ public class DoorController : Interactable
 
     private void CloseDoor()
     {
+        if (closeDoorSound != null)
+        {Instantiate(closeDoorSound, transform);}
         doorOpen = false;
         PlayAnimator(closingAnimation);
     }
