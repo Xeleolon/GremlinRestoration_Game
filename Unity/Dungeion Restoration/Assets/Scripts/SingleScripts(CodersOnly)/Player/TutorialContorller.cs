@@ -26,8 +26,7 @@ public class TutorialContorller : MonoBehaviour
     }
     void Start()
     {
-        //LevelManager.instance.PauseGame(true);
-
+        
         levelManager.GetComponent<LevelManager>().PauseGame(true);
 
         Dialogue dialogue = new Dialogue("Tutorial Controller", "tutorial started", 0);
@@ -41,13 +40,7 @@ public class TutorialContorller : MonoBehaviour
         {
             hideIcon.SetActive(false);
         }
-        //LevelManager.instance.PauseGame(true);
-
-        /*GameObject[] findLevelmanagers = GameObject.FindGameObjectsWithTag("LevelManager");
-        foreach (GameObject levelmanager in findLevelmanagers)
-        {
-            levelmanager.GetComponent<LevelManager>().PauseGame(true);
-        }*/
+        
         started = true;
     }
     void Update()
