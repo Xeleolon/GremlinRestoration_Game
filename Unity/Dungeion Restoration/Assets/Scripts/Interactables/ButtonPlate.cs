@@ -51,10 +51,7 @@ public class ButtonPlate : Interactable
         {
             rb.isKinematic = true;
         }
-        //Debug.Log(startPosition);
-        //Debug.Log(transform.position);
-        //Vector3 distance = startPosition - transform.position;
-        //Debug.Log(distance);
+        
     }
 
     
