@@ -26,10 +26,6 @@ public class OnCollision : Interactable
         base.Start();
         //activate = new collisionTypes();
     }
-    public override void Activate(bool unActivate)
-    {
-        base.Activate(unActivate);
-    }
     void CheckCollisionTag(GameObject other, bool onOff)
     {
         if (checkTag != "")

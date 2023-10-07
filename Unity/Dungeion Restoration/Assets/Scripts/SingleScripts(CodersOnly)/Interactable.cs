@@ -40,7 +40,7 @@ public class Interactable : MonoBehaviour
 
     [SerializeField] private Animator animator;
     [SerializeField] private bool animatationStartOpen;
-    [SerializeField] private string animationTriggerName;
+    public string animationTriggerName;
     public GameObject correctObject;
 
     
@@ -121,7 +121,14 @@ public class Interactable : MonoBehaviour
     {
         if (playAnimation != "" && animator != null)
         {
-            animator.Play(playAnimation);
+            if (playAnimation.Contains("activate"))
+            {
+                animator.enabled = true;
+            }
+            else
+            {
+                animator.Play(playAnimation);
+            }
         }
     }
 
@@ -148,7 +155,7 @@ public class Interactable : MonoBehaviour
             }
         }
     }
-    public bool OnInteract (Transform playerTransform, int state)
+    public bool OnInteract(Transform playerTransform, int state)
     {
         player = playerTransform;
         interactionState = state;

@@ -27,6 +27,7 @@ public class DestroyInteract : Interactable
             //PlayAnimator();
             FinishTask();
             SpawnEffect(false);
+            PlayAnimator(animationTriggerName);
             Activate(false);
             if (pressurePlate != null)
             {

@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 5016645517801662389}
   - component: {fileID: 5016645517801662388}
   - component: {fileID: 5016645517801662387}
+  - component: {fileID: 4384508890851092688}
   - component: {fileID: 4419806864863105512}
   m_Layer: 10
   m_Name: Player
@@ -283,27 +284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca06bd08516aee4a888f0d6650adac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactions:
-    state: 0
-    refresh: 0.2
-    fireRay: 1
-    scrollWheelSpeed: 0.02
-    centerSprite: {fileID: 0}
-    hideDestory: 0
-    toolMax: 2
-    wands:
-    - name: Neutral
-      wand: {fileID: 0}
-      animation: 
-    - name: Repair
-      wand: {fileID: 6893319798129865578}
-      animation: 
-    - name: Destory
-      wand: {fileID: 9105886586577163823}
-      animation: 
-    - name: Replenish
-      wand: {fileID: 7254263783810951423}
-      animation: 
   respawnLength: 2
   interactActive: 1
   corpse: {fileID: 1390369824979298483, guid: a9177d12996f4fe4a97211bcff95248e, type: 3}
@@ -323,6 +303,39 @@ MonoBehaviour:
     cameraMaxVerticalAngleFromHorizon: 90
     cameraInputLagPeriod: 0.01
     mainCamera: {fileID: 5016645517565970483}
+--- !u!114 &4384508890851092688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016645517801662391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7415e36e6244344fa36c41e5e06c2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 1
+  refresh: 3
+  fireRay: 1
+  scrollWheelSpeed: 10
+  centerSprite: {fileID: 0}
+  hideDestory: 0
+  toolMax: 2
+  wands:
+  - name: 
+    wand: {fileID: 0}
+    animation: 
+  - name: Repair
+    wand: {fileID: 7254263783810951423}
+    animation: 
+  - name: Destroy
+    wand: {fileID: 6893319798129865578}
+    animation: 
+  - name: 
+    wand: {fileID: 0}
+    animation: 
+  interactActive: 1
 --- !u!114 &4419806864863105512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,12 +672,6 @@ PrefabInstance:
 --- !u!4 &8436732173982977173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1275374620212659517, guid: 895cc807982c99d43901cfef21abcc68,
-    type: 3}
-  m_PrefabInstance: {fileID: 7252556009670855080}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &9105886586577163823 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1943543865355231111, guid: 895cc807982c99d43901cfef21abcc68,
     type: 3}
   m_PrefabInstance: {fileID: 7252556009670855080}
   m_PrefabAsset: {fileID: 0}

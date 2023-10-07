@@ -118,10 +118,6 @@ public class ButtonPlate : Interactable
             }
         }
     }
-    void DestoryGameObject()
-    {
-        Destroy(gameObject);
-    }
     void OnCollisionExit(Collision other)
     {
         if (other.gameObject.tag == "Player")

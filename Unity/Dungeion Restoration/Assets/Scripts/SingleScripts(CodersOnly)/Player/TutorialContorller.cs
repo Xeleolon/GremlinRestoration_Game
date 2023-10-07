@@ -32,9 +32,9 @@ public class TutorialContorller : MonoBehaviour
         Dialogue dialogue = new Dialogue("Tutorial Controller", "tutorial started", 0);
         DebugController.instance.AddLog(dialogue);
         
-        PlayerMovements playerScript = player.GetComponent<PlayerMovements>();
-        playerScript.interactions.toolMax = numbertoolOn;
-        playerScript.interactions.hideDestory = hideDestory;
+        InteractControl interactScript = player.GetComponent<InteractControl>();
+        interactScript.toolMax = numbertoolOn;
+        interactScript.hideDestory = hideDestory;
 
         if (hideIcon != null && hideIcon.activeSelf)
         {
@@ -52,9 +52,9 @@ public class TutorialContorller : MonoBehaviour
             Dialogue dialogue = new Dialogue("Tutorial Controller", "tutorial started", 0);
             DebugController.instance.AddLog(dialogue);
         
-            PlayerMovements playerScript = player.GetComponent<PlayerMovements>();
-            playerScript.interactions.toolMax = numbertoolOn;
-            playerScript.interactions.hideDestory = hideDestory;
+            InteractControl interactScript = player.GetComponent<InteractControl>();
+            interactScript.toolMax = numbertoolOn;
+            interactScript.hideDestory = hideDestory;
 
             if (hideIcon != null && hideIcon.activeSelf)
             {

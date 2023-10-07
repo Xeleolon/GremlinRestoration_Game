@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Level3
   levelName: Catapults & Slimey
-  nextLevel: Level4
+  nextLevel: Level5
   MenuName: MainMenu
   numKeys: 0
   items:
