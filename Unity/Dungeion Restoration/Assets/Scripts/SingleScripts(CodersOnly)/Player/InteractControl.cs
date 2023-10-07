@@ -26,6 +26,8 @@ public class InteractControl : MonoBehaviour
     private float clock;
     private Transform player;
     public GameObject centerSprite;
+    [SerializeField] private GameObject bombModel;
+    [SerializeField] private float spawnDistance;
     [HideInInspector] public bool hideDestory;
     public int toolMax = 2;
     public WandData[] wands = new WandData[4];
@@ -123,37 +125,55 @@ public class InteractControl : MonoBehaviour
             ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
                 
             RaycastHit hit;
-            
             if (Physics.Raycast(ray, out hit, 100))
             {
-                Debug.Log("hit " + hit.collider.gameObject.name);
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
-
-                Dialogue dialogue = new Dialogue(hit.collider.gameObject.name, "hit with raycast interaction", 0);
-                DebugController.instance.AddLog(dialogue);
-
-                //Debug.Log(interactable);
-
-
-                if (interactable != null)
+                if (state != 3)
                 {
-                    if (player == null)
+                    Debug.Log("hit " + hit.collider.gameObject.name);
+                    Interactable interactable = hit.collider.GetComponent<Interactable>();
+    
+                    Dialogue dialogue = new Dialogue(hit.collider.gameObject.name, "hit with raycast interaction", 0);
+                    DebugController.instance.AddLog(dialogue);
+    
+                    //Debug.Log(interactable);
+    
+    
+                    if (interactable != null)
                     {
-                        player = GameObject.FindWithTag("Player").transform;
-                    }
-                    //Debug.Log("Comformed hit");
-                    if (interactable.OnInteract(player, state))
-                    {
-                        PlayAnimation(interactable.interactionType);
-
-                        
-                        fireRay = false;
-                        if (centerSprite != null && centerSprite.activeSelf)
+                        if (player == null)
                         {
-                            centerSprite.SetActive(false);
+                            player = GameObject.FindWithTag("Player").transform;
                         }
-                        clock = refresh;
+                        //Debug.Log("Comformed hit");
+                        if (interactable.OnInteract(player, state))
+                        {
+                            PlayAnimation(interactable.interactionType);
+    
+                            
+                            fireRay = false;
+                            if (centerSprite != null && centerSprite.activeSelf)
+                            {
+                                centerSprite.SetActive(false);
+                            }
+                            clock = refresh;
+                        }
                     }
+                }
+                else if (bombModel != null)
+                {
+                    float distance = Vector3.Distance(hit.collider.transform.position, transform.position);
+                    Debug.Log("Spawn Bomb");
+                    Vector3 spawnPoint = transform.TransformDirection((Vector3.forward * spawnDistance) + transform.position);
+                    Instantiate(bombModel, transform.position + transform.forward*spawnDistance, Quaternion.identity);
+                    /*if (spawnDistance <= distance)
+                    {
+                        //spawn bomb above this contact or forward of this position
+                        
+                    }
+                    else
+                    {
+                        Instantiate(bombModel, transform.forward * spawnDistance, Quaternion.identity);
+                    }*/
                 }
             }
         }
@@ -191,8 +211,8 @@ public class InteractControl : MonoBehaviour
 
     public void InteractThree(InputAction.CallbackContext context)
     {
-        //state = 3;
-        //NewState();
+        state = 3;
+        NewState();
     }
     public void ScrollWheel()
     {
