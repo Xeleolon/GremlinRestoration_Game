@@ -43,7 +43,6 @@ public class DoorController : Interactable
     }
     public override void Interact()
     {
-        //base.Interact();
         if (skeltonKey || taskCount <= 0)
         {
             if (skeltonKey || activateOnInteract)

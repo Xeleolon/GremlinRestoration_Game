@@ -28,7 +28,6 @@ public class ReplenishInteract : Interactable
     
     public override void Interact()
     {
-        base.Interact();
         if (requiredItem != null)
         {
             LevelManager.instance.OpenReplenishUI(requiredItem, this, MonsterRequest);
@@ -42,7 +41,6 @@ public class ReplenishInteract : Interactable
     {
         if (success)
         {
-            FinishTask();
             SpawnEffect(false);
             PlayAnimator(animationName);
             if (refillObject != null && !refillObject.activeSelf)

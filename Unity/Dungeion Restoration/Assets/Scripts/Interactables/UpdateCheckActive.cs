@@ -8,7 +8,6 @@ public class UpdateCheckActive : Interactable
 
     public override void Interact()
     {
-        base.Interact();
         CheckActive targetScript = target.GetComponent<CheckActive>();
         if (targetScript != null)
         {

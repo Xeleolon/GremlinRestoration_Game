@@ -15,6 +15,12 @@ public class RepairInteract : Interactable
     [SerializeField] private float holdInteractFor = 1;
     [SerializeField] private int failedMessage = 0;
 
+    private GameObject tokenPrefab;
+    [SerializeField] private Vector3 tokenOffset;
+    [SerializeField] private bool debugTokenPositions;
+    [SerializeField] private Vector3 tokenDesination;
+    private GameObject token;
+
     private bool interactHold;
     private float holdClock;
 
@@ -35,6 +41,10 @@ public class RepairInteract : Interactable
     {
         interactionType = 1;
         base.Start();
+        if (tokenPrefab == null)
+        {
+            tokenPrefab = LevelManager.instance.sharedPrefabs.tokenPrefab;
+        }
     }
     void Update()
     {
@@ -65,7 +75,6 @@ public class RepairInteract : Interactable
     }
     public override void Interact()
     {
-        base.Interact();
         if (!interactHold && interactionState == 1 && Inventory.instance.CheckAvalability(requiredItem)) //This is the initial interaction of the interact
         {
             //PlayAnimator();
@@ -93,7 +102,6 @@ public class RepairInteract : Interactable
         {
             //PlayAnimator();
             SpawnEffect(false);
-            FinishTask();
             RepairModel();
             string message = new string(gameObject.name + " Repaired");
             Debug.Log(message);
@@ -141,6 +149,30 @@ public class RepairInteract : Interactable
         {
             gameObject.SetActive(false);
         }
+        }
+    }
+
+    public void SpawnToken(Item newItem)
+    {
+        if (token == null)
+        {
+            Debug.Log("Token be made");
+            Quaternion objectRotation = Quaternion.identity;
+            objectRotation.eulerAngles = new Vector3(-90, 0, 0);
+            token = Instantiate(tokenPrefab, (transform.position + tokenOffset), objectRotation);
+            token.GetComponent<Token>().SetTarget((transform.position + tokenDesination), newItem);
+        }
+    }
+    public override void OnDrawGizmosSelected()
+    {
+        base.OnDrawGizmosSelected();
+
+        if (debugTokenPositions)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube((transform.position + tokenOffset), new Vector3(0.2f, 0.2f, 0.2f));
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube((transform.position + tokenDesination), new Vector3(0.2f, 0.2f, 0.2f));
         }
     }
 

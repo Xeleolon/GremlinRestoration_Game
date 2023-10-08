@@ -10,7 +10,6 @@ public class ToggleOnOff : Interactable
     public string message;
     public override void Interact()
     {
-        base.Interact();
         if (toggleOn && toggleObject.activeSelf)
         {
             toggleObject.SetActive(false);

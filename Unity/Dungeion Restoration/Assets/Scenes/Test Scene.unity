@@ -986,7 +986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
@@ -996,9 +997,6 @@ MonoBehaviour:
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -1021,6 +1019,9 @@ MonoBehaviour:
   requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
   holdInteractFor: 1
   failedMessage: 0
+  tokenOffset: {x: 0, y: 0, z: 0}
+  debugTokenPositions: 0
+  tokenDesination: {x: 0, y: 0, z: 0}
 --- !u!65 &71529195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7628,7 +7629,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
@@ -7638,9 +7640,6 @@ MonoBehaviour:
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 1
-  tokenDesination: {x: 0, y: 0, z: -1}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -7663,6 +7662,9 @@ MonoBehaviour:
   requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
   holdInteractFor: 1
   failedMessage: 0
+  tokenOffset: {x: 0, y: 0, z: 0}
+  debugTokenPositions: 1
+  tokenDesination: {x: 0, y: 0, z: -1}
 --- !u!65 &444861862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9058,34 +9060,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357042c07beecb843830a4980e4da6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 1029538118}
-  interactionType: 0
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  debugParticalPosition: 0
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  correctObject: {fileID: 0}
-  fire:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   checkTag: Player
   trigger: 1
   activate:
@@ -9095,6 +9069,8 @@ MonoBehaviour:
     onStay: 1
     exit: 1
     onExit: 0
+  activatable: {fileID: 0}
+  asignItself: 0
 --- !u!1 &485611360
 GameObject:
   m_ObjectHideFlags: 0
@@ -9260,6 +9236,103 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487342314}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &497767742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 497767743}
+  - component: {fileID: 497767746}
+  - component: {fileID: 497767745}
+  - component: {fileID: 497767744}
+  m_Layer: 8
+  m_Name: Platform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &497767743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497767742}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.4889755, y: 0.44577697, z: 0}
+  m_LocalScale: {x: 2.9625, y: 0.112455174, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 713990299}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &497767744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497767742}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &497767745
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497767742}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 2abea1285585fa440868594e4a92344b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &497767746
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497767742}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &503730831
 GameObject:
@@ -12306,7 +12379,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
@@ -12316,9 +12390,6 @@ MonoBehaviour:
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: -1}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -12341,6 +12412,9 @@ MonoBehaviour:
   requiredItem: {fileID: 11400000, guid: a6ba2db9d6c3d8c49b031f3181280269, type: 2}
   holdInteractFor: 1
   failedMessage: 0
+  tokenOffset: {x: 0, y: 0, z: 0}
+  debugTokenPositions: 0
+  tokenDesination: {x: 0, y: 0, z: -1}
 --- !u!65 &701115512
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12819,6 +12893,156 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711360002}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &713990292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 713990299}
+  - component: {fileID: 713990298}
+  - component: {fileID: 713990297}
+  - component: {fileID: 713990296}
+  - component: {fileID: 713990295}
+  - component: {fileID: 713990294}
+  - component: {fileID: 713990293}
+  m_Layer: 8
+  m_Name: Ladder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &713990293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713990292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357042c07beecb843830a4980e4da6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkTag: Player
+  trigger: 1
+  activate:
+    enter: 1
+    onEnter: 1
+    stay: 1
+    onStay: 1
+    exit: 1
+    onExit: 0
+  activatable: {fileID: 713990292}
+  asignItself: 0
+--- !u!114 &713990294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713990292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 249099902da88c14fb684d6bfd7eb04f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activated: 0
+--- !u!65 &713990295
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713990292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1, z: 1}
+  m_Center: {x: 1.25, y: 0, z: 0}
+--- !u!65 &713990296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713990292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &713990297
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713990292}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 2b1203cd0dd464e4d8319240db44af37, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &713990298
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713990292}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &713990299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713990292}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.761024, y: 3.22, z: -6.69}
+  m_LocalScale: {x: 1, y: 6.2363024, z: 3.7091}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 497767743}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &715940101
 GameObject:
   m_ObjectHideFlags: 0
@@ -13249,7 +13473,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
@@ -13259,9 +13484,6 @@ MonoBehaviour:
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 1
-  tokenDesination: {x: 0, y: 0, z: -1}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -13284,6 +13506,9 @@ MonoBehaviour:
   requiredItem: {fileID: 11400000, guid: 0a43855331daae04d91d0a10c90c8f4c, type: 2}
   holdInteractFor: 1
   failedMessage: 0
+  tokenOffset: {x: 0, y: 0, z: 0}
+  debugTokenPositions: 1
+  tokenDesination: {x: 0, y: 0, z: -1}
 --- !u!65 &724172137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13780,7 +14005,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
@@ -13790,9 +14016,6 @@ MonoBehaviour:
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 1
-  tokenDesination: {x: 0, y: 0, z: -1}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -13815,6 +14038,9 @@ MonoBehaviour:
   requiredItem: {fileID: 11400000, guid: f1fb61bd768a4da4e904b6350b850bdb, type: 2}
   holdInteractFor: 1
   failedMessage: 0
+  tokenOffset: {x: 0, y: 0, z: 0}
+  debugTokenPositions: 1
+  tokenDesination: {x: 0, y: 0, z: -1}
 --- !u!65 &741959064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14027,7 +14253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
@@ -14037,9 +14264,6 @@ MonoBehaviour:
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -14062,6 +14286,9 @@ MonoBehaviour:
   requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
   holdInteractFor: 1
   failedMessage: 0
+  tokenOffset: {x: 0, y: 0, z: 0}
+  debugTokenPositions: 0
+  tokenDesination: {x: 0, y: 0, z: 0}
 --- !u!65 &744829559
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15135,7 +15362,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 2baf2f7e7bb36124f8bd6a9a65924e11, type: 3}
+  - {fileID: 2100000, guid: 2b1203cd0dd464e4d8319240db44af37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16586,7 +16813,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
@@ -16596,9 +16824,6 @@ MonoBehaviour:
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 1
-  tokenDesination: {x: 0, y: 0, z: -1}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -16621,6 +16846,9 @@ MonoBehaviour:
   requiredItem: {fileID: 11400000, guid: 41964fddf44c5544883ccf4c0aa7afde, type: 2}
   holdInteractFor: 1
   failedMessage: 0
+  tokenOffset: {x: 0, y: 0, z: 0}
+  debugTokenPositions: 1
+  tokenDesination: {x: 0, y: 0, z: -1}
 --- !u!65 &871558850
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26016,7 +26244,12 @@ PrefabInstance:
     - target: {fileID: 1911804892288282738, guid: 8eab0e3ecea50ce46ab63ef776ce9b05,
         type: 3}
       propertyPath: m_Name
-      value: LevelLoader
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103268470868049366, guid: 8eab0e3ecea50ce46ab63ef776ce9b05,
+        type: 3}
+      propertyPath: cameraSensitivity
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -26170,7 +26403,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
@@ -26180,9 +26414,6 @@ MonoBehaviour:
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -26362,34 +26593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357042c07beecb843830a4980e4da6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 1432236094}
-  interactionType: 0
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  debugParticalPosition: 0
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  correctObject: {fileID: 0}
-  fire:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   checkTag: Player
   trigger: 1
   activate:
@@ -26399,6 +26602,8 @@ MonoBehaviour:
     onStay: 1
     exit: 0
     onExit: 1
+  activatable: {fileID: 0}
+  asignItself: 0
 --- !u!65 &1432236098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27011,7 +27216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
@@ -27021,9 +27227,6 @@ MonoBehaviour:
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -33946,6 +34149,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4384508890851092688, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
+      propertyPath: bombItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 14c45c347beac7448b1bdafb7f936abc,
+        type: 2}
+    - target: {fileID: 4384508890851092688, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
       propertyPath: bombModel
       value: 
       objectReference: {fileID: 5489709788621267450, guid: 9fad2419511f127418c30bd9d69f8945,
@@ -39256,34 +39465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357042c07beecb843830a4980e4da6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 2133483732}
-  interactionType: 0
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  debugParticalPosition: 0
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  correctObject: {fileID: 0}
-  fire:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: a47a1f9e-adf1-45dc-b7ba-8e9a2c9f66a4
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   checkTag: 
   trigger: 0
   activate:
@@ -39293,6 +39474,8 @@ MonoBehaviour:
     onStay: 1
     exit: 0
     onExit: 1
+  activatable: {fileID: 0}
+  asignItself: 0
 --- !u!1 &2138226070
 GameObject:
   m_ObjectHideFlags: 0
@@ -40029,7 +40212,7 @@ PrefabInstance:
     - target: {fileID: 2294103889165962001, guid: 008f0102baac35443af31d0b633a8bad,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.465327
+      value: 13.21
       objectReference: {fileID: 0}
     - target: {fileID: 2294103889165962001, guid: 008f0102baac35443af31d0b633a8bad,
         type: 3}
@@ -40039,7 +40222,7 @@ PrefabInstance:
     - target: {fileID: 2294103889165962001, guid: 008f0102baac35443af31d0b633a8bad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.175743
+      value: 4.54
       objectReference: {fileID: 0}
     - target: {fileID: 2294103889165962001, guid: 008f0102baac35443af31d0b633a8bad,
         type: 3}
@@ -40143,7 +40326,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 2baf2f7e7bb36124f8bd6a9a65924e11, type: 3}
+  - {fileID: 2100000, guid: 2b1203cd0dd464e4d8319240db44af37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40423,6 +40606,17 @@ PrefabInstance:
     - target: {fileID: 646093656, guid: 2eb7dd88447395d4abd9c20d4561766c, type: 3}
       propertyPath: animationMax
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771066656934419448, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: bomb
+      value: 
+      objectReference: {fileID: 11400000, guid: 14c45c347beac7448b1bdafb7f936abc,
+        type: 2}
+    - target: {fileID: 6771066656934419448, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: numBombs
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6894620918582959058, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}

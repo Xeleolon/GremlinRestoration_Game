@@ -21,11 +21,9 @@ public class DestroyInteract : Interactable
     }
     public override void Interact()
     {
-        base.Interact();
         if (interactionState == 2)
         {
             //PlayAnimator();
-            FinishTask();
             SpawnEffect(false);
             PlayAnimator(animationTriggerName);
             Activate(false);

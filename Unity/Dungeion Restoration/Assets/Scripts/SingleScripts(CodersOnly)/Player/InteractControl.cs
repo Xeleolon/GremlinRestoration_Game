@@ -27,6 +27,7 @@ public class InteractControl : MonoBehaviour
     private Transform player;
     public GameObject centerSprite;
     [SerializeField] private GameObject bombModel;
+    [SerializeField] Item bombItem;
     [SerializeField] private float spawnDistance;
     [HideInInspector] public bool hideDestory;
     public int toolMax = 2;
@@ -159,12 +160,13 @@ public class InteractControl : MonoBehaviour
                         }
                     }
                 }
-                else if (bombModel != null)
+                else if (bombModel != null && Inventory.instance.CheckAvalability(bombItem))
                 {
                     float distance = Vector3.Distance(hit.collider.transform.position, transform.position);
                     Debug.Log("Spawn Bomb");
                     Vector3 spawnPoint = transform.TransformDirection((Vector3.forward * spawnDistance) + transform.position);
                     Instantiate(bombModel, transform.position + transform.forward*spawnDistance, Quaternion.identity);
+                    Inventory.instance.Remove(bombItem);
                     /*if (spawnDistance <= distance)
                     {
                         //spawn bomb above this contact or forward of this position

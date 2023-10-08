@@ -5245,7 +5245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8f927bb8d8b804f8b8929400618857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelData: {fileID: 11400000, guid: e53044284aba2ac46ab09783fc8cfbbd, type: 2}
+  levelData: {fileID: 11400000, guid: ad126c0b75047044590a0109c42d970c, type: 2}
   freeze: 0
   pauseRequest: 0
   menuCanvas:
@@ -5350,6 +5350,9 @@ MonoBehaviour:
   - {fileID: 0}
   itemNumber: 14000000000000000000000000000000
   key: {fileID: 11400000, guid: 0a43855331daae04d91d0a10c90c8f4c, type: 2}
+  bomb: {fileID: 11400000, guid: 14c45c347beac7448b1bdafb7f936abc, type: 2}
+  numBombs: 0
+  maxBombs: 10
   infiniteItems: 0
   itemsParent: {fileID: 1031415162}
   keySlot: {fileID: 646093656}

@@ -6,13 +6,41 @@ public class PickUp : Interactable
 {
     [SerializeField] private Item item;
     private bool pickedUp = false;
+    [Tooltip("true if can pick object up in General use only for Bomb items")]
+    [SerializeField] private bool rePickUp;
+    [SerializeField] private float delayNextPickUp;
+    private float currentDelay;
     [SerializeField] private string animationName;
     [SerializeField] private GameObject removeObject;
     [SerializeField] private GameObject replaceObject;
 
+    void Update()
+    {
+        if (rePickUp && pickedUp)
+        {
+            if (currentDelay < 0)
+            {
+                pickedUp = false;
+                
+                if (replaceObject != null && replaceObject.activeSelf)
+                {
+                    replaceObject.SetActive(false);
+                }
+    
+                if (removeObject != null && !removeObject.activeSelf)
+                {
+                    removeObject.SetActive(true);
+                }
+                
+            }
+            else
+            {
+                currentDelay -= 1 * Time.deltaTime;
+            }
+        }
+    }
     public override void Interact()
     {
-        base.Interact();
         if (!pickedUp && item != null && Inventory.instance.Add(item))
         {
             Debug.Log("picking up " + item.name);
@@ -20,7 +48,7 @@ public class PickUp : Interactable
             DebugController.instance.AddLog(dialogue);
             SpawnEffect(true);
             PlayAnimator(animationName);
-            FinishTask();
+            currentDelay = delayNextPickUp;
             pickedUp = true;
             if (replaceObject != null && !replaceObject.activeSelf)
             {

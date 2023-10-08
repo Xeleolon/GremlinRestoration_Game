@@ -22,9 +22,14 @@ public class Inventory : MonoBehaviour
     [HideInInspector] public Item[] items = new Item[4];
     [HideInInspector] public int[] itemNumber = new int[4];
     [SerializeField] Item key;
+    [SerializeField] Item bomb;
     private int newItemPlace = -1;
     private bool addingKey = false;
     int numKeys;
+    private bool addingBomb = false;
+    [SerializeField] private int numBombs;
+    [Range(1,20)]
+    [SerializeField] private int maxBombs = 10;
     public bool infiniteItems;
     public delegate void OnItemChanged(); //allow other script to subscribe to this function and be informed off changes.
     public OnItemChanged onItemChangedCallback;
@@ -60,6 +65,20 @@ public class Inventory : MonoBehaviour
             return true;
             
         }
+        else if (item == bomb)
+        {
+            if (numBombs <= maxBombs)
+            {
+                numBombs += 1;
+                addingBomb = true;
+                ItemChanged();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         else
         {
             int place = Contains(item);
@@ -89,7 +108,21 @@ public class Inventory : MonoBehaviour
     }
     public bool CheckAvalability(Item item)
     {
-        if (item == null || infiniteItems || key == item || Contains(item) >= 0)
+        if (item == key && numKeys > 0)
+        {
+            return true;
+        }
+
+        if (bomb == item && numBombs > 0)
+        {
+            return true;
+        }
+        if (item == null || infiniteItems)
+        {
+            return true;
+        }
+        int temp = Contains(item);
+        if (temp >= 0 && itemNumber[temp] > 0)
         {
             return true;
         }
@@ -107,6 +140,13 @@ public class Inventory : MonoBehaviour
         if (key == item && numKeys > 0)
         {
             numKeys -= 1;
+            ItemChanged();
+            return true;
+        }
+
+        if (bomb == item && numBombs > 0)
+        {
+            numBombs -= 1;
             ItemChanged();
             return true;
         }
@@ -182,6 +222,12 @@ public class Inventory : MonoBehaviour
         if (addingKey)
         {
             addingKey = !addingKey;
+        }
+
+        //update bomb num in UI here!
+        if (addingBomb)
+        {
+            addingBomb = !addingBomb;
         }
         int usedItem = 0;
 

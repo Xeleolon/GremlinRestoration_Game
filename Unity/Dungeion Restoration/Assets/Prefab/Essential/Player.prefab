@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 5016645517565970495}
   - component: {fileID: 5016645517565970494}
   - component: {fileID: 5016645517565970481}
+  - component: {fileID: 2705301003908684017}
   m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -205,6 +206,26 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!95 &2705301003908684017
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016645517565970483}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5524dfc76c2f3174f882c5c7ea028aaf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5016645517801662391
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +262,7 @@ Transform:
   - {fileID: 5016645517565970480}
   - {fileID: 5016645516717435789}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &5016645517801662389
 CapsuleCollider:
@@ -292,12 +313,15 @@ MonoBehaviour:
   jumpForce: 4
   jumpCooldown: 0.5
   airMultiplier: 1
+  climbSpeed: 3
   groundDrag: 4.5
   maxSlopeAngle: 70
   playerHeight: 0.9
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  cameraAnimator: {fileID: 2705301003908684017}
+  hitGroundAnimation: CameraOnGround
   cameraControls:
     cameraAcceleration: 6500
     cameraSensitivity: 10
@@ -321,6 +345,10 @@ MonoBehaviour:
   fireRay: 1
   scrollWheelSpeed: 0.02
   centerSprite: {fileID: 0}
+  bombModel: {fileID: 5489709788621267450, guid: 9fad2419511f127418c30bd9d69f8945,
+    type: 3}
+  bombItem: {fileID: 11400000, guid: 14c45c347beac7448b1bdafb7f936abc, type: 2}
+  spawnDistance: 0
   hideDestory: 0
   toolMax: 2
   wands:

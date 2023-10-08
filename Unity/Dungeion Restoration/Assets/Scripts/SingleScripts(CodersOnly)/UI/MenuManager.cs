@@ -10,8 +10,11 @@ public class MenuManager : MonoBehaviour
     public string testScene;
     private int currentScene = 0;
     public bool testSceneLock = true;
+    [SerializeField] private GameObject settingCanvas;
+    [SerializeField] private Slider settingSlider;
     public TMP_Text levelText;
     public TMP_InputField codeInput;
+    GameManager gameManager;
     void Start()
     {
         if (level.Length == 0)
@@ -27,6 +30,8 @@ public class MenuManager : MonoBehaviour
         {
             levelText.SetText(level[currentScene]);
         }
+        gameManager = GameManager.instance;
+        settingSlider.value = gameManager.cameraSensitivity;
     }
     
     
@@ -100,5 +105,27 @@ public class MenuManager : MonoBehaviour
         }
         codeInput.image.enabled = false;
         codeInput.text = string.Empty;
+    }
+
+    public void openSettingMenu(bool open)
+    {
+        if (open && !settingCanvas.activeSelf)
+        {
+            settingCanvas.SetActive(true);
+        }
+        else if (!open && settingCanvas.activeSelf)
+        {
+            settingCanvas.SetActive(false);
+        }
+    }
+
+    public void SetMouseSensitivity(float value)
+    {
+        gameManager.cameraSensitivity = value;
+    }
+
+    public void SetFullscreen (bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
     }
 }

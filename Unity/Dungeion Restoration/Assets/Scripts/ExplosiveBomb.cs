@@ -49,9 +49,14 @@ public class ExplosiveBomb : MonoBehaviour
             if (breakabletag != "" && hit.gameObject.tag == breakabletag)
             {
                 DestroyInteract checkDestroy = hit.GetComponent<DestroyInteract>();
+                Breakable checkBreakable = hit.GetComponent<Breakable>();
                 if (checkDestroy != null)
                 {
                     checkDestroy.OnInteract(hit.transform, 2);
+                }
+                else if (checkBreakable != null)
+                {
+                    checkBreakable.Break();
                 }
                 else
                 {

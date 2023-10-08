@@ -15,7 +15,7 @@ public class CameraControls
     [Range(1000, 10000)]
     [SerializeField] private float cameraAcceleration;
     [Tooltip("A mutipler to the input. Describes the maximum speed in degrees / second.")]
-    [Range(1, 20)]
+    [Range(1, 30)]
     [SerializeField] private float cameraSensitivity;
     [Tooltip("The Maximum angle from the horizon the player can rotote, in degrees")]
     [SerializeField] private float cameraMaxVerticalAngleFromHorizon;
@@ -101,6 +101,10 @@ public class CameraControls
         
         return cameraLastInputEvent;
     }
+    public void SetSensitivity(float newSensitivity)
+    {
+        cameraSensitivity = newSensitivity;
+    }
 }
 #endregion
 
@@ -124,6 +128,8 @@ public class CameraControls
     [SerializeField] private float jumpForce = 3;
     [SerializeField] private float jumpCooldown = 1;
     [SerializeField] private float airMultiplier = 1;
+    private bool climbing;
+    [SerializeField] private float climbSpeed = 3;
     private bool readyToJump;
 
 
@@ -142,6 +148,9 @@ public class CameraControls
     [Header ("Ground Check")]
     [SerializeField] private float playerHeight = 2;
     [SerializeField] private LayerMask whatIsGround;
+    [Header ("Animations")]
+    [SerializeField] private Animator cameraAnimator;
+    [SerializeField] private string hitGroundAnimation; 
     bool grounded;
 
     #region Enable & Disable
@@ -185,10 +194,12 @@ public class CameraControls
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        GameManager gameManager = GameManager.instance;
         //cameraControls.EnableCamera(transform, playerControls);
         lastCheckPoint = transform.position;
         levelManager = LevelManager.instance;
         interactiveScript = GetComponent<InteractControl>();
+        cameraControls.SetSensitivity(gameManager.cameraSensitivity);
         ResetJump();
         //rotationFreaze = new GameObject("DontDestoryPlayerRotation");
         //rotationFreaze.AddComponent<Rigidbody>();
@@ -349,8 +360,13 @@ public class CameraControls
 
     private void GroundCheck()
     {
+        bool oldGrounded = grounded;
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
+        if (!oldGrounded && grounded && hitGroundAnimation != "")
+        {
+            cameraAnimator.Play(hitGroundAnimation);
+        }
         if (grounded)
         {
                 rb.drag = groundDrag;
@@ -362,15 +378,22 @@ public class CameraControls
     }
     private void JumpFunction()
     {
-        if (jumpInput.ReadValue<float>() > 0 && readyToJump && grounded)
+        if (jumpInput.ReadValue<float>() > 0)
         {
-            exitingSlope = true;
-            readyToJump = false;
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
-            Invoke(nameof(ResetJump), jumpCooldown);
+            if (climbing)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, climbSpeed, rb.velocity.z);
+            }
+            else if (readyToJump && grounded)
+            {
+                exitingSlope = true;
+                readyToJump = false;
+                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+    
+                rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
 
         }
 
@@ -385,6 +408,11 @@ public class CameraControls
     public void ForceOnGround(bool newOnGround)
     {
         grounded = newOnGround;
+    }
+
+    public void ClimbingOn(bool value)
+    {
+        climbing = value;
     }
     
 

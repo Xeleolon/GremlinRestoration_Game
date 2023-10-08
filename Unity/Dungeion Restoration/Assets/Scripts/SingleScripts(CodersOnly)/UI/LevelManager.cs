@@ -61,7 +61,7 @@ public class LevelManager : MonoBehaviour
         public GameObject tokenPrefab;
     }
     [Header("Menu Systems")]
-    public LevelData levelData;
+    [HideInInspector]public LevelData levelData;
     public bool freeze; //debug system only don't refenece
     private bool curFreeze = false; //debug system only don't refenece
     [HideInInspector] public int pauseRequest;
@@ -130,13 +130,15 @@ public class LevelManager : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<PlayerMovements>();
 
-        if (levelData == null)
+        GameManager gameManager = GameManager.instance;
+        int levelDataTicket = gameManager.FindLevelData(SceneManager.GetActiveScene().name);
+        if (levelDataTicket < 0)
         {
-            Debug.LogWarning("No Level Data Attached to LevelManager");
+            Debug.LogWarning("no Level Data With matching name to scene");
         }
-        else if (levelData.name != SceneManager.GetActiveScene().name)
+        else
         {
-            Debug.LogWarning("Level Data name (" + levelData.name + ") isn't matching up with scene name (" + SceneManager.GetActiveScene().name + ")");
+            levelData = gameManager.levelData[levelDataTicket];
         }
 
 

@@ -10,8 +10,10 @@ public class Interactable : MonoBehaviour
     public Vector3 radius = new Vector3(3, 3, 3);
     [Tooltip("the offset of the position of the interaction border")]
     public Vector3 offSet;
-    [Tooltip("gameObject being activated Interaction")]
-    public GameObject trapObject;
+    [Tooltip("gameObject being activated on Interaction")]
+    [SerializeField] private GameObject activatable;
+    [SerializeField] private bool OnActivate = false;
+    [SerializeField] private GameObject secondInteract;
     [HideInInspector] public int interactionType = 0;
     [HideInInspector] public int interactionState = 0;
     [HideInInspector] public bool interacted = false;
@@ -32,11 +34,6 @@ public class Interactable : MonoBehaviour
     [SerializeField] private GameObject particalPrefab;
     [Tooltip("Effect associated with a dud use")]
     public GameObject particalDudPrefab;
-    private GameObject tokenPrefab;
-    [SerializeField] private Vector3 tokenOffset;
-    [SerializeField] private bool debugTokenPositions;
-    [SerializeField] private Vector3 tokenDesination;
-    private GameObject token;
 
     [SerializeField] private Animator animator;
     [SerializeField] private bool animatationStartOpen;
@@ -82,10 +79,6 @@ public class Interactable : MonoBehaviour
         {
             particalPrefab = LevelManager.instance.sharedPrefabs.successPE;
         }
-        if (tokenPrefab == null)
-        {
-            tokenPrefab = LevelManager.instance.sharedPrefabs.tokenPrefab;
-        }
         radiusHalf.x = radius.x/2;
         radiusHalf.y = radius.y/2;
         radiusHalf.z = radius.z/2;
@@ -100,21 +93,50 @@ public class Interactable : MonoBehaviour
         //this method is meant to be overwritten
         Debug.Log("Interacting with " + transform.name);
         OrderMessage(orderInteractionMessage);
+        Activate(OnActivate);
     }
 
-    public void OrderMessage(int num)
+    public bool OnInteract(Transform playerTransform, int state)
     {
-        if (num > 0)
+        if (!interacted)
         {
-            DialogueManager.instance.PlayDialogue(num);
+            player = playerTransform;
+            interactionState = state;
+            //float distance = Vector3.Distance(player.position, transform.position);
+            Vector3 distanceGreater = transform.position + offSet + radiusHalf;
+            Vector3 distnaceSmaller = transform.position + offSet - radiusHalf;
+            if (player.position.x <= distanceGreater.x && player.position.x >= distnaceSmaller.x && 
+                player.position.y <= distanceGreater.y && player.position.y >= distnaceSmaller.y && 
+                player.position.z <= distanceGreater.z && player.position.z >= distnaceSmaller.z)
+            {
+                Debug.Log("INTERACT");
+                Interact();
+                return true;
+            }
+            else
+            {
+                if (interacted == true)
+                {
+                    Debug.Log(gameObject.name + " already interacted");
+                }
+                return false;
+            }
         }
+
+        Interactable secondInteractable = secondInteract.GetComponent<Interactable>();
+        if (secondInteract != null && secondInteractable != null)
+        {
+            return secondInteractable.OnInteract(playerTransform, state);
+        }
+        return false;
     }
+
     public virtual void Activate(bool unActivate)
     {
-        Debug.Log(trapObject);
-        if (trapObject != null)
+        //Debug.Log(activatable);
+        if (activatable != null)
         {
-            trapObject.GetComponent<Activatable>().OnActivate(unActivate);
+            activatable.GetComponent<Activatable>().OnActivate(unActivate);
         }
     }
     public virtual void PlayAnimator(string playAnimation)
@@ -132,6 +154,14 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    public void OrderMessage(int num)
+    {
+        if (num > 0)
+        {
+            DialogueManager.instance.PlayDialogue(num);
+        }
+    }
+
     public void SpawnEffect(bool dud)
     {
         Vector3 spawnPosition = transform.position + particalSpawnOffset;
@@ -142,58 +172,20 @@ public class Interactable : MonoBehaviour
         else if (particalPrefab != null)
         {
             Instantiate(particalPrefab, spawnPosition, Quaternion.identity);
-        }
-    }
-    public void FinishTask()
-    {
-        if (taskForDoor != null)
-        {
-            if (!finishTask)
+
+            //if succefull check door
+            if (taskForDoor != null)
             {
-                taskForDoor.CheckTaskOff();
-                finishTask = true;
-            }
-        }
-    }
-    public bool OnInteract(Transform playerTransform, int state)
-    {
-        player = playerTransform;
-        interactionState = state;
-        //float distance = Vector3.Distance(player.position, transform.position);
-        Vector3 distanceGreater = transform.position + offSet + radiusHalf;
-        Vector3 distnaceSmaller = transform.position + offSet - radiusHalf;
-            if (interacted != true && 
-            player.position.x <= distanceGreater.x && player.position.x >= distnaceSmaller.x && 
-            player.position.y <= distanceGreater.y && player.position.y >= distnaceSmaller.y && 
-            player.position.z <= distanceGreater.z && player.position.z >= distnaceSmaller.z)
-            {
-                Debug.Log("INTERACT");
-                Interact();
-                return true;
-            }
-            else
-            {
-                if (interacted == true)
+                if (!finishTask)
                 {
-                    Debug.Log(gameObject.name + " already interacted");
+                    taskForDoor.CheckTaskOff();
+                    finishTask = true;
                 }
-                return false;
             }
-    }
-
-    public void SpawnToken(Item newItem)
-    {
-        if (token == null)
-        {
-            Debug.Log("Token be made");
-            Quaternion objectRotation = Quaternion.identity;
-            objectRotation.eulerAngles = new Vector3(-90, 0, 0);
-            token = Instantiate(tokenPrefab, (transform.position + tokenOffset), objectRotation);
-            token.GetComponent<Token>().SetTarget((transform.position + tokenDesination), newItem);
         }
     }
 
-    void OnDrawGizmosSelected ()
+    public virtual void OnDrawGizmosSelected ()
     {
         Gizmos.color = Color.yellow;
         //Gizmos.DrawWireSphere(transform.position, radius);
@@ -203,14 +195,6 @@ public class Interactable : MonoBehaviour
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube((transform.position + particalSpawnOffset), new Vector3(0.2f, 0.2f, 0.2f));
-        }
-
-        if (debugTokenPositions)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireCube((transform.position + tokenOffset), new Vector3(0.2f, 0.2f, 0.2f));
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireCube((transform.position + tokenDesination), new Vector3(0.2f, 0.2f, 0.2f));
         }
     }
 }

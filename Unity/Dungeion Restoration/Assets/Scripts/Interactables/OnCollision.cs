@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnCollision : Interactable
+public class OnCollision : MonoBehaviour
 {
     [System.Serializable]
     public class collisionTypes
@@ -21,10 +21,16 @@ public class OnCollision : Interactable
     [SerializeField] string checkTag;
     [SerializeField] bool trigger = false;
     [SerializeField] collisionTypes activate;
-    public override void Start()
+    [Tooltip("gameObject being activated on Interaction")]
+    [SerializeField] GameObject activatable;
+    [SerializeField] bool asignItself = false;
+    void OnValidate()
     {
-        base.Start();
-        //activate = new collisionTypes();
+        if (asignItself)
+        {
+            activatable = gameObject;
+            asignItself = false;
+        }
     }
     void CheckCollisionTag(GameObject other, bool onOff)
     {
@@ -53,6 +59,14 @@ public class OnCollision : Interactable
                         Activate(true);
                     }
             }
+    }
+    public virtual void Activate(bool unActivate)
+    {
+        Debug.Log(activatable);
+        if (activatable != null)
+        {
+            activatable.GetComponent<Activatable>().OnActivate(unActivate);
+        }
     }
 
     void OnCollisionEnter(Collision other)

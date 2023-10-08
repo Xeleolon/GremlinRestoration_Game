@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2308240716088159066
 BoxCollider:
@@ -72,32 +72,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357042c07beecb843830a4980e4da6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {x: 0, y: 0, z: 0}
-  offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 2308240716088159141}
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  acheiveGoal:
-    goal: 
-    ticket: -1
-    type: 0
-  fire:
-    m_Name: Fire
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 298d8659-affa-44e2-985e-5f25531f3c88
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   checkTag: Player
   trigger: 1
   activate:
@@ -107,3 +81,5 @@ MonoBehaviour:
     onStay: 1
     exit: 0
     onExit: 1
+  activatable: {fileID: 2308240716088159141}
+  asignItself: 0
