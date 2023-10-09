@@ -6,10 +6,10 @@ public class RepairInteract : Interactable
     [Header("Repair")]
     public GameObject fixedModel;
     [SerializeField] private bool removeModel;
+    [SerializeField] private bool destroyMode;
     [SerializeField] private Vector3 spawnOffset;
     [SerializeField] private Vector3 spawnRotation;
     [SerializeField] private bool UseParentRotation;
-    [SerializeField] private bool destroyMode;
     [Tooltip("place Required Item to fix, leave blank if no item required to fix")]
     [SerializeField] private Item requiredItem;
     [SerializeField] private float holdInteractFor = 1;

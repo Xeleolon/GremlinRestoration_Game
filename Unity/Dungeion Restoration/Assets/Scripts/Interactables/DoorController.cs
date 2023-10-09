@@ -17,7 +17,7 @@ public class DoorController : Interactable
     [Tooltip("Leave 0 if no message")]
     [SerializeField] private int messageTaskNotComplete = 0;
     [SerializeField] private int messageUnlocked = 0;
-    [SerializeField] private int messagelocked = 0;
+    [SerializeField] private int messageLocked = 2;
 
 
 
@@ -96,7 +96,7 @@ public class DoorController : Interactable
         else
         {
             SpawnEffect(true);
-            OrderMessage(messagelocked);
+            OrderMessage(messageLocked);
             Debug.Log("Requrie Key");
             Dialogue dialogue = new Dialogue(gameObject.name, "Door Locked Require Keys", 0);
             DebugController.instance.AddLog(dialogue);

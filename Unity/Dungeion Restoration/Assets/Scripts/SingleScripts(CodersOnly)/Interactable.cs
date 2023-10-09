@@ -23,8 +23,6 @@ public class Interactable : MonoBehaviour
     [Tooltip("place a door or gate wich has the doorController script this task will become a requirement before opening")]
     [SerializeField] private DoorController taskForDoor;
 
-    [Tooltip("upon Interaction order message number leave 0 if no message is to be sent")]
-    [SerializeField] private int orderInteractionMessage = 0;
 
 
     [Header("Particals")]
@@ -92,7 +90,6 @@ public class Interactable : MonoBehaviour
     {
         //this method is meant to be overwritten
         Debug.Log("Interacting with " + transform.name);
-        OrderMessage(orderInteractionMessage);
         Activate(OnActivate);
     }
 
