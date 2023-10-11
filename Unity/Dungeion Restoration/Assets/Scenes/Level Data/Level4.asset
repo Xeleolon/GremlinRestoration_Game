@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Level4
   levelName: FinalLevel
-  nextLevel: MainMenu
+  nextLevel: Level5
   MenuName: MainMenu
   numKeys: 0
   items:

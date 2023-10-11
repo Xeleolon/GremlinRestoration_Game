@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] InventorySlot keySlot;
     InventorySlot[] slots;
 
-    void Start()
+    public void StartInventory()
     {
         LevelData levelData = gameObject.GetComponent<LevelManager>().levelData;
         numKeys = levelData.numKeys;

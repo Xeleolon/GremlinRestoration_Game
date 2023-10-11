@@ -129,6 +129,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a22859166865758469f9c1a770a73cdf, type: 2}
   - {fileID: 11400000, guid: 93ea2efc2131561489d8893682558066, type: 2}
   - {fileID: 11400000, guid: ad126c0b75047044590a0109c42d970c, type: 2}
+  - {fileID: 11400000, guid: 5644acd1318f32a4f866f1b719177c6a, type: 2}
   trophyData: []
   cameraSensitivity: 10
 --- !u!114 &1911804892288282737

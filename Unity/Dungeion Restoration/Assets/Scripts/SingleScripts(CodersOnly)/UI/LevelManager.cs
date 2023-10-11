@@ -143,6 +143,7 @@ public class LevelManager : MonoBehaviour
 
 
         inventory = Inventory.instance;
+        inventory.StartInventory();
         //Cursor.lockState = CursorLockMode.None;
     }
 

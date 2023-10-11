@@ -144,6 +144,11 @@ public class CameraControls
     private Rigidbody rb;
 
     private RaycastHit slopeHit;
+    [Header ("Sliding")]
+    [SerializeField] private float maxSlideCount;
+    [SerializeField] private float slideForce;
+    private float slideCount;
+    private bool sliding;
 
     [Header ("Ground Check")]
     [SerializeField] private float playerHeight = 2;
@@ -356,6 +361,21 @@ public class CameraControls
     private Vector3 GetSlopeMoveDirection()
     {
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
+    }
+
+    private void StartSlide()
+    {
+
+    }
+
+    private void SlidingMovement()
+    {
+
+    }
+
+    private void StopSlide()
+    {
+        
     }
 
     private void GroundCheck()

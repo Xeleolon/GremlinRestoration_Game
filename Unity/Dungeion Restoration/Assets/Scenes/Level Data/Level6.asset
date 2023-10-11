@@ -10,9 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66ba53f95a7afaf429743ed46c366646, type: 3}
-  m_Name: LevelSix
+  m_Name: Level6
   m_EditorClassIdentifier: 
-  name: LevelSix
-  levelName: Tower Level
+  name: Level6
+  levelName: Guarden
   nextLevel: 
   MenuName: MainMenu
+  numKeys: 0
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemNumber: 00000000000000000000000000000000
