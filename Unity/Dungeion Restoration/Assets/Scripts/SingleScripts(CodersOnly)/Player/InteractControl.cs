@@ -27,6 +27,7 @@ public class InteractControl : MonoBehaviour
     private Transform player;
     public GameObject centerSprite;
     [SerializeField] private GameObject bombModel;
+    [SerializeField] private GameObject nonInteractable;
     [SerializeField] Item bombItem;
     [SerializeField] private float spawnDistance;
     [HideInInspector] public bool hideDestory;
@@ -137,6 +138,7 @@ public class InteractControl : MonoBehaviour
                     DebugController.instance.AddLog(dialogue);
     
                     //Debug.Log(interactable);
+                    GameObject objectHit = hit.collider.gameObject;
     
     
                     if (interactable != null)
@@ -158,6 +160,17 @@ public class InteractControl : MonoBehaviour
                             }
                             clock = refresh;
                         }
+                    }
+                    else if (nonInteractable != null && objectHit.tag == "Interactable")//interactable not interactable shake
+                    {
+                        if (objectHit.transform.parent == null || objectHit.transform.parent.name != nonInteractable.name)
+                        {
+                            GameObject newNonInteract = Instantiate(nonInteractable, objectHit.transform.position, Quaternion.identity);
+                            objectHit.transform.SetParent(newNonInteract.transform, true);
+                        }
+
+                        //spawn a notInteractable at interaction posiiton
+                        //and asign object to noninteractable as child
                     }
                 }
                 else if (bombModel != null && Inventory.instance.CheckAvalability(bombItem))

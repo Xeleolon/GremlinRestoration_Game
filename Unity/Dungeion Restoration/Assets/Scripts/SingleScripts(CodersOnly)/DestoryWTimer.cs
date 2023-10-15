@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestoryWTimer : MonoBehaviour
 {
     [SerializeField] private float clock = 2;
+    [SerializeField] private bool noDestoryChildren = false;
     
     void Update()
     {
@@ -14,6 +15,10 @@ public class DestoryWTimer : MonoBehaviour
         }
         else if (clock <= 0)
         {
+            if (noDestoryChildren)
+            {
+                transform.DetachChildren();
+            }
             Destroy(gameObject);
         }
     }

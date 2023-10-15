@@ -987,12 +987,12 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
+  OnActivate: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -1012,10 +1012,10 @@ MonoBehaviour:
     m_Flags: 0
   fixedModel: {fileID: 0}
   removeModel: 0
+  destroyMode: 0
   spawnOffset: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   UseParentRotation: 0
-  destroyMode: 0
   requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
   holdInteractFor: 1
   failedMessage: 0
@@ -7630,12 +7630,12 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
+  OnActivate: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -7655,10 +7655,10 @@ MonoBehaviour:
     m_Flags: 0
   fixedModel: {fileID: 0}
   removeModel: 0
+  destroyMode: 0
   spawnOffset: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   UseParentRotation: 0
-  destroyMode: 0
   requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
   holdInteractFor: 1
   failedMessage: 0
@@ -9334,6 +9334,104 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497767742}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &501053035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 501053036}
+  - component: {fileID: 501053039}
+  - component: {fileID: 501053038}
+  - component: {fileID: 501053037}
+  m_Layer: 8
+  m_Name: Triangle (7)
+  m_TagString: Floor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &501053036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501053035}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 28.06, y: 3.27, z: -20.06}
+  m_LocalScale: {x: 3.6629999, y: 6.177828, z: 13.2692175}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1146073929}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!64 &501053037
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501053035}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2443237146360861554, guid: 2baf2f7e7bb36124f8bd6a9a65924e11, type: 3}
+--- !u!23 &501053038
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501053035}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 2b1203cd0dd464e4d8319240db44af37, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &501053039
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501053035}
+  m_Mesh: {fileID: 2443237146360861554, guid: 2baf2f7e7bb36124f8bd6a9a65924e11, type: 3}
 --- !u!1 &503730831
 GameObject:
   m_ObjectHideFlags: 0
@@ -12380,12 +12478,12 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
+  OnActivate: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -12405,10 +12503,10 @@ MonoBehaviour:
     m_Flags: 0
   fixedModel: {fileID: 0}
   removeModel: 0
+  destroyMode: 0
   spawnOffset: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   UseParentRotation: 0
-  destroyMode: 0
   requiredItem: {fileID: 11400000, guid: a6ba2db9d6c3d8c49b031f3181280269, type: 2}
   holdInteractFor: 1
   failedMessage: 0
@@ -13034,15 +13132,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713990292}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.761024, y: 3.22, z: -6.69}
+  m_LocalRotation: {x: -0, y: -0.69557345, z: -0, w: 0.718455}
+  m_LocalPosition: {x: 17.3, y: 3.22, z: -10.4}
   m_LocalScale: {x: 1, y: 6.2363024, z: 3.7091}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 497767743}
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -88.146, z: 0}
 --- !u!1 &715940101
 GameObject:
   m_ObjectHideFlags: 0
@@ -13474,12 +13572,12 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
+  OnActivate: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -13499,10 +13597,10 @@ MonoBehaviour:
     m_Flags: 0
   fixedModel: {fileID: 0}
   removeModel: 0
+  destroyMode: 0
   spawnOffset: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   UseParentRotation: 0
-  destroyMode: 0
   requiredItem: {fileID: 11400000, guid: 0a43855331daae04d91d0a10c90c8f4c, type: 2}
   holdInteractFor: 1
   failedMessage: 0
@@ -14006,12 +14104,12 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
+  OnActivate: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -14031,10 +14129,10 @@ MonoBehaviour:
     m_Flags: 0
   fixedModel: {fileID: 0}
   removeModel: 0
+  destroyMode: 0
   spawnOffset: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   UseParentRotation: 0
-  destroyMode: 0
   requiredItem: {fileID: 11400000, guid: f1fb61bd768a4da4e904b6350b850bdb, type: 2}
   holdInteractFor: 1
   failedMessage: 0
@@ -14254,12 +14352,12 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
+  OnActivate: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -14279,10 +14377,10 @@ MonoBehaviour:
     m_Flags: 0
   fixedModel: {fileID: 0}
   removeModel: 0
+  destroyMode: 0
   spawnOffset: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   UseParentRotation: 0
-  destroyMode: 0
   requiredItem: {fileID: 11400000, guid: 2e2141859d77b274e898d24e9a87dd88, type: 2}
   holdInteractFor: 1
   failedMessage: 0
@@ -16814,12 +16912,12 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
+  OnActivate: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -16839,10 +16937,10 @@ MonoBehaviour:
     m_Flags: 0
   fixedModel: {fileID: 0}
   removeModel: 0
+  destroyMode: 0
   spawnOffset: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   UseParentRotation: 0
-  destroyMode: 0
   requiredItem: {fileID: 11400000, guid: 41964fddf44c5544883ccf4c0aa7afde, type: 2}
   holdInteractFor: 1
   failedMessage: 0
@@ -21558,6 +21656,7 @@ Transform:
   - {fileID: 2011801384}
   - {fileID: 1596630479}
   - {fileID: 185583857}
+  - {fileID: 501053036}
   m_Father: {fileID: 634359211}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26404,12 +26503,12 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
+  OnActivate: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -27217,12 +27316,12 @@ MonoBehaviour:
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
+  OnActivate: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -34164,6 +34263,11 @@ PrefabInstance:
       propertyPath: spawnDistance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5016645517565970480, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.317
+      objectReference: {fileID: 0}
     - target: {fileID: 5016645517801662386, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
       propertyPath: m_RootOrder
@@ -34218,6 +34322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: slideForce
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5016645517801662391, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}

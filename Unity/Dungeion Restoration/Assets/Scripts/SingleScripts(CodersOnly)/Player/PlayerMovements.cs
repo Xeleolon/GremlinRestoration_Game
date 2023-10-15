@@ -139,16 +139,16 @@ public class CameraControls
     [Tooltip("How long before slope caluciation apply")]
 
     private Vector3 moveDirection;
+    private Vector2 moveInputs; //house the info collected from inputs
     private bool exitingSlope;
 
     private Rigidbody rb;
 
     private RaycastHit slopeHit;
     [Header ("Sliding")]
-    [SerializeField] private float maxSlideCount;
     [SerializeField] private float slideForce;
-    private float slideCount;
-    private bool sliding;
+    private bool sliding = false;
+    [SerializeField] private bool onSlideSurface;
 
     [Header ("Ground Check")]
     [SerializeField] private float playerHeight = 2;
@@ -217,10 +217,19 @@ public class CameraControls
         {
             rb.useGravity = !OnSlope();
             GroundCheck();
+            moveInputs = move.ReadValue<Vector2>(); //collector data from input before comparing as have a need to split the data into x and y
             MovementInputs();
 
             JumpFunction();
 
+            if (onSlideSurface && (moveInputs.x != 0 && moveInputs.y != 0))
+            {
+                StartSlide();
+            }
+            else
+            {
+                StopSlide();
+            }
 
             cameraControls.MoveCamera(transform);
         }
@@ -250,6 +259,12 @@ public class CameraControls
     {
         if (interactActive)
         {
+
+            if (sliding)
+            {
+                Debug.Log("SLiding");
+                SlidingMovement();
+            }
 
             if (OnSlope() && !exitingSlope)
             {
@@ -324,7 +339,6 @@ public class CameraControls
     #region Movement
     void MovementInputs()
     {
-        Vector2 moveInputs = move.ReadValue<Vector2>(); //collector data from input before comparing as have a need to split the data into x and y
         
         moveDirection = transform.forward * moveInputs.y + transform.right * moveInputs.x;
 
@@ -365,17 +379,26 @@ public class CameraControls
 
     private void StartSlide()
     {
-
+        sliding = true;
     }
 
     private void SlidingMovement()
     {
-
+        if (!OnSlope() || rb.velocity.y > -0.1f)
+        {
+            Vector4 inputDirection = transform.forward * moveInputs.y + transform.right * moveInputs.x;
+    
+            rb.AddForce(inputDirection.normalized * slideForce, ForceMode.Force);
+        }
+        else
+        {
+            rb.AddForce(GetSlopeMoveDirection() * slideForce, ForceMode.Force);
+        }
     }
 
     private void StopSlide()
     {
-        
+        sliding = false;
     }
 
     private void GroundCheck()
