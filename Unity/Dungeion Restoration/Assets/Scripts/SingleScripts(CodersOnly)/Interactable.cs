@@ -82,7 +82,7 @@ public class Interactable : MonoBehaviour
         radiusHalf.y = radius.y/2;
         radiusHalf.z = radius.z/2;
 
-        if (taskForDoor != null)
+        if (taskForDoor != null && !barDoor)
         {
             taskForDoor.AddTasks();
         }
