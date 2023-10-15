@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 0d795d6d823394142b7fc0331609fda1, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.23205243, g: 0.3954748, b: 0.5734583, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15204,6 +15204,7 @@ MonoBehaviour:
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 1376647568}
+  barDoor: 0
   particalSpawnOffset: {x: 0, y: 0.5, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
@@ -18077,6 +18078,7 @@ MonoBehaviour:
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 1376647568}
+  barDoor: 0
   particalSpawnOffset: {x: 0, y: 1, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
@@ -23977,6 +23979,7 @@ MonoBehaviour:
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
+  barDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
@@ -29667,6 +29670,7 @@ MonoBehaviour:
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
+  barDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
