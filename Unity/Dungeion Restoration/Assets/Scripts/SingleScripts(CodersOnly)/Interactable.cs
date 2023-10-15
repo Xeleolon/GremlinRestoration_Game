@@ -22,6 +22,7 @@ public class Interactable : MonoBehaviour
 
     [Tooltip("place a door or gate wich has the doorController script this task will become a requirement before opening")]
     [SerializeField] private DoorController taskForDoor;
+    [SerializeField] private bool barDoor = false;
 
 
 
@@ -175,8 +176,15 @@ public class Interactable : MonoBehaviour
             {
                 if (!finishTask)
                 {
-                    taskForDoor.CheckTaskOff();
-                    finishTask = true;
+                    if (!barDoor)
+                    {
+                        taskForDoor.CheckTaskOff();
+                        finishTask = true;
+                    }
+                    else
+                    {
+                        taskForDoor.AddTasks();
+                    }
                 }
             }
         }

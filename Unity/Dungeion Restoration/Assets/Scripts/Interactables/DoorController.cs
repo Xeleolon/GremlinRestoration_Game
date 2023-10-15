@@ -7,6 +7,7 @@ public class DoorController : Interactable
     [Header("Door Controller")]
     [SerializeField] private bool doorOpen;
     [SerializeField] private bool activateOnInteract = true;
+    [SerializeField] private GameObject bar;
 
     [SerializeField] private Item requireKey;
     private bool skeltonKey = false;
@@ -29,6 +30,7 @@ public class DoorController : Interactable
 
     public override void Start()
     {
+        DebugController.instance.onSkeltonKeyCallback += SkeltonUnlock;
         base.Start();
         if (requireKey != null)
         {
@@ -39,7 +41,10 @@ public class DoorController : Interactable
             locked = false;
         }
 
-        DebugController.instance.onSkeltonKeyCallback += SkeltonUnlock;
+        if (bar != null && taskCount <= 0 && bar.activeSelf)
+        {
+            bar.SetActive(false);
+        }
     }
     public override void Interact()
     {
@@ -70,11 +75,19 @@ public class DoorController : Interactable
     public void AddTasks()
     {
         taskCount += 1;
+        if (bar != null && !bar.activeSelf)
+        {
+            bar.SetActive(true);
+        }
     }
 
     public void CheckTaskOff()
     {
         taskCount -= 1;
+        if (bar != null && taskCount <= 0 && bar.activeSelf)
+        {
+            bar.SetActive(false);
+        }
     }
 
     private void OpenDoor()
