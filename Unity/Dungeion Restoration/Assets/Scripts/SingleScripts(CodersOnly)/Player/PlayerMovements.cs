@@ -145,10 +145,10 @@ public class CameraControls
     private Rigidbody rb;
 
     private RaycastHit slopeHit;
+    private float lastPlayerHeight;
     [Header ("Sliding")]
     [SerializeField] private float slideForce;
     private bool sliding = false;
-    [SerializeField] private bool onSlideSurface;
 
     [Header ("Ground Check")]
     [SerializeField] private float playerHeight = 2;
@@ -205,6 +205,7 @@ public class CameraControls
         levelManager = LevelManager.instance;
         interactiveScript = GetComponent<InteractControl>();
         cameraControls.SetSensitivity(gameManager.cameraSensitivity);
+        lastPlayerHeight = transform.position.y;
         ResetJump();
         //rotationFreaze = new GameObject("DontDestoryPlayerRotation");
         //rotationFreaze.AddComponent<Rigidbody>();
@@ -221,15 +222,6 @@ public class CameraControls
             MovementInputs();
 
             JumpFunction();
-
-            if (onSlideSurface && (moveInputs.x != 0 && moveInputs.y != 0))
-            {
-                StartSlide();
-            }
-            else
-            {
-                StopSlide();
-            }
 
             cameraControls.MoveCamera(transform);
         }
@@ -263,7 +255,12 @@ public class CameraControls
             if (sliding)
             {
                 Debug.Log("SLiding");
+                cameraAnimator.SetBool("Sliding", true);
                 SlidingMovement();
+            }
+            else
+            {
+                cameraAnimator.SetBool("Sliding", false);
             }
 
             if (OnSlope() && !exitingSlope)
@@ -272,10 +269,17 @@ public class CameraControls
 
                 if(rb.velocity.y > 0)
                 {
-                    rb.AddForce(Vector3.down * 60f, ForceMode.Force);
+                    if (transform.position.y < lastPlayerHeight) //slope movement going directly down
+                    {
+                        rb.AddForce(Vector3.down * 60f, ForceMode.Force);
+                    }
+                    else //slope movement up adding down force so player not just running and jumping off the stairs, might add it to a sprint 
+                    {
+                        rb.AddForce(Vector3.down * 20f, ForceMode.Force);
+                    }
                 }
             }
-            else if (grounded)
+            else if (climbing || grounded)
             {
                 rb.AddForce(moveDirection.normalized * speed * 10f, ForceMode.Force);
             }
@@ -284,6 +288,7 @@ public class CameraControls
                 rb.AddForce(moveDirection.normalized * speed * 10f * airMultiplier, ForceMode.Force);
             }
 
+            lastPlayerHeight = transform.position.y;
         }
     }
     # region PlayerLife
@@ -377,9 +382,9 @@ public class CameraControls
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
 
-    private void StartSlide()
+    public void Sliding(bool state)
     {
-        sliding = true;
+        sliding = state;
     }
 
     private void SlidingMovement()
@@ -394,11 +399,6 @@ public class CameraControls
         {
             rb.AddForce(GetSlopeMoveDirection() * slideForce, ForceMode.Force);
         }
-    }
-
-    private void StopSlide()
-    {
-        sliding = false;
     }
 
     private void GroundCheck()
