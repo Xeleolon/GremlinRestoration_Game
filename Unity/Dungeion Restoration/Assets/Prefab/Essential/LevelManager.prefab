@@ -1849,7 +1849,7 @@ RectTransform:
   m_GameObject: {fileID: 1252884407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1669903851}
@@ -1881,7 +1881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9607844, g: 0.5568628, b: 0.5568628, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3467,7 +3467,7 @@ RectTransform:
   m_GameObject: {fileID: 1876325014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 334331341}
@@ -3499,7 +3499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.93725497, b: 0.0627451, a: 1}
+  m_Color: {r: 0.7607844, g: 0.76470596, b: 0.50980395, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5231,7 +5231,7 @@ Transform:
   - {fileID: 6229233045903724259}
   - {fileID: 685945955}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6894620918582959058
 MonoBehaviour:
@@ -5245,7 +5245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8f927bb8d8b804f8b8929400618857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelData: {fileID: 11400000, guid: ad126c0b75047044590a0109c42d970c, type: 2}
+  levelData: {fileID: 11400000, guid: 78a7bf20867ff2548924c21b6dfd5055, type: 2}
   freeze: 0
   pauseRequest: 0
   menuCanvas:
@@ -5267,7 +5267,7 @@ MonoBehaviour:
     - {fileID: 1822953770975534234}
     - {fileID: 7691529719621382276}
   changeScene: 1
-  testOnColors: 4
+  testOnColors: 0
   onScale: {x: 0.8, y: 0.8, z: 0.8}
   offScale: {x: 0.7, y: 0.7, z: 0.7}
   repair:
@@ -5312,8 +5312,9 @@ MonoBehaviour:
   dialogues:
   - name: Dungeon Master
     sentences:
-    - "\"Welcome to the Dungeon, humble Gremlin. This is the Courtyard, where you\u2019ll
-      learn the uses of the Repair Tool.\""
+    - "Despite going up stairs, you\u2019ve found yourself deeper underground in
+      a cave. Here, you\u2019ll need to learn to Destroy things."
+    - Who said magical dungeon directions needed to make sense?
     time: 7
   - name: Door
     sentences:
@@ -5331,6 +5332,10 @@ MonoBehaviour:
     sentences:
     - You need Some Duct Tape, go to check the Service room
     time: 3
+  - name: Door
+    sentences:
+    - Door Deadlocked Unable to open
+    time: 3
 --- !u!114 &6771066656934419448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5344,11 +5349,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  itemNumber: 14000000000000000000000000000000
+  - {fileID: 0}
+  itemNumber: 00000000000000000000000000000000
   key: {fileID: 11400000, guid: 0a43855331daae04d91d0a10c90c8f4c, type: 2}
   bomb: {fileID: 11400000, guid: 14c45c347beac7448b1bdafb7f936abc, type: 2}
   numBombs: 0
