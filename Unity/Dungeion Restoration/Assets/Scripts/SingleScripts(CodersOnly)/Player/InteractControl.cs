@@ -127,7 +127,10 @@ public class InteractControl : MonoBehaviour
             ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
                 
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
+
+            int layerMask = 1 << 10;
+            layerMask = ~layerMask;
+            if (Physics.Raycast(ray, out hit, 100, layerMask))
             {
                 if (state != 3)
                 {

@@ -24449,6 +24449,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 816510709}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1269831548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9105886586577163823, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+    type: 3}
+  m_PrefabInstance: {fileID: 2109652101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1271349366
 GameObject:
   m_ObjectHideFlags: 0
@@ -38862,6 +38868,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 5052531661206332906, guid: aa7f2f73b432cb446b60e560f9f44c9e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 89.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5280102604301569965, guid: aa7f2f73b432cb446b60e560f9f44c9e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -43224,6 +43235,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4384508890851092688, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
+        type: 3}
+      propertyPath: wands.Array.data[2].wand
+      value: 
+      objectReference: {fileID: 1269831548}
     - target: {fileID: 5016645517565970495, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
       propertyPath: m_ClearFlags
