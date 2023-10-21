@@ -664,8 +664,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 80.15289, y: 89.99999, z: 82.21159}
-  m_Center: {x: -2, y: 44.999996, z: -2}
+  m_Size: {x: 80.15289, y: 120, z: 82.21159}
+  m_Center: {x: -2, y: 60.3, z: -2}
 --- !u!114 &8971196047827960985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,21 +680,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  OnActivate: 0
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
+  barDoor: 0
   particalSpawnOffset: {x: 0, y: 0.4, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 7239539915095594440, guid: 0799612b3a79b9f4d9315545d694e89a,
     type: 3}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -711,10 +710,13 @@ MonoBehaviour:
   fixedModel: {fileID: 5123796200459992474, guid: e74d3230891685b49a1906dcaaa04c43,
     type: 3}
   removeModel: 1
+  destroyMode: 1
   spawnOffset: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   UseParentRotation: 1
-  destroyMode: 1
   requiredItem: {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
   holdInteractFor: 1
   failedMessage: 0
+  tokenOffset: {x: 0, y: 0, z: 0}
+  debugTokenPositions: 0
+  tokenDesination: {x: 0, y: 0, z: 0}

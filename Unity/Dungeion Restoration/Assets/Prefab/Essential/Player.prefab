@@ -359,10 +359,10 @@ MonoBehaviour:
     wand: {fileID: 0}
     animation: 
   - name: Repair
-    wand: {fileID: 7254263783810951423}
+    wand: {fileID: 6893319798129865578}
     animation: 
   - name: Destroy
-    wand: {fileID: 6893319798129865578}
+    wand: {fileID: 9105886586577163823}
     animation: 
   - name: 
     wand: {fileID: 0}
@@ -462,10 +462,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6000922477458348257, guid: 0f55a7b274851ad4c823b9025af9cde7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -5047424473913772858, guid: 0f55a7b274851ad4c823b9025af9cde7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -1326861144187829008, guid: 0f55a7b274851ad4c823b9025af9cde7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -259972160606440404, guid: 0f55a7b274851ad4c823b9025af9cde7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 635547659545568360, guid: 0f55a7b274851ad4c823b9025af9cde7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0f55a7b274851ad4c823b9025af9cde7,
         type: 3}
       propertyPath: m_Name
       value: GremlinReview
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0f55a7b274851ad4c823b9025af9cde7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -680,12 +710,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ae2515e589b603c43a03379dab1160fa, type: 3}
---- !u!1 &7254263783810951423 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3298008021398160724, guid: ae2515e589b603c43a03379dab1160fa,
-    type: 3}
-  m_PrefabInstance: {fileID: 5289674198595923371}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8063557516144423493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2778492817119633390, guid: ae2515e589b603c43a03379dab1160fa,
@@ -781,6 +805,12 @@ PrefabInstance:
 --- !u!4 &8436732173982977173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1275374620212659517, guid: 895cc807982c99d43901cfef21abcc68,
+    type: 3}
+  m_PrefabInstance: {fileID: 7252556009670855080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9105886586577163823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1943543865355231111, guid: 895cc807982c99d43901cfef21abcc68,
     type: 3}
   m_PrefabInstance: {fileID: 7252556009670855080}
   m_PrefabAsset: {fileID: 0}

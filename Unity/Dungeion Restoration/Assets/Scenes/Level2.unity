@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17272,6 +17272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BrickSmall_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025812904100811266, guid: c276486480ce3d943ba51a65d797734c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -43251,6 +43256,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chair
       objectReference: {fileID: 0}
+    - target: {fileID: 7933917481714820201, guid: 1e45335ba7329cc4ab55e81fdbc8f94f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e45335ba7329cc4ab55e81fdbc8f94f, type: 3}
@@ -49864,6 +49874,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2016185316}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2019304459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6025812904100811266, guid: c276486480ce3d943ba51a65d797734c,
+    type: 3}
+  m_PrefabInstance: {fileID: 615609295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2019304460
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019304459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.34, y: 0.22, z: 0.2440237}
+  m_Center: {x: 0.0000009536743, y: 0.11, z: 0.047011368}
 --- !u!4 &2022454682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6502137031738640996, guid: 0642cbb1d35141d4981df17cef09de4e,
