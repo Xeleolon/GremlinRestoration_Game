@@ -300,20 +300,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 5, y: 5, z: 5}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  OnActivate: 0
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
+  barDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -358,7 +357,7 @@ GameObject:
   - component: {fileID: 5098129971665543486}
   - component: {fileID: 6999936854287275508}
   - component: {fileID: 3384060715739744290}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MonsterShippingCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
