@@ -144,7 +144,26 @@ public class LevelManager : MonoBehaviour
 
         inventory = Inventory.instance;
         inventory.StartInventory();
+
         //Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void SecondStart()
+    {
+        GameManager gameManager = GameManager.instance;
+        int levelDataTicket = gameManager.FindLevelData(SceneManager.GetActiveScene().name);
+        if (levelDataTicket < 0)
+        {
+            Debug.LogWarning("no Level Data With matching name to scene");
+        }
+        else
+        {
+            levelData = gameManager.levelData[levelDataTicket];
+        }
+
+
+        inventory = Inventory.instance;
+        inventory.StartInventory();
     }
 
     void Update()

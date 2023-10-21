@@ -33585,9 +33585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffd335c5b8a3834590cecc187015685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 2
+  mode: 3
   active: 0
-  activatable: {fileID: 0}
+  activatable: {fileID: 2141528434}
   asignItself: 0
 --- !u!1 &928948922 stripped
 GameObject:
@@ -71094,8 +71094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e72b056cc96ae349967f8d100d128bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activated: 0
-  waterHeight: {x: -2, y: 0}
+  activated: 1
+  waterHeight: {x: 2, y: 0}
   fillSpeed: 0.5
   fill: 1
 --- !u!4 &2144526256 stripped

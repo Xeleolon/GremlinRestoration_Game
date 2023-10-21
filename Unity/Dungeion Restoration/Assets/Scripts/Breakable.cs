@@ -25,9 +25,10 @@ public class Breakable : MonoBehaviour
         if (!disableBreak)
         {
             Debug.Log(activatable);
-            if (activatable != null)
+            if (activatable != null && activatable.GetComponent<Activatable>() != null)
             {
-                activatable.GetComponent<Activatable>().OnActivate(true);
+                activatable.GetComponent<Activatable>().OnActivate(!active);
+                Debug.Log("activating " + activatable);
             }
             
     

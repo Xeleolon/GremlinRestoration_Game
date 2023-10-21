@@ -77,7 +77,7 @@ MonoBehaviour:
   activate:
     enter: 1
     onEnter: 1
-    stay: 0
+    stay: 1
     onStay: 1
     exit: 0
     onExit: 1

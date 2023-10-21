@@ -28980,7 +28980,7 @@ PrefabInstance:
     - target: {fileID: 1911804892288282738, guid: 8eab0e3ecea50ce46ab63ef776ce9b05,
         type: 3}
       propertyPath: m_Name
-      value: LevelLoader
+      value: GameManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
