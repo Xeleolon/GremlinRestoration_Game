@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Floor
   - MovingPlate
+  - LevelManager
+  - Interactable
   layers:
   - Default
   - TransparentFX

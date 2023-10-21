@@ -20409,6 +20409,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chair
       objectReference: {fileID: 0}
+    - target: {fileID: 7933917481714820201, guid: 1e45335ba7329cc4ab55e81fdbc8f94f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e45335ba7329cc4ab55e81fdbc8f94f, type: 3}
@@ -24752,34 +24757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357042c07beecb843830a4980e4da6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {x: 3, y: 3, z: 3}
-  offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 1501680918}
-  interactionType: 0
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  debugParticalPosition: 0
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  correctObject: {fileID: 0}
-  fire:
-    m_Name: Fire
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 3b0c4290-3410-4487-939a-81e401031093
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   checkTag: Player
   trigger: 1
   activate:
@@ -24789,6 +24766,8 @@ MonoBehaviour:
     onStay: 1
     exit: 0
     onExit: 1
+  activatable: {fileID: 0}
+  asignItself: 0
 --- !u!114 &1501680922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34829,6 +34808,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8801222292930229281, guid: 238ecfaef6d34f64f862890c0c578b91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8801222292930229281, guid: 238ecfaef6d34f64f862890c0c578b91,
         type: 3}
