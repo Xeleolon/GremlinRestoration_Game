@@ -40916,6 +40916,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AIProptypeSkelly
       objectReference: {fileID: 0}
+    - target: {fileID: 4703790089115317548, guid: 08f592b227c936e4da4a2ee9355b60dd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: 4703790089115317551, guid: 08f592b227c936e4da4a2ee9355b60dd,
         type: 3}
       propertyPath: freaze
