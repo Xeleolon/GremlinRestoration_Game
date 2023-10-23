@@ -227,6 +227,9 @@ public class LevelManager : MonoBehaviour
             repair.icon.transform.localScale = offScale;
             destory.icon.GetComponent<RawImage>().color = destory.offColor;
             destory.icon.transform.localScale = offScale;
+
+            bomb.icon.GetComponent<RawImage>().color = bomb.offColor;
+            bomb.icon.transform.localScale = offScale;
             break;
             case 1:
             repair.icon.GetComponent<RawImage>().color = repair.onColor;
@@ -234,6 +237,9 @@ public class LevelManager : MonoBehaviour
             //turn off color not on
             destory.icon.GetComponent<RawImage>().color = destory.offColor;
             destory.icon.transform.localScale = offScale;
+
+            bomb.icon.GetComponent<RawImage>().color = bomb.offColor;
+            bomb.icon.transform.localScale = offScale;
             break;
             case 2:
             destory.icon.GetComponent<RawImage>().color = destory.onColor;
@@ -241,14 +247,45 @@ public class LevelManager : MonoBehaviour
             //turn off color not on
             repair.icon.GetComponent<RawImage>().color = repair.offColor;
             repair.icon.transform.localScale = offScale;
+
+            bomb.icon.GetComponent<RawImage>().color = bomb.offColor;
+            bomb.icon.transform.localScale = offScale;
             break;
             case 3:
+            destory.icon.GetComponent<RawImage>().color = destory.offColor;
+            destory.icon.transform.localScale = offScale;
+            //turn off color not on
+            repair.icon.GetComponent<RawImage>().color = repair.offColor;
+            repair.icon.transform.localScale = offScale;
+            bomb.icon.GetComponent<RawImage>().color = bomb.onColor;
+            bomb.icon.transform.localScale = onScale; 
+
+
+            break;
+            case 4:
             repair.icon.GetComponent<RawImage>().color = repair.onColor;
             repair.icon.transform.localScale = onScale;
             destory.icon.GetComponent<RawImage>().color = destory.onColor;
-            destory.icon.transform.localScale = onScale;   
+            destory.icon.transform.localScale = onScale;
+            bomb.icon.GetComponent<RawImage>().color = bomb.onColor;
+            bomb.icon.transform.localScale = onScale;     
             break;
         }
+    }
+
+    public void UpdateItemNumber(int bombNum)
+    {
+        Slider bombSlider = bomb.icon.GetComponent<Slider>();
+        if (bombNum < 0)
+        {
+            bombNum = 0;
+        }
+        
+        if (bombNum > 10)
+        {
+            bombNum = 10;
+        }
+        bombSlider.value = -bombNum;
     }
     #endregion
     #region Menu Systems
@@ -337,6 +374,7 @@ public class LevelManager : MonoBehaviour
             pauseRequest -= 1;
         }
     }
+
     #endregion
     #region ReplenishUI
     public void CloseReplenishUi()

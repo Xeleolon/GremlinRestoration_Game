@@ -229,20 +229,22 @@ public class Inventory : MonoBehaviour
             addingKey = !addingKey;
         }
 
-        //update bomb num in UI here!
-        //update if player is current holding the bomb model
-        if (numBombs > 0)
-        {
-            interactScript.HoldingBomb(true);
-        }
-        else
-        {
-            interactScript.HoldingBomb(false);
-        }
-
+        
 
         if (addingBomb)
         {
+            //update bomb num in UI here!
+            //update if player is current holding the bomb model
+            if (numBombs > 0)
+            {
+                interactScript.HoldingBomb(true);
+            }
+            else
+            {
+                interactScript.HoldingBomb(false);
+            }
+            
+            LevelManager.instance.UpdateItemNumber(numBombs);
             addingBomb = !addingBomb;
         }
         int usedItem = 0;
