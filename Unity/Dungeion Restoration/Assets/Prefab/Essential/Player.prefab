@@ -351,9 +351,8 @@ MonoBehaviour:
   nonInteractable: {fileID: 2223664831287688070, guid: 0bed8309b8fe0884ebde115ec13a5e6e,
     type: 3}
   bombItem: {fileID: 11400000, guid: 14c45c347beac7448b1bdafb7f936abc, type: 2}
-  spawnDistance: 0
-  hideDestory: 0
-  toolMax: 2
+  spawnDistance: 2
+  toolMax: 3
   wands:
   - name: 
     wand: {fileID: 0}

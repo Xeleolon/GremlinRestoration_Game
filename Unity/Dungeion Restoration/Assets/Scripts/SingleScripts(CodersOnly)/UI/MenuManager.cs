@@ -6,7 +6,7 @@ using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
-    public string[] level;
+    [SerializeField] private int numLevels = 5;
     public string testScene;
     private int currentScene = 0;
     public bool testSceneLock = true;
@@ -17,20 +17,25 @@ public class MenuManager : MonoBehaviour
     GameManager gameManager;
     void Start()
     {
-        if (level.Length == 0)
+        gameManager = GameManager.instance;
+        if (numLevels == 0)
         {
             levelText.SetText("No Scenes");
         }
-        else if (currentScene > level.Length)
+        else if (currentScene > numLevels + 1)
         {
-            currentScene = level.Length - 1;
-            levelText.SetText(level[currentScene]);
+            currentScene = numLevels;
+        }
+
+        LevelData currentLevel = gameManager.levelData[currentScene];
+        if (currentLevel.levelName != "")
+        {
+            levelText.SetText(currentLevel.levelName);
         }
         else
         {
-            levelText.SetText(level[currentScene]);
+            levelText.SetText(currentLevel.name);
         }
-        gameManager = GameManager.instance;
         settingSlider.value = gameManager.cameraSensitivity;
     }
     
@@ -42,10 +47,10 @@ public class MenuManager : MonoBehaviour
             Debug.Log("Loading Test Scene");
             LevelLoader.instance.LoadLevel(testScene);
         }
-        else if (level[currentScene] != "")
+        else if (gameManager.levelData[currentScene].name != "")
         {
-        Debug.Log("Scene " + level[currentScene]);
-        LevelLoader.instance.LoadLevel(level[currentScene]);
+        Debug.Log("Scene " + gameManager.levelData[currentScene].name);
+        LevelLoader.instance.LoadLevel(gameManager.levelData[currentScene].name);
         }
         else
         {
@@ -55,28 +60,62 @@ public class MenuManager : MonoBehaviour
     public void ChangeScene(int num)
     {
         num += currentScene;
-        if (level.Length != 0 && num > level.Length)
+        if (num > numLevels)
         {
-            currentScene = level.Length - 1;
-            levelText.SetText(level[currentScene]);
-        }
-        else if (num < 0)
-        {
-            if (testSceneLock)
+            currentScene = numLevels;
+            LevelData currentLevel = gameManager.levelData[currentScene];
+            if (currentLevel.levelName != "")
             {
-                currentScene = 0;
-                levelText.SetText(level[currentScene]);
+            levelText.SetText(currentLevel.levelName);
             }
             else
             {
-                currentScene = -1;
-                levelText.SetText(testScene);
+                levelText.SetText(currentLevel.name);
+            }
+            settingSlider.value = gameManager.cameraSensitivity;
+        }
+        else if (num < 1)
+        {
+            if (testSceneLock)
+            {
+                currentScene = 1;
+                LevelData currentLevel = gameManager.levelData[currentScene];
+            if (currentLevel.levelName != "")
+            {
+            levelText.SetText(currentLevel.levelName);
+            }
+            else
+            {
+                levelText.SetText(currentLevel.name);
+            }
+            }
+            else
+            {
+                currentScene = 0;
+                LevelData currentLevel = gameManager.levelData[currentScene];
+            if (currentLevel.levelName != "")
+            {
+            levelText.SetText(currentLevel.levelName);
+            }
+            else
+            {
+                levelText.SetText(currentLevel.name);
+            }
             }
         }
-        else if (level.Length != 0 && num < level.Length)
+        else if ( num < numLevels + 1)
         {
             currentScene = num;
-            levelText.SetText(level[currentScene]);
+            LevelData currentLevel = gameManager.levelData[currentScene];
+            if (currentLevel.levelName != "")
+            {
+            levelText.SetText(currentLevel.levelName);
+            }
+            else
+            {
+                levelText.SetText(currentLevel.name);
+            }
+            settingSlider.value = gameManager.cameraSensitivity;
         }
     }
     public void CheatCodes()
