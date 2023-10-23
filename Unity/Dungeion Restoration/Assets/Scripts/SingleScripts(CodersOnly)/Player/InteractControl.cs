@@ -132,7 +132,15 @@ public class InteractControl : MonoBehaviour
             layerMask = ~layerMask;
             if (Physics.Raycast(ray, out hit, 100, layerMask))
             {
-                if (state != 3)
+                float distance = Vector3.Distance(hit.collider.transform.position, transform.position);
+                if (state == 3 && bombModel != null && Inventory.instance.CheckAvalability(bombItem) && (distance > spawnDistance + 0.2))
+                {
+                    Debug.Log("Spawn Bomb");
+                    Vector3 spawnPoint = transform.TransformDirection((Vector3.forward * spawnDistance) + transform.position);
+                    Instantiate(bombModel, transform.position + transform.forward*spawnDistance, Quaternion.identity);
+                    Inventory.instance.Remove(bombItem);
+                }
+                else
                 {
                     Debug.Log("hit " + hit.collider.gameObject.name);
                     Interactable interactable = hit.collider.GetComponent<Interactable>();
@@ -176,23 +184,14 @@ public class InteractControl : MonoBehaviour
                         //and asign object to noninteractable as child
                     }
                 }
-                else if (bombModel != null && Inventory.instance.CheckAvalability(bombItem))
-                {
-                    float distance = Vector3.Distance(hit.collider.transform.position, transform.position);
-                    Debug.Log("Spawn Bomb");
-                    Vector3 spawnPoint = transform.TransformDirection((Vector3.forward * spawnDistance) + transform.position);
-                    Instantiate(bombModel, transform.position + transform.forward*spawnDistance, Quaternion.identity);
-                    Inventory.instance.Remove(bombItem);
-                    /*if (spawnDistance <= distance)
-                    {
-                        //spawn bomb above this contact or forward of this position
-                        
-                    }
-                    else
-                    {
-                        Instantiate(bombModel, transform.forward * spawnDistance, Quaternion.identity);
-                    }*/
-                }
+            }
+            else if (state == 3 && bombModel != null && Inventory.instance.CheckAvalability(bombItem))
+            {
+                float distance = Vector3.Distance(hit.collider.transform.position, transform.position);
+                Debug.Log("Spawn Bomb");
+                Vector3 spawnPoint = transform.TransformDirection((Vector3.forward * spawnDistance) + transform.position);
+                Instantiate(bombModel, transform.position + transform.forward*spawnDistance, Quaternion.identity);
+                Inventory.instance.Remove(bombItem);
             }
         }
     }
