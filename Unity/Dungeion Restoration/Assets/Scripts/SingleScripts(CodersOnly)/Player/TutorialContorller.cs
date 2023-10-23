@@ -34,7 +34,6 @@ public class TutorialContorller : MonoBehaviour
         
         InteractControl interactScript = player.GetComponent<InteractControl>();
         interactScript.toolMax = numbertoolOn;
-        interactScript.hideDestory = hideDestory;
 
         if (hideIcon != null && hideIcon.activeSelf)
         {
@@ -54,7 +53,6 @@ public class TutorialContorller : MonoBehaviour
         
             InteractControl interactScript = player.GetComponent<InteractControl>();
             interactScript.toolMax = numbertoolOn;
-            interactScript.hideDestory = hideDestory;
 
             if (hideIcon != null && hideIcon.activeSelf)
             {

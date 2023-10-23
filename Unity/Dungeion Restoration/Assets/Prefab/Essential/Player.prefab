@@ -346,7 +346,7 @@ MonoBehaviour:
   fireRay: 1
   scrollWheelSpeed: 0.02
   centerSprite: {fileID: 0}
-  bombModel: {fileID: 5489709788621267450, guid: 9fad2419511f127418c30bd9d69f8945,
+  bombModel: {fileID: 5566469067559362468, guid: 9fad2419511f127418c30bd9d69f8945,
     type: 3}
   nonInteractable: {fileID: 2223664831287688070, guid: 0bed8309b8fe0884ebde115ec13a5e6e,
     type: 3}

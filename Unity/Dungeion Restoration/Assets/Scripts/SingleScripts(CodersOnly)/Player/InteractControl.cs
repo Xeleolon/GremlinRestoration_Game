@@ -13,8 +13,8 @@ public class InteractControl : MonoBehaviour
         public string animation;
     }
     [Tooltip("1 for repair, 2 for destory")]
-    [Range(0, 2)]
-    public int state = 1;
+    [Range(0, 3)]
+    public int state = 0;
     float tempState;
     //[Tooltip("Bool For game to know to input methods for controller or keyboard")]
     //[SerializeField] private bool controlerActive = false;
@@ -30,8 +30,8 @@ public class InteractControl : MonoBehaviour
     [SerializeField] private GameObject nonInteractable;
     [SerializeField] Item bombItem;
     [SerializeField] private float spawnDistance;
-    [HideInInspector] public bool hideDestory;
-    public int toolMax = 2;
+    private bool hideBomb;
+    public int toolMax = 3;
     public WandData[] wands = new WandData[4];
     [HideInInspector] public bool interactActive = true;
     private InputAction fire;
@@ -220,7 +220,7 @@ public class InteractControl : MonoBehaviour
 
     public void InteractTwo(InputAction.CallbackContext context)
     {
-        if (!hideDestory)
+        if (toolMax > 1)
         {
             state = 2;
             NewState();
@@ -229,8 +229,11 @@ public class InteractControl : MonoBehaviour
 
     public void InteractThree(InputAction.CallbackContext context)
     {
+        if (toolMax > 2)
+        {
         state = 3;
         NewState();
+        }
     }
     public void ScrollWheel()
     {
@@ -346,6 +349,7 @@ public class InteractControl : MonoBehaviour
             }
             break;
 
+
             case 3:
             LevelManager.instance.ChangeInteractUI(state);
 
@@ -364,6 +368,31 @@ public class InteractControl : MonoBehaviour
                 wands[2].wand.SetActive(false);
             }
             
+            if (!hideBomb && wands[3].wand != null && !wands[3].wand.activeSelf)
+            {
+                wands[3].wand.SetActive(true);
+            }
+
+            break;
+
+            case 4:
+            LevelManager.instance.ChangeInteractUI(state);
+
+            if (wands[0].wand != null && !wands[0].wand.activeSelf)
+            {
+                wands[0].wand.SetActive(true);
+            }
+
+            if (wands[1].wand != null && !wands[1].wand.activeSelf)
+            {
+                wands[1].wand.SetActive(true);
+            }
+
+            if (wands[2].wand != null && !wands[2].wand.activeSelf)
+            {
+                wands[2].wand.SetActive(true);
+            }
+            
             if (wands[3].wand != null && !wands[3].wand.activeSelf)
             {
                 wands[3].wand.SetActive(true);
@@ -374,6 +403,22 @@ public class InteractControl : MonoBehaviour
             Debug.LogWarning("interaction state = " + state);
             break;
             
+        }
+    }
+
+    public void HoldingBomb(bool var)
+    {
+        hideBomb = !var;
+        if (state == 3)
+        {
+            if (var && wands[3].wand != null && !wands[3].wand.activeSelf)
+            {
+                wands[3].wand.SetActive(true);
+            }
+            else if (!var && wands[3].wand != null && wands[3].wand.activeSelf)
+            {
+                wands[3].wand.SetActive(false);
+            }
         }
     }
 }

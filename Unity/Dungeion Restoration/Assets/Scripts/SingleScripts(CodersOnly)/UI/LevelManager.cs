@@ -69,6 +69,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] MenuCanvas menuCanvas;
     private ReplenishInteract lastCustomer;
     PlayerMovements playerScript;
+    GameObject player;
     
 
     [Header("Player Ui System")]
@@ -80,7 +81,7 @@ public class LevelManager : MonoBehaviour
     public Vector3 offScale = new Vector3(0.6f, 0.6f, 0.6f);
     public InteractionsIcons repair;
     public InteractionsIcons destory;
-    public InteractionsIcons restock;
+    public InteractionsIcons bomb;
 
     public SharedPrefabs sharedPrefabs;
 
@@ -113,6 +114,7 @@ public class LevelManager : MonoBehaviour
     #endregion
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         //ChangeInteractUI(0);
         Cursor.lockState = CursorLockMode.Locked;
         if (menuCanvas.menuCanvas.activeSelf)
@@ -127,7 +129,6 @@ public class LevelManager : MonoBehaviour
         {
             menuCanvas.deathCanvas.SetActive(false);
         }
-        GameObject player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<PlayerMovements>();
 
         GameManager gameManager = GameManager.instance;
@@ -150,6 +151,8 @@ public class LevelManager : MonoBehaviour
 
     public void SecondStart()
     {
+        player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<PlayerMovements>();
         GameManager gameManager = GameManager.instance;
         int levelDataTicket = gameManager.FindLevelData(SceneManager.GetActiveScene().name);
         if (levelDataTicket < 0)
@@ -170,7 +173,6 @@ public class LevelManager : MonoBehaviour
     {
         if (playerScript == null)
         {
-            GameObject player = GameObject.FindWithTag("Player");
             playerScript = player.GetComponent<PlayerMovements>();
         }
         if (freeze && !curFreeze)

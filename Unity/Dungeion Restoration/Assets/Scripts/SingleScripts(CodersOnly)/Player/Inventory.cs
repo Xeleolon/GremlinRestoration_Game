@@ -39,6 +39,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] InventorySlot keySlot;
     InventorySlot[] slots;
 
+    InteractControl interactScript;
+
     public void StartInventory()
     {
         LevelData levelData = gameObject.GetComponent<LevelManager>().levelData;
@@ -50,6 +52,9 @@ public class Inventory : MonoBehaviour
         }
         onItemChangedCallback += UpdateUI;
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+
+        GameObject player = GameObject.FindWithTag("Player");
+        interactScript = player.GetComponent<InteractControl>();
 
         ItemChanged();
     }
@@ -225,6 +230,17 @@ public class Inventory : MonoBehaviour
         }
 
         //update bomb num in UI here!
+        //update if player is current holding the bomb model
+        if (numBombs > 0)
+        {
+            interactScript.HoldingBomb(true);
+        }
+        else
+        {
+            interactScript.HoldingBomb(false);
+        }
+
+
         if (addingBomb)
         {
             addingBomb = !addingBomb;
