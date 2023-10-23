@@ -16,3 +16,11 @@ MonoBehaviour:
   levelName: CaveIn
   nextLevel: Level3
   MenuName: MainMenu
+  numTools: 1
+  numKeys: 0
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemNumber: 00000000000000000000000000000000

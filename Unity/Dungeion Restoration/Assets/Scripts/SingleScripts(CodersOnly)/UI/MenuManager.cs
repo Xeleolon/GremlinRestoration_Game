@@ -7,6 +7,7 @@ using TMPro;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private int numLevels = 5;
+    [SerializeField] private int activeLevels;
     public string testScene;
     private int currentScene = 0;
     public bool testSceneLock = true;
@@ -14,10 +15,21 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider settingSlider;
     public TMP_Text levelText;
     public TMP_InputField codeInput;
+    [SerializeField] private GameObject increaseLevelButton1;
+    [SerializeField] private GameObject increaseLevelButton2;
+    [SerializeField] private GameObject decreaseLevelButton1;
+    [SerializeField] private GameObject decreaseLevelButton2;
+
     GameManager gameManager;
     void Start()
     {
         gameManager = GameManager.instance;
+        activeLevels = gameManager.AccessUnlockedLevels(false);
+        if (activeLevels > numLevels)
+        {
+            activeLevels = numLevels;
+            Debug.Log("Number of levels locked in menu manager at " + numLevels);
+        }
         if (numLevels == 0)
         {
             levelText.SetText("No Scenes");
@@ -27,7 +39,7 @@ public class MenuManager : MonoBehaviour
             currentScene = numLevels;
         }
 
-        LevelData currentLevel = gameManager.levelData[currentScene];
+        LevelData currentLevel = gameManager.levelData[activeLevels];
         if (currentLevel.levelName != "")
         {
             levelText.SetText(currentLevel.levelName);
@@ -37,6 +49,36 @@ public class MenuManager : MonoBehaviour
             levelText.SetText(currentLevel.name);
         }
         settingSlider.value = gameManager.cameraSensitivity;
+        ChangeScene(currentScene);
+    }
+
+    void FixedUpdate()
+    {
+        if (!testSceneLock && currentScene == 1)
+        {
+            if (decreaseLevelButton1 != null && !decreaseLevelButton1.activeSelf)
+            {
+                decreaseLevelButton1.SetActive(true);
+            }
+
+            if (decreaseLevelButton2 != null && !decreaseLevelButton2.activeSelf)
+            {
+                decreaseLevelButton2.SetActive(true);
+            }
+        }
+
+        if (currentScene < activeLevels)
+        {
+            if (increaseLevelButton1 != null && !increaseLevelButton1.activeSelf)
+            {
+                increaseLevelButton1.SetActive(true);
+            }
+    
+            if (increaseLevelButton2 != null && !increaseLevelButton2.activeSelf)
+            {
+                increaseLevelButton2.SetActive(true);
+            }
+        }
     }
     
     
@@ -60,19 +102,20 @@ public class MenuManager : MonoBehaviour
     public void ChangeScene(int num)
     {
         num += currentScene;
-        if (num > numLevels)
+        if (num > activeLevels)
         {
-            currentScene = numLevels;
-            LevelData currentLevel = gameManager.levelData[currentScene];
-            if (currentLevel.levelName != "")
+            Debug.Log("Level locked");
+            //Do something to show levels locked
+            if (increaseLevelButton1 != null && increaseLevelButton1.activeSelf)
             {
-            levelText.SetText(currentLevel.levelName);
+                increaseLevelButton1.SetActive(false);
             }
-            else
+    
+            if (increaseLevelButton2 != null && increaseLevelButton2.activeSelf)
             {
-                levelText.SetText(currentLevel.name);
+                increaseLevelButton2.SetActive(false);
             }
-            settingSlider.value = gameManager.cameraSensitivity;
+            
         }
         else if (num < 1)
         {
@@ -93,14 +136,49 @@ public class MenuManager : MonoBehaviour
             {
                 currentScene = 0;
                 LevelData currentLevel = gameManager.levelData[currentScene];
-            if (currentLevel.levelName != "")
+                if (currentLevel.levelName != "")
+                {
+                levelText.SetText(currentLevel.levelName);
+                }
+                else
+                {
+                    levelText.SetText(currentLevel.name);
+                }
+            }
+
+            if (decreaseLevelButton1 != null && decreaseLevelButton1.activeSelf)
             {
-            levelText.SetText(currentLevel.levelName);
+                decreaseLevelButton1.SetActive(false);
+            }
+
+            if (decreaseLevelButton2 != null && decreaseLevelButton2.activeSelf)
+            {
+                decreaseLevelButton2.SetActive(false);
+            }
+
+            if (currentScene < activeLevels) 
+            {
+                if (increaseLevelButton1 != null && !increaseLevelButton1.activeSelf)
+                {
+                    increaseLevelButton1.SetActive(true);
+                }
+    
+                if (increaseLevelButton2 != null && !increaseLevelButton2.activeSelf)
+                {
+                    increaseLevelButton2.SetActive(true);
+                }
             }
             else
             {
-                levelText.SetText(currentLevel.name);
-            }
+                if (increaseLevelButton1 != null && increaseLevelButton1.activeSelf)
+                {
+                    increaseLevelButton1.SetActive(false);
+                }
+    
+                if (increaseLevelButton2 != null && increaseLevelButton2.activeSelf)
+                {
+                    increaseLevelButton2.SetActive(false);
+                }
             }
         }
         else if ( num < numLevels + 1)
@@ -115,7 +193,41 @@ public class MenuManager : MonoBehaviour
             {
                 levelText.SetText(currentLevel.name);
             }
-            settingSlider.value = gameManager.cameraSensitivity;
+
+            if (currentScene < activeLevels) 
+            {
+                if (increaseLevelButton1 != null && !increaseLevelButton1.activeSelf)
+                {
+                    increaseLevelButton1.SetActive(true);
+                }
+    
+                if (increaseLevelButton2 != null && !increaseLevelButton2.activeSelf)
+                {
+                    increaseLevelButton2.SetActive(true);
+                }
+            }
+            else
+            {
+                if (increaseLevelButton1 != null && increaseLevelButton1.activeSelf)
+                {
+                    increaseLevelButton1.SetActive(false);
+                }
+    
+                if (increaseLevelButton2 != null && increaseLevelButton2.activeSelf)
+                {
+                    increaseLevelButton2.SetActive(false);
+                }
+            }
+
+            if (decreaseLevelButton1 != null && !decreaseLevelButton1.activeSelf)
+            {
+                decreaseLevelButton1.SetActive(true);
+            }
+
+            if (decreaseLevelButton2 != null && !decreaseLevelButton2.activeSelf)
+            {
+                decreaseLevelButton2.SetActive(true);
+            }
         }
     }
     public void CheatCodes()

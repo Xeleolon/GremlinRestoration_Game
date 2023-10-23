@@ -11,6 +11,8 @@ public class LevelData : ScriptableObject
 
     public string nextLevel;
     public string MenuName = "MainMenu";
+    [Tooltip("number of tools available at start")]
+    public int numTools = 3;
 
     public int numKeys = 0;
     public Item[] items = new Item[4];
