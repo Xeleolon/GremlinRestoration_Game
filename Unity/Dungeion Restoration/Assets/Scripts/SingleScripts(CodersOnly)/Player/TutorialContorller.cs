@@ -11,6 +11,7 @@ public class TutorialContorller : MonoBehaviour
     public int numbertoolOn = 2;
     public bool hideDestory = false;
     public GameObject hideIcon;
+    public GameObject hideIcon2;
     public GameObject levelManager;
     public GameObject player;
     public bool started;
@@ -38,6 +39,11 @@ public class TutorialContorller : MonoBehaviour
         if (hideIcon != null && hideIcon.activeSelf)
         {
             hideIcon.SetActive(false);
+        }
+
+        if (hideIcon2 != null && hideIcon2.activeSelf)
+        {
+            hideIcon2.SetActive(false);
         }
         
         started = true;

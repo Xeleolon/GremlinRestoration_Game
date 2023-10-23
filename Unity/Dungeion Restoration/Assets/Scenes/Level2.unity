@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23941,6 +23941,7 @@ MonoBehaviour:
   numbertoolOn: 2
   hideDestory: 0
   hideIcon: {fileID: 0}
+  hideIcon2: {fileID: 980352925}
   levelManager: {fileID: 980352924}
   player: {fileID: 1980496955}
   started: 0
@@ -25917,6 +25918,21 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2517740463459530765, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517740463459530765, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517740463459530765, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6894620918582959069, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_RootOrder
@@ -26103,6 +26119,12 @@ PrefabInstance:
 --- !u!1 &980352924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6894620918582959071, guid: 2eb7dd88447395d4abd9c20d4561766c,
+    type: 3}
+  m_PrefabInstance: {fileID: 980352923}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &980352925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2367126968454937973, guid: 2eb7dd88447395d4abd9c20d4561766c,
     type: 3}
   m_PrefabInstance: {fileID: 980352923}
   m_PrefabAsset: {fileID: 0}
