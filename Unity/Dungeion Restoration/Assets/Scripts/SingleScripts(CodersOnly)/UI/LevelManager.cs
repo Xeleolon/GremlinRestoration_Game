@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -47,6 +48,8 @@ public class LevelManager : MonoBehaviour
         public Transform replenishInventory;
         public Item[] mobItems;
         public GameObject[] dragableItem;
+        public GameObject titleCanvas;
+        public TMP_Text titleText;
     }
 
     [System.Serializable]
@@ -64,6 +67,7 @@ public class LevelManager : MonoBehaviour
     [HideInInspector]public LevelData levelData;
     public bool freeze; //debug system only don't refenece
     private bool curFreeze = false; //debug system only don't refenece
+    private bool gamePaused = false;
     [HideInInspector] public int pauseRequest;
 
     [SerializeField] MenuCanvas menuCanvas;
@@ -171,6 +175,23 @@ public class LevelManager : MonoBehaviour
             }
         }
 
+        if (menuCanvas.titleCanvas != null)
+        {
+            if (!menuCanvas.titleCanvas.activeSelf)
+            {
+                menuCanvas.titleCanvas.SetActive(true);
+            }
+            PauseGame(true);
+            if (levelData.levelName != "")
+            {
+                menuCanvas.titleText.SetText(levelData.levelName);
+            }
+            else
+            {
+                menuCanvas.titleText.SetText(levelData.name);
+            }
+        }
+
 
         inventory = Inventory.instance;
         inventory.StartInventory();
@@ -210,9 +231,14 @@ public class LevelManager : MonoBehaviour
         {
             CloseReplenishUi();
         }
+        else if (menuCanvas.titleCanvas != null && menuCanvas.titleCanvas.activeSelf)
+        {
+            PauseGame(false);
+            menuCanvas.titleCanvas.SetActive(false);
+        }
         else if (menuCanvas.menuCanvas != null)
         {
-            if (menuCanvas.menuCanvas.activeSelf)
+            if (!gamePaused &&menuCanvas.menuCanvas.activeSelf)
             {
                 PauseGame(false);
                 menuCanvas.menuCanvas.SetActive(false);
@@ -384,6 +410,7 @@ public class LevelManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             playerScript.interactActive = false;
             pauseRequest += 1;
+            gamePaused = true;
         }
         else if (pauseRequest <= 1)
         {
@@ -393,6 +420,7 @@ public class LevelManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             playerScript.interactActive = true;
             pauseRequest = 0;
+            gamePaused = false;
         }
         else
         {
