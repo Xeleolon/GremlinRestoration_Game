@@ -6,8 +6,19 @@ using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
+    #region Singleton
+    public static MenuManager instance;
+    void Awake ()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("More Than One instance of inventory found!");
+        }
+        instance = this;
+    }
+    #endregion
     [SerializeField] private int numLevels = 5;
-    [SerializeField] private int activeLevels;
+    private int activeLevels;
     public string testScene;
     private int currentScene = 0;
     public bool testSceneLock = true;
@@ -79,6 +90,7 @@ public class MenuManager : MonoBehaviour
                 increaseLevelButton2.SetActive(true);
             }
         }
+
     }
     
     
@@ -254,8 +266,32 @@ public class MenuManager : MonoBehaviour
                 testSceneLock = true;
             }
         }
+
+        if (code.Contains("UnlockLevelsPlease"))
+        {
+            UnlockLevel(true);
+        }
+
+        if (code.Contains("LockLevels"))
+        {
+            UnlockLevel(false);
+        }
         codeInput.image.enabled = false;
         codeInput.text = string.Empty;
+    }
+    public void UnlockLevel(bool enable)
+    {
+        if (enable)
+        {
+            Debug.Log("unLock Levels");
+            activeLevels = numLevels;
+            
+        }
+        else
+        {
+            Debug.Log("Lock Levels");
+            activeLevels = gameManager.AccessUnlockedLevels(false);
+        }
     }
 
     public void openSettingMenu(bool open)

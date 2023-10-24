@@ -72,6 +72,32 @@ public class DoorController : Interactable
         }
     }
 
+    public void SwitchOpen()
+    {
+        if (skeltonKey || taskCount <= 0)
+        {
+            if (skeltonKey)
+            {
+                if (doorOpen)
+                {
+                    CloseDoor();
+                }
+                else
+                {
+                    OpenDoor();
+                }
+            }
+        }
+        else
+        {
+            SpawnEffect(true);
+            OrderMessage(messageTaskNotComplete);
+            Debug.Log("TaskNotComplete!");
+            Dialogue dialogue = new Dialogue(gameObject.name, "Task not Complete!", 0);
+            DebugController.instance.AddLog(dialogue);
+        }
+    }
+
     public void AddTasks()
     {
         taskCount += 1;

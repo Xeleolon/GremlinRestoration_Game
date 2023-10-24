@@ -5617,7 +5617,6 @@ GameObject:
   - component: {fileID: 6894620917830773565}
   - component: {fileID: 6771066656934419448}
   - component: {fileID: 692912478}
-  - component: {fileID: 692912479}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: LevelManager
@@ -5806,23 +5805,6 @@ MonoBehaviour:
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &692912479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894620918582959071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d4f7f87aed7951478490a4e4361c140, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showDebugLog: 0
-  maxPopupLength: 3
-  teloportGroup: {fileID: 0}
-  debugList: []
-  debugLogSize: 20
 --- !u!1 &7110977111792538898
 GameObject:
   m_ObjectHideFlags: 0

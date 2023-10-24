@@ -129,23 +129,7 @@ public class LevelManager : MonoBehaviour
         {
             menuCanvas.deathCanvas.SetActive(false);
         }
-        playerScript = player.GetComponent<PlayerMovements>();
-
-        GameManager gameManager = GameManager.instance;
-        int levelDataTicket = gameManager.FindLevelData(SceneManager.GetActiveScene().name);
-        if (levelDataTicket < 0)
-        {
-            Debug.LogWarning("no Level Data With matching name to scene");
-        }
-        else
-        {
-            levelData = gameManager.levelData[levelDataTicket];
-        }
-
-
-        inventory = Inventory.instance;
-        inventory.StartInventory();
-
+        SecondStart();
         //Cursor.lockState = CursorLockMode.None;
     }
 
@@ -162,6 +146,29 @@ public class LevelManager : MonoBehaviour
         else
         {
             levelData = gameManager.levelData[levelDataTicket];
+        }
+        InteractControl interactScript = player.GetComponent<InteractControl>();
+        interactScript.toolMax = levelData.numTools;
+
+        if (levelData.numTools < 3)
+        {
+            switch (levelData.numTools)
+            {
+                case 0:
+                repair.icon.transform.parent.gameObject.SetActive(false);
+                destory.icon.transform.parent.gameObject.SetActive(false);
+                bomb.icon.transform.parent.gameObject.SetActive(false);
+                break;
+
+                case 1:
+                destory.icon.transform.parent.gameObject.SetActive(false);
+                bomb.icon.transform.parent.gameObject.SetActive(false);
+                break;
+
+                case 2:
+                bomb.icon.transform.parent.gameObject.SetActive(false);
+                break;
+            }
         }
 
 
@@ -286,6 +293,24 @@ public class LevelManager : MonoBehaviour
             bombNum = 10;
         }
         bombSlider.value = -bombNum;
+    }
+
+    public void activeIcon(int num)
+    {
+        switch (num)
+        {
+            case 1:
+            repair.icon.transform.parent.gameObject.SetActive(true);
+            break;
+
+            case 2:
+            destory.icon.transform.parent.gameObject.SetActive(true);
+            break;
+
+            case 3:
+            bomb.icon.transform.parent.gameObject.SetActive(true);
+            break;
+        }
     }
     #endregion
     #region Menu Systems

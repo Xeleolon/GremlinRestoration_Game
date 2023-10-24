@@ -274,6 +274,13 @@ public class InteractControl : MonoBehaviour
 
     }
 
+    public void ForceNewState(int num)
+    {
+        toolMax = num;
+        state = num;
+        NewState();
+    }
+
     void NewState()
     {
         switch (state)

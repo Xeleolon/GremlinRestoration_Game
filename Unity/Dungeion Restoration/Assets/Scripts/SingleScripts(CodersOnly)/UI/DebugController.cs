@@ -24,6 +24,7 @@ public class DebugController : MonoBehaviour
     public delegate void OnSkeltonKeyChanged();
     public OnSkeltonKeyChanged onSkeltonKeyCallback;
     private bool skeltonKey = false;
+    private bool unlockLevel = false;
     public static DebugCommand infinte_Items;
     public static DebugCommand<Vector3> teloport;
     public static DebugCommand<string> teloport_To;
@@ -33,12 +34,14 @@ public class DebugController : MonoBehaviour
     public static DebugCommand<string> load_Level;
     public static DebugCommand load_Menu;
     public static DebugCommand reload_Level;
+    public static DebugCommand unlock_Levels;
 
     public static DebugCommand enableGameFreazing;
 
     
 
     public List<object> commandList;
+    public List<object> menuCommandList;
 
     public List<Dialogue> debugList;
     public int debugLogSize = 20;
@@ -108,7 +111,10 @@ public class DebugController : MonoBehaviour
             {
                 Player = GameObject.FindWithTag("Player");
             }
-            teloportPoints[0] = Player.transform;
+            if (Player != null)
+            {
+                teloportPoints[0] = Player.transform;
+            }
         }
         else
         {
@@ -117,10 +123,13 @@ public class DebugController : MonoBehaviour
             {
                 Player = GameObject.FindWithTag("Player");
             }
-            teloportPoints[0] = Player.transform;
-            for (int i = 1; i < teloportGroup.childCount + 1; i++)
+            if (Player != null)
             {
-                teloportPoints[i] = teloportGroup.GetChild(i);
+                teloportPoints[0] = Player.transform;
+                for (int i = 1; i < teloportGroup.childCount + 1; i++)
+                {
+                    teloportPoints[i] = teloportGroup.GetChild(i);
+                }
             }
         }
         //add coomand here
@@ -128,7 +137,7 @@ public class DebugController : MonoBehaviour
         {
             Inventory.instance.infiniteItems = !Inventory.instance.infiniteItems;
             Dialogue dialogue;
-            if (Inventory.instance.infiniteItems)
+            if (Inventory.instance != null && Inventory.instance.infiniteItems)
             {
                 dialogue = new Dialogue("DebugController", "Infinty now On", maxPopupLength);
             }
@@ -251,6 +260,31 @@ public class DebugController : MonoBehaviour
             AddLog(dialogue);
         });
 
+        unlock_Levels = new DebugCommand("unlock_levels", "Unlock Levels for playing", "unlock_levels", () =>
+        {
+            unlockLevel = !unlockLevel;
+            if (MenuManager.instance != null)
+            {
+                Dialogue dialogue;
+                if (unlockLevel)
+                {
+                    MenuManager.instance.UnlockLevel(true);
+                    dialogue = new Dialogue("DebugController", "Unlocked Levels", maxPopupLength);
+                }
+                else
+                {
+                    MenuManager.instance.UnlockLevel(false);
+                    dialogue = new Dialogue("DebugController", "locked Levels", maxPopupLength);
+                }
+
+                AddLog(dialogue);
+            }
+            else
+            {
+                Debug.Log("Not in menu");
+            }
+        });
+
         commandList = new List<object>
         {
             help,
@@ -263,6 +297,13 @@ public class DebugController : MonoBehaviour
             load_Menu,
             load_Level,
             enableGameFreazing,
+            unlock_Levels,
+        };
+
+        menuCommandList = new List<object>
+        {
+            help,
+            unlock_Levels,
         };
     }
 
@@ -275,26 +316,52 @@ public class DebugController : MonoBehaviour
         {
             if (showHelp)
             {
-                GUI.Box(new Rect(0, y, Screen.width, 100), "");
-    
-                Rect viewport = new Rect(0,0, Screen.width - 30, 20 * commandList.Count);
-    
-                scroll = GUI.BeginScrollView(new Rect(0, y + 5f, Screen.width, 90), scroll, viewport);
-    
-                for (int i = 0; i < commandList.Count; i++)
+                if (MenuManager.instance == null)
                 {
-                    DebugCommandBase command = commandList[i] as DebugCommandBase;
-    
-                    string label = $"{command.commandFormat} - {command.commandDescription}";
-    
-                    Rect labelRect = new Rect(5, 20 * i, viewport.width - 100, 20);
+                    GUI.Box(new Rect(0, y, Screen.width, 100), "");
+        
+                    Rect viewport = new Rect(0,0, Screen.width - 30, 20 * commandList.Count);
+        
+                    scroll = GUI.BeginScrollView(new Rect(0, y + 5f, Screen.width, 90), scroll, viewport);
+        
+                    for (int i = 0; i < commandList.Count; i++)
+                    {
+                        DebugCommandBase command = commandList[i] as DebugCommandBase;
+        
+                        string label = $"{command.commandFormat} - {command.commandDescription}";
+        
+                        Rect labelRect = new Rect(5, 20 * i, viewport.width - 100, 20);
+                        
+                        GUI.Label(labelRect, label);
+                    }
+        
+                    GUI.EndScrollView();
                     
-                    GUI.Label(labelRect, label);
+                    y += 100;
                 }
-    
-                GUI.EndScrollView();
-                
-                y += 100;
+                else
+                {
+                    GUI.Box(new Rect(0, y, Screen.width, 100), "");
+        
+                    Rect viewport = new Rect(0,0, Screen.width - 30, 20 * menuCommandList.Count);
+        
+                    scroll = GUI.BeginScrollView(new Rect(0, y + 5f, Screen.width, 90), scroll, viewport);
+        
+                    for (int i = 0; i < menuCommandList.Count; i++)
+                    {
+                        DebugCommandBase command = menuCommandList[i] as DebugCommandBase;
+        
+                        string label = $"{command.commandFormat} - {command.commandDescription}";
+        
+                        Rect labelRect = new Rect(5, 20 * i, viewport.width - 100, 20);
+                        
+                        GUI.Label(labelRect, label);
+                    }
+        
+                    GUI.EndScrollView();
+                    
+                    y += 100;
+                }
             }
             else if (showTeloportHelp && teloportPoints != null)
             {
