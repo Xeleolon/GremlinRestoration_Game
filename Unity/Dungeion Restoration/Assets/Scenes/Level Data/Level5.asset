@@ -16,7 +16,7 @@ MonoBehaviour:
   levelName: Level 4
   nextLevel: Level4
   MenuName: MainMenu
-  numTools: 3
+  numTools: 2
   numKeys: 0
   items:
   - {fileID: 0}

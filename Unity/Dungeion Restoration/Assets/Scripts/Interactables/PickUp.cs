@@ -65,6 +65,8 @@ public class PickUp : Interactable
             currentDelay = delayNextPickUp;
             pickedUp = true;
 
+            Activate(false);
+
 
             if (replaceObject != null && !replaceObject.activeSelf)
             {

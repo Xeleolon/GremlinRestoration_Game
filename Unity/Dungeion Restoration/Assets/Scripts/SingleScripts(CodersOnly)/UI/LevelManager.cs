@@ -238,7 +238,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (menuCanvas.menuCanvas != null)
         {
-            if (!gamePaused &&menuCanvas.menuCanvas.activeSelf)
+            if (menuCanvas.menuCanvas.activeSelf)
             {
                 PauseGame(false);
                 menuCanvas.menuCanvas.SetActive(false);
