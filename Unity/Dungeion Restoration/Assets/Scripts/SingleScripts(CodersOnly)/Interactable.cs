@@ -13,6 +13,7 @@ public class Interactable : MonoBehaviour
     [Tooltip("gameObject being activated on Interaction")]
     [SerializeField] private GameObject activatable;
     [SerializeField] private bool OnActivate = false;
+    [SerializeField] private bool cycleActived = false;
     [SerializeField] private GameObject secondInteract;
     [HideInInspector] public int interactionType = 0;
     [HideInInspector] public int interactionState = 0;
@@ -22,7 +23,7 @@ public class Interactable : MonoBehaviour
 
     [Tooltip("place a door or gate wich has the doorController script this task will become a requirement before opening")]
     [SerializeField] private DoorController taskForDoor;
-    [SerializeField] private bool barDoor = false;
+    [SerializeField] private bool noBarDoor = false;
 
 
 
@@ -82,7 +83,7 @@ public class Interactable : MonoBehaviour
         radiusHalf.y = radius.y/2;
         radiusHalf.z = radius.z/2;
 
-        if (taskForDoor != null && !barDoor)
+        if (taskForDoor != null && !noBarDoor)
         {
             taskForDoor.AddTasks();
         }
@@ -92,6 +93,10 @@ public class Interactable : MonoBehaviour
         //this method is meant to be overwritten
         Debug.Log("Interacting with " + transform.name);
         Activate(OnActivate);
+        if (cycleActived)
+        {
+            OnActivate = !OnActivate;
+        }
     }
 
     public bool OnInteract(Transform playerTransform, int state)
@@ -176,7 +181,7 @@ public class Interactable : MonoBehaviour
             {
                 if (!finishTask)
                 {
-                    if (!barDoor)
+                    if (!noBarDoor)
                     {
                         taskForDoor.CheckTaskOff();
                         finishTask = true;

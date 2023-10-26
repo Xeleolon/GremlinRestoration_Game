@@ -76,8 +76,6 @@ public class DoorController : Interactable
     {
         if (skeltonKey || taskCount <= 0)
         {
-            if (skeltonKey)
-            {
                 if (doorOpen)
                 {
                     CloseDoor();
@@ -86,7 +84,6 @@ public class DoorController : Interactable
                 {
                     OpenDoor();
                 }
-            }
         }
         else
         {
