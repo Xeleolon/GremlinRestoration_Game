@@ -131,6 +131,7 @@ public class DoorController : Interactable
             Debug.Log("door unlocked");
             Dialogue dialogue = new Dialogue(gameObject.name, "door unlocked", 0);
             DebugController.instance.AddLog(dialogue);
+            OpenDoor();
         }
         else
         {
