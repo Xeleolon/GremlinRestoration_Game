@@ -149,6 +149,7 @@ public class CameraControls
     [Header ("Sliding")]
     [SerializeField] private float slideForce;
     private bool sliding = false;
+    private int slideTicket = 0;
 
     [Header ("Ground Check")]
     [SerializeField] private float playerHeight = 2;
@@ -384,7 +385,20 @@ public class CameraControls
 
     public void Sliding(bool state)
     {
-        sliding = state;
+        if (state)
+        {
+            sliding = true;
+            slideTicket += 1;
+        }
+        else if (slideTicket <= 1)
+        {
+            sliding = false;
+            slideTicket = 0;
+        }
+        else
+        {
+            slideTicket -= 1;
+        }
     }
 
     private void SlidingMovement()
