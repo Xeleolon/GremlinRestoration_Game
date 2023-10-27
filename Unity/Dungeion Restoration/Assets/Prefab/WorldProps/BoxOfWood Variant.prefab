@@ -125,19 +125,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  OnActivate: 0
+  cycleActived: 0
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -281,21 +281,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  OnActivate: 0
+  cycleActived: 0
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
     type: 3}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -340,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 2717197019028052488, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2717197019028052488, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}
@@ -422,6 +422,11 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5160289802852321449, guid: 2c671b27389eb8c43891fa9599a4ebd4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5946773649980443749, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}
       propertyPath: m_CastShadows
@@ -435,6 +440,11 @@ PrefabInstance:
     - target: {fileID: 7267828285394951332, guid: 2c671b27389eb8c43891fa9599a4ebd4,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608127937388335191, guid: 2c671b27389eb8c43891fa9599a4ebd4,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9011369888530548270, guid: 2c671b27389eb8c43891fa9599a4ebd4,
@@ -609,21 +619,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  OnActivate: 0
+  cycleActived: 0
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
     type: 3}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -767,19 +777,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  OnActivate: 0
+  cycleActived: 0
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
   particalDudPrefab: {fileID: 0}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -923,21 +933,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  OnActivate: 0
+  cycleActived: 0
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
     type: 3}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -1081,21 +1091,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  OnActivate: 0
+  cycleActived: 0
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
     type: 3}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 
@@ -1239,21 +1249,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  trapObject: {fileID: 0}
+  activatable: {fileID: 0}
+  OnActivate: 0
+  cycleActived: 0
+  secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  orderInteractionMessage: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 4937453856062934889, guid: 4304b0cda16f7394eaff747127175f3d,
     type: 3}
-  tokenOffset: {x: 0, y: 0, z: 0}
-  debugTokenPositions: 0
-  tokenDesination: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animatationStartOpen: 0
   animationTriggerName: 

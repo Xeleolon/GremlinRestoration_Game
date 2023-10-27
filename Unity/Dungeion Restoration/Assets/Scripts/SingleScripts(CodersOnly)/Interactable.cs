@@ -12,7 +12,7 @@ public class Interactable : MonoBehaviour
     public Vector3 offSet;
     [Tooltip("gameObject being activated on Interaction")]
     [SerializeField] private GameObject activatable;
-    [SerializeField] private bool OnActivate = false;
+    public bool OnActivate = false;
     [SerializeField] private bool cycleActived = false;
     [SerializeField] private GameObject secondInteract;
     [HideInInspector] public int interactionType = 0;
@@ -93,6 +93,10 @@ public class Interactable : MonoBehaviour
         //this method is meant to be overwritten
         Debug.Log("Interacting with " + transform.name);
         Activate(OnActivate);
+        if (animationTriggerName != "")
+        {
+            PlayAnimator(animationTriggerName);
+        }
         if (cycleActived)
         {
             OnActivate = !OnActivate;
@@ -126,10 +130,13 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        Interactable secondInteractable = secondInteract.GetComponent<Interactable>();
-        if (secondInteract != null && secondInteractable != null)
+        if (secondInteract != null)
         {
-            return secondInteractable.OnInteract(playerTransform, state);
+            Interactable secondInteractable = secondInteract.GetComponent<Interactable>();
+            if (secondInteract != null && secondInteractable != null)
+            {
+                return secondInteractable.OnInteract(playerTransform, state);
+            }
         }
         return false;
     }

@@ -118,6 +118,8 @@ public class DoorController : Interactable
         if (skeltonKey || !locked)
         {
             doorOpen = true;
+            Debug.Log("door Opening");
+            Activate(OnActivate);
             PlayAnimator(openingAnimation);
         }
         else if (Inventory.instance.Remove(requireKey))

@@ -10,9 +10,14 @@ public class WaterFill : Activatable
     private bool negativeValue;
     [SerializeField] private float fillSpeed = 0.5f;
     [SerializeField] private bool fill;
+    [SerializeField] Activatable activatable;
     void Start()
     {
         startHeight = transform.position.y;
+        if (fill && !activated)
+        {
+            activated = true;
+        }
     }
 
     void Update()
@@ -36,6 +41,7 @@ public class WaterFill : Activatable
         if (!fill)
         {
             fill = true;
+            SecondActivate(true);
         }
     }
     public override void UnActivate()
@@ -43,6 +49,16 @@ public class WaterFill : Activatable
         if (fill)
         {
             fill = false;
+            SecondActivate(false);
+        }
+    }
+
+    private void SecondActivate(bool unActivate)
+    {
+        //Debug.Log(activatable);
+        if (activatable != null)
+        {
+            activatable.GetComponent<Activatable>().OnActivate(unActivate);
         }
     }
 }
