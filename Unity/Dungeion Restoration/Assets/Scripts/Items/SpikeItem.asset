@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SpikeItem
   m_EditorClassIdentifier: 
   name: New Item
-  icon: {fileID: 21300000, guid: 9244d0c9c1b61a54db5d20c18088b656, type: 3}
+  icon: {fileID: 21300000, guid: ebee359afdb319c4db1a1c62b5343b24, type: 3}
   tempColor: {r: 1, g: 1, b: 1, a: 1}
   hiddenIcon: {fileID: 0}
