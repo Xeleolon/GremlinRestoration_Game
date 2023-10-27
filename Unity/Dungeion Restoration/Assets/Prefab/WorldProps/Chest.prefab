@@ -117,7 +117,7 @@ Transform:
   - {fileID: 5642027998386947489}
   - {fileID: 7882624986836556163}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7267828285394951332
 MonoBehaviour:
@@ -147,7 +147,7 @@ MonoBehaviour:
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
     type: 3}
   particalDudPrefab: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 3476243408682232477}
   animatationStartOpen: 0
   animationTriggerName: StartOpen
   correctObject: {fileID: 0}
