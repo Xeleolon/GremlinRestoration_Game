@@ -34,7 +34,6 @@ public class Interactable : MonoBehaviour
     [SerializeField] private GameObject particalPrefab;
     [Tooltip("Effect associated with a dud use")]
     public GameObject particalDudPrefab;
-
     [SerializeField] private Animator animator;
     [SerializeField] private bool animatationStartOpen;
     public string animationTriggerName;

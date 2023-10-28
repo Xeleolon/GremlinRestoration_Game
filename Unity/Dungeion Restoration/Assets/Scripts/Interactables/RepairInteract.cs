@@ -32,10 +32,6 @@ public class RepairInteract : Interactable
         {
             interacted = false;
         }
-        if (particalDudPrefab == null)
-        {
-            particalDudPrefab = LevelManager.instance.sharedPrefabs.repairFailedPE;
-        }
     }
     public override void Start()
     {
@@ -44,6 +40,10 @@ public class RepairInteract : Interactable
         if (tokenPrefab == null)
         {
             tokenPrefab = LevelManager.instance.sharedPrefabs.tokenPrefab;
+        }
+        if (particalDudPrefab == null)
+        {
+            particalDudPrefab = LevelManager.instance.sharedPrefabs.repairFailedPE;
         }
     }
     void Update()

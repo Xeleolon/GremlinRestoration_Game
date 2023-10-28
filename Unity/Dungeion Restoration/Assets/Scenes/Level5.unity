@@ -24433,7 +24433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: {x: 3, y: 3, z: 3}
   offSet: {x: 0, y: 0, z: 0}
-  activatable: {fileID: 0}
+  activatable: {fileID: 704568100}
   OnActivate: 0
   cycleActived: 0
   secondInteract: {fileID: 0}
@@ -24466,6 +24466,22 @@ MonoBehaviour:
   animationName: 
   removeObject: {fileID: 87548594}
   replaceObject: {fileID: 0}
+--- !u!114 &704568105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704568100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b22b95a59bd5c4ba4c7d96fb03e99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activated: 0
+  toolNumber: 3
+  destroy: 0
+  door: {fileID: 0}
 --- !u!1001 &706589510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31743,6 +31759,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 822410797, guid: e2e6ebd58d5ab0b44972e042a483faaf, type: 3}
+      propertyPath: activatable
+      value: 
+      objectReference: {fileID: 2005087189}
     - target: {fileID: 399275428362989631, guid: e2e6ebd58d5ab0b44972e042a483faaf,
         type: 3}
       propertyPath: m_Name
@@ -31853,22 +31873,18 @@ PrefabInstance:
         type: 3}
       propertyPath: secondInteract
       value: 
-      objectReference: {fileID: 1211355574}
+      objectReference: {fileID: 0}
     - target: {fileID: 7760304533225207345, guid: e2e6ebd58d5ab0b44972e042a483faaf,
         type: 3}
       propertyPath: secondInteract
       value: 
-      objectReference: {fileID: 1211355574}
+      objectReference: {fileID: 862078410}
     m_RemovedComponents: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2859131857785647694, guid: e2e6ebd58d5ab0b44972e042a483faaf,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1211355576}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e2e6ebd58d5ab0b44972e042a483faaf, type: 3}
---- !u!4 &862078410 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2859131857785647694, guid: e2e6ebd58d5ab0b44972e042a483faaf,
+--- !u!1 &862078410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 822410795, guid: e2e6ebd58d5ab0b44972e042a483faaf,
     type: 3}
   m_PrefabInstance: {fileID: 862078409}
   m_PrefabAsset: {fileID: 0}
@@ -41310,78 +41326,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1367270910}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1211355574
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1211355576}
-  - component: {fileID: 1211355575}
-  m_Layer: 0
-  m_Name: SecondInteract
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1211355575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211355574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1c0db2d712f91b4ba46b39317948c20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: {x: 4, y: 4, z: 4}
-  offSet: {x: 0, y: 0, z: 0}
-  activatable: {fileID: 2005087189}
-  OnActivate: 0
-  cycleActived: 0
-  secondInteract: {fileID: 0}
-  interactionType: 0
-  interactionState: 0
-  interacted: 0
-  taskForDoor: {fileID: 0}
-  noBarDoor: 0
-  particalSpawnOffset: {x: 0, y: 0, z: 0}
-  debugParticalPosition: 0
-  particalPrefab: {fileID: 0}
-  particalDudPrefab: {fileID: 0}
-  animator: {fileID: 0}
-  animatationStartOpen: 0
-  animationTriggerName: 
-  correctObject: {fileID: 0}
-  fire:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
---- !u!4 &1211355576
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211355574}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 862078410}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1212175976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66077,6 +66021,7 @@ MonoBehaviour:
   waterHeight: {x: 0, y: 2.5}
   fillSpeed: 0.5
   fill: 0
+  activatable: {fileID: 0}
 --- !u!4 &2005779047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8942863810848360947, guid: 5f017318d2ebcbe46b2bd6600c70d12b,
@@ -71303,6 +71248,7 @@ MonoBehaviour:
   waterHeight: {x: 2, y: 0}
   fillSpeed: 0.5
   fill: 1
+  activatable: {fileID: 0}
 --- !u!4 &2144526256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8942863810848360947, guid: 5f017318d2ebcbe46b2bd6600c70d12b,
