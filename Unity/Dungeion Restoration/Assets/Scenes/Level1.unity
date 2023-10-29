@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17793,6 +17793,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bookshelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 5288897212384331422, guid: 7c76e7f93cebb6447a0b0e4ba47d2916,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5288897212384331422, guid: 7c76e7f93cebb6447a0b0e4ba47d2916,
         type: 3}
@@ -36104,6 +36109,24 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 623083189903904322, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_text
+      value: 'Court Yard
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 658078167479121825, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_text
+      value: "Welcome to the Dungeon, humble Gremlin.\nThis is the Courtyard, where
+        you\u2019ll learn the uses of the Repair Tool.\nClick to interact."
+      objectReference: {fileID: 0}
+    - target: {fileID: 658078167479121825, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2517740463459530765, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -36152,7 +36175,7 @@ PrefabInstance:
     - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: onStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
@@ -36167,7 +36190,7 @@ PrefabInstance:
     - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: dialogues.Array.data[4].name
-      value: Dungeon Master
+      value: Bookshelf
       objectReference: {fileID: 0}
     - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
@@ -36398,6 +36421,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123966900465924833, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d92d227ccae5f954dbc316c349c60321,
+        type: 2}
+    - target: {fileID: 9123966900465924833, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

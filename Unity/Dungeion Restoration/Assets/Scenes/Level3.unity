@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4081,6 +4081,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d7c18bd6062793f4c8aec2b744233e1c,
         type: 3}
+    - target: {fileID: 658078167479121825, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_text
+      value: "Here you find yourself faced with the need to Replenish things.\nThese
+        \u2018things\u2019 will have different requirements, and you'll need those
+        required items in your inventory before you can use them."
+      objectReference: {fileID: 0}
     - target: {fileID: 1822953769734631089, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4128,6 +4135,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
+      propertyPath: onStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[0].name
+      value: Dungeon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[1].name
+      value: Exit Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[2].name
+      value: Hallway Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[3].name
+      value: Hallway Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
       propertyPath: dialogues.Array.data[0].sentences.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -4141,6 +4173,28 @@ PrefabInstance:
       propertyPath: dialogues.Array.data[0].sentences.Array.data[1]
       value: "These \u2018things\u2019 will have different requirements, but if you
         think about them, they should be fairly straight forward."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[1].sentences.Array.data[0]
+      value: At least one required task is not yet completed.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[2].sentences.Array.data[0]
+      value: You'll need a Key to unlock this.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[3].sentences.Array.data[0]
+      value: You unlocked the door!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[5].sentences.Array.data[0]
+      value: 'Door is Deadlocked.
+
+        It''s impossible to open it.'
       objectReference: {fileID: 0}
     - target: {fileID: 6894620918582959058, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
@@ -4432,6 +4486,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123966900465924833, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d92d227ccae5f954dbc316c349c60321,
+        type: 2}
+    - target: {fileID: 9123966900465924833, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

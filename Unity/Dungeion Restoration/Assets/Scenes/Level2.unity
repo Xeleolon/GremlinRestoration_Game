@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -31829,11 +31829,7 @@ PrefabInstance:
       value: 1.199
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 9038927970624145055, guid: 5d2acc190e13d60479c6c9d1e7cf4498,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1560495354}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2acc190e13d60479c6c9d1e7cf4498, type: 3}
 --- !u!4 &961093713 stripped
 Transform:
@@ -32367,6 +32363,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 658078167479121825, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_text
+      value: "Despite going up stairs, you\u2019ve found yourself deeper underground
+        in a cave.\nWho said magical Dungeon directions needed to make sense?\nHere,
+        you\u2019ll need to learn to Destroy things. Destroyed things can be used
+        for other things."
+      objectReference: {fileID: 0}
     - target: {fileID: 2517740463459530765, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -32410,6 +32414,11 @@ PrefabInstance:
     - target: {fileID: 3557074332573499097, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: onStart
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894620918582959069, guid: 2eb7dd88447395d4abd9c20d4561766c,
@@ -32591,6 +32600,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123966900465924833, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d92d227ccae5f954dbc316c349c60321,
+        type: 2}
+    - target: {fileID: 9123966900465924833, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -48354,12 +48374,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Notice
+  m_text: 'Notice:
 
-    Hammers Are not to be used for Destorying
+    Hammers are not to be used for Destroying!
 
-    Plently will
-    apply'
+    Penalties
+    will apply...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d92d227ccae5f954dbc316c349c60321, type: 2}
   m_sharedMaterial: {fileID: 6256603340223040813, guid: d92d227ccae5f954dbc316c349c60321,
@@ -50030,12 +50050,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: eb55504ce36506443b2dba5596685376, type: 3}
---- !u!4 &1560495354 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2906372489342062557, guid: aa7f2f73b432cb446b60e560f9f44c9e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2087739944}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1560823344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64835,7 +64849,7 @@ PrefabInstance:
     - target: {fileID: 2906372489342062557, guid: aa7f2f73b432cb446b60e560f9f44c9e,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2906372489342062557, guid: aa7f2f73b432cb446b60e560f9f44c9e,
         type: 3}

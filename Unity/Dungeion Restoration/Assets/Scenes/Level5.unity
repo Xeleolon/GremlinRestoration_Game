@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00018308334, g: 0.0030859178, b: 0.00437946, a: 1}
+  m_IndirectSpecularColor: {r: 0.00018324802, g: 0.0030859439, b: 0.0043788385, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -33007,6 +33007,33 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: onStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[1].sentences.Array.data[0]
+      value: At least one required task is not yet completed.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[2].sentences.Array.data[0]
+      value: You'll need a Key to unlock this.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[3].sentences.Array.data[0]
+      value: You unlocked the door!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894620917830773565, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: dialogues.Array.data[5].sentences.Array.data[0]
+      value: 'Door is Deadlocked.
+
+        It''s impossible to open it.'
       objectReference: {fileID: 0}
     - target: {fileID: 6894620918582959069, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
