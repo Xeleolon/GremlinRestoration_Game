@@ -154,7 +154,7 @@ public class LevelManager : MonoBehaviour
         InteractControl interactScript = player.GetComponent<InteractControl>();
         interactScript.toolMax = levelData.numTools;
 
-        if (levelData.numTools < 3)
+        if (levelData.numTools < 4)
         {
             switch (levelData.numTools)
             {
@@ -165,12 +165,41 @@ public class LevelManager : MonoBehaviour
                 break;
 
                 case 1:
+                if (!repair.icon.transform.parent.gameObject.activeSelf)
+                {
+                    repair.icon.transform.parent.gameObject.SetActive(true);
+                }
                 destory.icon.transform.parent.gameObject.SetActive(false);
                 bomb.icon.transform.parent.gameObject.SetActive(false);
                 break;
 
                 case 2:
+                if (!repair.icon.transform.parent.gameObject.activeSelf)
+                {
+                    repair.icon.transform.parent.gameObject.SetActive(true);
+                }
+
+                if (!destory.icon.transform.parent.gameObject.activeSelf)
+                {
+                    destory.icon.transform.parent.gameObject.SetActive(true);
+                }
                 bomb.icon.transform.parent.gameObject.SetActive(false);
+                break;
+                case 3:
+                if (!repair.icon.transform.parent.gameObject.activeSelf)
+                {
+                    repair.icon.transform.parent.gameObject.SetActive(true);
+                }
+
+                if (!destory.icon.transform.parent.gameObject.activeSelf)
+                {
+                    destory.icon.transform.parent.gameObject.SetActive(true);
+                }
+
+                if (!bomb.icon.transform.parent.gameObject.activeSelf)
+                {
+                    bomb.icon.transform.parent.gameObject.SetActive(true);
+                }
                 break;
             }
         }
@@ -201,6 +230,10 @@ public class LevelManager : MonoBehaviour
     {
         if (playerScript == null)
         {
+            if (player == null)
+            {
+                player = GameObject.FindWithTag("Player");
+            }
             playerScript = player.GetComponent<PlayerMovements>();
         }
         if (freeze && !curFreeze)
@@ -412,7 +445,7 @@ public class LevelManager : MonoBehaviour
             pauseRequest += 1;
             gamePaused = true;
         }
-        else if (pauseRequest <= 1)
+        else //if (pauseRequest <= 1)
         {
             Debug.Log("pausing game");
             Dialogue dialogue = new Dialogue("LevelManager", "unPausing Game", 0);
@@ -422,10 +455,10 @@ public class LevelManager : MonoBehaviour
             pauseRequest = 0;
             gamePaused = false;
         }
-        else
+        /*else
         {
             pauseRequest -= 1;
-        }
+        }*/
     }
 
     #endregion

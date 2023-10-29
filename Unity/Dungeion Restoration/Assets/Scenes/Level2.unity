@@ -4040,6 +4040,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 276016223}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &104231603
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104231596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}
 --- !u!1001 &107558200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7448,7 +7461,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMedRock_2 Variant (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
 --- !u!1001 &199889190
@@ -9022,6 +9037,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 199511081}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &253641972
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253641965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}
 --- !u!1001 &254505222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9505,7 +9533,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMedRock_2 Variant (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
 --- !u!4 &277317251 stripped
@@ -11769,6 +11799,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1311065919}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &347654426
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347654419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}
 --- !u!1001 &348536843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13857,15 +13900,36 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+--- !u!1 &417627626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8510322968122055773, guid: 790891db2fab41044a6de0871752ca14,
+    type: 3}
+  m_PrefabInstance: {fileID: 417627625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &417627631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4407695458077739361, guid: 790891db2fab41044a6de0871752ca14,
     type: 3}
   m_PrefabInstance: {fileID: 417627625}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &417627632
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417627626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}
 --- !u!1001 &418277388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15148,8 +15212,8 @@ Transform:
   - {fileID: 58917803}
   - {fileID: 487022906}
   - {fileID: 1744117440}
-  - {fileID: 49255258554363579}
   - {fileID: 499509257}
+  - {fileID: 49255258554363579}
   m_Father: {fileID: 1862653516}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15804,7 +15868,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMedRock_2 Variant (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
 --- !u!1 &473664629 stripped
@@ -15835,6 +15901,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 473664628}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &473664636
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473664629}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.38
+  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}
 --- !u!1001 &474152459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15984,7 +16063,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMedRock_2 Variant (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
 --- !u!1 &477692589 stripped
@@ -16015,6 +16096,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 477692588}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &477692596
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477692589}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.38
+  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}
 --- !u!1001 &478847856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16535,7 +16629,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7747989588866012864, guid: 748389ec5c8e43a4f83c1203d26c9fcb, type: 3}
+    - {fileID: -6357396826151149913, guid: 748389ec5c8e43a4f83c1203d26c9fcb, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 748389ec5c8e43a4f83c1203d26c9fcb, type: 3}
 --- !u!1 &487022900 stripped
@@ -16566,6 +16662,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 487022899}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &487022907
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487022900}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.38
+  m_Center: {x: -0.038963318, y: 0.5441489, z: -0.036503583}
 --- !u!1001 &487222105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16885,7 +16994,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMedRock_2 Variant (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
 --- !u!1 &494426637 stripped
@@ -16916,6 +17027,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 494426636}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &494426644
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494426637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.38
+  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}
 --- !u!1001 &498174151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19365,7 +19489,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMedRock_2 Variant (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
 --- !u!1 &570568150 stripped
@@ -19396,6 +19522,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 570568149}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &570568157
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570568150}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.38
+  m_Center: {x: 0.0025026503, y: 0.3344244, z: 0.0040734364}
 --- !u!1001 &572074256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22042,7 +22181,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 38.761
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7747989588866012864, guid: 748389ec5c8e43a4f83c1203d26c9fcb, type: 3}
+    - {fileID: -6357396826151149913, guid: 748389ec5c8e43a4f83c1203d26c9fcb, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 748389ec5c8e43a4f83c1203d26c9fcb, type: 3}
 --- !u!1 &633262355 stripped
@@ -22073,6 +22214,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 633262354}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &633262362
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633262355}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.38
+  m_Center: {x: -0.038963303, y: 0.54414946, z: -0.036505476}
 --- !u!1001 &633844050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25055,9 +25209,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMedRock_2 Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+--- !u!1 &720032873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8510322968122055773, guid: 790891db2fab41044a6de0871752ca14,
+    type: 3}
+  m_PrefabInstance: {fileID: 720032872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &720032874
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720032873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}
 --- !u!4 &725656562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 49255258670585674, guid: d3cb7300844b62141a576e9617e811f2,
@@ -26153,9 +26328,30 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+--- !u!1 &778252536 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8510322968122055773, guid: 790891db2fab41044a6de0871752ca14,
+    type: 3}
+  m_PrefabInstance: {fileID: 778252535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &778252537
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778252536}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Center: {x: 0.002503721, y: 0.33442497, z: 0.004073446}
 --- !u!1001 &778925306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42091,7 +42287,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMedRock_2 Variant (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
 --- !u!1001 &1312021642
@@ -48010,9 +48208,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMedRock_3 Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1071923987373701812, guid: 20a40b0e88d8e354a81985276ff4da01, type: 3}
+    - {fileID: 4472153996996258980, guid: 20a40b0e88d8e354a81985276ff4da01, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 20a40b0e88d8e354a81985276ff4da01, type: 3}
+--- !u!1 &1501482235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8058877608011470940, guid: 20a40b0e88d8e354a81985276ff4da01,
+    type: 3}
+  m_PrefabInstance: {fileID: 1501482234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1503317936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2435461000070856297, guid: eb55504ce36506443b2dba5596685376,
@@ -51141,7 +51347,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMedRock_2 Variant (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
 --- !u!1001 &1596556350
@@ -54834,9 +55042,30 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 291222679555781384, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+    - {fileID: 7419720639563873037, guid: 790891db2fab41044a6de0871752ca14, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 790891db2fab41044a6de0871752ca14, type: 3}
+--- !u!1 &1734124633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8510322968122055773, guid: 790891db2fab41044a6de0871752ca14,
+    type: 3}
+  m_PrefabInstance: {fileID: 1734124632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1734124634
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734124633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}
 --- !u!1001 &1739738658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54926,6 +55155,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1501482234}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &1744117441
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501482235}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.39
+  m_Center: {x: 0.01909323, y: 0.3763912, z: 0.012991503}
 --- !u!1001 &1745760964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58157,6 +58399,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1596269732}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &1883273227
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883273220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Center: {x: 0.0025036037, y: 0.33442405, z: 0.004073441}
 --- !u!1001 &1888341477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62218,6 +62473,77 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2000066669}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2001553273
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 715391896831856962, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_Name
+      value: Latern
+      objectReference: {fileID: 0}
+    - target: {fileID: 951780130675704204, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 951780130675704204, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.4346406
+      objectReference: {fileID: 0}
+    - target: {fileID: 951780130675704204, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 951780130675704204, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.5675614
+      objectReference: {fileID: 0}
+    - target: {fileID: 951780130675704204, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 951780130675704204, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951780130675704204, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951780130675704204, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951780130675704204, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951780130675704204, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951780130675704204, guid: 7dc8d8d18ccdb50449dec5b799374b58,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dc8d8d18ccdb50449dec5b799374b58, type: 3}
 --- !u!4 &2006055809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1299806463547182886, guid: 4744c369b8f6aa24f81576a6e2ae0f5d,

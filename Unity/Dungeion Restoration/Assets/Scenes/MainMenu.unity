@@ -11562,7 +11562,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numLevels: 5
-  activeLevels: 3
   testScene: Test Scene
   testSceneLock: 1
   settingCanvas: {fileID: 1547956697}
@@ -20624,6 +20623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103268470868049366, guid: 8eab0e3ecea50ce46ab63ef776ce9b05,
+        type: 3}
+      propertyPath: unlockedLevels
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2103268470868049366, guid: 8eab0e3ecea50ce46ab63ef776ce9b05,
         type: 3}

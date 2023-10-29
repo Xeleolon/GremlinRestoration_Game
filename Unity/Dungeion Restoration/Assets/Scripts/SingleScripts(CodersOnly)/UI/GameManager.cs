@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     }
     //Shown Data
     public LevelData[] levelData;
-    private int unlockedLevels = 1;
+    [SerializeField] private int unlockedLevels = 1;
     [SerializeField] private TrophyData[] trophyData;
     //All data changed or alter by setting systems.
 

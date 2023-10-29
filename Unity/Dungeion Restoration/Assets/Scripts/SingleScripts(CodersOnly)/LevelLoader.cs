@@ -49,7 +49,7 @@ public class LevelLoader : MonoBehaviour
         loadingScreen.SetActive(true);
         if (player != null)
         {
-            player.GetComponent<PlayerMovements>().interactActive = false;
+            //player.GetComponent<PlayerMovements>().interactActive = false;
         }
 
         while (!operation.isDone)
@@ -73,7 +73,7 @@ public class LevelLoader : MonoBehaviour
                 if (newPlayer != player)
                 {
                     player = newPlayer;
-                    player.GetComponent<PlayerMovements>().interactActive = false;
+                    //player.GetComponent<PlayerMovements>().interactActive = false;
                 }
                 
             }
@@ -104,7 +104,7 @@ public class LevelLoader : MonoBehaviour
             LevelManager.instance.SecondStart();
             if (player != null && LevelManager.instance.pauseRequest <= 0)
             {
-                player.GetComponent<PlayerMovements>().interactActive = true;
+                //player.GetComponent<PlayerMovements>().interactActive = true;
             }
         }
     }

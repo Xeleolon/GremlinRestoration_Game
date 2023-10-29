@@ -12,10 +12,20 @@ public class ClimbingSurface : Activatable
     }
     public override void Activate()
     {
+        if (playerScript == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            playerScript = player.GetComponent<PlayerMovements>();
+        }
         playerScript.ClimbingOn(true);
     }
     public override void UnActivate()
     {
+        if (playerScript == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            playerScript = player.GetComponent<PlayerMovements>();
+        }
         playerScript.ClimbingOn(false);
     }
 }

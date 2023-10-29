@@ -262,7 +262,7 @@ Transform:
   m_Children:
   - {fileID: 4987462818623953107}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6378350162992386371
 MeshFilter:
@@ -327,4 +327,4 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -6692290496178104961, guid: 6de3df738327865408c9f31228cad3b9, type: 3}
+  m_Mesh: {fileID: -6692290496178104961, guid: 55181d58ef9efdc46bc7f5ca5822823a, type: 3}

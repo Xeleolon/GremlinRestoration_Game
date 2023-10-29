@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23205243, g: 0.3954748, b: 0.5734583, a: 1}
+  m_IndirectSpecularColor: {r: 0.28048754, g: 0.47806793, b: 0.6931214, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -988,12 +988,13 @@ MonoBehaviour:
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
   OnActivate: 0
+  cycleActived: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  barDoor: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -7826,12 +7827,13 @@ MonoBehaviour:
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
   OnActivate: 0
+  cycleActived: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  barDoor: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -9280,6 +9282,7 @@ MonoBehaviour:
   waterHeight: {x: 1.5, y: 0}
   fillSpeed: 0.5
   fill: 0
+  activatable: {fileID: 0}
 --- !u!114 &485202316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12919,12 +12922,13 @@ MonoBehaviour:
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
   OnActivate: 0
+  cycleActived: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  barDoor: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -14014,12 +14018,13 @@ MonoBehaviour:
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
   OnActivate: 0
+  cycleActived: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  barDoor: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -14547,12 +14552,13 @@ MonoBehaviour:
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
   OnActivate: 0
+  cycleActived: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  barDoor: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -14796,12 +14802,13 @@ MonoBehaviour:
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
   OnActivate: 0
+  cycleActived: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  barDoor: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -17439,12 +17446,13 @@ MonoBehaviour:
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
   OnActivate: 0
+  cycleActived: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  barDoor: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -17990,12 +17998,6 @@ PrefabInstance:
     - {fileID: 5598928563623273908, guid: 4ed72e13ea758714090a3ed3f8d00846, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ed72e13ea758714090a3ed3f8d00846, type: 3}
---- !u!4 &888755953 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-    type: 3}
-  m_PrefabInstance: {fileID: 979724467}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &896858174
 GameObject:
   m_ObjectHideFlags: 0
@@ -19085,77 +19087,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979609291}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &979724467
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 1132245960}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 26.213327
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.188143
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.316168
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: dfa87a56a68825a44bb0e00a8ebb4653,
-        type: 3}
-      propertyPath: m_Name
-      value: Book
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: dfa87a56a68825a44bb0e00a8ebb4653, type: 3}
 --- !u!1 &980431171
 GameObject:
   m_ObjectHideFlags: 0
@@ -20162,12 +20093,13 @@ MonoBehaviour:
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
   OnActivate: 0
+  cycleActived: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  barDoor: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -22150,7 +22082,6 @@ Transform:
   - {fileID: 2007275664}
   - {fileID: 32418581}
   - {fileID: 1232430040}
-  - {fileID: 888755953}
   - {fileID: 1085900680}
   - {fileID: 459462163}
   - {fileID: 585711720}
@@ -27172,12 +27103,13 @@ MonoBehaviour:
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
   OnActivate: 0
+  cycleActived: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  barDoor: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -27986,12 +27918,13 @@ MonoBehaviour:
   offSet: {x: 0, y: 0, z: 0}
   activatable: {fileID: 0}
   OnActivate: 0
+  cycleActived: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  barDoor: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 0, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 0}
@@ -41493,12 +41426,13 @@ MonoBehaviour:
   offSet: {x: 0, y: 1.5, z: 0.6}
   activatable: {fileID: 0}
   OnActivate: 0
+  cycleActived: 0
   secondInteract: {fileID: 0}
   interactionType: 0
   interactionState: 0
   interacted: 0
   taskForDoor: {fileID: 0}
-  barDoor: 0
+  noBarDoor: 0
   particalSpawnOffset: {x: 0, y: 1, z: 0}
   debugParticalPosition: 0
   particalPrefab: {fileID: 7363148039440380339, guid: 72baaf45944356b41ad620e5b68807d1,
