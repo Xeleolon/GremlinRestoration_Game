@@ -6,18 +6,23 @@ public class SlidingSurface : Activatable
 {
     // Start is called before the first frame update
     PlayerMovements playerScript;
-    void Start()
-    {
-        GameObject player = GameObject.FindWithTag("Player");
-        playerScript = player.GetComponent<PlayerMovements>();
-    }
 
     public override void Activate()
     {
+        if (playerScript == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            playerScript = player.GetComponent<PlayerMovements>();
+        }
         playerScript.Sliding(true);
     }
     public override void UnActivate()
     {
+       if (playerScript == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            playerScript = player.GetComponent<PlayerMovements>();
+        }
         playerScript.Sliding(false);
     }
 }
