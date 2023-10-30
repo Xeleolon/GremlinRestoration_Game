@@ -112,12 +112,11 @@ public class CameraControls
     [Tooltip("How long Before Player Respawns")]
     [SerializeField] private float respawnLength = 5;
     private float respawnClock = 0;
+    private bool playerDead = false;
+    private Vector3 lastCheckPoint;
     [Tooltip("if true input will work otherwise player isn't active")]
     public bool interactActive = true;
     private InteractControl interactiveScript;
-    private bool playerDead = false;
-    private Vector3 lastCheckPoint;
-    [SerializeField] private GameObject corpse;
     LevelManager levelManager;
 
     [Header("Player Movement")]
@@ -299,7 +298,6 @@ public class CameraControls
         {
             playerDead = true;
             levelManager.DeathMenu(true);
-            GenerateCorpse(transform.position);
             
             MoveToCheckPoint(); //sepatated from kill player allowing me to move to the checkpoint without killing the player
             interactActive = false;
@@ -325,13 +323,6 @@ public class CameraControls
     {
         transform.position = lastCheckPoint;
         rb.velocity = Vector3.zero;
-    }
-    private void GenerateCorpse(Vector3 CorpsePosition)
-    {
-        if (corpse != null)
-        {
-           GameObject tempCorpse = Instantiate(corpse, CorpsePosition, Quaternion.Euler(new Vector3(90, 0, 0)));
-        }
     }
     public void NewCheckPoint(Vector3 CheckPoint)
     {

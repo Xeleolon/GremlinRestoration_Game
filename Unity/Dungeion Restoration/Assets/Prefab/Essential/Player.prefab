@@ -120,6 +120,7 @@ Transform:
   - {fileID: 8063557516144423493}
   - {fileID: 6116501242039691728}
   - {fileID: 8436732173982977173}
+  - {fileID: 7506278064017523668}
   m_Father: {fileID: 5016645517801662386}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -264,7 +265,7 @@ Transform:
   - {fileID: 5016645517565970480}
   - {fileID: 5016645516717435789}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &5016645517801662389
 CapsuleCollider:
@@ -310,15 +311,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnLength: 2
   interactActive: 1
-  corpse: {fileID: 1390369824979298483, guid: a9177d12996f4fe4a97211bcff95248e, type: 3}
   speed: 3
   jumpForce: 4
   jumpCooldown: 0.5
   airMultiplier: 1
   climbSpeed: 3
   groundDrag: 4.5
-  maxSlopeAngle: 70
-  slideForce: 0
+  maxSlopeAngle: 50
+  slideForce: 200
   playerHeight: 0.9
   whatIsGround:
     serializedVersion: 2
@@ -353,7 +353,7 @@ MonoBehaviour:
   nonInteractable: {fileID: 2223664831287688070, guid: 0bed8309b8fe0884ebde115ec13a5e6e,
     type: 3}
   bombItem: {fileID: 11400000, guid: 14c45c347beac7448b1bdafb7f936abc, type: 2}
-  spawnDistance: 2
+  spawnDistance: 1
   toolMax: 3
   wands:
   - name: 
@@ -365,8 +365,8 @@ MonoBehaviour:
   - name: Destroy
     wand: {fileID: 9105886586577163823}
     animation: 
-  - name: 
-    wand: {fileID: 0}
+  - name: Bomb
+    wand: {fileID: 8448600704071899969}
     animation: 
   interactActive: 1
 --- !u!114 &4419806864863105512
@@ -400,6 +400,89 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1 &8448600704071899969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7506278064017523668}
+  - component: {fileID: 1805731558077806395}
+  - component: {fileID: 6570576367705293878}
+  m_Layer: 0
+  m_Name: BombCarring
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7506278064017523668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448600704071899969}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.032175064, y: -0.457, z: 0.466}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5016645517565970480}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1805731558077806395
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448600704071899969}
+  m_Mesh: {fileID: -849867405023671905, guid: ca53d56a2e7aa8547af08507f12e2bfd, type: 3}
+--- !u!23 &6570576367705293878
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448600704071899969}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9d309959ccf77794392ac4e21d141de7, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8710799126605360716
 GameObject:
   m_ObjectHideFlags: 0
