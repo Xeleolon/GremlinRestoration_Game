@@ -26943,6 +26943,16 @@ PrefabInstance:
       propertyPath: cameraSensitivity
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2103268470868049366, guid: 8eab0e3ecea50ce46ab63ef776ce9b05,
+        type: 3}
+      propertyPath: trophyData.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089937295456001664, guid: 8eab0e3ecea50ce46ab63ef776ce9b05,
+        type: 3}
+      propertyPath: debugList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eab0e3ecea50ce46ab63ef776ce9b05, type: 3}

@@ -25,7 +25,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject settingCanvas;
     [SerializeField] private Slider settingSlider;
     public TMP_Text levelText;
-    public TMP_InputField codeInput;
     [SerializeField] private GameObject increaseLevelButton1;
     [SerializeField] private GameObject increaseLevelButton2;
     [SerializeField] private GameObject decreaseLevelButton1;
@@ -242,43 +241,7 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
-    public void CheatCodes()
-    {
-        string code = codeInput.text;
-        Debug.Log(code);
-
-        if (code.Contains("test"))
-        {
-            Debug.Log("Test Worked");
-        }
-
-        if (code.Contains("dungioneers"))
-        {
-            Debug.Log("code worked");
-            if (testSceneLock)
-            {
-                testSceneLock = false;
-                Debug.Log("Test Scene On");
-            }
-            else
-            {
-                Debug.Log("Test Scene Off");
-                testSceneLock = true;
-            }
-        }
-
-        if (code.Contains("UnlockLevelsPlease"))
-        {
-            UnlockLevel(true);
-        }
-
-        if (code.Contains("LockLevels"))
-        {
-            UnlockLevel(false);
-        }
-        codeInput.image.enabled = false;
-        codeInput.text = string.Empty;
-    }
+    
     public void UnlockLevel(bool enable)
     {
         if (enable)

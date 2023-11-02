@@ -43,7 +43,7 @@ public class DebugController : MonoBehaviour
     public List<object> commandList;
     public List<object> menuCommandList;
 
-    public List<Dialogue> debugList;
+    [HideInInspector]public List<Dialogue> debugList;
     public int debugLogSize = 20;
 
     public void OnToggleDebug(InputValue value)
