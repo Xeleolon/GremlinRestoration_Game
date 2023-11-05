@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00018324802, g: 0.0030859439, b: 0.0043788385, a: 1}
+  m_IndirectSpecularColor: {r: 0.00018308334, g: 0.0030859178, b: 0.00437946, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24177,12 +24177,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 816510709}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1269831548 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9105886586577163823, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-    type: 3}
-  m_PrefabInstance: {fileID: 2109652101}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1271349366
 GameObject:
   m_ObjectHideFlags: 0
@@ -42619,31 +42613,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4384508890851092688, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: wands.Array.data[2].wand
-      value: 
-      objectReference: {fileID: 1269831548}
-    - target: {fileID: 5016645517565970495, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517565970495, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517565970495, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016645517565970495, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5016645517801662386, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
       propertyPath: m_RootOrder
@@ -42699,20 +42668,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5016645517801662387, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: interactions.state
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5016645517801662391, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6893319798129865578, guid: f4ff8824bf04bd341b9ca6a3a0b36297,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
