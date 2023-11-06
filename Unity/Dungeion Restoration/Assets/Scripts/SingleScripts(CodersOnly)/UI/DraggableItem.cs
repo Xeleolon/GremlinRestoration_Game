@@ -14,7 +14,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     [HideInInspector] public Transform parentAfterDrag;
     private Transform homeTransform;
-    [SerializeField] private Canvas canvas;
+    private Canvas canvas;
 
     public void OnBeginDrag(PointerEventData eventData) 
     {
