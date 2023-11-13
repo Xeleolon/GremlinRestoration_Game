@@ -19,8 +19,8 @@ MonoBehaviour:
   numTools: 0
   numKeys: 0
   items:
-  - {fileID: 11400000, guid: c0ed924142a21cd418c0bdb19da25266, type: 2}
-  - {fileID: 11400000, guid: 44583eba877e72b44803b96fac847912, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  itemNumber: 07000000030000000000000000000000
+  - {fileID: 0}
+  - {fileID: 0}
+  itemNumber: 00000000000000000000000000000000
