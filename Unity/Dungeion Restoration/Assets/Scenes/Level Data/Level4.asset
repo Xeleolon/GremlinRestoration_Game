@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level4
   m_EditorClassIdentifier: 
   name: Level4
-  levelName: FinalLevel
+  levelName: Potion Experiement
   nextLevel: MainMenu
   MenuName: MainMenu
   numTools: 3
