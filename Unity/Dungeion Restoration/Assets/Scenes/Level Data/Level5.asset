@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Level5
   m_EditorClassIdentifier: 
   name: Level5
-  levelName: The Tower and The Lake
-  nextLevel: Level4
+  levelName: Potion Experiement
+  nextLevel: MainMenu
   MenuName: MainMenu
-  numTools: 2
+  numTools: 3
   numKeys: 0
   items:
   - {fileID: 0}
