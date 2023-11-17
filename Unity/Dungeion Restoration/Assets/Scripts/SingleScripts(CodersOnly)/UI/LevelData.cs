@@ -12,6 +12,7 @@ public class LevelData : ScriptableObject
     public string nextLevel;
     public string MenuName = "MainMenu";
     [Tooltip("number of tools available at start")]
+    public int levelWorldHeight = 100;
     public int numTools = 3;
 
     public int numKeys = 0;

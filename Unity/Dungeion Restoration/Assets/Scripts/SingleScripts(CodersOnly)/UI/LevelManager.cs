@@ -153,6 +153,7 @@ public class LevelManager : MonoBehaviour
         }
         InteractControl interactScript = player.GetComponent<InteractControl>();
         interactScript.toolMax = levelData.numTools;
+        playerScript.maxWorldHeight = levelData.levelWorldHeight;
 
         if (levelData.numTools < 4)
         {

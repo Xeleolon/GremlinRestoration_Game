@@ -16,6 +16,7 @@ MonoBehaviour:
   levelName: CaveIn
   nextLevel: Level3
   MenuName: MainMenu
+  levelWorldHeight: 50
   numTools: 1
   numKeys: 0
   items:

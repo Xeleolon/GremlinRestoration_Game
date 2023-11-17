@@ -16,6 +16,7 @@ MonoBehaviour:
   levelName: The Tower and The Lake
   nextLevel: Level5
   MenuName: MainMenu
+  levelWorldHeight: 6
   numTools: 2
   numKeys: 0
   items:

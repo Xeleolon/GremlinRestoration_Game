@@ -152,6 +152,7 @@ public class CameraControls
 
     [Header ("Ground Check")]
     [SerializeField] private float playerHeight = 2;
+    public float maxWorldHeight = 100;
     [SerializeField] private LayerMask whatIsGround;
     [Header ("Animations")]
     [SerializeField] private Animator cameraAnimator;
@@ -251,7 +252,12 @@ public class CameraControls
     {
         if (interactActive)
         {
-
+            if (transform.position.y >= maxWorldHeight)
+            {
+                Vector3 HeightLock = transform.position;
+                HeightLock.y = maxWorldHeight;
+                transform.position = HeightLock;
+            }
             if (sliding)
             {
                 Debug.Log("SLiding");
@@ -289,6 +295,10 @@ public class CameraControls
             }
 
             lastPlayerHeight = transform.position.y;
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
         }
     }
     # region PlayerLife
@@ -340,8 +350,7 @@ public class CameraControls
         moveDirection = transform.forward * moveInputs.y + transform.right * moveInputs.x;
 
         //SpeedControl
-
-        if (OnSlope() && !exitingSlope && rb.velocity.magnitude > speed)
+        if (transform.position.y < maxWorldHeight && OnSlope() && !exitingSlope && rb.velocity.magnitude > speed)
         {
             rb.velocity = rb.velocity.normalized * speed;
         }
@@ -432,7 +441,7 @@ public class CameraControls
             {
                 rb.velocity = new Vector3(rb.velocity.x, climbSpeed, rb.velocity.z);
             }
-            else if (readyToJump && grounded)
+            else if (readyToJump && grounded && transform.position.y <= maxWorldHeight)
             {
                 exitingSlope = true;
                 readyToJump = false;

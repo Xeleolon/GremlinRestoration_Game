@@ -10,6 +10,7 @@ public class Breakable : MonoBehaviour
     private bool disableBreak = false;
     [SerializeField] private bool active;
     [SerializeField] GameObject activatable;
+    [SerializeField] GameObject setActiveObject;
     [SerializeField] bool asignItself = false;
     void OnValidate()
     {
@@ -27,6 +28,10 @@ public class Breakable : MonoBehaviour
             Debug.Log(activatable);
             if (activatable != null && activatable.GetComponent<Activatable>() != null)
             {
+                if (setActiveObject != null && !setActiveObject.activeSelf)
+                {
+                    setActiveObject.SetActive(true);
+                }
                 activatable.GetComponent<Activatable>().OnActivate(!active);
                 Debug.Log("activating " + activatable);
             }

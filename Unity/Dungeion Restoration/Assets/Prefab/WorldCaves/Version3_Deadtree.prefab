@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8269102097963725502}
   - component: {fileID: 5002966054647872795}
   - component: {fileID: 7100747622059559377}
+  - component: {fileID: 8623549587315323660}
   m_Layer: 0
   m_Name: Version3_Deadtree
   m_TagString: Untagged
@@ -27,11 +28,11 @@ Transform:
   m_GameObject: {fileID: 8757830186979878916}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.3420076, y: 2.2322016, z: 9.457314}
-  m_LocalScale: {x: 0.0013148222, y: 0.0013148222, z: 0.0013148222}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5002966054647872795
 MeshFilter:
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8623549587315323660
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757830186979878916}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5277274876109754820, guid: c90df0ced296bb9419fd40e68bc664ae, type: 3}

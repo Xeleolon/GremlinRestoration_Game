@@ -16,6 +16,7 @@ MonoBehaviour:
   levelName: Catapults & Slimey
   nextLevel: Level4
   MenuName: MainMenu
+  levelWorldHeight: 3
   numTools: 2
   numKeys: 0
   items:

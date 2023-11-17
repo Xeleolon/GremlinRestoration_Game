@@ -16,6 +16,7 @@ MonoBehaviour:
   levelName: CourtYard
   nextLevel: Level2
   MenuName: MainMenu
+  levelWorldHeight: 3
   numTools: 0
   numKeys: 0
   items:
