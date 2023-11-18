@@ -32,6 +32,7 @@ public class ActivableActivatable : Activatable
 
     void HideObject()
     {
+        Debug.Log("Hide object");
         if (turnOnOff != null && turnOnOff.activeSelf)
         {
             turnOnOff.SetActive(false);
@@ -40,6 +41,7 @@ public class ActivableActivatable : Activatable
 
     void ShowObject()
     {
+        Debug.Log("show object");
         if (turnOnOff != null && !turnOnOff.activeSelf)
         {
             turnOnOff.SetActive(true);
