@@ -66,7 +66,9 @@ Material:
     - _QueueOffset: 0
     - _Smoothness: 0.176
     - _Strength: 0.43
+    - _WaterColorDensity: 0.2
     m_Colors:
+    - _Alterartion: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0}
     - _DeepWaterColor: {r: 0.076762185, g: 0.6509434, b: 0.52019083, a: 0}
     - _ShallowWaterColor: {r: 0.621173, g: 0.9339623, b: 0.7721747, a: 1}
   m_BuildTextureStacks: []
