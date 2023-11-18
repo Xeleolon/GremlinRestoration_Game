@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level4
   m_EditorClassIdentifier: 
   name: Level4
-  levelName: The Tower and The Lake
+  levelName: The Lake Tower
   nextLevel: Level5
   MenuName: MainMenu
   levelWorldHeight: 8

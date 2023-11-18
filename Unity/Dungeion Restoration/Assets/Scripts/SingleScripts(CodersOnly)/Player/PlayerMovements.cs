@@ -298,7 +298,8 @@ public class CameraControls
         }
         else
         {
-            rb.velocity = Vector3.zero;
+            Vector3 currentVelocity = rb.velocity;
+            rb.velocity = new Vector3(0, currentVelocity.y, 0);
         }
     }
     # region PlayerLife
