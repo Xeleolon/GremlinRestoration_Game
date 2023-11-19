@@ -240,7 +240,7 @@ public class LevelManager : MonoBehaviour
         if (freeze && !curFreeze)
         {
             Debug.Log("Freazing game by update");
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;
             playerScript.interactActive = false;
             //DialogueManager.instance.freeze = true;
             curFreeze = freeze;

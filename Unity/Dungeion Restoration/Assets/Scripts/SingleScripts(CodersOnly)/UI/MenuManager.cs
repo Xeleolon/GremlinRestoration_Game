@@ -33,6 +33,7 @@ public class MenuManager : MonoBehaviour
     GameManager gameManager;
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
         gameManager = GameManager.instance;
         activeLevels = gameManager.AccessUnlockedLevels(false);
         if (activeLevels > numLevels)
