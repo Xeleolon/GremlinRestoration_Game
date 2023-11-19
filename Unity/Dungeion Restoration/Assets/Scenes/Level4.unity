@@ -30101,6 +30101,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 658078167479121825, guid: 2eb7dd88447395d4abd9c20d4561766c,
+        type: 3}
+      propertyPath: m_text
+      value: "Now you've found yourself exiting the dungeon. It seems the way forward
+        has been flooded, so there\u2019s no getting through just yet. Maybe the
+        tower will be of use?"
+      objectReference: {fileID: 0}
     - target: {fileID: 2517740463459530765, guid: 2eb7dd88447395d4abd9c20d4561766c,
         type: 3}
       propertyPath: m_AnchorMax.x
